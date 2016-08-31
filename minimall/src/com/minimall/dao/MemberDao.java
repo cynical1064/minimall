@@ -77,12 +77,14 @@ public class MemberDao {
 					
 					String m_level = rs.getString("m_level");
 					String m_name = rs.getString("m_name");
-					 
+					 //rs에담긴 level과 name을 변수에 담아놓음
 					System.out.println(m_level);		
 					System.out.println(m_name);
 					
 					m= new MemberDto();
-					
+					//멤버 객체를 생성하고
+					//변수에 담아놓은 값들을 셋팅하고
+					//멤버 객체를 리턴
 					m.setm_level(m_level);
 					m.setm_name(m_name);					
 					

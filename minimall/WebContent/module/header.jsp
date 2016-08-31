@@ -9,6 +9,11 @@
 </head>
 <c:choose>
 	<c:when test="${sessionScope.loginLevel == null}">
+	<!-- 
+		sessionScope로 세션영역 데이터 확인 
+		when으로 null일경우 로그인 폼을
+		null이 아닐경우 로그인 성공	
+	-->
 		<form action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
 			<input type="text" name="mId" />
 			<input type="password" name="mPw" />
@@ -26,6 +31,9 @@
               <ul>
                      <c:choose>
                             <c:when test="${sessionScope.loginLevel=='관리자'}">
+                            	<!-- 
+									세션에 담긴 loginLevel로 권한별로 메뉴셋팅	
+								-->
                                          <!-- 관리자 메뉴셋팅 -->
                                          <li>관리자</li>
                                                 <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
