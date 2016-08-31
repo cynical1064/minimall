@@ -7,5 +7,6 @@
 </head>
 <body>
 <a href="${pageContext.request.contextPath}/Gin/goods_insert_form.go">상품등록</a>
+<a href="${pageContext.request.contextPath}/Min/mInsert.mo">회원등록</a>
 </body>
 </html>

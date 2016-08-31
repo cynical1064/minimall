@@ -35,7 +35,7 @@ public class MController extends HttpServlet {
 		System.out.println(cutUrl);
 		
 		if(cutUrl.equals("/Min/mInsert.mo")){
-			 
+			
 			System.out.println("조건1분기");
 			
 		}
