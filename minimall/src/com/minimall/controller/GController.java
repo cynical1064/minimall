@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.minimall.action.GoodsCustomListAction;
 import com.minimall.action.GoodsInsertPro;
 import com.minimall.action.GoodsListAction;
 import com.minimall.forward.ActionForward;
@@ -45,7 +46,7 @@ public class GController extends HttpServlet {
 	}
 
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("03 doPost() GController.java");
+		System.out.println("03 doProcess() GController.java");
 		
 		String RequestURI=request.getRequestURI();
 		String contextPath=request.getContextPath();
@@ -61,11 +62,15 @@ public class GController extends HttpServlet {
 		ActionInterFace action = null;
 		
 		if(command.equals("/Gin/goods_insert_form.go")) {
+			System.out.println("03_01 /Gin/goods_insert_form.go");
+			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/goods/goods_insert_form.jsp");
 			
 		} else if(command.equals("/Gin/goods_insert_pro.go")) {
+			System.out.println("03_02 /Gin/goods_insert_pro.go");
+			
 			action = new GoodsInsertPro();
 			try {
 				forward = action.execute(request, response);
@@ -74,6 +79,8 @@ public class GController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/Glist/goods_admin_list.go")) {
+			System.out.println("03_03 /Glist/goods_admin_list.go");
+			
 			action = new GoodsListAction();
 			
 			try {
@@ -83,6 +90,17 @@ public class GController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		} else if(command.equals("/Glist/goods_custom_list.go")) {
+			System.out.println("03_04 /Glist/goods_custom_list.go");
+			
+			action = new GoodsCustomListAction();
+			
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
