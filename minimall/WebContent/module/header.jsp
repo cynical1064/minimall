@@ -8,28 +8,39 @@
 </head>
 <body>
 <div>
-	<div>
-		<ul>
-			<c:choose>
-			       <c:when test="">
-						<!-- 관리자 메뉴셋팅 -->
-						<li>관리자</li>
-			       </c:when>
-			       <c:when test="false">
-			       		<!-- 판매자 메뉴셋팅 -->
-			       		<li>판매자</li>
-			       </c:when>
-			       <c:when test="false">
-			          <!-- 구매자 메뉴셋팅 -->
-			          <li>구매자</li>
-			       </c:when>
-			       <c:otherwise>
-			          <!-- 기본메뉴셋팅 -->
-			          <li>기본메뉴</li>
-			       </c:otherwise>
-			</c:choose>
-		</ul>
-	</div>
+       <div>
+              <ul>
+                     <c:choose>
+                            <c:when test="${mlevel eq '관리자'}">
+                                         <!-- 관리자 메뉴셋팅 -->
+                                         <li>관리자</li>
+                                                <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
+                                                <a href="${pageContext.request.contextPath}/user/user_list.jsp"> 02회원리스트 </a>
+                                                <a href="${pageContext.request.contextPath}/goods/goods_insert_form.jsp"> 03상품등록 </a>
+                                                <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
+                            </c:when>
+                            <c:when test="${mlevel eq '판매자'}">
+                                          <!-- 판매자 메뉴셋팅 -->
+                                          <li>판매자</li>
+                                                <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
+                                                <a href="${pageContext.request.contextPath}/goods/goods_insert_form.jsp"> 03상품등록 </a>
+                                                <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
+                            </c:when>
+                            <c:when test="${mlevel eq '구매자'}">
+                               <!-- 구매자 메뉴셋팅 -->
+                               <li>구매자</li>
+                                                <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
+                                                <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
+                            </c:when>
+                            <c:otherwise>
+                               <!-- 기본메뉴셋팅 -->
+                               <li>기본메뉴</li>
+                                          <a href="${pageContext.request.contextPath}/goods/goods_list.jsp">04상품리스트 </a>
+                            </c:otherwise>
+                     </c:choose>
+              </ul>
+       </div>
 </div>
+
 </body>
 </html>
