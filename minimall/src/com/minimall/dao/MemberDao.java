@@ -30,7 +30,7 @@ public class MemberDao {
 		}
 		
 	}
-	
+	//회원가입
 	public void insertMember(MemberDto m) throws SQLException{
 		String sql=null;
 		try{
@@ -54,7 +54,39 @@ public class MemberDao {
 				if(pstmt!=null)pstmt.close();
 				if(con!=null)con.close();
 			}catch(Exception ex) {}
+		}		
+	}
+	//로그인 체크
+	public int userCheck(String id, String pw) throws SQLException{
+		String sql=null;
+		int x=-1;
+		
+		try{
+			con = ds.getConnection();
+			sql="select M_PW from member where M_ID=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				
+				String memberpw=rs.getString("M_PW");
+				
+				if(memberpw.equals(pw)){
+					x=1;
+				}else{
+					x=0;
+				}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}	finally{
+			try{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(con!=null)con.close();
+			}catch(Exception ex) {}
 		}
 		
+		return x;
 	}
 }
