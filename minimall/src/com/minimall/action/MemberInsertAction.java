@@ -19,8 +19,10 @@ public class MemberInsertAction implements ActionInterFace {
 		m.setm_id(mId);
 		
 		mDao.insertMember(m);	
-		
-		return null;
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath(path);
+		return forward;
 	}
 
 }
