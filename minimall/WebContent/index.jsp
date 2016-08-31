@@ -6,6 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-ddㅇㅇ
+<a href="${pageContext.request.contextPath}/Gin/goods_insert_form.go">상품등록</a>
 </body>
 </html>
