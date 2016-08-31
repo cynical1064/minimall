@@ -6,8 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	response.sendRedirect(request.getContextPath()+"/mIn/mInsertForm.do");
-%>
+ddㅇㅇ
 </body>
 </html>
