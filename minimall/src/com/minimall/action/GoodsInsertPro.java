@@ -38,7 +38,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("/index.jsp");
+		forward.setPath(request.getContextPath() + "/index.jsp");
 		
 		return forward;
 	}

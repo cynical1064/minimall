@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -17,8 +18,9 @@ public class GoodsDao {
 	Connection conn;
 	PreparedStatement pstmt;
 	PreparedStatement pstmt_select;
-	GoodsDto goodsDto;
 	ResultSet rs;
+	GoodsDto goodsDto;
+	ArrayList<GoodsDto> goodsList = new ArrayList<GoodsDto>();
 	
 	public GoodsDao() {
 		try {
@@ -78,6 +80,38 @@ public class GoodsDao {
 		}
 		pstmt.close();
 		conn.close();
+	}
+
+	//상품 전체 SELECT
+	public ArrayList<GoodsDto> goodsSelectAll() throws SQLException {
+		System.out.println("01 goodsSelectAll() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		//goods테이블의 전체 데이터를 가져오는 select 쿼리문 입니다.
+		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_agree FROM goods";
+		pstmt = conn.prepareStatement(sql);
+		System.out.println(pstmt + " : pstmt goodsSelectAll() GoodsDao.java");
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			goodsDto = new GoodsDto();
+			goodsDto.setG_code(rs.getString("g_code"));
+			goodsDto.setG_name(rs.getString("g_name"));
+			goodsDto.setG_id(rs.getString("g_id"));
+			goodsDto.setG_cate(rs.getString("g_cate"));
+			goodsDto.setG_sangse(rs.getString("g_sangse"));
+			goodsDto.setG_price(rs.getInt("g_price"));
+			goodsDto.setG_date(rs.getString("g_date"));
+			goodsDto.setG_agree(rs.getString("g_agree").charAt(0));
+			
+			goodsList.add(goodsDto);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return goodsList;
 	}
 	
 }
