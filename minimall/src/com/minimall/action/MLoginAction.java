@@ -16,7 +16,7 @@ public class MLoginAction implements ActionInterFace {
 		
 		HttpSession session=request.getSession();
 		
-		String mId = request.getParameter("mId");
+		String mId = request.getParameter("mId"); 
 		String mPw = request.getParameter("mPw");
 		 
 		MemberDao dao = new MemberDao();

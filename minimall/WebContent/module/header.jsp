@@ -34,7 +34,7 @@
                             	<!-- 
 									세션에 담긴 loginLevel로 권한별로 메뉴셋팅	
 								-->
-                                         <!-- 관리자 메뉴셋팅 -->
+                                         <!-- 관리자 메뉴셋팅 --> 
                                          <li>관리자</li>
                                                 <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
                                                 <a href="${pageContext.request.contextPath}/user/user_list.jsp"> 02회원리스트 </a>

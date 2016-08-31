@@ -85,7 +85,7 @@ public class MemberDao {
 					//멤버 객체를 생성하고
 					//변수에 담아놓은 값들을 셋팅하고
 					//멤버 객체를 리턴
-					m.setm_level(m_level);
+					m.setm_level(m_level); 
 					m.setm_name(m_name);					
 					
 					System.out.println(m.hashCode());				
