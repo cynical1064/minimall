@@ -23,7 +23,7 @@ public class GoodsListAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/goods/goods_list.jsp");
+		forward.setPath("/goods/goods_admin_list.jsp");
 		
 		return forward;
 	}

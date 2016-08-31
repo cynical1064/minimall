@@ -73,7 +73,7 @@ public class GController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Glist/goods_list.go")) {
+		} else if(command.equals("/Glist/goods_admin_list.go")) {
 			action = new GoodsListAction();
 			
 			try {
