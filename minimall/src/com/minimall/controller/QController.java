@@ -35,14 +35,19 @@ public class QController extends HttpServlet {
 		ActionForward forward = null;
 		ActionInterFace action = null;
 		
-		if(command.equals("/Qna/QnaAddAction.qn")){
-	    	System.out.println("04_01 조건문 내 /Qna/QnaAddAction.qn QController.java");
+		if(command.equals("/Qna/QnaAddWrite.qn")){
+	    	System.out.println("04_01 조건문 내 /Qna/QnaAddWrite.qn QController.java");
 	    	forward = new ActionForward();		//주소값이 담겨있음
-	    	forward.setRedirect(false);
-	    	forward.setPath("/qna_board/qna_board_write.jsp");
+	    	forward.setRedirect(true);
+	    	forward.setPath("/Qna/QnaList.qn");
+	    	forward.toString();
+		} else if(command.equals("/Qna/QnaList.qn")){
+	    	System.out.println("04_01 조건문 내 /Qna/QnaList.qn QController.java");
+	    	forward = new ActionForward();		//주소값이 담겨있음
+	    	forward.setRedirect(true);
+	    	forward.setPath("/Qna/qna_list.qn");
 	    	forward.toString();
 		}
-		
 		
 		
 		if(forward != null){			//널이 아니면 다시 조건문으로 돌아감
@@ -51,7 +56,7 @@ public class QController extends HttpServlet {
 				//             /OracleM02OracleMember/ginsert/g_insert_form.ksmart
 			}else{
 				RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());	
-				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로] GController.java");
+				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로] QController.java");
 				System.out.println();
 				dispatcher.forward(request, response);
 			}
