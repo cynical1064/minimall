@@ -39,8 +39,10 @@ public class MLoginAction implements ActionInterFace {
 			System.out.println("로그인 실패");
 			
 		}
-		
-		return null;
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath(request.getContextPath()+"/module/header.jsp");
+		return forward;
 	}
 
 }

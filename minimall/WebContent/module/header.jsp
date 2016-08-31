@@ -7,19 +7,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<form action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
-	<input type="text" name="mId" />
-	<input type="password" name="mPw" />
-	<button type="submit">로그인</button>
-	
-</form>
-
+<c:choose>
+	<c:when test="${sessionScope.loginLevel == null}">
+		<form action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
+			<input type="text" name="mId" />
+			<input type="password" name="mPw" />
+			<button type="submit">로그인</button>	
+		</form>
+	</c:when>
+	<c:when test="${sessionScope.loginLevel != null}">
+		<span>${sessionScope.loginName}님 환영합니다.</span>
+		<span><a href="${pageContext.request.contextPath}/logout/logout.mo">로그아웃</a></span>
+	</c:when>
+</c:choose>	
 <body>
 <div>
        <div>
               <ul>
                      <c:choose>
-                            <c:when test="${mlevel eq '관리자'}">
+                            <c:when test="${sessionScope.loginLevel=='관리자'}">
                                          <!-- 관리자 메뉴셋팅 -->
                                          <li>관리자</li>
                                                 <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
@@ -27,14 +33,14 @@
                                                 <a href="${pageContext.request.contextPath}/goods/goods_insert_form.jsp"> 03상품등록 </a>
                                                 <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
                             </c:when>
-                            <c:when test="${mlevel eq '판매자'}">
+                            <c:when test="${sessionScope.loginLevel=='판매자'}">
                                           <!-- 판매자 메뉴셋팅 -->
                                           <li>판매자</li>
                                                 <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
                                                 <a href="${pageContext.request.contextPath}/goods/goods_insert_form.jsp"> 03상품등록 </a>
                                                 <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
                             </c:when>
-                            <c:when test="${mlevel eq '구매자'}">
+                            <c:when test="${sessionScope.loginLevel=='구매자'}">
                                <!-- 구매자 메뉴셋팅 -->
                                <li>구매자</li>
                                                 <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
