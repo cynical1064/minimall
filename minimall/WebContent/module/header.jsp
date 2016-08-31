@@ -11,7 +11,7 @@
 	<div>
 		<ul>
 			<c:choose>
-			       <c:when test="true">
+			       <c:when test="">
 						<!-- 관리자 메뉴셋팅 -->
 						<li>관리자</li>
 			       </c:when>
