@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.minimall.action.MLoginAction;
 import com.minimall.forward.ActionForward;
@@ -65,6 +66,15 @@ public class MController extends HttpServlet {
 				e.printStackTrace();
 				
 			}
+			
+		}else if(cutUrl.equals("/logout/logout.mo")){
+			System.out.println("로그아웃 처리");
+			
+			HttpSession session=request.getSession();
+			session.invalidate();
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath(request.getContextPath()+"/module/header.jsp");
 			
 		}
 		
