@@ -15,7 +15,7 @@ public class GoodsDao {
 	DataSource ds;
 	Connection conn;
 	PreparedStatement pstmt;
-	GoodsDto 
+	GoodsDto goodsDto;
 	
 	public GoodsDao() {
 		try {
