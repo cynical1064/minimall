@@ -66,6 +66,12 @@ public class GController extends HttpServlet {
 			
 		} else if(command.equals("/Gin/goods_insert_pro.go")) {
 			action = new GoodsInsertPro();
+			try {
+				action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		
