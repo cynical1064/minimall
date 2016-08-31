@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.GoodsInsertPro;
+import com.minimall.action.GoodsListAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -67,11 +68,21 @@ public class GController extends HttpServlet {
 		} else if(command.equals("/Gin/goods_insert_pro.go")) {
 			action = new GoodsInsertPro();
 			try {
-				action.execute(request, response);
+				forward = action.execute(request, response);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(command.equals("/Glist/goods_list.go")) {
+			action = new GoodsListAction();
+			
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
 		
