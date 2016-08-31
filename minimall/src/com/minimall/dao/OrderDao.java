@@ -70,12 +70,11 @@ public class OrderDao {
 		while(rs.next()) {
 			OrderDto = new OrderDto();
 			
-			goodsList.add(goodsDto);
 		}
 		rs.close();
 		pstmt.close();
 		conn.close();
 		
-		return goodsList;
+		return 
 	}
 }
