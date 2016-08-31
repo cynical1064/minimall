@@ -77,7 +77,7 @@ public class MemberDao {
 					
 					String m_level = rs.getString("m_level");
 					String m_name = rs.getString("m_name");
-					
+					 
 					System.out.println(m_level);		
 					System.out.println(m_name);
 					

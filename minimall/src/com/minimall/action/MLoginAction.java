@@ -15,7 +15,7 @@ public class MLoginAction implements ActionInterFace {
 		
 		String mId = request.getParameter("mId");
 		String mPw = request.getParameter("mPw");
-		
+		 
 		MemberDao dao = new MemberDao();
 		MemberDto chkMember = dao.userCheck(mId, mPw);
 		
