@@ -2,55 +2,55 @@ package com.minimall.dto;
 
 public class MemberDto {
 
-	public String M_ID = null;
-	public String M_PW = null;
-	public String M_LEVEL = null;
-	public String M_NAME = null;
-	public String M_EMAIL = null;
-	public String M_DATE = null;
-	public String M_ADDR = null;
+	public String m_id = null;
+	public String m_pw = null;
+	public String m_level = null;
+	public String m_name = null;
+	public String m_email = null;
+	public String m_date = null;
+	public String m_addr = null;
 	
-	public String getM_ID() {
-		return M_ID;
+	public String getm_id() {
+		return m_id;
 	}
-	public void setM_ID(String m_ID) {
-		M_ID = m_ID;
+	public void setm_id(String m_id) {
+		m_id = m_id;
 	}
-	public String getM_PW() {
-		return M_PW;
+	public String getm_pw() {
+		return m_pw;
 	}
-	public void setM_PW(String m_PW) {
-		M_PW = m_PW;
+	public void setm_pw(String m_pw) {
+		m_pw = m_pw;
 	}
-	public String getM_LEVEL() {
-		return M_LEVEL;
+	public String getm_level() {
+		return m_level;
 	}
-	public void setM_LEVEL(String m_LEVEL) {
-		M_LEVEL = m_LEVEL;
+	public void setm_level(String m_level) {
+		m_level = m_level;
 	}
-	public String getM_NAME() {
-		return M_NAME;
+	public String getm_name() {
+		return m_name;
 	}
-	public void setM_NAME(String m_NAME) {
-		M_NAME = m_NAME;
+	public void setm_name(String m_name) {
+		m_name = m_name;
 	}
-	public String getM_EMAIL() {
-		return M_EMAIL;
+	public String getm_email() {
+		return m_email;
 	}
-	public void setM_EMAIL(String m_EMAIL) {
-		M_EMAIL = m_EMAIL;
+	public void setm_email(String m_email) {
+		m_email = m_email;
 	}
-	public String getM_DATE() {
-		return M_DATE;
+	public String getm_date() {
+		return m_date;
 	}
-	public void setM_DATE(String m_DATE) {
-		M_DATE = m_DATE;
+	public void setm_date(String m_date) {
+		m_date = m_date;
 	}
-	public String getM_ADDR() {
-		return M_ADDR;
+	public String getm_addr() {
+		return m_addr;
 	}
-	public void setM_ADDR(String m_ADDR) {
-		M_ADDR = m_ADDR;
+	public void setm_addr(String m_addr) {
+		m_addr = m_addr;
 	}
 
 
