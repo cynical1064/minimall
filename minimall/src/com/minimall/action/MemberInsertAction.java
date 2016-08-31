@@ -14,14 +14,18 @@ public class MemberInsertAction implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		String mId = request.getParameter(arg0);
+		
 		MemberDto m = new MemberDto();
 		MemberDao mDao = new MemberDao();
+		
 		m.setm_id(mId);
 		
 		mDao.insertMember(m);	
 		ActionForward forward = new ActionForward();
+		
 		forward.setRedirect(false);
 		forward.setPath(path);
+		
 		return forward;
 	}
 
