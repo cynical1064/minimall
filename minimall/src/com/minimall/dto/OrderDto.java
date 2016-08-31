@@ -1,7 +1,7 @@
 package com.minimall.dto;
 
 public class OrderDto {
-	private String o_no;
+	private int o_no;
 	private String m_id;
 	private String g_id;
 	private String o_date;
@@ -10,10 +10,10 @@ public class OrderDto {
 	private int o_total;
 	private String o_state;
 	
-	public String getO_no() {
+	public int getO_no() {
 		return o_no;
 	}
-	public void setO_no(String o_no) {
+	public void setO_no(int o_no) {
 		this.o_no = o_no;
 	}
 	public String getM_id() {
