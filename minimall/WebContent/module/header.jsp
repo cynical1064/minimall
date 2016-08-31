@@ -7,7 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-ddd
+<form action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
+	<input type="text" name="mId" />
+	<input type="password" name="mPw" />
+	<button type="submit">로그인</button>
+	
+</form>
 
 <body>
 <div>

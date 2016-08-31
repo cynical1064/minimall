@@ -11,6 +11,8 @@ import javax.sql.DataSource;
 
 import com.minimall.dto.MemberDto;
 
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
+
 
 public class MemberDao {
 	
@@ -24,7 +26,7 @@ public class MemberDao {
 		try{
 			Context initCtx=new InitialContext();
 			Context envCtx=(Context)initCtx.lookup("java:comp/env");
-			ds=(DataSource)envCtx.lookup("jdbc/OracleDB");
+			ds=(DataSource)envCtx.lookup("jdbc/Oracle2");
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -57,24 +59,35 @@ public class MemberDao {
 		}		
 	}
 	//로그인 체크
-	public int userCheck(String id, String pw) throws SQLException{
-		String sql=null;
-		int x=-1;
-		
+	public MemberDto userCheck(String id, String pw) throws SQLException{
+		String sql=null;	
+		MemberDto m = null;
 		try{
 			con = ds.getConnection();
-			sql="select M_PW from member where M_ID=?";
+			sql="select * from member where m_id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs=pstmt.executeQuery();
+			
 			if(rs.next()){
 				
-				String memberpw=rs.getString("M_PW");
+				String memberpw=rs.getString("m_pw");
 				
-				if(memberpw.equals(pw)){
-					x=1;
-				}else{
-					x=0;
+				if(memberpw.equals(pw)){	
+					
+					String m_level = rs.getString("m_level");
+					String m_name = rs.getString("m_name");
+					 
+					System.out.println(m_level);		
+					System.out.println(m_name);
+					
+					m= new MemberDto();
+					
+					m.setm_level(m_level);
+					m.setm_name(m_name);					
+					
+					System.out.println(m.hashCode());				
+					
 				}
 			}
 		}catch(Exception e){
@@ -87,6 +100,7 @@ public class MemberDao {
 			}catch(Exception ex) {}
 		}
 		
-		return x;
+		return m;		
+		
 	}
 }

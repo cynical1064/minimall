@@ -84,7 +84,7 @@ public class GoodsDao {
 
 	//상품 전체 SELECT
 	public ArrayList<GoodsDto> goodsSelectAll() throws SQLException {
-		System.out.println("01 goodsSelectAll() GoodsDao.java");
+		System.out.println("02 goodsSelectAll() GoodsDao.java");
 		
 		conn = ds.getConnection();
 		
@@ -111,6 +111,38 @@ public class GoodsDao {
 		pstmt.close();
 		conn.close();
 		
+		return goodsList;
+	}
+	
+	//구매자를 위한 select! 상품 중 승인여부가 Y인 것만 가져오기 
+	public ArrayList<GoodsDto> goodsSelectForCustom() throws SQLException {
+		System.out.println("03 goodsSelectForCustom() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		//goods테이블의 전체 데이터 중 승인여부가 'Y' 인 것만 가져오는 select 쿼리문 입니다.
+		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date FROM goods";
+		sql += " WHERE g_agree LIKE 'Y'";
+		pstmt = conn.prepareStatement(sql);
+		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			goodsDto = new GoodsDto();
+			goodsDto.setG_code(rs.getString("g_code"));
+			goodsDto.setG_name(rs.getString("g_name"));
+			goodsDto.setG_id(rs.getString("g_id"));
+			goodsDto.setG_cate(rs.getString("g_cate"));
+			goodsDto.setG_sangse(rs.getString("g_sangse"));
+			goodsDto.setG_price(rs.getInt("g_price"));
+			goodsDto.setG_date(rs.getString("g_date"));
+			
+			goodsList.add(goodsDto);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+			
 		return goodsList;
 	}
 	
