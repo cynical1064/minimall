@@ -5,6 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.forward.ActionForward;
 
-public interface GActionInterFace {
+public interface ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }
