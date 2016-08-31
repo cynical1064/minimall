@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.OrderInsertProAction;
+import com.minimall.action.OrderListAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -19,15 +20,15 @@ public class OController extends HttpServlet {
 		super();
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
 	
-	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException {
+	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
@@ -56,7 +57,7 @@ public class OController extends HttpServlet {
 			}
 		}else if(command.equals("/Oli/order_list.oo")){
 			System.out.println("조건문 내 /Oli/order_list.oo OController.java");
-			action = new OrderlistPro();
+			action = new OrderListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -72,7 +73,7 @@ public class OController extends HttpServlet {
 				
 				RequestDispatcher dispatcher=
 					request.getRequestDispatcher(forward.getPath());
-				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로]  BoardFrontController.java");
+				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로]  OController.java");
 				System.out.println();
 				dispatcher.forward(request, response);
 			}
