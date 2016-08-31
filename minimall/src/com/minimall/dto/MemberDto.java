@@ -14,6 +14,7 @@ public class MemberDto {
 	}
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
+		
 	}
 	public String getM_pw() {
 		return m_pw;
