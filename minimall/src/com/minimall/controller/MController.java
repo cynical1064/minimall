@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Mcontroller")
-public class Mcontroller extends HttpServlet {	
+public class MController extends HttpServlet {	
 
-    public Mcontroller() {
+    public MController() {
         super();
        
     }
@@ -34,7 +34,7 @@ public class Mcontroller extends HttpServlet {
 		
 		System.out.println(cutUrl);
 		
-		if(cutUrl.equals("/mIn/mInsert.mo")){
+		if(cutUrl.equals("/Min/mInsert.mo")){
 			
 			System.out.println("조건1분기");
 			
