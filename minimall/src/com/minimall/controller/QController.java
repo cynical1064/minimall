@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.minimall.inter.ActionInterFace;
 
 import com.minimall.action.QnaAddAction;
+import com.minimall.action.QnaDetailAction;
 import com.minimall.action.QnaListAction;
 import com.minimall.forward.ActionForward;
 
@@ -60,11 +61,34 @@ public class QController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(command.equals("/Qna/QnaBoardList.qn")){
-			System.out.println("04_02 조건문 내 /Qna/QnaBoardList.qn QController.java");
+			System.out.println("04_04 조건문 내 /Qna/QnaBoardList.qn QController.java");
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/qnaBoard/qna_list.jsp");
+		} else if(command.equals("/Qna/QnaBoardView.qn")) {
+			System.out.println("04_05 조건문 내 /Qna/QnaView.qn QController.java");
+			/*action = new QnaDetailAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+		}*/
+			forward = new ActionForward();		//주소값이 담겨있음
+	    	forward.setRedirect(false);
+	    	forward.setPath("/qnaBoard/qna_view.jsp");
+	    	forward.toString();
+		} else if(command.equals("/Qna/QnaDetailAction.qn")) {
+			action = new QnaDetailAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
 		}
+		}
+		
+		
+		
+		
 		
 		if(forward != null){			//널이 아니면 다시 조건문으로 돌아감
 			if(forward.isRedirect()){

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">Q&A</a>
+	<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">Q&A작성</a>
+	<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">Q&A리스트</a>
 </body>
 </html>

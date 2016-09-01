@@ -104,7 +104,6 @@ public class QnaDao {
 					qnadto.setQna_date(rs.getDate("qna_date"));
 					qnadto.setQna_readcount(rs.getInt("qna_readcount"));
 				}
-				return qnadto;
 			}catch(Exception ex){
 				System.out.println("getDetail 에러 : " + ex);
 			}finally{
@@ -112,7 +111,7 @@ public class QnaDao {
 				if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
 				if(con!=null) try{con.close();}catch(SQLException ex){}
 			}
-			return null;
+			return qnadto;
 		}
 		
 	//글의 개수 구하기
