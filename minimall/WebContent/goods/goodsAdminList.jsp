@@ -10,7 +10,7 @@
 		<script>
 			$(document).ready(function() {
 				if($('#agreeChange:checked').length != 0) {
-					
+					var array = [];
 				}
 			});
 		</script>

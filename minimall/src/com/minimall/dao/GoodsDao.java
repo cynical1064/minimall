@@ -126,6 +126,7 @@ public class GoodsDao {
 		pstmt = conn.prepareStatement(sql);
 		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
 		rs = pstmt.executeQuery();
+
 		
 		while(rs.next()) {
 			goodsDto = new GoodsDto();
