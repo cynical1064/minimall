@@ -22,20 +22,20 @@
 			<div align="center">질문유형</div>
 		</td>
 		<td>
-			<select name="QNA_CATEGORY" style="font-family:돋음; font-size:12; width:97px;">
-				<option>상품문의</option>
-				<option>결제문의</option>
-				<option>배송문의</option>
-				<option>입금확인</option>
-				<option>주문문의</option>
-				<option>기타문의</option>
-				<option>교환문의</option>
-				<option>해외배송</option>
+			<select name="qna_category" style="font-family:돋음; font-size:12; width:97px;">
+				<option value="상품문의">상품문의</option>
+				<option value="결제문의">결제문의</option>
+				<option value="배송문의">배송문의</option>
+				<option value="입금확인">입금확인</option>
+				<option value="주문문의">주문문의</option>
+				<option value="기타문의">기타문의</option>
+				<option value="교환문의">교환문의</option>
+				<option value="해외배송">해외배송</option>
 			</select>
 		</td>
 		
 		<td align="right" style="font-family:돋음; font-size:12" height="16">
-			<input name="QNA_SECRET" type="checkbox">
+			<input name="qna_secret" type="checkbox" value="y">
 			비밀글
 		</td>
 	</tr>
@@ -44,7 +44,7 @@
 			<div align="center">제 목</div>
 		</td>
 		<td colspan="2">
-			<input name="QNA_SUBJECT" type="text" size="50" maxlength="100" value="" />
+			<input name="qna_subject" type="text" size="50" maxlength="100" value="" />
 		</td>
 	</tr>
 	<tr>
@@ -52,7 +52,7 @@
 			<div align="center">내 용</div>
 		</td>
 		<td colspan="2">
-			<textarea name="QNA_CONTENT" cols="67" rows="15"></textarea>
+			<textarea name="qna_content" cols="67" rows="15"></textarea>
 		</td>
 	</tr>
 	<tr bgcolor="cccccc">

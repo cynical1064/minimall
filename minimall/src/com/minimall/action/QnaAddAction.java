@@ -25,11 +25,17 @@ public class QnaAddAction implements ActionInterFace {
 		boolean result = false;
 		
 		try {
+			request.setCharacterEncoding("euc-kr");
 			qnadto.setQna_subject(request.getParameter("qna_subject"));
 			qnadto.setM_id(request.getParameter("m_id"));
 			qnadto.setQna_content(request.getParameter("qna_content"));
 			qnadto.setQna_secret(request.getParameter("qna_secret"));
 			qnadto.setQna_category(request.getParameter("qna_category"));
+			
+			System.out.println(qnadto.getQna_subject() + " <- qnadto.getQna_subject()");
+			System.out.println(qnadto.getQna_content() + " <- qnadto.getQna_content()");
+			System.out.println(qnadto.getQna_secret() + " <- qnadto.getQna_secret()");
+			System.out.println(qnadto.getQna_category() + " <- qnadto.getQna_category()");
 			
 			result=qnadao.boardInsert(qnadto);
 			
@@ -41,11 +47,11 @@ public class QnaAddAction implements ActionInterFace {
 
 	   		forward.setRedirect(true);
 	   		forward.setPath("./QnaList.bo");
-	   		return forward;
+
 	   		
 		}catch(Exception ex){
    			ex.printStackTrace();
    		}
-		return null;
+   		return forward;
 	}
 }
