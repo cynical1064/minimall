@@ -1,5 +1,7 @@
 package com.minimall.dto;
 
+import java.sql.Date;
+
 public class MemberDto {
 
 	private String m_id;
@@ -7,7 +9,7 @@ public class MemberDto {
 	private String m_level;
 	private String m_name;
 	private String m_email;
-	private String m_date;
+	private Date m_date;
 	private String m_addr;
 	
 	public String getm_id() {
@@ -40,10 +42,10 @@ public class MemberDto {
 	public void setm_email(String m_email) {
 		this.m_email = m_email;
 	}
-	public String getm_date() {
+	public Date getm_date() {
 		return m_date;
 	}
-	public void setm_date(String m_date) {
+	public void setm_date(Date m_date) {
 		this.m_date = m_date;
 	}
 	public String getm_addr() {
