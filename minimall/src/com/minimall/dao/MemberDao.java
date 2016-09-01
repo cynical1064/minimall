@@ -124,7 +124,7 @@ public class MemberDao {
 				String memberpw=rs.getString("m_pw");
 				
 				if(memberpw.equals(pw)){	
-					
+					String m_id = id;
 					String m_level = rs.getString("m_level");
 					String m_name = rs.getString("m_name");
 					 //rs에담긴 level과 name을 변수에 담아놓음
@@ -136,7 +136,8 @@ public class MemberDao {
 					//변수에 담아놓은 값들을 셋팅하고
 					//멤버 객체를 리턴
 					m.setm_level(m_level); 
-					m.setm_name(m_name);					
+					m.setm_name(m_name);
+					m.setm_id(m_id);
 					
 					System.out.println(m.hashCode());				
 					
