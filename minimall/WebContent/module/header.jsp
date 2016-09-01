@@ -134,11 +134,11 @@
 		</div>
 		<div id="itemNavWrap">
 			<ul id="itemNav">
-				<li>NEW ITEM</li>
+				<li><a>NEW ITEM</a></li>
 				<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">SHOP</a></li>
-				<li>COMMUNITY</li>
-				<li>ABOUT</li>
-				<li>CONTACT US</li>
+				<li><a>COMMUNITY</a></li>
+				<li><a>ABOUT</a></li>
+				<li><a>CONTACT US</a></li>
 			</ul>
 		</div>				
 		<div id="loginNavWrap">

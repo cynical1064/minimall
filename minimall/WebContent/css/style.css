@@ -12,11 +12,11 @@
 #header #headerContent ul li:last-child{float:right;}
 #header #headerContent #itemNavWrap {margin-top:25px; float:left; margin-left:80px;}
 #header #headerContent #itemNavWrap #itemNav li{float:left;  padding:0 15px;}
-#header #headerContent #itemNavWrap #itemNav li a{ font-size:16px; color:#434343;}
-#header #headerContent #itemNavWrap #itemNav li:hover{color:#000;}
+#header #headerContent #itemNavWrap #itemNav li a{ font-size:16px; color:#434343; text-decoration:none;}
+#header #headerContent #itemNavWrap #itemNav li a:hover{color:#000; font-weight:bold;}
 #header #headerContent #loginNavWrap{margin-top:25px; float:right;}
 #header #headerContent #loginNavWrap #loginNav li{float:left;}
-#header #headerContent #loginNavWrap #loginNav li a{font-size:12px; color:#434343; margin:0 4px;}
+#header #headerContent #loginNavWrap #loginNav li a{font-size:12px; color:#434343; margin:0 4px; text-decoration:none;}
 
 
 
