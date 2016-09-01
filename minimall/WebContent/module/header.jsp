@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<c:choose>
+<%-- <c:choose>
 	<c:when test="${sessionScope.loginLevel == null}">
 	<!-- 
 		sessionScope로 세션영역 데이터 확인 
@@ -66,7 +66,31 @@
                      </c:choose>
               </ul>
        </div>
+</div> --%>
+<div id="header">
+	<div id="headerContent" class="clearFix">
+		<ul>
+			<li id="logoWrap">
+				<h2><img src="${pageContext.request.contextPath}/img/logo.png" alt="logo"></h2>
+			</li>
+			<li>
+				<ul id="itemNav">
+					<li>NEW ITEM</li>
+					<li>SHOP</li>
+					<li>COMMUNITY</li>
+					<li>ABOUT</li>
+					<li>CONTACT US</li>
+				</ul>
+			</li>				
+			<li>
+				<ul id="loginNav">
+					<li>LOGIN</li>
+					<li>JOIN</li>
+					<li>ORDER</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 </div>
-
 </body>
 </html>
