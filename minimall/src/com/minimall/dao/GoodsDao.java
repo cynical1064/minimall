@@ -123,10 +123,16 @@ public class GoodsDao {
 		//goods테이블의 전체 데이터 중 승인여부가 'Y' 인 것만 가져오는 select 쿼리문 입니다.
 		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date FROM goods";
 		sql += " WHERE g_agree LIKE 'Y'";
-		pstmt = conn.prepareStatement(sql);
+		pstmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
 		rs = pstmt.executeQuery();
-
+		
+		rs.last();
+		int rowCount = rs.getRow();
+		rs.beforeFirst();
+		if(rowCount == 0) {
+			return null;
+		}
 		
 		while(rs.next()) {
 			goodsDto = new GoodsDto();

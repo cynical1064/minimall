@@ -14,7 +14,7 @@
 			<c:set var="listChk" value="${goodsList}" />
 			<c:if test="${listChk eq null}">
 				<tr>
-					<td>등록된 상품이 없습니다.</td>
+					<td colspan=6>등록된 상품이 없습니다.</td>
 				</tr>
 			</c:if>
 			<c:if test="${listChk ne null}">
