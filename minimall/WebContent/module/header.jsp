@@ -152,11 +152,23 @@
 				</ul>
 			</c:when>
 			<c:when test="${sessionScope.loginLevel != null}">
-				<ul id="loginNav">
-					<li style="cursor:pointer"><a><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
-					<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-					<li style="cursor:pointer"><a>ORDER</a></li>
-				</ul>
+				<c:choose>
+					<c:when test="${sessionScope.loginLevel == '관리자'}">
+						<ul id="loginNav">
+							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+							<li style="cursor:pointer"><a>MEBER</a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></li>
+						</ul>
+					</c:when>
+					<c:otherwise>
+						<ul id="loginNav">
+							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+							<li style="cursor:pointer"><a>ORDER</a></li>
+						</ul>
+					</c:otherwise>
+				</c:choose>
 			</c:when>
 		</c:choose>	
 		</div>

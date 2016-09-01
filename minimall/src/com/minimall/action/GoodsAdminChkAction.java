@@ -24,7 +24,7 @@ public class GoodsAdminChkAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath(request.getContextPath() + "/goods/goodsAdminList.jsp");
+		forward.setPath(request.getContextPath() + "/Glist/goodsAdminList.go");
 		
 		return forward;
 	}

@@ -158,10 +158,24 @@ public class GoodsDao {
 	//관리자가 상품 승인여부를 체크하면 값을 Y로 바꿔주는 메서드 입니다.
 	public void goodsCheckAgree(String[] gCodeArray) throws SQLException {
 		System.out.println("04 goodsCheckAgree() GoodsDao.java");
+		System.out.println(gCodeArray + " : gCodeArray goodsCheckAgree() GoodsDao.java");
 		
 		conn = ds.getConnection();
 		
-		//관리자가 체크한 승인여부 컬럼의 값 N을 Y로 바꿔주는 UPDATE 쿼리문 입니다. 
+		int result = 0;
+		
+		//관리자가 체크한 승인여부 컬럼의 값 N을 Y로 바꿔주는 UPDATE 쿼리문 입니다.
+		String sql = "UPDATE goods SET";
+		sql += " g_agree=? WHERE g_code=?";
+		for(int i=0; i<gCodeArray.length; i++) {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "Y");
+			pstmt.setString(2, gCodeArray[i]);
+			result += pstmt.executeUpdate();
+		}
+		
+		System.out.println(result + " : 번 UPDATE");
+		
 		
 	}
 	
