@@ -17,8 +17,7 @@
 <%@ include file = "/module/header.jsp" %>
 <div id="container"> 
 	<div class="content">
-		<form action="${pageContext.request.contextPath}/Qna/QnaAddAction.qn" method="post" name="boardform">
-		
+		<form action="${pageContext.request.contextPath}/Qna/QnaAddAction.qn" method="post" name="boardform">		
 		<table cellpadding="0" cellspacing="0">
 			<tr align="center" valign="middle">
 				<td colspan="5">문의하기</td>
