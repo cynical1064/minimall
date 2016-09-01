@@ -78,9 +78,9 @@ public class MController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}/*else if(command.equals("/Mupdate/m_update_form.ksmart")){
-			
+		}else if(cutUrl.equals("/Mupdate/m_update_form.mo")){//수정 화면 
 			System.out.println("조건4 선택출력");
+			
 			action  = new MSelectForUpdate();
 			
 			try {
@@ -88,10 +88,10 @@ public class MController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/Mupdate/m_update_pro.ksmart")){
-			
+		}else if(cutUrl.equals("/Mupdate/m_update_pro.mo")){//수정 처리
 			System.out.println("조건5 선택업데이트");
-			action  = new MUpdateAction();
+			
+			action  = new MUpdateAction();  
 			
 			try {
 				forward=action.execute(request, response );
@@ -99,18 +99,7 @@ public class MController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}else if(command.equals("/Mdelete/m_delete_pro.ksmart")){
-			System.out.println("조건6 삭제");
-			
-			action  = new MDeleteAction();
-			
-			try {
-				forward=action.execute(request, response );
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		}else if(command.equals("/Mseach/m_search_pro.ksmart")){
+		}/*else if(command.equals("/Mseach/m_search_pro.ksmart")){
 			
 			System.out.println("조건7 검색");
 			
