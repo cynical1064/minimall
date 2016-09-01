@@ -1,10 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c-rt" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				if($('#agreeChange:checked').length != 0) {
+					
+				}
+			});
+		</script>
 	</head>
 	<body>
 		<form action="${pageContext.request.contextPath}/Gchk/GoodsAdminChk.go?" method="post">
@@ -27,9 +36,9 @@
 						<td>
 							<c:set var="chk" value="${goods.g_agree}o" />
 							<c:if test="${chk eq 'No'}">
-		    					<input type="checkbox" name="agree_change" value="Y"/>
-		    						<c:set var="gCodeArray" value="${goods.g_code}" scope="request">
-		    						</c:set>
+		    					<input type="checkbox" name="agreeChange" id="agreeChange" value="Y"/>
+		    					<c:set var="gCodeArray" value="${goods.g_code}" scope="request"/>
+		    					<c:out value="${gCodeArray}"/>
 							</c:if>
 						</td>
 					</tr>

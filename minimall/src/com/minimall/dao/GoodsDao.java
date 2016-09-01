@@ -148,7 +148,7 @@ public class GoodsDao {
 	}
 
 	//관리자가 상품 승인여부를 체크하면 값을 Y로 바꿔주는 메서드 입니다.
-	public void goodsCheckAgree() throws SQLException {
+	public void goodsCheckAgree(String[] gCodeArray) throws SQLException {
 		System.out.println("04 goodsCheckAgree() GoodsDao.java");
 		
 		conn = ds.getConnection();
