@@ -38,14 +38,14 @@ public class QController extends HttpServlet {
 		if(command.equals("/Qna/QnaAddWrite.qn")){
 	    	System.out.println("04_01 조건문 내 /Qna/QnaAddWrite.qn QController.java");
 	    	forward = new ActionForward();		//주소값이 담겨있음
-	    	forward.setRedirect(true);
-	    	forward.setPath("/Qna/QnaList.qn");
+	    	forward.setRedirect(false);
+	    	forward.setPath("/qna_board/qna_board_write.jsp");
 	    	forward.toString();
 		} else if(command.equals("/Qna/QnaList.qn")){
 	    	System.out.println("04_01 조건문 내 /Qna/QnaList.qn QController.java");
 	    	forward = new ActionForward();		//주소값이 담겨있음
 	    	forward.setRedirect(true);
-	    	forward.setPath("/Qna/qna_list.qn");
+	    	forward.setPath("/Qna/QnaList.qn");
 	    	forward.toString();
 		}
 		

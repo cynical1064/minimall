@@ -1,5 +1,7 @@
 package com.minimall.dto;
 
+import java.sql.Date;
+
 public class QnaDto {
 	private int qna_no;
 	private String qna_subject;
@@ -7,6 +9,7 @@ public class QnaDto {
 	private String qna_content;
 	private String qna_secret;
 	private String qna_category;
+	private Date qna_date;
 	
 	public int getQna_no() {
 		return qna_no;
@@ -43,6 +46,12 @@ public class QnaDto {
 	}
 	public void setQna_category(String qna_category) {
 		this.qna_category = qna_category;
+	}
+	public Date getQna_date() {
+		return qna_date;
+	}
+	public void setQna_date(Date qna_date) {
+		this.qna_date = qna_date;
 	}
 	
 }
