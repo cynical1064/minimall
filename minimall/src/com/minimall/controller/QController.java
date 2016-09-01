@@ -67,24 +67,20 @@ public class QController extends HttpServlet {
 			forward.setPath("/qnaBoard/qna_list.jsp");
 		} else if(command.equals("/Qna/QnaBoardView.qn")) {
 			System.out.println("04_05 조건문 내 /Qna/QnaView.qn QController.java");
-			/*action = new QnaDetailAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-		}*/
-			forward = new ActionForward();		//주소값이 담겨있음
-	    	forward.setRedirect(false);
-	    	forward.setPath("/qnaBoard/qna_view.jsp");
-	    	forward.toString();
-		} else if(command.equals("/Qna/QnaDetailAction.qn")) {
 			action = new QnaDetailAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
+			}
+		} else if(command.equals("/Qna/QnaDetailAction.qn")) {
+			System.out.println("04_06 조건문 내 /Qna/QnaDetailAction.qn QController.java");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/qnaBoard/qna_view.jsp");
+			
 		}
-		}
+		
 		
 		
 		

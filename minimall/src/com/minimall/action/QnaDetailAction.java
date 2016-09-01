@@ -26,6 +26,7 @@ public class QnaDetailAction implements ActionInterFace {
 	   	System.out.println("상세보기 성공");
 	   	
 	   	request.setAttribute("qnadto", qnadto);
+	   	System.out.println(qnadto+": qnqdto");
 	   	
 	   	ActionForward forward = new ActionForward();
 	   	forward.setRedirect(false);
