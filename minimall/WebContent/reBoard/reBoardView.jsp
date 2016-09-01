@@ -68,16 +68,16 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="./BoardReplyView.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="/board/BoardReplyView.reb?num=<%=board.getBOARD_NUM() %>">
 			[답변]
 			</a>&nbsp;&nbsp;
-			<a href="./BoardModify.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="/board/BoardModify.reb?num=<%=board.getBOARD_NUM() %>">
 			[수정]
 			</a>&nbsp;&nbsp;
-			<a href="./BoardDelete.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="/board/BoardDelete.reb?num=<%=board.getBOARD_NUM() %>">
 			[삭제]
 			</a>&nbsp;&nbsp;
-			<a href="./BoardList.reb">[목록]</a>&nbsp;&nbsp;
+			<a href="/board/BoardList.reb">[목록]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>

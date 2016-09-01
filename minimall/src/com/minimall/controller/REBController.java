@@ -76,7 +76,7 @@ import com.minimall.inter.ActionInterFace;
 		}else if(command.equals("/board/BoardDelete.reb")){
 			forward=new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./qna_board_delete.jsp");
+			forward.setPath("/reBoard/reBoardDelete.jsp");
 		}else if(command.equals("/board/BoardModify.reb")){
 			action = new REBModifyView();
 			try{

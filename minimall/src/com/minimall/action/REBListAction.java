@@ -45,7 +45,7 @@ import com.minimall.inter.ActionInterFace;
 		
 		ActionForward forward= new ActionForward();
 	 	forward.setRedirect(false);
- 		forward.setPath("./qna_board_list.jsp");
+ 		forward.setPath("reBoard/reBoardList.jsp");
  		return forward;
 	 }
  }

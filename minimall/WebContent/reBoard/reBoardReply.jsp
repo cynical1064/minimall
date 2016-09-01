@@ -16,7 +16,7 @@
 <body>
 
 <!-- 게시판 답변 -->
-<form action="./BoardReplyAction.reb" method="post" name="boardform">
+<form action="/board/BoardReplyAction.reb" method="post" name="boardform">
 <input type="hidden" name="BOARD_NUM" value="<%=board.getBOARD_NUM() %>">
 <input type="hidden" name="BOARD_RE_REF" value="<%=board.getBOARD_RE_REF() %>">
 <input type="hidden" name="BOARD_RE_LEV" value="<%=board.getBOARD_RE_LEV() %>">

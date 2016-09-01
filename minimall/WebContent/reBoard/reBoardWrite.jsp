@@ -12,7 +12,7 @@
 <body>
 
 <!-- 게시판 등록 -->
-<form action="./BoardAddAction.reb" method="post" 
+<form action="/board/BoardAddAction.reb" method="post" 
 	enctype="multipart/form-data" name="boardform">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
