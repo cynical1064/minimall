@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.minimall.action.MLoginAction;
+import com.minimall.action.MemberInsertAction;
+import com.minimall.action.MemberListAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
+
 
 
 @WebServlet("/Mcontroller")
@@ -53,7 +56,72 @@ public class MController extends HttpServlet {
 			forward.setPath("/member/mInsertForm.jsp");
 			
 			
-		}else if(cutUrl.equals("/mLogin/mLogin.mo")){
+		}else if(cutUrl.equals("/Min/mInsertPro.mo")){
+			System.out.println("조건2 분기");
+			
+			action  = new MemberInsertAction();
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(cutUrl.equals("/Mli/mList.mo")){
+			
+			System.out.println("조건3 처리후");
+			action  = new MemberListAction();
+			
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}/*else if(command.equals("/Mupdate/m_update_form.ksmart")){
+			
+			System.out.println("조건4 선택출력");
+			action  = new MSelectForUpdate();
+			
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Mupdate/m_update_pro.ksmart")){
+			
+			System.out.println("조건5 선택업데이트");
+			action  = new MUpdateAction();
+			
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/Mdelete/m_delete_pro.ksmart")){
+			System.out.println("조건6 삭제");
+			
+			action  = new MDeleteAction();
+			
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/Mseach/m_search_pro.ksmart")){
+			
+			System.out.println("조건7 검색");
+			
+			action  = new MSeachLIstAction();
+			
+			try {
+				forward=action.execute(request, response );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+			
+		}*/else if(cutUrl.equals("/mLogin/mLogin.mo")){
 			System.out.println("로그인 처리 조건");
 			
 			try{
@@ -74,7 +142,7 @@ public class MController extends HttpServlet {
 			session.invalidate();
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath(request.getContextPath()+"/index.jsp");
+			forward.setPath(request.getContextPath()+"/module/header.jsp");
 			
 		}
 		
@@ -95,3 +163,4 @@ public class MController extends HttpServlet {
 		}
 	}
 }
+
