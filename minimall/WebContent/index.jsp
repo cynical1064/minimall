@@ -10,5 +10,11 @@
 </head>
 <body>
 <%@ include file = "./module/header.jsp" %>
+<div id="container" style="width:100%; height:100%;">
+	<div class="content" style="width:70%; height:700px;">
+	
+	</div>
+</div>
+<%@ include file = "./module/footer.jsp" %>
 </body> 
 </html>

@@ -69,27 +69,25 @@
 </div> --%>
 <div id="header">
 	<div id="headerContent" class="clearFix">
-		<ul> 
-			<li id="logoWrap">
+		<div id="logoWrap">
 				<h2><img src="${pageContext.request.contextPath}/img/logo.png" alt="logo"></h2>
-			</li>
-			<li>
-				<ul id="itemNav">
-					<li>NEW ITEM</li>
-					<li>SHOP</li>
-					<li>COMMUNITY</li>
-					<li>ABOUT</li>
-					<li>CONTACT US</li>
-				</ul>
-			</li>				
-			<li>
-				<ul id="loginNav">
-					<li>LOGIN</li>
-					<li>JOIN</li>
-					<li>ORDER</li>
-				</ul>
-			</li>
-		</ul>
+		</div>
+		<div id="itemNavWrap">
+			<ul id="itemNav">
+				<li>NEW ITEM</li>
+				<li>SHOP</li>
+				<li>COMMUNITY</li>
+				<li>ABOUT</li>
+				<li>CONTACT US</li>
+			</ul>
+		</div>				
+		<div id="loginNavWrap">
+			<ul id="loginNav">
+				<li>LOGIN</li>
+				<li>JOIN</li>
+				<li>ORDER</li>
+			</ul>
+		</div>
 	</div>
 </div>
 </body>
