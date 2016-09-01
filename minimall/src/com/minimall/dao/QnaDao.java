@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.minimall.dto.QnaDto;
@@ -20,11 +21,11 @@ public class QnaDao {
 	public QnaDao() {
 		try {
 			Context init = new InitialContext();
-			System.out.println(init + "<-- init QnaDao() ");
+			System.out.println(init + " : QnaDao.java");
 			ds = (DataSource) init.lookup("java:comp/env/jdbc/Oracle2");
-		} catch(Exception e) {
-			System.out.println("DB연결실패 :" + e);
-			return;
+		} catch(NamingException e) {
+			System.out.println("DB 연결 실패");
+			e.printStackTrace();
 		}
 	}
 	

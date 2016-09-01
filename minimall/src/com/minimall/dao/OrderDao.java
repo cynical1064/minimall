@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -20,6 +21,7 @@ public class OrderDao {
 	PreparedStatement pstmt_select;
 	GoodsDto goodsDto;
 	ResultSet rs;
+	ArrayList<OrderDto> orderList = new ArrayList<OrderDto>();
 	
 	public OrderDao() {
 		try {
@@ -32,7 +34,9 @@ public class OrderDao {
 		}
 	}
 	
-	public void OrderInsert(OrderDto o) {
+	//구매화면 메서드
+	public void OrderInsert(OrderDto order) {
+		System.out.println("OrderInsert OrderDao.java");
 		String sql=null;
 		try{
 			
@@ -40,12 +44,12 @@ public class OrderDao {
 			sql="insert into orders values(?,?,?,sysdate,?,?,?,'입금예정')";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, o.getO_no());
-			pstmt.setString(2, o.getG_id());
-			pstmt.setString(3, o.getM_id());
-			pstmt.setString(5, o.getG_code());
-			pstmt.setInt(6, o.getO_count());
-			pstmt.setInt(7, o.getO_total());
+			pstmt.setInt(1, order.getO_no());
+			pstmt.setString(2, order.getG_id());
+			pstmt.setString(3, order.getM_id());
+			pstmt.setString(5, order.getG_code());
+			pstmt.setInt(6, order.getO_count());
+			pstmt.setInt(7, order.getO_total());
 						
 			
 			pstmt.executeUpdate();
@@ -60,7 +64,9 @@ public class OrderDao {
 		}
 	}
 	
-	public void OrderList(OrderDto o) throws SQLException{
+	//주문리스트 조회 메서드
+	public ArrayList<OrderDto> orderSelectAll() throws SQLException{
+		System.out.println("orderSelectAll OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
 		sql = "select * from orders";
@@ -68,13 +74,26 @@ public class OrderDao {
 		rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
-			OrderDto = new OrderDto();
+			OrderDto oDto = new OrderDto();
+			oDto.setO_no(rs.getInt("o_no"));
+			oDto.setM_id(rs.getString("m_id"));
+			oDto.setG_id(rs.getString("g_id"));
+			oDto.setO_date(rs.getString("o_date"));
+			oDto.setG_code(rs.getString("g_code"));
+			oDto.setO_count(rs.getInt("o_count"));
+			oDto.setO_total(rs.getInt("o_total"));
 			
+			orderList.add(oDto);
 		}
 		rs.close();
 		pstmt.close();
 		conn.close();
 		
-		return 
+		return orderList;
+	}
+	
+	public void OrderDelete(OrderDto order){
+		System.out.println("OrderDelete OrderDao.java");
+		
 	}
 }
