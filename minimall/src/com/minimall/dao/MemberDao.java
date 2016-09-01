@@ -192,6 +192,51 @@ public class MemberDao {
         }
 
         return x;
-    }   
+    }
+  //수정 화면 
+    public MemberDto mSelectforUpdate(String mid) throws ClassNotFoundException, SQLException{
+		System.out.println("04 mSelectforUpdate Mdao.java");
+		
+		con = ds.getConnection();
+		pstmt = con.prepareStatement("select * from member where m_id=?");
+		pstmt.setString(1, mid);
+		rs = pstmt.executeQuery();	
+		if(rs.next()){
+			m = new MemberDto();
+			m.setm_id(rs.getString("m_id"));
+			m.setm_pw(rs.getString("m_pw"));
+			m.setm_level(rs.getString("m_level"));
+			m.setm_name(rs.getString("m_name"));
+			m.setm_email(rs.getString("m_email"));
+			m.setm_addr(rs.getString("m_addr"));
+			
+		}
+		rs.close();
+		pstmt.close();
+		con.close();		
+		return m;
+	}
+    //수정 처리 
+    public void mUpdate(MemberDto m) throws SQLException, ClassNotFoundException{
+		System.out.println("02 mUpdate Mdao.java");
+		
+		con = ds.getConnection();
+		pstmt = con.prepareStatement(
+				"UPDATE member SET m_pw=?,m_level=?,m_name=?,m_email=?,m_email=?,m_addr=? WHERE m_id=?");
+		System.out.println(pstmt + "<-- pstmt 1");
+		pstmt.setString(1, m.getm_pw());
+		pstmt.setString(2, m.getm_level());
+		pstmt.setString(3, m.getm_name());
+		pstmt.setString(4, m.getm_email());
+		pstmt.setString(5, m.getm_addr());
+		pstmt.setString(6, m.getm_id());
+		
+		System.out.println(pstmt + "<-- pstmt 2");
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		con.close();
+	}
 
 }
