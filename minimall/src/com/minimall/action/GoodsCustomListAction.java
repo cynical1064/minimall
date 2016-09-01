@@ -23,7 +23,7 @@ public class GoodsCustomListAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/goods/goods_custom_list.jsp");
+		forward.setPath("/goods/goodsCustomList.jsp");
 		
 		return forward;
 	}

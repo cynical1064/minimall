@@ -61,15 +61,15 @@ public class GController extends HttpServlet {
 		ActionForward forward = null;
 		ActionInterFace action = null;
 		
-		if(command.equals("/Gin/goods_insert_form.go")) {
-			System.out.println("03_01 /Gin/goods_insert_form.go");
+		if(command.equals("/Gin/goodsInsertForm.go")) {
+			System.out.println("03_01 /Gin/goodsInsertForm.go");
 			
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/goods/goods_insert_form.jsp");
+			forward.setPath("/goods/goodsInsertForm.jsp");
 			
-		} else if(command.equals("/Gin/goods_insert_pro.go")) {
-			System.out.println("03_02 /Gin/goods_insert_pro.go");
+		} else if(command.equals("/Gin/goodsInsertPro.go")) {
+			System.out.println("03_02 /Gin/goodsInsertPro.go");
 			
 			action = new GoodsInsertPro();
 			try {
@@ -78,8 +78,8 @@ public class GController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Glist/goods_admin_list.go")) {
-			System.out.println("03_03 /Glist/goods_admin_list.go");
+		} else if(command.equals("/Glist/goodsAdminList.go")) {
+			System.out.println("03_03 /Glist/goodsAdminList.go");
 			
 			action = new GoodsListAction();
 			
@@ -90,8 +90,8 @@ public class GController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		} else if(command.equals("/Glist/goods_custom_list.go")) {
-			System.out.println("03_04 /Glist/goods_custom_list.go");
+		} else if(command.equals("/Glist/goodsCustomList.go")) {
+			System.out.println("03_04 /Glist/goodsCustomList.go");
 			
 			action = new GoodsCustomListAction();
 			

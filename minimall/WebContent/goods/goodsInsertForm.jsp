@@ -6,7 +6,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<form action="${pageContext.request.contextPath}/Gin/goods_insert_pro.go" method="post">
+		<form action="${pageContext.request.contextPath}/Gin/goodsInsertPro.go" method="post">
 			<table border="1">
 				<tr>
 					<td>판매자아이디</td>
