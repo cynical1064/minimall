@@ -1,11 +1,11 @@
+<%@page import="com.minimall.dto.REBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="com.minimall.dto.*" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <%
-	List QnaList=(List)request.getAttribute("QnaList");
+	List boardList=(List)request.getAttribute("boardlist");
 	int listcount=((Integer)request.getAttribute("listcount")).intValue();
 	int nowpage=((Integer)request.getAttribute("page")).intValue();
 	int maxpage=((Integer)request.getAttribute("maxpage")).intValue();
@@ -15,18 +15,19 @@
 
 <html>
 <head>
-	<title>문의하기</title>
+	<title>리뷰 게시판</title>
 </head>
 
 <body>
+
 <!-- 게시판 리스트 -->
-<form action="${pageContext.request.contextPath}/Qna/QnaListAction.qn" method="post">
+
 <table width=50% border="0" cellpadding="0" cellspacing="0">
 <%
 if(listcount > 0){
 %>
 	<tr align="center" valign="middle">
-		<td colspan="4">문의하기</td>
+		<td colspan="4">리뷰 게시판</td>
 		<td align=right>
 			<font size=2>글 개수 : ${listcount }</font>
 		</td>
@@ -51,40 +52,40 @@ if(listcount > 0){
 	</tr>
 	
 	<%
-	for(int i=0;i<QnaList.size();i++){
-		QnaDto Qnalist=(QnaDto)QnaList.get(i);
+		for(int i=0;i<boardList.size();i++){
+			REBoardDto bl=(REBoardDto)boardList.get(i);
 	%>
 	<tr align="center" valign="middle" bordercolor="#333333"
 		onmouseover="this.style.backgroundColor='F8F8F8'"
 		onmouseout="this.style.backgroundColor=''">
 		<td height="23" style="font-family:Tahoma;font-size:10pt;">
-			<%= Qnalist.getQna_no() %>
+			<%=bl.getBOARD_NUM()%>
 		</td>
-	
+		
 		<td style="font-family:Tahoma;font-size:10pt;">
 			<div align="left">
-			<%-- <%if(Qnalist.getBOARD_RE_LEV()!=0){ %>
-				<%for(int a=0;a<=Qnalist.getBOARD_RE_LEV()*2;a++){ %>
+			<%if(bl.getBOARD_RE_LEV()!=0){ %>
+				<%for(int a=0;a<=bl.getBOARD_RE_LEV()*2;a++){ %>
 				&nbsp;
 				<%} %>
 				▶
 			<%}else{ %>
 				▶
-			<%} %> --%>
-			<a href="./QnaDetailAction.qn?num=<%= Qnalist.getQna_no() %>">
-				<%=Qnalist.getQna_subject()%>
+			<%} %>
+			<a href="./BoardDetailAction.reb?num=<%=bl.getBOARD_NUM()%>">
+				<%=bl.getBOARD_SUBJECT()%>
 			</a>
 			</div>
 		</td>
-
+		
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=Qnalist.getM_id() %></div>
+			<div align="center"><%=bl.getBOARD_NAME() %></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=Qnalist.getQna_date() %></div>
+			<div align="center"><%=bl.getBOARD_DATE() %></div>
 		</td>	
 		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=Qnalist.getQna_readcount() %></div>
+			<div align="center"><%=bl.getBOARD_READCOUNT() %></div>
 		</td>
 	</tr>
 	<%} %>
@@ -93,21 +94,21 @@ if(listcount > 0){
 			<%if(nowpage<=1){ %>
 			[이전]&nbsp;
 			<%}else{ %>
-			<a href="/Qna/QnaList.qn?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+			<a href="./BoardList.reb?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
 				[<%=a %>]
 				<%}else{ %>
-				<a href="/Qna/QnaList.qn?page=<%=a %>">[<%=a %>]</a>&nbsp;
+				<a href="./BoardList.reb?page=<%=a %>">[<%=a %>]</a>&nbsp;
 				<%} %>
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
 			[다음]
 			<%}else{ %>
-			<a href="/Qna/QnaList.qn?page=<%=nowpage+1 %>">[다음]</a>
+			<a href="./BoardList.reb?page=<%=nowpage+1 %>">[다음]</a>
 			<%} %>
 		</td>
 	</tr>
@@ -117,9 +118,9 @@ if(listcount > 0){
 	{
 	%>
 	<tr align="center" valign="middle">
-		<td colspan="4">문의하기</td>
+		<td colspan="4">리뷰 게시판</td>
 		<td align=right>
-			<font size=2>등록된 글이 없습니다.</font>
+			<font size=2>등록된 리뷰가 없습니다.</font>
 		</td>
 	</tr>
 	<%
@@ -127,10 +128,10 @@ if(listcount > 0){
 	%>
 	<tr align="right">
 		<td colspan="5">
-	   		<a href="/Qna/QnaList.qn">[글쓰기]</a>
+	   		<a href="./BoardWrite.reb">[글쓰기]</a>
 		</td>
 	</tr>
 </table>
-</form>
+
 </body>
 </html>

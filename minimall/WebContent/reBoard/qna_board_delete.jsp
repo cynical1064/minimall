@@ -4,10 +4,10 @@
 %>
 <html>
 <head>
-<title>MVC 게시판</title>
+<title>리뷰 게시판</title>
 </head>
 <body>
-<form name="deleteForm" action="./BoardDeleteAction.bo?num=<%=num %>" 
+<form name="deleteForm" action="./BoardDeleteAction.reb?num=<%=num %>" 
 	method="post">
 <table border=1>
 <tr>
