@@ -19,6 +19,8 @@ public class OrderListOneAction implements ActionInterFace {
 		System.out.println("execute() OrderListOneAction.java");
 		String mId = (String)request.getAttribute("mId");
 		System.out.println(mId + "<-- mId OrderListOne.java");
+		GoodsDao gdao = new GoodsDao();
+		ArrayList<GoodsDto> goodsList = gdao.
 		OrderDao odao = new OrderDao();
 		ArrayList<OrderDto> orderListOne = odao.orderListOne(mId);
 		
