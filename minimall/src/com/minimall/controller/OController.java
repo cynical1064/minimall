@@ -12,6 +12,7 @@ import com.minimall.action.OrderDeleteAction;
 import com.minimall.action.OrderInsertFormAction;
 import com.minimall.action.OrderInsertProAction;
 import com.minimall.action.OrderListAction;
+import com.minimall.action.OrderListOneAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -70,6 +71,14 @@ public class OController extends HttpServlet {
 		}else if(command.equals("/Odel/orderDeletePro.oo")){
 			System.out.println("조건문 내 /Odel/orderDeletePro.oo OController.java");
 			action = new OrderDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Oli/OrderListOne.oo")){
+			System.out.println("조건문 내 /Oli/OrderListOne.oo OController.java");
+			action = new OrderListOneAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

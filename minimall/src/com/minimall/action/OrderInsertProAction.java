@@ -21,27 +21,28 @@ public class OrderInsertProAction implements ActionInterFace {
 		String gCode = request.getParameter("gCode");
 		int oCount = Integer.parseInt(request.getParameter("oCount"));
 		int oTotal = Integer.parseInt(request.getParameter("oTotal"));
-		System.out.println(gName);
-		System.out.println(gId);
-		System.out.println(mId);
-		System.out.println(gCode);
-		System.out.println(oCount);
-		System.out.println(oTotal);
+		System.out.println(gName + "<- gName");
+		System.out.println(gId + "<- gId");
+		System.out.println(mId + "<- mId");
+		System.out.println(gCode + "<- gCode");
+		System.out.println(oCount + "<- oCount");
+		System.out.println(oTotal + "<- oTotal");
 		
 		OrderDto odto = new OrderDto();
-		odto.setM_id(gName);
 		odto.setG_id(gId);
 		odto.setM_id(mId);
 		odto.setG_code(gCode);
 		odto.setO_count(oCount);
 		odto.setO_total(oTotal);
 		
+		request.setAttribute("mId", mId);
+		
 		OrderDao odao = new OrderDao();
 		odao.OrderInsert(odto);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath(request.getContextPath() + "/index.jsp");
+		forward.setRedirect(false);
+		forward.setPath("/Oli/OrderListOne.oo");
 		
 		return forward;
 	}
