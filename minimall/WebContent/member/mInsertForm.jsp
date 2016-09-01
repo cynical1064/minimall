@@ -10,7 +10,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 </head>
 <body>
-<%@ include file = "/module/header.jsp" %>
+<%@ include file = "/module/header.jsp" %> 
 <div id="container" style="width:100%; height:100%;">
 	<div class="content" style="width:70%; height:700px;">
 		<form action="${pageContext.request.contextPath}/Min/mInsertPro.mo" method="post">			
