@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.inter.ActionInterFace;
-import com.minimall.action.GoodsInsertPro;
+
 import com.minimall.action.QnaAddAction;
+import com.minimall.action.QnaListAction;
 import com.minimall.forward.ActionForward;
 
 @WebServlet("/QController")
@@ -40,22 +41,29 @@ public class QController extends HttpServlet {
 	    	System.out.println("04_01 조건문 내 /Qna/QnaAddWrite.qn QController.java");
 	    	forward = new ActionForward();		//주소값이 담겨있음
 	    	forward.setRedirect(false);
-	    	forward.setPath("/qna_board/qna_board_write.jsp");
-	    	forward.toString();
-		} else if(command.equals("/Qna/QnaList.qn")){
-	    	System.out.println("04_01 조건문 내 /Qna/QnaList.qn QController.java");
-	    	forward = new ActionForward();		//주소값이 담겨있음
-	    	forward.setRedirect(true);
-	    	forward.setPath("/qna_board/qna_list.jsp");
+	    	forward.setPath("/qnaBoard/qna_board_write.jsp");
 	    	forward.toString();
 		} else if(command.equals("/Qna/QnaAddAction.qn")){
-	    	System.out.println("04_03 조건문 내 /Qna/QnaAddAction.qn QController.java");
+	    	System.out.println("04_02 조건문 내 /Qna/QnaAddAction.qn QController.java");
 			action = new QnaAddAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			};
+			}
+		} else if(command.equals("/Qna/QnaList.qn")){
+	    	System.out.println("04_03 조건문 내 /Qna/QnaList.qn QController.java");
+	    	action = new QnaListAction();
+	    	try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Qna/QnaBoardList.qn")){
+			System.out.println("04_02 조건문 내 /Qna/QnaBoardList.qn QController.java");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/qnaBoard/qna_list.jsp");
 		}
 		
 		if(forward != null){			//널이 아니면 다시 조건문으로 돌아감
