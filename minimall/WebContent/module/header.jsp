@@ -69,7 +69,7 @@
 </div> --%>
 <div id="header">
 	<div id="headerContent" class="clearFix">
-		<ul>
+		<ul> 
 			<li id="logoWrap">
 				<h2><img src="${pageContext.request.contextPath}/img/logo.png" alt="logo"></h2>
 			</li>

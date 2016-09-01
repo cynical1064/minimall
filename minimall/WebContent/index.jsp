@@ -10,5 +10,5 @@
 </head>
 <body>
 <%@ include file = "./module/header.jsp" %>
-</body>
+</body> 
 </html>
