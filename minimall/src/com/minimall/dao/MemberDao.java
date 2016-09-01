@@ -174,7 +174,7 @@ public class MemberDao {
                     pstmt=con.prepareStatement(sql);
                     pstmt.setString(1, id);
                     pstmt.executeUpdate();
-                    x=1;
+                    x=1;  
                 }else{
                     x=0;
                 }
