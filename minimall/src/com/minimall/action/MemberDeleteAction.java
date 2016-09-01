@@ -26,7 +26,7 @@ public class MemberDeleteAction implements ActionInterFace{
         String pass = request.getParameter("m_pw");//리턴값 문자열 변수명 pass
 
         try{
-            int check = memberdao.deleteMember(id, pass); //MemberDao
+            int check = memberdao.deleteMember(id, pass); //MemberDao  
 
             if(check == 1){
 

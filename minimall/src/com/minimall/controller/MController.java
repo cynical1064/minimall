@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.minimall.action.MLoginAction;
+import com.minimall.action.MemberDeleteAction;
 import com.minimall.action.MemberInsertAction;
 import com.minimall.action.MemberListAction;
 import com.minimall.forward.ActionForward;
@@ -144,7 +145,18 @@ public class MController extends HttpServlet {
 			forward.setRedirect(true);
 			forward.setPath(request.getContextPath()+"/index.jsp");
 			
-		}
+		}else if(cutUrl.equals("/member/MemberDeleteAction.mo")){ //member 昏力 贸府
+            System.out.println("member 昏力 贸府");
+
+            action  = new MemberDeleteAction();
+
+             try {
+                 forward = action.execute(request, response);
+             } catch (Exception e) { 
+                 e.printStackTrace();
+             }
+        }
+
 		
 		if(forward != null){
 			if(forward.isRedirect()){
