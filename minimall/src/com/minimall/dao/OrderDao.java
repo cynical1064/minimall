@@ -35,26 +35,24 @@ public class OrderDao {
 	}	
 	
 	//구매화면 메서드
-	public void OrderInsert(OrderDto order) throws SQLException {
+	public void OrderInsert(OrderDto odto) throws SQLException {
 		System.out.println("OrderInsert OrderDao.java");
 		
+		conn = ds.getConnection();		
 		int o_no = 0;
 		
-		//g_code 중 마지막 숫자(가장 큰 숫자)를 가져오기 위한 select 쿼리문 입니다.
 		pstmt_select = conn.prepareStatement("SELECT MAX(o_no) FROM orders");
 		System.out.println(pstmt_select + " : pstmt_select orderInsert() OrderDao.java");
 		rs = pstmt_select.executeQuery();
 		
 		int result = 0;
 		if(rs.next()){
-			result = rs.getInt(1);
-			System.out.println(result + " : result orderInsert() OrdersDao.java");
-			result = result + 1;
+			result = rs.getInt(1) + 1;
 		}
+		
 		rs.close();
 		pstmt_select.close();
 		
-		//result에 담겨있는 숫자와 temp에 담겨있는 "gcode_" 문자열을 합침.
 		o_no = result;
 		System.out.println(o_no + " : o_no OrderInsert() OrderDao.java");
 		
@@ -67,13 +65,11 @@ public class OrderDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, o_no);
-			pstmt.setString(2, order.getG_id());
-			pstmt.setString(3, order.getM_id());
-			pstmt.setString(4, order.getG_code());
-			pstmt.setInt(5, order.getO_count());
-			pstmt.setInt(6, order.getO_total());
-						
-			
+			pstmt.setString(2, odto.getG_id());
+			pstmt.setString(3, odto.getM_id());
+			pstmt.setString(4, odto.getG_code());
+			pstmt.setInt(5, odto.getO_count());
+			pstmt.setInt(6, odto.getO_total());		
 			pstmt.executeUpdate();
 		
 		}catch(Exception e){
