@@ -12,20 +12,34 @@ public class MemberInsertAction implements ActionInterFace {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		String mId = request.getParameter(arg0);
-		
+		request.setCharacterEncoding("euc-kr");
+		String m_Id = request.getParameter("m_id");
+		String m_pw = request.getParameter("m_pw");
+		String m_level = request.getParameter("m_level");
+		String m_name = request.getParameter("m_name");
+		String m_email = request.getParameter("m_email");
+		String m_addr = request.getParameter("m_addr");
+
+		System.out.println(m_Id+" m_Id MemberInsertAction.java");
 		MemberDto m = new MemberDto();
 		MemberDao mDao = new MemberDao();
 		
-		m.setm_id(mId);
+		m.setm_id(m_Id);
+		m.setm_pw(m_pw);
+		m.setm_level(m_level);
+		m.setm_name(m_name);
+		m.setm_email(m_email);
+		m.setm_addr(m_addr);
 		
-		mDao.insertMember(m);	
+		mDao.insertMember(m);
+		
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);
-		forward.setPath(path);
+		forward.setPath("/Mli/mList.mo");
 		
+		
+	
 		return forward;
 	}
 
