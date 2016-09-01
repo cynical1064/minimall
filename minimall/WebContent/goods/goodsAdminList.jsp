@@ -28,6 +28,8 @@
 							<c:set var="chk" value="${goods.g_agree}o" />
 							<c:if test="${chk eq 'No'}">
 		    					<input type="checkbox" name="agree_change" value="Y"/>
+		    						<c:set var="gCodeArray" value="${goods.g_code}" scope="request">
+		    						</c:set>
 							</c:if>
 						</td>
 					</tr>

@@ -135,7 +135,7 @@
 		<div id="itemNavWrap">
 			<ul id="itemNav">
 				<li>NEW ITEM</li>
-				<li>SHOP</li>
+				<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">SHOP</a></li>
 				<li>COMMUNITY</li>
 				<li>ABOUT</li>
 				<li>CONTACT US</li>
