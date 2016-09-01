@@ -10,7 +10,7 @@
 			<table border="1">
 				<tr>
 					<td>판매자아이디</td>
-					<td><input type="text" name="gId" size="20"></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td>상품명</td>
