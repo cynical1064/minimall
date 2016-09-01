@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.OrderDeleteAction;
+import com.minimall.action.OrderInsertFormAction;
 import com.minimall.action.OrderInsertProAction;
 import com.minimall.action.OrderListAction;
 import com.minimall.forward.ActionForward;
@@ -44,10 +45,12 @@ public class OController extends HttpServlet {
 		
 		if(command.equals("/Oin/orderInsertForm.oo")){
 			System.out.println("조건문 내 /Oin/orderInsertForm.oo Ocontroller.java");
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/order/orderInsertForm.jsp");
-			forward.toString();			
+			action = new OrderInsertFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
 		}else if(command.equals("/Oin/orderInsertPro.oo")){
 			System.out.println("조건문 내 /Oin/orderInsertPro.oo OController.java");
 			action = new OrderInsertProAction();

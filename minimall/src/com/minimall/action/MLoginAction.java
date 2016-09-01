@@ -31,10 +31,12 @@ public class MLoginAction implements ActionInterFace {
 			
 			String loginLevel = chkMember.getm_level();
 			String loginName = chkMember.getm_name();
+			String loginId = chkMember.getm_id();
 			//객체안에 담긴 값을 변수에 담고
 			
 			session.setAttribute("loginLevel", loginLevel);
 			session.setAttribute("loginName", loginName);
+			session.setAttribute("loginId", loginId);
 			//세션영역에 셋팅
 		}else{
 			
