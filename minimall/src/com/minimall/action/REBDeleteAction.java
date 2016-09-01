@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.board.db.*;
+import com.minimall.dao.REBoardDAO;
+import com.minimall.forward.ActionForward;
+import com.minimall.inter.ActionInterFace;
 
-public class REBDeleteAction implements Action {
+public class REBDeleteAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
 		 

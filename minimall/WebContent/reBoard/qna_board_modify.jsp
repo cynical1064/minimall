@@ -1,7 +1,7 @@
+<%@page import="com.minimall.dto.REBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"%>
-<%@ page import="net.board.db.*" %>
 <%
-	BoardBean board = (BoardBean)request.getAttribute("boarddata");
+	REBoardDto board = (REBoardDto)request.getAttribute("boarddata");
 %>
 
 <html>

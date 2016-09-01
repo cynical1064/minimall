@@ -8,6 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.minimall.action.*;
+
+import com.minimall.forward.ActionForward;
+import com.sun.corba.se.spi.orbutil.fsm.Action;
+
  public class REBController 
  	extends javax.servlet.http.HttpServlet 
  	implements javax.servlet.Servlet {
@@ -17,30 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 		System.out.println("01 BoardFrontController 생성자 메서드  ");
 		System.out.println();
    }
-	 //Servlet 라이프사이클 이해를 확인 위한  init 메서드 선언
-	 public void init(){
-		 System.out.println("02 init()메서드 !!!!!!! ");
-		 System.out.println();
-	 }
-	 //Servlet 라이프사이클 이해를 확인 위한  init 메서드 선언
-	public void init(ServletConfig config) throws ServletException {
-		System.out.println("03 init메서드 config : "+config);
-		System.out.println("03 init메서드 config.config.getServletName() : "+config.getServletName());
-		System.out.println("03 init메서드 config.config.getInitParameterNames() : "+config.getInitParameterNames());
-		System.out.println("03 init메서드 config.config.getServletContext() : "+config.getServletContext());
-		System.out.println("03 init메서드 config.getServletContext().getContextPath() : "+config.getServletContext().getContextPath());
-		//System.out.println("03 init메서드 config.getInitParameter(getServletInfo()) : "+config.getInitParameter(getServletInfo()));
-		//System.out.println("03 init메서드 config.getInitParameter(getServletName()) : "+config.getInitParameter(getServletName()));
-		System.out.println();
-	}
-	 //Servlet 라이프사이클 이해를 확인 위한  service 메서드 선언
-/*	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("04444--- service 메서드  ");
-		doProcess(request,response);
-
-	}*/
-	 //Servlet 라이프사이클 이해를 확인 위한  destroy 메서드 선언
-	 public void destroy(){
+   
+   	public void destroy(){
 		 System.out.println("09 destroy()메서드  !!!!!!!");
 		 System.out.println();
 

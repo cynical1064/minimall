@@ -8,6 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.minimall.forward.ActionForward;
+import com.minimall.inter.ActionInterFace;
+
  public class REBFrontController 
  	extends javax.servlet.http.HttpServlet 
  	implements javax.servlet.Servlet {
@@ -75,7 +78,7 @@ import javax.servlet.http.HttpServletResponse;
 		 System.out.println("----------BoardFrontController.java----------------");
 		 System.out.println();
 		 ActionForward forward=null;
-		 Action action=null;
+		 ActionInterFace action=null;
 		
 		if(command.equals("/board/BoardWrite.reb")){
 			

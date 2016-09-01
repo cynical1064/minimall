@@ -2,16 +2,19 @@ package com.minimall.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.minimall.dao.REBoardDAO;
+import com.minimall.dto.REBoardDto;
+import com.minimall.forward.ActionForward;
+import com.minimall.inter.ActionInterFace;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import net.board.db.BoardDAO;
-import net.board.db.BoardBean;
 
-public class REBAddAction implements Action {
+public class REBAddAction implements ActionInterFace {
 	
 	
-	
+	@Override
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		REBoardDAO boarddao=new REBoardDAO();
 	   	REBoardDto boarddata=new REBoardDto();
@@ -21,6 +24,7 @@ public class REBAddAction implements Action {
    		String saveFolder="boardupload";
    		
    		int fileSize=5*1024*1024;
+   
    		
    		//realFolder=request.getRealPath(saveFolder);
    		

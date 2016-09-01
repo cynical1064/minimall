@@ -1,7 +1,8 @@
+<%@page import="com.minimall.dto.REBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="net.board.db.*" %>
+
 
 <%
 	List boardList=(List)request.getAttribute("boardlist");
@@ -52,7 +53,7 @@ if(listcount > 0){
 	
 	<%
 		for(int i=0;i<boardList.size();i++){
-			BoardBean bl=(BoardBean)boardList.get(i);
+			REBoardDto bl=(REBoardDto)boardList.get(i);
 	%>
 	<tr align="center" valign="middle" bordercolor="#333333"
 		onmouseover="this.style.backgroundColor='F8F8F8'"
