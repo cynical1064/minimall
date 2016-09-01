@@ -6,7 +6,53 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+	$(document).ready(function(){
+		
+		$('#loginBtn').click(function(){
+			
+			$('#loginWrap').show();
+			
+		})
+		
+		$('#loginWrap').click(function(){
+			
+			$('#loginWrap').hide();
+			
+		});
+		
+	})
+</script>
 </head>
+<div id="loginWrap">
+	<div id="loginContent">
+		<div id="loginArea">
+			<h2>
+				Login
+			</h2>
+			<form action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
+			<table>
+			<tr>
+				<td><label for="mId">아이디</label></td>
+				<td><input type="text" name="mId" /></td>
+			</tr>	
+			<tr>
+				<td><label for="mPw">비밀번호</label></td>
+				<td><input type="password" name="mPw" /></td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<div id="loginSumbit" style="cursor:pointer;">
+						로그인
+					</div>
+				</td>
+			</tr>	
+				
+			</table>	
+			</form>		
+		</div>
+	</div>
+</div>
 <%-- <c:choose>
 	<c:when test="${sessionScope.loginLevel == null}">
 	<!-- 
@@ -83,9 +129,9 @@
 		</div>				
 		<div id="loginNavWrap">
 			<ul id="loginNav">
-				<li>LOGIN</li>
-				<li>JOIN</li>
-				<li>ORDER</li>
+				<li id="loginBtn" style="cursor:pointer">LOGIN</li>
+				<li style="cursor:pointer">JOIN</li>
+				<li style="cursor:pointer">ORDER</li>
 			</ul>
 		</div>
 	</div>
