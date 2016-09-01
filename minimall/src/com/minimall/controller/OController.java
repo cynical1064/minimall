@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.minimall.action.OrderDeleteAction;
 import com.minimall.action.OrderInsertProAction;
 import com.minimall.action.OrderListAction;
 import com.minimall.forward.ActionForward;
@@ -33,31 +34,39 @@ public class OController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		System.out.println(requestURI);
-		System.out.println(contextPath + " contextPath GoodsController.java");
+		System.out.println(contextPath + " contextPath Ocontroller.java");
 		System.out.println(contextPath.length());
-		System.out.println(command + " command GoodsController.java");
+		System.out.println(command + " command Ocontroller.java");
 		System.out.println();
 		
 		ActionForward forward = null;
 		ActionInterFace action = null;
 		
-		if(command.equals("/Oin/order_insert_form.oo")){
-			System.out.println("조건문 내 /Oin/order_insert_form.oo Ocontroller.java");
+		if(command.equals("/Oin/orderInsertForm.oo")){
+			System.out.println("조건문 내 /Oin/orderInsertForm.oo Ocontroller.java");
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/order/order_insert_form.jsp");
+			forward.setPath("/order/orderInsertForm.jsp");
 			forward.toString();			
-		}else if(command.equals("/Oin/order_insert_pro.oo")){
-			System.out.println("조건문 내 /Oin/order_insert_pro.oo OController.java");
+		}else if(command.equals("/Oin/orderInsertPro.oo")){
+			System.out.println("조건문 내 /Oin/orderInsertPro.oo OController.java");
 			action = new OrderInsertProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/Oli/order_list.oo")){
-			System.out.println("조건문 내 /Oli/order_list.oo OController.java");
+		}else if(command.equals("/Oli/orderList.oo")){
+			System.out.println("조건문 내 /Oli/orderList.oo OController.java");
 			action = new OrderListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Odel/orderDeletePro.oo")){
+			System.out.println("조건문 내 /Odel/orderDeletePro.oo OController.java");
+			action = new OrderDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -71,8 +80,7 @@ public class OController extends HttpServlet {
 				response.sendRedirect(forward.getPath());
 			}else{
 				
-				RequestDispatcher dispatcher=
-					request.getRequestDispatcher(forward.getPath());
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로]  OController.java");
 				System.out.println();
 				dispatcher.forward(request, response);
