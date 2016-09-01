@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.minimall.action.MLoginAction;
+import com.minimall.action.MSelectForUpdate;
+import com.minimall.action.MUpdateAction;
 import com.minimall.action.MemberDeleteAction;
 import com.minimall.action.MemberInsertAction;
 import com.minimall.action.MemberListAction;
@@ -81,7 +83,7 @@ public class MController extends HttpServlet {
 		}else if(cutUrl.equals("/Mupdate/m_update_form.mo")){//수정 화면 
 			System.out.println("조건4 선택출력");
 			
-			//action  = new MSelectForUpdate();
+			action  = new MSelectForUpdate();
 			
 			try {
 				forward=action.execute(request, response );
@@ -91,7 +93,7 @@ public class MController extends HttpServlet {
 		}else if(cutUrl.equals("/Mupdate/m_update_pro.mo")){//수정 처리
 			System.out.println("조건5 선택업데이트");
 			
-			//action  = new MUpdateAction();  
+			action  = new MUpdateAction();  
 			
 			try {
 				forward=action.execute(request, response );
