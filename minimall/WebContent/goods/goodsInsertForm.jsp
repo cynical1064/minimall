@@ -10,7 +10,10 @@
 			<table border="1">
 				<tr>
 					<td>판매자아이디</td>
-					<td></td>
+					<td>
+						<input type="hidden" name="gId" size="20" value="${sessionScope.loginId}">
+						${sessionScope.loginId}
+					</td>
 				</tr>
 				<tr>
 					<td>상품명</td>
