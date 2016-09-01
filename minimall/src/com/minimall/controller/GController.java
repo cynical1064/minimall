@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.minimall.action.GoodsAdminChkAction;
 import com.minimall.action.GoodsCustomListAction;
 import com.minimall.action.GoodsInsertPro;
 import com.minimall.action.GoodsListAction;
@@ -95,6 +96,16 @@ public class GController extends HttpServlet {
 			
 			action = new GoodsCustomListAction();
 			
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Gchk/GoodsAdminChk.go")) {
+			System.out.println("03_05 /Gchk/GoodsAdminChk.go");
+			
+			action = new GoodsAdminChkAction();
 			try {
 				forward = action.execute(request, response);
 				

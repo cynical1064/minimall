@@ -114,7 +114,7 @@ public class GoodsDao {
 		return goodsList;
 	}
 	
-	//구매자를 위한 select! 상품 중 승인여부가 Y인 것만 가져오기 
+	//구매자를 위한 select! 상품 중 승인여부가 Y인 것만 가져오기
 	public ArrayList<GoodsDto> goodsSelectForCustom() throws SQLException {
 		System.out.println("03 goodsSelectForCustom() GoodsDao.java");
 		
@@ -126,7 +126,6 @@ public class GoodsDao {
 		pstmt = conn.prepareStatement(sql);
 		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
 		rs = pstmt.executeQuery();
-		System.out.println("쿼리 실행 후");
 		
 		while(rs.next()) {
 			goodsDto = new GoodsDto();
@@ -138,6 +137,47 @@ public class GoodsDao {
 			goodsDto.setG_sangse(rs.getString("g_sangse"));
 			goodsDto.setG_price(rs.getInt("g_price"));
 			goodsDto.setG_date(rs.getString("g_date"));
+			
+			goodsList.add(goodsDto);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+			
+		return goodsList;
+	}
+
+	//관리자가 상품 승인여부를 체크하면 값을 Y로 바꿔주는 메서드 입니다.
+	public void goodsCheckAgree() throws SQLException {
+		System.out.println("04 goodsCheckAgree() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		//관리자가 체크한 승인여부 컬럼의 값 N을 Y로 바꿔주는 UPDATE 쿼리문 입니다. 
+		
+	}
+	
+	//구매자가 선택한 한 개의 상품을 가져오는 메서드 입니다.
+	public ArrayList<GoodsDto> goodsSelectByGcode(String gCode) throws SQLException {
+		System.out.println("05 goodsSelectByGcode() GoodsDao.java");
+		System.out.println(gCode + " : gCode goodsSelectByGcode() GoodsDao.java");
+		conn = ds.getConnection();
+		
+		//g_code이 gCode 값에 해당하는 한 개 상품 데이터를 가져오는 select 쿼리문 입니다.
+		String sql = "SELECT g_code, g_name, g_id, g_price FROM goods";
+		sql += " WHERE g_code=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, gCode);
+		System.out.println(pstmt + " : pstmt goodsSelectAll() GoodsDao.java");
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			goodsDto = new GoodsDto();
+			goodsDto.setG_code(rs.getString("g_code"));
+			System.out.println(goodsDto.getG_code());
+			goodsDto.setG_name(rs.getString("g_name"));
+			goodsDto.setG_id(rs.getString("g_id"));
+			goodsDto.setG_price(rs.getInt("g_price"));
 			
 			goodsList.add(goodsDto);
 		}
