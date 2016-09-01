@@ -49,7 +49,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>QAController</servlet-name>
-    <url-pattern>*.qa</url-pattern>
+    <url-pattern>*.qna</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>
