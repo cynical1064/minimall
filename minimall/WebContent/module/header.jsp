@@ -54,7 +54,7 @@
                                <!-- 구매자 메뉴셋팅 -->
                                <li>구매자</li>
                                                 <a href="${pageContext.request.contextPath}/Min/mInsert.mo">회원등록</a>
-                                                <a href="${pageContext.request.contextPath}/Glist/goods_admin_list.go">상품목록(관리자->상품전체)</a>
+                                                <a href="${pageContext.request.contextPath}/Glist/goods_custom_list.go">상품목록(구매자->승인N)</a>
                             					<a href="${pageContext.request.contextPath}/Qna/QnaAddAction.qn">Q&A</a>
                             </c:when>
                             <c:otherwise>
