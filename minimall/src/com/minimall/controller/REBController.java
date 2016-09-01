@@ -5,17 +5,18 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.*;
 
 import com.minimall.forward.ActionForward;
-import com.sun.corba.se.spi.orbutil.fsm.Action;
+import com.minimall.inter.ActionInterFace;
 
- public class REBController 
- 	extends javax.servlet.http.HttpServlet 
- 	implements javax.servlet.Servlet {
+@WebServlet("/Mcontroller")
+ public class REBController extends HttpServlet  {
 	 //Servlet 라이프사이클 이해를 확인 위한 생성자메서드 선언
    public REBController() {
         super();
@@ -58,13 +59,13 @@ import com.sun.corba.se.spi.orbutil.fsm.Action;
 		 System.out.println("----------BoardFrontController.java----------------");
 		 System.out.println();
 		 ActionForward forward=null;
-		 Action action=null;
+		 ActionInterFace action=null;
 		
 		if(command.equals("/board/BoardWrite.reb")){
 			
 			forward=new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./qna_board_write.jsp");
+			forward.setPath("/reBoard/reBoardWrite.jsp");
 		}else if(command.equals("/board/BoardReplyAction.reb")){
 			action = new REBReplyAction();
 			try{
