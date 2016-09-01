@@ -138,7 +138,8 @@
 				<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">SHOP</a></li>
 				<li><a>COMMUNITY</a></li>
 				<li><a>ABOUT</a></li>
-				<li><a>CONTACT US</a></li> 
+				<li><a href="${pageContext.request.contextPath}/Qna/QnaList.qn">Q&A</a></li> 
+				
 			</ul>
 		</div>				
 		<div id="loginNavWrap">
