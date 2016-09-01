@@ -5,9 +5,12 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.board.db.*;
+import com.minimall.dao.REBoardDAO;
+import com.minimall.dto.REBoardDto;
+import com.minimall.forward.ActionForward;
+import com.minimall.inter.ActionInterFace;
 
- public class REBModifyAction implements Action {
+ public class REBModifyAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
 		 request.setCharacterEncoding("euc-kr");

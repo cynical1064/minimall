@@ -5,9 +5,11 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.board.db.BoardDAO;
+import com.minimall.dao.REBoardDAO;
+import com.minimall.forward.ActionForward;
+import com.minimall.inter.ActionInterFace;
 
- public class REBListAction implements Action {
+ public class REBListAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		System.out.println("리스트 execute호출 net.board.action.BoardListAction"); 
 		 

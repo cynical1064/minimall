@@ -3,10 +3,12 @@ package com.minimall.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.board.db.BoardDAO;
-import net.board.db.BoardBean;
+import com.minimall.dao.REBoardDAO;
+import com.minimall.dto.REBoardDto;
+import com.minimall.forward.ActionForward;
+import com.minimall.inter.ActionInterFace;
 
-public class REBModifyView implements Action {
+public class REBModifyView implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 	ActionForward forward = new ActionForward();
 		 	request.setCharacterEncoding("euc-kr");
