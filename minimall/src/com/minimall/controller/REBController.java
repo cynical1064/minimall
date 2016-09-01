@@ -15,7 +15,7 @@ import com.minimall.action.*;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
-@WebServlet("/Mcontroller")
+@WebServlet("/REBcontroller")
  public class REBController extends HttpServlet  {
 	 //Servlet 라이프사이클 이해를 확인 위한 생성자메서드 선언
    public REBController() {
