@@ -15,8 +15,9 @@ public class GoodsAdminChkAction implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsAdminChkAction.java");
 		
-		String[] gCodeArray = request.getParameterValues("gCodeArray");
+		String[] gCodeArray = request.getParameterValues("agreeChange");
 		System.out.println(gCodeArray + " gCodeArray GoodsAdminChkAction.java");
+		System.out.println(gCodeArray.length);
 		
 		GoodsDao goodsDao = new GoodsDao();
 		goodsDao.goodsCheckAgree(gCodeArray);

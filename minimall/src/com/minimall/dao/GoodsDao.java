@@ -97,6 +97,7 @@ public class GoodsDao {
 		while(rs.next()) {
 			goodsDto = new GoodsDto();
 			goodsDto.setG_code(rs.getString("g_code"));
+			System.out.println(goodsDto.getG_code());
 			goodsDto.setG_name(rs.getString("g_name"));
 			goodsDto.setG_id(rs.getString("g_id"));
 			goodsDto.setG_cate(rs.getString("g_cate"));
