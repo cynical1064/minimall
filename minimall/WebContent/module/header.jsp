@@ -21,6 +21,24 @@
 			
 		});
 		
+		$('#loginSumbit').click(function(){
+			
+			if($('#mId').val()==''){
+				
+				alert('아이디를 입력해주세요');
+				
+			}else if($('#mPw').val()==''){
+				
+				alert('비밀번호를 입력해주세요');
+				
+			}else{
+				
+				$('#loginForm').submit();
+				
+			}
+			
+		})
+		
 	})
 </script>
 </head>
@@ -30,15 +48,17 @@
 			<h2>
 				Login
 			</h2>
-			<form action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
+			<form id="loginForm" action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
 			<table>
 			<tr>
 				<td><label for="mId">아이디</label></td>
-				<td><input type="text" name="mId" /></td>
+				<td><input type="text" name="mId" id="mId" /></td>
+				<td><span></span></td>
 			</tr>	
 			<tr>
 				<td><label for="mPw">비밀번호</label></td>
-				<td><input type="password" name="mPw" /></td>
+				<td><input type="password" name="mPw" id="mPw"/></td>
+				<td><span></span></td>
 			</tr>	
 			<tr>
 				<td colspan="2">
@@ -128,11 +148,22 @@
 			</ul>
 		</div>				
 		<div id="loginNavWrap">
-			<ul id="loginNav">
-				<li id="loginBtn" style="cursor:pointer">LOGIN</li>
-				<li style="cursor:pointer">JOIN</li>
-				<li style="cursor:pointer">ORDER</li>
-			</ul>
+		<c:choose>
+			<c:when test="${sessionScope.loginLevel == null}">
+				<ul id="loginNav">
+					<li id="loginBtn" style="cursor:pointer">LOGIN</li>
+					<li style="cursor:pointer">JOIN</li>
+					<li style="cursor:pointer">ORDER</li>
+				</ul>
+			</c:when>
+			<c:when test="${sessionScope.loginLevel != null}">
+				<ul id="loginNav">
+					<li id="loginBtn" style="cursor:pointer"><span>${sessionScope.loginName}님 환영합니다.</span></li>
+					<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+					<li style="cursor:pointer">ORDER</li>
+				</ul>
+			</c:when>
+		</c:choose>	
 		</div>
 	</div>
 </div>
