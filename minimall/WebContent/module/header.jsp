@@ -13,12 +13,6 @@
 			
 			$('#loginWrap').show();
 			
-		})
-		
-		$('#loginWrap').click(function(){
-			
-			$('#loginWrap').hide();
-			
 		});
 		
 		$('#loginSumbit').click(function(){
