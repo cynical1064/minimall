@@ -74,7 +74,7 @@ public class MController extends HttpServlet {
 			session.invalidate();
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath(request.getContextPath()+"/module/header.jsp");
+			forward.setPath(request.getContextPath()+"/index.jsp");
 			
 		}
 		

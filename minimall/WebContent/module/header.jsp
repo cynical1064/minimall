@@ -36,28 +36,32 @@
 								-->
                                          <!-- 관리자 메뉴셋팅 --> 
                                          <li>관리자</li>
-                                                <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
+                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">회원등록</a>
                                                 <a href="${pageContext.request.contextPath}/user/user_list.jsp"> 02회원리스트 </a>
                                                 <a href="${pageContext.request.contextPath}/goods/goods_insert_form.jsp"> 03상품등록 </a>
-                                                <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
+                                                <a href="${pageContext.request.contextPath}/Glist/goods_admin_list.go">상품목록(관리자->상품전체)</a>
+                                                <a href="${pageContext.request.contextPath}/Qna/QnaAddAction.qn">Q&A</a>
                             </c:when>
                             <c:when test="${sessionScope.loginLevel=='판매자'}">
                                           <!-- 판매자 메뉴셋팅 -->
                                           <li>판매자</li>
-                                                <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
-                                                <a href="${pageContext.request.contextPath}/goods/goods_insert_form.jsp"> 03상품등록 </a>
-                                                <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
+                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">회원등록</a>
+                                                <a href="${pageContext.request.contextPath}/Gin/goods_insert_form.go">상품등록</a>
+                                                <a href="${pageContext.request.contextPath}/Glist/goods_admin_list.go">상품목록(관리자->상품전체)</a>
+                                                <a href="${pageContext.request.contextPath}/Qna/QnaAddAction.qn">Q&A</a>
                             </c:when>
                             <c:when test="${sessionScope.loginLevel=='구매자'}">
                                <!-- 구매자 메뉴셋팅 -->
                                <li>구매자</li>
-                                                <a href="${pageContext.request.contextPath}/user/user_insert_form.jsp"> 01회원등록 </a>
-                                                <a href="${pageContext.request.contextPath}/goods/goods_list.jsp"> 04상품리스트 </a>
+                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">회원등록</a>
+                                                <a href="${pageContext.request.contextPath}/Glist/goods_admin_list.go">상품목록(관리자->상품전체)</a>
+                            					<a href="${pageContext.request.contextPath}/Qna/QnaAddAction.qn">Q&A</a>
                             </c:when>
                             <c:otherwise>
                                <!-- 기본메뉴셋팅 -->
                                <li>기본메뉴</li>
                                           <a href="${pageContext.request.contextPath}/goods/goods_list.jsp">04상품리스트 </a>
+                                          <a href="${pageContext.request.contextPath}/Qna/QnaAddAction.qn">Q&A</a>
                             </c:otherwise>
                      </c:choose>
               </ul>
