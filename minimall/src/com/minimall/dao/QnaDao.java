@@ -30,6 +30,59 @@ public class QnaDao {
 		}
 	}
 	
+	//글 내용 보기.
+		public QnaDto getDetail(int num) throws Exception{
+			
+			QnaDto qnadto = null;
+			try{
+				con = ds.getConnection();
+				pstmt = con.prepareStatement(
+						"select * from QNA_BOARD where QNA_NO = ?");
+				pstmt.setInt(1, num);
+				
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()){
+					qnadto = new QnaDto();
+					qnadto.setQna_no(rs.getInt("qna_no"));				
+					qnadto.setQna_subject(rs.getString("qna_subject"));
+					qnadto.setM_id(rs.getString("m_id"));
+					qnadto.setQna_content(rs.getString("qna_content"));
+					qnadto.setQna_secret(rs.getString("qna_secret"));
+					qnadto.setQna_category(rs.getString("qna_category"));
+					qnadto.setQna_date(rs.getDate("qna_date"));
+					qnadto.setQna_readcount(rs.getInt("qna_readcount"));
+				}
+				return qnadto;
+			}catch(Exception ex){
+				System.out.println("getDetail 에러 : " + ex);
+			}finally{
+				if(rs!=null)try{rs.close();}catch(SQLException ex){}
+				if(pstmt !=null)try{pstmt.close();}catch(SQLException ex){}
+				if(con!=null) try{con.close();}catch(SQLException ex){}
+			}
+			return null;
+		}
+	
+	//조회수 업데이트
+		public void setReadCountUpdate(int num) throws Exception{
+			
+			String sql="update QNA_BOARD set QNA_READCOUNT = QNA_READCOUNT+1 where QNA_NO = "+num;
+			
+			try{
+				con = ds.getConnection();
+				pstmt=con.prepareStatement(sql);
+				pstmt.executeUpdate();
+			}catch(SQLException ex){
+				System.out.println("setReadCountUpdate 에러 : "+ex);
+			}finally{
+				try{
+					if(pstmt!=null)pstmt.close();
+					if(con!=null) con.close();
+				} catch(Exception ex){
+				}	
+			}
+		}
 	//글 등록
 	public boolean boardInsert(QnaDto qna){
 		
