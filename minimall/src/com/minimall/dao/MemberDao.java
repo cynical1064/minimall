@@ -155,4 +155,42 @@ public class MemberDao {
 		return m;		
 		
 	}
+    public int deleteMember(String id, String pw) throws SQLException{
+        String sql=null;
+        int x = -1;
+
+        try{
+            con = ds.getConnection();
+            sql="select m_pw from member where m_id=?";
+
+            pstmt=con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            rs=pstmt.executeQuery();
+
+            if(rs.next()){
+                String memberpw = rs.getString("m_pw");
+                if(memberpw.equals(pw)){
+                    sql="delete from member where m_id=?";
+                    pstmt=con.prepareStatement(sql);
+                    pstmt.setString(1, id);
+                    pstmt.executeUpdate();
+                    x=1;
+                }else{
+                    x=0;
+                }
+
+            }   
+        }catch(Exception e){
+            e.printStackTrace();
+        }    finally{
+            try{
+                if(rs!=null)rs.close();
+                if(pstmt!=null)pstmt.close();
+                if(con!=null)con.close();
+            }catch(Exception ex) {}
+        }
+
+        return x;
+    }   
+
 }
