@@ -53,7 +53,7 @@ public class MController extends HttpServlet {
 		
 		if(cutUrl.equals("/Min/mInsert.mo")){
 			
-			System.out.println("조건1분기");
+			System.out.println("조건1분기 : 회원가입");
 			forward = new ActionForward();//객체생성 하고 참조값을 포워드 객체에 할당한다.
 			forward.setRedirect(false);//포워드상태(값을가지고가는것/화면이동을위한것 주소변경없이 화면만 가져가는것도 포워드)
 			forward.setPath("/member/mInsertForm.jsp");
