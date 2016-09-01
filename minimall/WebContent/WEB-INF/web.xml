@@ -43,12 +43,12 @@
   </servlet-mapping>  
   
   <servlet>
-    <servlet-name>QAController</servlet-name>
+    <servlet-name>QNAController</servlet-name>
     <servlet-class>
-		com.minimall.controller.QAController</servlet-class>
+		com.minimall.controller.QNAController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>QAController</servlet-name>
+    <servlet-name>QNAController</servlet-name>
     <url-pattern>*.qna</url-pattern>
   </servlet-mapping>
   
