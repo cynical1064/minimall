@@ -11,40 +11,44 @@
 </head>
 <body>
 <%@ include file = "/module/header.jsp" %> 
-<div id="container" style="width:100%; height:100%;">
-	<div class="content" style="width:70%; height:700px;">
-		<form action="${pageContext.request.contextPath}/Min/mInsertPro.mo" method="post">			
-			<table border="1">
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="m_id" size="20"></td>
-			<tr>
-			<tr>
-				<td>암호</td>
-				<td><input type="password" name="m_pw" size="20"></td>
-			<tr>
-			<tr>
-				<td>권한</td>
-				
-				<td><input type="text" name="m_level" size="20"></td>
-			<tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="m_name" size="20"></td>
-			<tr>
-			<tr>
-				<td>이메일</td>
-				<td><input type="text" name="m_email" size="20"></td>
-			<tr>
-			<tr>
-				<td>주소:</td>
-				<td><input type="text" name="m_addr" size="20"></td>
-			<tr>
-			<tr>
-				<td colspan="4"><input type="submit" value="회원가입버튼"></td>
-			</tr>
-			</table>
-		</form>
+<div id="container" >
+	<div class="content" >
+		<div id="joinWarp">
+			<form action="${pageContext.request.contextPath}/Min/mInsertPro.mo" method="post">			
+				<table border="1">
+				<tr>
+					<td><span class="loginTitleTxt">아이디</span></td>
+					<td><input type="text" name="m_id" size="20" placeholder="아이디"></td>
+				<tr>
+				<tr>
+					<td><span class="loginTitleTxt">암호</span></td>
+					<td><input type="password" name="m_pw" size="20" placeholder="비밀번호"></td>
+				<tr>
+				<tr>
+					<td><span class="loginTitleTxt">권한</span></td>					
+					<td>
+						<label for="m_level">구매자</label><input type="radio" name="m_level" size="20" value="구매자">
+						<label for="m_level">판매자</label><input type="radio" name="m_level" size="20" value="판매자">
+					</td>
+				<tr>
+				<tr>
+					<td><span class="loginTitleTxt">이름</span></td>
+					<td><input type="text" name="m_name" size="20" placeholder="이름"></td>
+				<tr>
+				<tr>
+					<td><span class="loginTitleTxt">이메일</span></td>
+					<td><input type="text" name="m_email" size="20" placeholder="이메일"></td>
+				<tr>
+				<tr>
+					<td><span class="loginTitleTxt">주소</span></td>
+					<td><input type="text" name="m_addr" size="20" placeholder="주소"></td>
+				<tr>
+				<tr>
+					<td colspan="4"><input type="submit" value="회원가입버튼"></td>
+				</tr>
+				</table>
+			</form>
+		</div>	
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>
