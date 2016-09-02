@@ -8,7 +8,7 @@
 
 /* headerMain */
 #headerMain{width:100%; height:100px;; border-bottom:1px solid #fff; position:absolute;}
-#headerMain #headerContent{width:70%; height:100%; margin:0 auto; margin-top:18px;}
+#headerMain #headerContent{width:80%; height:100%; margin:0 auto; margin-top:18px;}
 #headerMain #headerContent #logoWrap{float:left; margin:0 30px;}
 #headerMain #headerContent ul li:last-child{float:right;}
 #headerMain #headerContent #itemNavWrap {margin-top:25px; float:left; margin-left:10%;}
@@ -21,7 +21,7 @@
 
 /* headerSub */
 #headerSub{width:100%; height:100px;; border-bottom:1px solid #ccc;}
-#headerSub #headerContent{width:70%; height:100%; margin:0 auto; margin-top:18px;}
+#headerSub #headerContent{width:80%; height:100%; margin:0 auto; margin-top:18px;}
 #headerSub #headerContent #logoWrap{float:left; margin:0 30px;}
 #headerSub #headerContent ul li:last-child{float:right;}
 #headerSub #headerContent #itemNavWrap {margin-top:25px; float:left; margin-left:10%;}
@@ -33,18 +33,19 @@
 #headerSub #headerContent #loginNavWrap #loginNav li a{font-size:12px; color:#434343; margin:0 4px; text-decoration:none;}
 
 /* container */
-#container{width:100%; height:100%;}
-#container .content{width:70%; height:100%; margin:0 auto;}
-#container .content .mainImgSection{}
-#container .content .mainImgSection li {float:left; width:33.3%;}
-
+#container{width:100%; height:100%; }
+#container .content{width:80%; height:100%; margin:0 auto;}
+#container .content .mainImgSection{width:100%; display:inline-block; margin:28px auto;}
+#container .content .mainImgSection li {float:left; width:33.3%; text-align:center;}
+#container .content .mainImgSection li .sectionTitle{font-size:16px; font-weight:bold;}
 /* join */
 #container .content #joinWarp{width:100%; height:100%; margin:30px 0; padding-left:40%;}
 #container .content #joinWarp input{height:20px; margin:10px 0; margin-left:10px; }
  #container .content #joinWarp .loginTitleTxt{font-size:13px; color:#434343; font-weight:bold;}
+ 
 /* footer */
 #footer{width:100%; height:170px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
-#footer #footerWrap{width:70%; height:100%; margin:0 auto;}
+#footer #footerWrap{width:80%; height:100%; margin:0 auto;}
 #footer #footerWrap #footerLogo{float:left; margin-top:40px; margin-left:15%;}
 #footer #footerWrap #footInfoWrap{width:50%;float:right; margin-top:25px;}
 #footer #footerWrap #footInfoWrap dl dt{font-size:14px; color:#000; padding:5px 0;}
