@@ -60,36 +60,19 @@ public class QController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Qna/QnaBoardList.qn")){
-			System.out.println("04_04 조건문 내 /Qna/QnaBoardList.qn QController.java");
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/qnaBoard/qna_list.jsp");
-		} else if(command.equals("/Qna/QnaBoardView.qn")) {
-			System.out.println("04_05 조건문 내 /Qna/QnaView.qn QController.java");
+		} else if(command.equals("/Qna/QnaDetailAction.qn")) {
+			System.out.println("04_04 조건문 내 /Qna/QnaView.qn QController.java");
 			action = new QnaDetailAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Qna/QnaDetailAction.qn")) {
-			System.out.println("04_06 조건문 내 /Qna/QnaDetailAction.qn QController.java");
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/qnaBoard/qna_view.jsp");
-			
 		}
-		
-		
-		
-		
-		
 		
 		if(forward != null){			//널이 아니면 다시 조건문으로 돌아감
 			if(forward.isRedirect()){
 				response.sendRedirect(forward.getPath());	//리다이렉트
-				//             /OracleM02OracleMember/ginsert/g_insert_form.ksmart
 			}else{
 				RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());	
 				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로] QController.java");

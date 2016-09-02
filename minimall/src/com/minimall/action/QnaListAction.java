@@ -49,7 +49,7 @@ public class QnaListAction implements ActionInterFace {
 		
 		ActionForward forward= new ActionForward();
 	 	forward.setRedirect(false);
-		forward.setPath("/Qna/QnaBoardList.qn");
+		forward.setPath("/qnaBoard/qna_list.jsp");
 		return forward;
 	 }
 

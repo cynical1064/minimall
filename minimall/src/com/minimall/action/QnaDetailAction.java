@@ -30,7 +30,7 @@ public class QnaDetailAction implements ActionInterFace {
 	   	
 	   	ActionForward forward = new ActionForward();
 	   	forward.setRedirect(false);
-  		forward.setPath("/Qna/QnaBoardView.qn");
+  		forward.setPath("/qnaBoard/qna_view.jsp");
   		return forward;
 
 	 }

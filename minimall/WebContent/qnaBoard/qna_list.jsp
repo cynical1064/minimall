@@ -95,21 +95,21 @@ if(listcount > 0){
 			<%if(nowpage<=1){ %>
 			[이전]&nbsp;
 			<%}else{ %>
-			<a href="/Qna/QnaList.qn?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+			<a href="${pageContext.request.contextPath}/Qna/QnaList.qn?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
 				[<%=a %>]
 				<%}else{ %>
-				<a href="/Qna/QnaList.qn?page=<%=a %>">[<%=a %>]</a>&nbsp;
+				<a href="${pageContext.request.contextPath}/Qna/QnaList.qn?page=<%=a %>">[<%=a %>]</a>&nbsp;
 				<%} %>
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
 			[다음]
 			<%}else{ %>
-			<a href="/Qna/QnaList.qn?page=<%=nowpage+1 %>">[다음]</a>
+			<a href="${pageContext.request.contextPath}/Qna/QnaList.qn?page=<%=nowpage+1 %>">[다음]</a>
 			<%} %>
 		</td>
 	</tr>
@@ -128,7 +128,7 @@ if(listcount > 0){
 	%>
 	<tr align="right">
 		<td colspan="5">
-	   		<a href="/Qna/QnaList.qn">[글쓰기]</a>
+	   		<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">[글쓰기]</a>
 		</td>
 	</tr>
 </table>

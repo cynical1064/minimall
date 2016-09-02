@@ -20,6 +20,7 @@ public class QnaDao {
 	PreparedStatement pstmtSelect;
 	PreparedStatement pstmt;
 	ResultSet rs;
+	QnaDto qnadto = null;
 	
 	public QnaDao() {
 		try {
@@ -37,7 +38,7 @@ public class QnaDao {
 		
 			String qna_list_sql="select * from "+
 			"(select rownum rnum,qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount from "+
-			"QNA_BOARD) where rnum>=? and rnum<=?";
+			"(select * from QNA_BOARD order by qna_no desc)) where rnum>=? and rnum<=?";
 			
 			List list = new ArrayList();
 			System.out.println(qna_list_sql + "<-- board_list_sql getQnaList QnaDAO.java");
@@ -84,11 +85,9 @@ public class QnaDao {
 	//글 내용 보기.
 		public QnaDto getDetail(int num) throws Exception{
 			
-			QnaDto qnadto = null;
 			try{
 				con = ds.getConnection();
-				pstmt = con.prepareStatement(
-						"select * from QNA_BOARD where QNA_NO = ?");
+				pstmt = con.prepareStatement("select * from QNA_BOARD where qna_no = ?");
 				pstmt.setInt(1, num);
 				
 				rs= pstmt.executeQuery();

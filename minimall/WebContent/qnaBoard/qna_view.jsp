@@ -2,7 +2,7 @@
 <%@ page import="com.minimall.dao.QnaDao" %>
 <%@ page import="com.minimall.dto.QnaDto" %>
 <%
-	QnaDto qnadto = (QnaDto)request.getAttribute("qnadate");
+	QnaDto qnadto = (QnaDto)request.getAttribute("qnadto");
 %>
 
 <html>
