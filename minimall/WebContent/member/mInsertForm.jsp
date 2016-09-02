@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<%@ include file = "/module/header.jsp" %> 
+<%@ include file = "/module/headerSub.jsp" %> 
 <div id="container" >
 	<div class="content" >
 		<div id="joinWarp">

@@ -18,16 +18,16 @@
 						THE MIDNIGHT
 					</dt>
 					<dd>
-						COPYRIGHT © THE MIDNIGHT ALL RIGHTS RESERVED.
+						COPYRIGHT  THE MIDNIGHT ALL RIGHTS RESERVED.
 					</dd>
 					<dd>
 						TEL1544-4941 Mon-Friday am10:00~pm5:00 / Lunch pm12:00~pm1:00 
 					</dd>
 					<dd>
-						Sat.Sun.Holiday OFF COMPANY디자인 플로어OWNER장성수
+						Sat.Sun.Holiday OFF COMPANY
 					</dd>
 					<dd>
-					 ADDRESS100196 서울특별시 중구 을지로6가 APM 1F 미드나잇 MASTER박종규E-MAILdfloor@naver.com BUSINESS LICENSE620-08-52026MAIL-ORDER LICENSEon the anvil HOSTING By CAFE24|DESIGNED By DFLOOR
+					 ADDRESS100196 jeonju MASTERKIMYONG E-MAIL cynicalkim@gmail.com BUSINESS LICENSE620-08-52026MAIL-ORDER LICENSEon the anvil HOSTING By CAFE24|DESIGNED By DFLOOR
 					</dd>
 				</dl>
 			</div>

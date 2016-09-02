@@ -127,7 +127,7 @@
               </ul>
        </div>
 </div> --%>
-<div id="header">
+<div id="headerMain">
 	<div id="headerContent" class="clearFix">
 		<div id="logoWrap">
 				<h2><a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/img/logo.png" alt="logo"></a></h2>
@@ -139,7 +139,7 @@
 				<li><a>COMMUNITY</a></li>
 				<li><a>ABOUT</a></li>
 				<li><a href="${pageContext.request.contextPath}/Qna/QnaList.qn">Q&A</a></li> 
-				
+				<li><a href="${pageContext.request.contextPath}/Qna/QnaList.qn">CONTACT US</a></li> 
 			</ul>
 		</div>				
 		<div id="loginNavWrap">
@@ -155,7 +155,7 @@
 				<c:choose>
 					<c:when test="${sessionScope.loginLevel == '관리자'}">
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
+							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님(${sessionScope.loginLevel}) 환영합니다.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 							<li style="cursor:pointer"><a>MEBER</a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></li>
@@ -163,7 +163,7 @@
 					</c:when>
 					<c:otherwise>
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
+							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님(${sessionScope.loginLevel}) 환영합니다.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 							<li style="cursor:pointer"><a>ORDER</a></li>
 						</ul>

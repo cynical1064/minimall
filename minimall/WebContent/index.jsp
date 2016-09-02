@@ -10,7 +10,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 </head>
 <body>
-<%@ include file = "/module/header.jsp" %>
+<%@ include file = "/module/headerMain.jsp" %>
 <div style="width:100%; height:700px;">
 	<iframe src="${pageContext.request.contextPath}/Nex-master/slider/transition/random/index.html" style="width:100%; height:100%;"></iframe>
 </div>
