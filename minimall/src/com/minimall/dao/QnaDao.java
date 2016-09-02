@@ -181,10 +181,7 @@ public class QnaDao {
 			
 			if(qna.getQna_secret() == null) {
 				qna.setQna_secret("n");
-			} else {
-				qna.setQna_secret("y");
 			}
-			
 			sql="insert into QNA_BOARD (QNA_NO,QNA_SUBJECT,M_ID,QNA_CONTENT,QNA_SECRET,QNA_CATEGORY,QNA_DATE) values (?,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
