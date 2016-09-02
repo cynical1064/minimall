@@ -30,7 +30,7 @@ public class MUpdateAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath(request.getContextPath()+"/Mlist/m_list.ksmart");
+		forward.setPath(request.getContextPath()+"/Mli/mList.mo");
 		return forward;
 	}
 

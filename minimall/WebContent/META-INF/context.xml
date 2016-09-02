@@ -3,7 +3,7 @@
          auth="Container"
          type="javax.sql.DataSource" 
          username="firework" 
-         password="0000"
+         password="java0000"
          driverClassName="oracle.jdbc.OracleDriver"
          factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
          url="jdbc:oracle:thin:@localhost:1521:XE"
