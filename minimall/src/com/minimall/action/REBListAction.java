@@ -45,7 +45,7 @@ import com.minimall.inter.ActionInterFace;
 		
 		ActionForward forward= new ActionForward();
 	 	forward.setRedirect(false);
- 		forward.setPath("reBoard/reBoardList.jsp");
+ 		forward.setPath("/reBoard/reBoardList.jsp");
  		return forward;
 	 }
  }

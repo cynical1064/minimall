@@ -59,7 +59,7 @@ public class REBAddAction implements ActionInterFace {
 	   		System.out.println("게시판 등록 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("./BoardList.reb");
+	   		forward.setPath("/reBoard/BoardList.reb");
 	   		return forward;
 	   		
   		}catch(Exception ex){
