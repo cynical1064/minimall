@@ -176,7 +176,8 @@ public class GoodsDao {
 		
 		System.out.println(result + " : 번 UPDATE");
 		
-		
+		pstmt.close();
+		conn.close();
 	}
 	
 	//구매자가 선택한 한 개의 상품을 가져오는 메서드 입니다.
