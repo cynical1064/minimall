@@ -11,9 +11,12 @@
 </head>
 <body>
 <%@ include file = "/module/header.jsp" %>
+<div style="width:100%; height:700px;">
+	<iframe src="${pageContext.request.contextPath}/Nex-master/slider/transition/random/index.html" style="width:100%; height:100%;"></iframe>
+</div>
 <div id="container"> 
-	<div class="content">
-	
+	<div class="content"">
+		<iframe scrolling="no" src="${pageContext.request.contextPath}/layout/containerLayout.html"  style="width:100%; height:2000px;"></iframe>
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>
