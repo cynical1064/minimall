@@ -23,7 +23,7 @@ public class MSelectForUpdate implements ActionInterFace {
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);
-		forward.setPath("/mupdate/m_update_form.jsp");
+		forward.setPath("/mup/mUpdateForm.jsp");
 		return forward;
 	}
 

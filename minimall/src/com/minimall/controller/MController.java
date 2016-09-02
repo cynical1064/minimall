@@ -90,7 +90,7 @@ public class MController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(cutUrl.equals("/Mupdate/mUpdatePro.mo")){//수정 처리
+		}else if(cutUrl.equals("/Mup/mUpdatePro.mo")){//수정 처리
 			System.out.println("조건5 선택업데이트");
 			
 			action  = new MUpdateAction();  
