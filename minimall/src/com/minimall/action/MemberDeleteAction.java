@@ -33,7 +33,7 @@ public class MemberDeleteAction implements ActionInterFace{
                 session.invalidate();
                 forward.setPath("./member/member_out_ok.jsp");
 
-            }else{
+            }else{  
                 response.setContentType("text/html; charset=euc-kr");
                 PrintWriter out = response.getWriter();
                 out.println("<script>");
