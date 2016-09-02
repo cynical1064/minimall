@@ -14,9 +14,25 @@
 <div style="width:100%; height:700px;">
 	<iframe src="${pageContext.request.contextPath}/Nex-master/slider/transition/random/index.html" style="width:100%; height:100%;"></iframe>
 </div>
-<div id="container"> 
-	<div class="content"">
-		<iframe scrolling="no" src="${pageContext.request.contextPath}/layout/containerLayout.html"  style="width:100%; height:2000px;"></iframe>
+<div id="container" class="clearFix"> 
+	<div class="content">
+		<div id="mainImgSectionWrap" >
+			<ul class="mainImgSection">
+				<li><img src="${pageContext.request.contextPath}/img/maquillage_width_440.jpg" /></li>
+				<li><img src="${pageContext.request.contextPath}/img/mode-homme_width_440.jpg" /></li>
+				<li><img src="${pageContext.request.contextPath}/img/parfum_width_440.jpg" /></li>
+			</ul>
+			<ul class="mainImgSection">
+				<li><img src="${pageContext.request.contextPath}/img/maquillage_width_440.jpg" /></li>
+				<li><img src="${pageContext.request.contextPath}/img/mode-homme_width_440.jpg" /></li>
+				<li><img src="${pageContext.request.contextPath}/img/parfum_width_440.jpg" /></li>
+			</ul>
+			<ul class="mainImgSection">
+				<li><img src="${pageContext.request.contextPath}/img/maquillage_width_440.jpg" /></li>
+				<li><img src="${pageContext.request.contextPath}/img/mode-homme_width_440.jpg" /></li>
+				<li><img src="${pageContext.request.contextPath}/img/parfum_width_440.jpg" /></li>
+			</ul>
+		</div>
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>

@@ -11,7 +11,7 @@
 #headerMain #headerContent{width:70%; height:100%; margin:0 auto; margin-top:18px;}
 #headerMain #headerContent #logoWrap{float:left; margin:0 30px;}
 #headerMain #headerContent ul li:last-child{float:right;}
-#headerMain #headerContent #itemNavWrap {margin-top:25px; float:left; margin-left:13%;}
+#headerMain #headerContent #itemNavWrap {margin-top:25px; float:left; margin-left:10%;}
 #headerMain #headerContent #itemNavWrap #itemNav li{float:left;  padding:0 15px;}
 #headerMain #headerContent #itemNavWrap #itemNav li a{ font-size:16px; color:#fff; text-decoration:none;}
 #headerMain #headerContent #itemNavWrap #itemNav li a:hover{color:#000; font-weight:bold;}
@@ -24,7 +24,7 @@
 #headerSub #headerContent{width:70%; height:100%; margin:0 auto; margin-top:18px;}
 #headerSub #headerContent #logoWrap{float:left; margin:0 30px;}
 #headerSub #headerContent ul li:last-child{float:right;}
-#headerSub #headerContent #itemNavWrap {margin-top:25px; float:left; margin-left:13%;}
+#headerSub #headerContent #itemNavWrap {margin-top:25px; float:left; margin-left:10%;}
 #headerSub #headerContent #itemNavWrap #itemNav li{float:left;  padding:0 15px;}
 #headerSub #headerContent #itemNavWrap #itemNav li a{ font-size:16px; color:#434343; text-decoration:none;}
 #headerSub #headerContent #itemNavWrap #itemNav li a:hover{color:#000; font-weight:bold;}
@@ -35,6 +35,8 @@
 /* container */
 #container{width:100%; height:100%;}
 #container .content{width:70%; height:100%; margin:0 auto;}
+#container .content .mainImgSection{}
+#container .content .mainImgSection li {float:left; width:33.3%;}
 
 /* join */
 #container .content #joinWarp{width:100%; height:100%; margin:30px 0; padding-left:40%;}
