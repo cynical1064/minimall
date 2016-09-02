@@ -8,7 +8,6 @@
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
-
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="js/jquery.brickfolio.js"></script>
 <script>

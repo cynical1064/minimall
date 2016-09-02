@@ -35,12 +35,11 @@ public class MemberInsertAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		
-		forward.setRedirect(false);
-		forward.setPath("/Mli/mList.mo");
-		
-		
+		forward.setRedirect(true);
+		forward.setPath(request.getContextPath()+"/index.jsp");		
 	
 		return forward;
+		
 	}
 
 }

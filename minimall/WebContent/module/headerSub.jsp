@@ -157,7 +157,7 @@
 						<ul id="loginNav">
 							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님(${sessionScope.loginLevel}) 환영합니다.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-							<li style="cursor:pointer"><a>MEBER</a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Mli/mList.mo">MEBER</a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></li>
 						</ul>
 					</c:when>
