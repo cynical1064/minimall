@@ -17,7 +17,7 @@
 <div id="container">
 	<div class="content">
 		<!-- 게시판 수정 -->
-		<table cellpadding="0" cellspacing="0">
+		<table class="basic">
 			<tr align="center" valign="middle">
 				<td colspan="5">문의하기</td>
 			</tr>

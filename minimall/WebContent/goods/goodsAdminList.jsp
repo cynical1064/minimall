@@ -39,7 +39,7 @@
 	<div id="container">
 		<div class="content">
 			<form action="${pageContext.request.contextPath}/Gchk/GoodsAdminChk.go" method="post" id="chkForm">
-				<table border="1">
+				<table class="basic">
 					<tr>
 						<th>번호</th><th>상품코드</th><th>상품명</th><th>판매자아이디</th><th>카테고리</th>
 						<th>가격</th><th>상세내용</th><th>등록날짜</th><th>승인여부</th><th>승인체크</th>

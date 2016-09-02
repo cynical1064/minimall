@@ -28,7 +28,7 @@
 	<div class="content">
 		<!-- 게시판 리스트 -->
 		<form action="${pageContext.request.contextPath}/Qna/QnaListAction.qn" method="post">
-		<table width=50% border="0" cellpadding="0" cellspacing="0">
+		<table class="basic">
 		<%
 		if(listcount > 0){
 		%>

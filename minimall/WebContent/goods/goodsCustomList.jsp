@@ -15,7 +15,7 @@
 			<c:if test="${sessionScope.loginLevel == '판매자'}">
 				<a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go">상품 등록</a>
 			</c:if>
-				<table border="1">
+				<table class="basic">
 					<tr>
 						<th>번호</th><th>상품명</th><th>판매자아이디</th><th>카테고리</th><th>가격</th><th>등록날짜</th>
 					</tr>

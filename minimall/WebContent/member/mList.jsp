@@ -12,7 +12,7 @@
 <%@ include file = "/module/headerSub.jsp" %>
 <div id="container">
 	<div class="content">
-		<table width="100%" border="1">
+		<table class="basic">
 		<tr>
 			<td>이름</td><td>아이디</td><td>권한</td><td>이름</td><td>이메
 			일</td><td>가입날짜</td><td>주소</td><td>수정</td><td>삭제</td>
