@@ -9,7 +9,7 @@
 <script>
 	$(document).ready(function(){
 		
-		$('#loginBtn').click(function(){
+		$('.loginBtn').click(function(){
 			
 			$('#loginWrap').show();
 			
@@ -31,14 +31,23 @@
 				
 			}
 			
-		})
+		});
 		
-	})
+		$('#closeLoginWrap').click(function(){
+			
+			$('#loginWrap').hide();
+			
+		});
+		
+	});
 </script>
 </head>
 <div id="loginWrap">
 	<div id="loginContent">
-		<div id="loginArea">
+		<span id="closeLoginWrap">
+			X
+		</span>
+		<div id="loginArea">		
 			<h2>
 				Login
 			</h2>
@@ -146,7 +155,7 @@
 		<c:choose>
 			<c:when test="${sessionScope.loginLevel == null}">
 				<ul id="loginNav">
-					<li id="loginBtn" style="cursor:pointer"><a>LOGIN</a></li>
+					<li id="loginBtn" style="cursor:pointer" class="loginBtn"><a>LOGIN</a></li>
 					<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Min/mInsert.mo">JOIN</a></li>
 					<li style="cursor:pointer"><a>ORDER</a></li>
 				</ul>
@@ -171,6 +180,38 @@
 				</c:choose>
 			</c:when>
 		</c:choose>	
+		</div>
+		<div id="hiddenNav">
+			<ul>
+				<li class="itemNav"><a>NEW ITEM</a></li>
+				<li class="itemNav"><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">SHOP</a></li>
+				<li class="itemNav"><a>COMMUNITY</a></li>
+				<li class="itemNav"><a>ABOUT</a></li>
+				<li class="itemNav"><a href="${pageContext.request.contextPath}/Qna/QnaList.qn">Q&A</a></li> 
+				<li class="itemNav"><a href="${pageContext.request.contextPath}/Qna/QnaList.qn">CONTACT US</a></li>
+				<c:choose>
+					<c:when test="${sessionScope.loginLevel == null}">
+						<li id="loginBtn"  class="loginNav loginBtn" style="cursor:pointer"><a>LOGIN</a></li>
+						<li class="loginNav"><a href="${pageContext.request.contextPath}/Min/mInsert.mo">JOIN</a></li>
+						<li class="loginNav"><a>ORDER</a></li>
+					</c:when>
+					<c:when test="${sessionScope.loginLevel != null}">
+						<c:choose>
+							<c:when test="${sessionScope.loginLevel == '관리자'}">
+								<li class="loginNav"><a><span>${sessionScope.loginName}님(${sessionScope.loginLevel}) 환영합니다.</span></a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/Mli/mList.mo">MEBER</a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></li>
+							</c:when>
+							<c:otherwise>
+								<li class="loginNav"><a><span>${sessionScope.loginName}님(${sessionScope.loginLevel}) 환영합니다.</span></a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+								<li class="loginNav"><a>ORDER</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+				</c:choose> 
+			</ul>
 		</div>
 	</div>
 </div>

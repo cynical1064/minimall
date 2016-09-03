@@ -9,7 +9,7 @@
 <script>
 	$(document).ready(function(){
 		
-		$('#loginBtn').click(function(){
+		$('.loginBtn').click(function(){
 			
 			$('#loginWrap').show();
 			
@@ -31,13 +31,22 @@
 				
 			}
 			
-		})
+		});
 		
-	})
+		$('#closeLoginWrap').click(function(){
+			
+			$('#loginWrap').hide();
+			
+		});
+		
+	});
 </script>
 </head>
 <div id="loginWrap">
 	<div id="loginContent">
+		<span id="closeLoginWrap">
+			X
+		</span>
 		<div id="loginArea">
 			<h2>
 				Login

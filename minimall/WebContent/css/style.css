@@ -1,10 +1,21 @@
 /* loginWrap */
 #loginWrap{width:100%; height:100%; position:absolute; top:0; z-index:999; display:none;}
 #loginWrap #loginContent{width:100%; height:100%; background:#000; opacity:0.8; margin:0 auto;}
-#loginWrap #loginContent #loginArea{width:500px; height:200px; background:#fff; position:absolute; top:35%; left:38%;}
+#loginWrap #loginContent  #closeLoginWrap{float:right; margin-top:5%; margin-right:10%;
+															 color:#fff; font-size:28px; font-weight:bold; cursor:pointer;}
+#loginWrap #loginContent #loginArea{width:500px; height:200px; background:#fff; position:absolute; top:35%; left:35%;}
 #loginWrap #loginContent #loginArea h2{font-size:24px; margin-left:40%; margin-top:30px;}
 #loginWrap #loginContent #loginArea table{margin-top:40px; margin-left:25%;}
-#loginWrap #loginContent #loginArea #loginSumbit{line-height:1.5em; background:#434343; color:#fff; margin:0 auto; margin-top:10px; text-align:center;}
+#loginWrap #loginContent #loginArea #loginSumbit{line-height:1.5em; background:#434343; color:#fff; margin:0 auto; margin-top:10px; 
+																	  text-align:center;}
+
+/* header°øÅë */
+#hiddenNav{float:right; display:none; margin:0 auto;}
+#hiddenNav ul{text-align:right;}
+#hiddenNav .itemNav{line-height:2em;}
+#hiddenNav .itemNav a{ font-size:18px; color:#fff; text-decoration:none;}
+#hiddenNav .loginNav{float:left;}
+#hiddenNav .loginNav a{font-size:12px; color:#fff; margin:0 4px; text-decoration:none;}
 
 /* headerMain */
 #headerMain{width:100%; height:100px;; border-bottom:1px solid #fff; position:absolute;}
@@ -63,6 +74,13 @@ table.basic th { background-color: #eeeeee; }
 .clearFix:after{content=""; display:block; clear:both;} 
 
 /* media Äõ¸® */
-@media screen and (min-width: 1000px) {
+@media screen and (max-width:1350px) {
+	
+	#headerMain{width:100%; height:100px; border:0; position:absolute;}
+	#headerContent #itemNavWrap li,
+	#headerContent #loginNavWrap li{display:none;}
+	#hiddenNav{float:right; display:inline-block;}
+	#footer #footerWrap #footerLogo{float:left; margin-top:40px; margin-left:35%;}
+	#footer #footerWrap #footInfoWrap{display:none;}
 
 }
