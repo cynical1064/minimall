@@ -117,7 +117,7 @@ public class OrderDao {
 		System.out.println("orderListOne OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
-		sql = "select o_no, m_id, g_id, o_date, g_code, o_count, o_total, o_state from orders where m_id = ?";
+		sql = "select * from orders o inner join goods g on o.g_code = g.g_code inner join member m on m.m_id = o.m_id where o.m_id = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, mId);
 		rs = pstmt.executeQuery();
@@ -132,9 +132,14 @@ public class OrderDao {
 			oDto.setO_count(rs.getInt("o_count"));
 			oDto.setO_total(rs.getInt("o_total"));
 			oDto.setO_state(rs.getString("o_state"));
+			oDto.setG_name(rs.getString("g_name"));
+			oDto.setG_price(rs.getInt("g_price"));
+			oDto.setM_name(rs.getString("m_name"));
+			oDto.setM_addr(rs.getString("m_addr"));
 			
 			orderListOne.add(oDto);
 		}
+		
 		rs.close();
 		pstmt.close();
 		rs.close();

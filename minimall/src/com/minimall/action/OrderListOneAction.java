@@ -20,10 +20,11 @@ public class OrderListOneAction implements ActionInterFace {
 		String mId = (String)request.getAttribute("mId");
 		System.out.println(mId + "<-- mId OrderListOne.java");
 		GoodsDao gdao = new GoodsDao();
-		ArrayList<GoodsDto> goodsList = gdao.
+		ArrayList<GoodsDto> goodsList = gdao.goodsSelectForCustom();
 		OrderDao odao = new OrderDao();
 		ArrayList<OrderDto> orderListOne = odao.orderListOne(mId);
 		
+		request.setAttribute("goodsList", goodsList);
 		request.setAttribute("orderListOne", orderListOne);
 		
 		ActionForward forward = new ActionForward();

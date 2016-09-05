@@ -9,6 +9,10 @@ public class OrderDto {
 	private int o_count;
 	private int o_total;
 	private String o_state;
+	private String g_name;
+	private int g_price;
+	private String m_name;
+	private String m_addr;
 	
 	public int getO_no() {
 		return o_no;
@@ -57,5 +61,30 @@ public class OrderDto {
 	}
 	public void setO_state(String o_state) {
 		this.o_state = o_state;
-	}	
+	}
+	public String getG_name() {
+		return g_name;
+	}
+	public void setG_name(String g_name) {
+		this.g_name = g_name;
+	}
+	public int getG_price() {
+		return g_price;
+	}
+	public void setG_price(int g_price) {
+		this.g_price = g_price;
+	}
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+	public String getM_addr() {
+		return m_addr;
+	}
+	public void setM_addr(String m_addr) {
+		this.m_addr = m_addr;
+	}
+	
 }
