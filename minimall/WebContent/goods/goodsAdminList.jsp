@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c-rt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,24 +11,7 @@
 		<script>
 			$(document).ready(function() {
 				$('#chkBtn').click(function() {
-					console.log('버튼 클릭');
 					$('#chkForm').submit();
-					/*
-					var chkArray = new Array();
-					 if($('.agreeChange:checked').length != 0) {
-						console.log($('.agreeChange:checked').length);
-						for(var i=0; i<$('.agreeChange:checked').length; i++) {
-							chkArray[i] = $('#hiddenGcode').val();
-							console.log(chkArray[i]);
-							
-							
-						}
-					} else {
-						$('#chkHelper').text('승인체크해주세요');
-					} */
-						
-						
-					
 				});
 			});
 		</script>

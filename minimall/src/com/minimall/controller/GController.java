@@ -13,6 +13,7 @@ import com.minimall.action.GoodsAdminChkAction;
 import com.minimall.action.GoodsCustomListAction;
 import com.minimall.action.GoodsInsertPro;
 import com.minimall.action.GoodsListAction;
+import com.minimall.action.GoodsSellerListAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -106,6 +107,16 @@ public class GController extends HttpServlet {
 			System.out.println("03_05 /Gchk/GoodsAdminChk.go");
 			
 			action = new GoodsAdminChkAction();
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Glist/goodsSellerList.go")) {
+			System.out.println("03_06 /Glist/goodsSellerList.go");
+			
+			action = new GoodsSellerListAction();
 			try {
 				forward = action.execute(request, response);
 				
