@@ -23,8 +23,9 @@ public class REBoardDAO {
 	public REBoardDAO() {
 		try{
 			Context init = new InitialContext();
-			System.out.println(init + "<-- init BoardDAO() ");
+			
 	  	    ds = (DataSource) init.lookup("java:comp/env/jdbc/Oracle2");
+	  	  System.out.println("db연결성공 ");
 	  		
 		}catch(Exception ex){
 			System.out.println("DB 연결 실패 : " + ex);

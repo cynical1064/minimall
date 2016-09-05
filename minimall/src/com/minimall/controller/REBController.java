@@ -20,21 +20,13 @@ import com.minimall.inter.ActionInterFace;
 	 //Servlet 라이프사이클 이해를 확인 위한 생성자메서드 선언
    public REBController() {
         super();
-		System.out.println("01 BoardFrontController 생성자 메서드  ");
-		System.out.println();
-   }
-   
-   	public void destroy(){
-		 System.out.println("09 destroy()메서드  !!!!!!!");
-		 System.out.println();
-
-	 }
+	}
+  	 
 	 protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		 	System.out.println("04 doGet()메서드 request  => "+ request);
-		 	System.out.println("04 doGet()메서드 response  => "+ response);
+			 	System.out.println("04 doGet()메서드 response  => "+ response);
 		 	System.out.println();
-			doProcess(request,response);
+			doPro(request,response);
 	}  	
 			
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -42,11 +34,11 @@ import com.minimall.inter.ActionInterFace;
 	 	System.out.println("05 doPost()메서드 request  => "+ request);
 	 	System.out.println("05 doPost()메서드 response  => "+ response);
 	 	System.out.println();
-		doProcess(request,response);
+		doPro(request,response);
 	}
 			
 			
-	 protected void doProcess(HttpServletRequest request, HttpServletResponse response) 
+	 protected void doPro(HttpServletRequest request, HttpServletResponse response) 
 	 	throws ServletException, IOException {
 		 System.out.println("06 doProcess 호출 BoardFrontController.java");
 		 String RequestURI=request.getRequestURI();

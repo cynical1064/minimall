@@ -29,7 +29,7 @@ import com.minimall.inter.ActionInterFace;
 	   	
 	   	ActionForward forward = new ActionForward();
 	   	forward.setRedirect(false);
-   		forward.setPath("./qna_board_view.jsp");
+   		forward.setPath(request.getContextPath() +"/reBoard/reBoardView.jsp");
    		return forward;
 
 	 }

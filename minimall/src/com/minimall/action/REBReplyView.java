@@ -29,7 +29,7 @@ public class REBReplyView implements ActionInterFace {
 	   		request.setAttribute("boarddata", boarddata);
 	   		
 	   		forward.setRedirect(false);
-	   		forward.setPath("./qna_board_reply.jsp");
+	   		forward.setPath(request.getContextPath() +"/reBoard/reBoardReply.jsp");
 	   		return forward;
 	}
 }

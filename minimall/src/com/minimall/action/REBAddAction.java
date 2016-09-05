@@ -31,8 +31,9 @@ public class REBAddAction implements ActionInterFace {
    		realFolder=request.getServletContext().getRealPath(saveFolder);
    		System.out.println(realFolder + "<-- realFolder execute메서드 BoardAddAction.java");
    		boolean result=false;
-   		
-   		try{
+   		System.out.println("!! ");
+   		try{   		System.out.println("!! 2");
+
    			
    			MultipartRequest multi=null;
    			
@@ -41,13 +42,13 @@ public class REBAddAction implements ActionInterFace {
    					fileSize,
    					"euc-kr",
    					new DefaultFileRenamePolicy());
-   			
+   			System.out.println("!! 3");
    			boarddata.setBOARD_NAME(multi.getParameter("BOARD_NAME"));
    			boarddata.setBOARD_PASS(multi.getParameter("BOARD_PASS"));
 	   		boarddata.setBOARD_SUBJECT(multi.getParameter("BOARD_SUBJECT"));
 	   		boarddata.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
 	   		boarddata.setBOARD_FILE(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
-	   		
+	   		System.out.println(boarddata.getBOARD_NAME());
 	   		System.out.println(multi.getFilesystemName((String)multi.getFileNames().nextElement()) + "<-- setBOARD_FILE(파라메터 값)");
 	   		
 	   		result=boarddao.boardInsert(boarddata);
@@ -59,7 +60,7 @@ public class REBAddAction implements ActionInterFace {
 	   		System.out.println("게시판 등록 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("/reBoard/BoardList.reb");
+	   		forward.setPath(request.getContextPath() +"/board/BoardList.reb");
 	   		return forward;
 	   		
   		}catch(Exception ex){

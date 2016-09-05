@@ -12,6 +12,7 @@
 	int startpage=((Integer)request.getAttribute("startpage")).intValue();
 	int endpage=((Integer)request.getAttribute("endpage")).intValue();
 %>
+<!DOCTYPE html>
 
 <html>
 <head>
