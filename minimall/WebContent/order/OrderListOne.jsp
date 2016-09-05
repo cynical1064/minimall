@@ -25,7 +25,7 @@
 				<td>${order.o_count}</td>
 				<td>${order.o_total}</td>
 				<td>${order.o_state}</td>
-				<td><a href="${pageContext.request.contextPath}/Odel/orderDeletePro.oo?oCode=${order.o_no}">林巩 秒家</a></td>
+				<td><a href="${pageContext.request.contextPath}/Odel/orderDeletePro.oo?oNo=${order.o_no}">林巩 秒家</a></td>
 			</tr>
 		</c:forEach>
 	</table>

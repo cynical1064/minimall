@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.minimall.dao.GoodsDao;
 import com.minimall.dao.OrderDao;
@@ -17,7 +18,8 @@ public class OrderListOneAction implements ActionInterFace {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("execute() OrderListOneAction.java");
-		String mId = (String)request.getAttribute("mId");
+		HttpSession session = request.getSession();		
+		String mId = (String)session.getAttribute("loginId");
 		System.out.println(mId + "<-- mId OrderListOne.java");
 		GoodsDao gdao = new GoodsDao();
 		ArrayList<GoodsDto> goodsList = gdao.goodsSelectForCustom();

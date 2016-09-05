@@ -142,18 +142,22 @@ public class OrderDao {
 		
 		rs.close();
 		pstmt.close();
-		rs.close();
+		conn.close();
 		
 		return orderListOne;
 	}
 	
 	//주문취소 메서드
-	public void OrderDelete(OrderDto order) throws SQLException{
+	public void OrderDelete(int oNo) throws SQLException{
 		System.out.println("OrderDelete OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
-		sql = "delete o_no, m_id, g_id, o_date, g_code, o_count, o_total, o_state from orders where o_no = ?";
+		sql = "delete from orders where o_no = ?";
 		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, oNo);
+		pstmt.executeUpdate();
 		
+		pstmt.close();
+		conn.close();		
 	}
 }
