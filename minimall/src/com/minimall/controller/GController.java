@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.GoodsAdminChkAction;
 import com.minimall.action.GoodsCustomListAction;
+import com.minimall.action.GoodsDForUpdateAction;
 import com.minimall.action.GoodsInsertPro;
 import com.minimall.action.GoodsListAction;
 import com.minimall.action.GoodsSellerListAction;
@@ -117,6 +118,16 @@ public class GController extends HttpServlet {
 			System.out.println("03_06 /Glist/goodsSellerList.go");
 			
 			action = new GoodsSellerListAction();
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Gup/goodsUpdateForm.go")) {
+			System.out.println("03_07 /Gup/goodsUpdateForm.go");
+			
+			action = new GoodsDForUpdateAction();
 			try {
 				forward = action.execute(request, response);
 				

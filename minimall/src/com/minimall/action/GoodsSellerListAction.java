@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.minimall.dao.GoodsDao;
 import com.minimall.dto.GoodsDto;
@@ -17,7 +18,10 @@ public class GoodsSellerListAction implements ActionInterFace {
 		System.out.println("01 execute() GoodsSellerListAction.java");
 		
 		request.setCharacterEncoding("euc-kr");
-		String sellerId = request.getParameter("loginId");
+		//String sellerId = request.getParameter("send_id");
+		HttpSession session = request.getSession();
+		String sellerId = (String) session.getAttribute("loginId");
+		System.out.println(sellerId + " : sellerId GoodsSellerListAction.java");
 		
 		GoodsDao goodsDao = new GoodsDao();
 		ArrayList<GoodsDto> goodsList = goodsDao.goodsSelectForSeller(sellerId);

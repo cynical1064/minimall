@@ -214,15 +214,16 @@ public class GoodsDao {
 	//판매자가 등록한 상품을 가져오는 메서드 입니다.
 	public ArrayList<GoodsDto> goodsSelectForSeller(String sellerId) throws SQLException {
 		System.out.println("06 goodsSelectForSeller() GoodsDao.java");
+		System.out.println(sellerId + " : sellerId goodsSelectForSeller() GoodsDao.java");
 		
 		conn = ds.getConnection();
 		
 		//goods테이블의 데이터 중 판매자 아이디에 해당하는 것만 가져오는 select 쿼리문 입니다.
 		String sql = "SELECT g_code, g_name, g_cate, g_sangse, g_price, g_date FROM goods";
-		sql += "WHERE g_id=?";
+		sql += " WHERE g_id=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, sellerId);
-		System.out.println(pstmt + " : pstmt goodsSelectAll() GoodsDao.java");
+		System.out.println(pstmt + " : pstmt goodsSelectForSeller() GoodsDao.java");
 		rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
