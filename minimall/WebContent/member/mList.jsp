@@ -7,6 +7,23 @@
 <title>미니몰</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+<script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function(){
+		
+		$('.delMemberBtn').click(function(){
+			
+			var btnIdx = $('.delMemberBtn').index(this);
+			
+			$('#memberId').each(function(i){				
+				
+				
+			});
+			
+		})
+		
+	})
+</script>
 </head>
 <body>
 <%@ include file = "/module/headerSub.jsp" %>
@@ -19,7 +36,7 @@
 		</tr>		
 		<c:forEach var="member" items="${alm}">		
 			<tr>
-				<td>${member.m_id}</td>
+				<td id="memberId">${member.m_id}</td>
 				<td>${member.m_pw}</td>
 				<td>${member.m_level}</td>
 				<td>${member.m_name}</td>
@@ -30,7 +47,7 @@
 					<a href="${pageContext.request.contextPath}/member/mUpdateForm.mo?send_id=${member.m_id}">수정클릭</a>			
 				</td>
 				<td>
-					<a href="${pageContext.request.contextPath}/member/mDeletePro.mo?send_id=${member.m_id}">삭제클릭</a>			
+					<a class="delMemberBtn" >삭제클릭</a>			
 				</td>
 			</tr>
 		</c:forEach>
