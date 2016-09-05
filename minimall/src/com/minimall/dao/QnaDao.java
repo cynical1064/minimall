@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 
 import com.minimall.dto.QnaDto;
 
+
 public class QnaDao {
 	DataSource ds;
 	Connection con;
@@ -32,7 +33,60 @@ public class QnaDao {
 			e.printStackTrace();
 		}
 	}
-	
+	//글 답변
+		public int boardReply(QnaDto qna){
+			
+			String board_max_sql="select max(board_num) from QNA_BOARD";
+			String sql="";
+			int num=0;
+			int result=0;
+			
+			/*int re_ref=qnadto.getBOARD_RE_REF();
+			int re_lev=board.getBOARD_RE_LEV();
+			int re_seq=board.getBOARD_RE_SEQ();*/
+			
+			try{
+				con = ds.getConnection();
+				pstmt=con.prepareStatement(board_max_sql);
+				rs = pstmt.executeQuery();
+				if(rs.next())num =rs.getInt(1)+1;
+				else num=1;
+				
+				/*sql="update QNA_BOARD set BOARD_RE_SEQ=BOARD_RE_SEQ+1 where BOARD_RE_REF=? ";
+				sql+="and BOARD_RE_SEQ>?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1,re_ref);
+				pstmt.setInt(2,re_seq);
+				result=pstmt.executeUpdate();
+				
+				re_seq = re_seq + 1;
+				re_lev = re_lev+1;*/
+				
+				sql="insert into QNA_BOARD (QNA_NO,QNA_SUBJECT,M_ID,QNA_CONTENT,QNA_SECRET,QNA_CATEGORY,QNA_DATE) values (?,?,?,?,?,?,sysdate)";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num+1);
+				pstmt.setString(2, qna.getQna_subject());
+				//pstmt.setString(3, qna.getM_id());
+				pstmt.setString(3, "id001");
+				pstmt.setString(4, qna.getQna_content());
+				pstmt.setString(5, qna.getQna_secret());
+				pstmt.setString(6, qna.getQna_category());
+				pstmt.executeUpdate();
+
+				
+				return num;
+			}catch(SQLException ex){
+				System.out.println("boardReply 에러 : "+ex);
+			}finally{
+				if(rs!=null)try{rs.close();}catch(SQLException ex){}
+				if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+				if(con!=null) try{con.close();}catch(SQLException ex){}
+			}
+			return 0;
+		}
+		
 	//글 목록 보기
 		public List getQnaList(int page,int limit){
 		
