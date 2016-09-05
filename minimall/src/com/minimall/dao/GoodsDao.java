@@ -184,10 +184,11 @@ public class GoodsDao {
 	public ArrayList<GoodsDto> goodsSelectByGcode(String gCode) throws SQLException {
 		System.out.println("05 goodsSelectByGcode() GoodsDao.java");
 		System.out.println(gCode + " : gCode goodsSelectByGcode() GoodsDao.java");
+		
 		conn = ds.getConnection();
 		
 		//g_code이 gCode 값에 해당하는 한 개 상품 데이터를 가져오는 select 쿼리문 입니다.
-		String sql = "SELECT g_code, g_name, g_id, g_price FROM goods";
+		String sql = "SELECT g_code, g_name, g_cate, g_sangse, g_id, g_price FROM goods";
 		sql += " WHERE g_code=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, gCode);
@@ -199,6 +200,8 @@ public class GoodsDao {
 			goodsDto.setG_code(rs.getString("g_code"));
 			System.out.println(goodsDto.getG_code());
 			goodsDto.setG_name(rs.getString("g_name"));
+			goodsDto.setG_cate(rs.getString("g_cate"));
+			goodsDto.setG_sangse(rs.getString("g_sangse"));
 			goodsDto.setG_id(rs.getString("g_id"));
 			goodsDto.setG_price(rs.getInt("g_price"));
 			
@@ -245,5 +248,34 @@ public class GoodsDao {
 		return goodsList;
 		
 	}
-	
+
+	//판매자가 선택한 gcode에 해당하는 데이터를 업데이트하는 메서드 입니다.
+	public void goodsUpdateByGcode(GoodsDto goodsDto) throws SQLException {
+		System.out.println("07 goodsUpdateByGcode() GoodsDao.java");
+		System.out.println(goodsDto + " : gCode goodsUpdateByGcode() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		//gcode에 해당하는 데이터를 입력한 값에 따라 수정하는 update 쿼리문 입니다.
+		String sql = "UPDATE goods SET";
+		sql += " g_name=?, g_cate=?, g_sangse=?, g_price=?";
+		sql += " WHERE g_code=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, goodsDto.getG_name());
+		pstmt.setString(2, goodsDto.getG_cate());
+		pstmt.setString(3, goodsDto.getG_sangse());
+		pstmt.setInt(4, goodsDto.getG_price());
+		pstmt.setString(5, goodsDto.getG_code());
+		System.out.println(pstmt + " : pstmt goodsUpdateByGcode() GoodsDao.java");
+		
+		int result = pstmt.executeUpdate();
+		if(result != 0) {
+			System.out.println("UPDATE 성공!");
+		} else {
+			System.out.println("UPDATE 실패!");
+		}
+		pstmt.close();
+		conn.close();
+	}
+
 }

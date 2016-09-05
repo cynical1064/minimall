@@ -15,6 +15,7 @@ import com.minimall.action.GoodsDForUpdateAction;
 import com.minimall.action.GoodsInsertPro;
 import com.minimall.action.GoodsListAction;
 import com.minimall.action.GoodsSellerListAction;
+import com.minimall.action.GoodsUpdateAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -128,6 +129,16 @@ public class GController extends HttpServlet {
 			System.out.println("03_07 /Gup/goodsUpdateForm.go");
 			
 			action = new GoodsDForUpdateAction();
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Gup/GoodsUpdateAtion.go")) {
+			System.out.println("03_08 /Gup/GoodsUpdateAtion.go");
+			
+			action = new GoodsUpdateAction();
 			try {
 				forward = action.execute(request, response);
 				

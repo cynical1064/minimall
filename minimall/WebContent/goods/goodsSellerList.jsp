@@ -24,7 +24,7 @@
 				<table class="basic">
 					<tr>
 						<th>번호</th><th>상품코드</th><th>상품명</th><th>카테고리</th><th>가격</th>
-						<th>상세내용</th><th>등록날짜</th><th>수정<input type="hidden" name="gCode" value="${goods.g_code}"/></th>
+						<th>상세내용</th><th>등록날짜</th><th>수정</th>
 					</tr>
 					<c:forEach var="goods" items="${goodsList}" varStatus="status">
 						<tr>
@@ -35,7 +35,7 @@
 							<td>${goods.g_price}</td>
 							<td>${goods.g_sangse}</td>
 							<td>${goods.g_date}</td>
-							<td>
+							<td><input type="hidden" name="gCode" value="${goods.g_code}"/>
 								<input type="button" value="수정" id="updateBtn"/>
 							</td>
 						</tr>
