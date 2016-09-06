@@ -181,7 +181,7 @@ public class GoodsDao {
 	}
 	
 	//구매자가 선택한 한 개의 상품을 가져오는 메서드 입니다.
-	public ArrayList<GoodsDto> goodsSelectByGcode(String gCode) throws SQLException {
+	public GoodsDto goodsSelectByGcode(String gCode) throws SQLException {
 		System.out.println("05 goodsSelectByGcode() GoodsDao.java");
 		System.out.println(gCode + " : gCode goodsSelectByGcode() GoodsDao.java");
 		
@@ -204,14 +204,12 @@ public class GoodsDao {
 			goodsDto.setG_sangse(rs.getString("g_sangse"));
 			goodsDto.setG_id(rs.getString("g_id"));
 			goodsDto.setG_price(rs.getInt("g_price"));
-			
-			goodsList.add(goodsDto);
 		}
 		rs.close();
 		pstmt.close();
 		conn.close();
 			
-		return goodsList;
+		return goodsDto;
 	}
 
 	//판매자가 등록한 상품을 가져오는 메서드 입니다.
