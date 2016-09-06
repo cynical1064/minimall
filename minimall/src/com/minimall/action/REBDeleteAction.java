@@ -42,7 +42,7 @@ public class REBDeleteAction implements ActionInterFace {
 	   	
 	   	System.out.println("게시판 삭제 성공");
 	   	forward.setRedirect(true);
-   		forward.setPath(request.getContextPath() +"/board/BoardList.reb");
+   		forward.setPath("/board/BoardList.reb");
    		return forward;
 	 }
 }

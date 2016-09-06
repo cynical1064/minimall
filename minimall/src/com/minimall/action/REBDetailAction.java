@@ -29,7 +29,7 @@ import com.minimall.inter.ActionInterFace;
 	   	
 	   	ActionForward forward = new ActionForward();
 	   	forward.setRedirect(false);
-   		forward.setPath(request.getContextPath() +"/reBoard/reBoardView.jsp");
+   		forward.setPath("/reBoard/reBoardView.jsp");
    		return forward;
 
 	 }
