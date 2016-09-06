@@ -23,27 +23,24 @@
 						<tr>
 							<td colspan=6><h2 align="center">수정하기</h2></td>
 						</tr>
-						
-						<c:forEach var="goods" items="${goodsDto}">
-							<tr>
-								<td>카테고리</td>
-								<td><input name="gCate" type="text" size="40" maxlength="30" value="${goods.g_cate}"/></td>
-							</tr>
-							<tr>
-								<td>상품명</td>
-								<td><input name="gName" type="text" size="40" maxlength="30" value="${goods.g_name}"/></td>
-							</tr>
-							<tr>
-								<td>가격</td>
-								<td><input name="gPrice" type="text" size="40" maxlength="30" value="${goods.g_price}"/></td>
-							</tr>
-							<tr>
-								<td>상품상세설명</td>
-								<td><input type="hidden" name="gCode" value="${goods.g_code}"/>
-									<textarea name="gSangse" rows="8" cols="45">${goods.g_sangse}</textarea>
-								</td>
-							</tr>
-						</c:forEach>
+						<tr>
+							<td>카테고리</td>
+							<td><input name="gCate" type="text" size="40" maxlength="30" value="${goodsDto.g_cate}"/></td>
+						</tr>
+						<tr>
+							<td>상품명</td>
+							<td><input name="gName" type="text" size="40" maxlength="30" value="${goodsDto.g_name}"/></td>
+						</tr>
+						<tr>
+							<td>가격</td>
+							<td><input name="gPrice" type="text" size="40" maxlength="30" value="${goodsDto.g_price}"/></td>
+						</tr>
+						<tr>
+							<td>상품상세설명</td>
+							<td><input type="hidden" name="gCode" value="${goodsDto.g_code}"/>
+								<textarea name="gSangse" rows="8" cols="45">${goodsDto.g_sangse}</textarea>
+							</td>
+						</tr>
 						<tr>
 							<td colspan="2">
 								<a href="javascript:modifygoods()">[수정]</a>&nbsp;&nbsp;

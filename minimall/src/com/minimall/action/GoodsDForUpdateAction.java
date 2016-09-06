@@ -1,7 +1,5 @@
 package com.minimall.action;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +19,7 @@ public class GoodsDForUpdateAction implements ActionInterFace {
 		System.out.println(gCode + " : GoodsDForUpdateAction.java");
 		
 		GoodsDao goodsDao = new GoodsDao();
-		ArrayList<GoodsDto> goodsDto = goodsDao.goodsSelectByGcode(gCode);
+		GoodsDto goodsDto = goodsDao.goodsSelectByGcode(gCode);
 		
 		request.setAttribute("goodsDto", goodsDto);
 		
