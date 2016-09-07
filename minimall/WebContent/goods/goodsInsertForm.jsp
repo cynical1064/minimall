@@ -41,6 +41,12 @@
 								</td>
 							</tr>
 							<tr>
+								<td>사진</td>
+								<td>
+									<input type="file" name="myImage" accept="image/*" />
+								</td>
+							</tr>
+							<tr>
 								<td colspan="4"><input type="submit" value="상품등록버튼"></td>
 							</tr>
 						</table>
