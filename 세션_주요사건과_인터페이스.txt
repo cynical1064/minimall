@@ -1,0 +1,52 @@
+세션
+
+클라이언트가 서버에 접속해 있는 시간을 말한다.
+전문적인 말로 프로세스들 간에 통신을 하기 위해 메시지 교환을 통해 서로 인식한(접속한) 이후로부터
+통신을 마칠 때까지(접속을 종료할 때까지)의 기간을 뜻한다.
+
+
+1. 생명주기 <javax.servlet.http.HtppSesionListener>
+ 세션이 생성되고 소멸할 때 그 알림을 받는다.
+
+ - 세션 생성
+	sessionCreated() : 세션이 메모리에 올라오고 초기화됨을 알리는 메서드이다.
+	
+ - 세션 소멸
+	
+흔히 '세션 만료' 라는 말을 많이 들어봐을 것이다.
+사용자가 인터넷 서핑을 하다가 해당 사이트에서 아무런 행동을 하지 않았을 경우
+보안상의 문제로 세션을 만료시켜 페이지 새로고침을 요구하는 경우에 사용되기도 한다.
+일반적인 세션의 지속시간은 30분이며, 시간은 자유롭게 설정할 수 있다.
+여러 방법이 있지만, 그 중 톰캣에 웹 어플리케이션을 설치할 때
+web.xml 파일 내에서 <session-timeout> 태그를 사용하여 표준 세션 타임아웃 시간을 지정해 주어야 한다.
+만약 사용되는 세션이 자동 삭제되지 않게 하기 위해서는 값을 -1로 지정해준다.
+최소 단위가 '분'이다.
+
+	sessionDestroyed() : 세션이 타임아웃 되었거나 또는
+	다른 어플리케이션에서 invalidate()메서드를 호출했을 경우
+
+2. 속성 <javax.servlet.http.HttpSessionAttributeListener>
+ 세션이 변화할 때 그 알림을 받는다.
+
+ - 속성 추가
+	attributeAdded() : HttpSession.setAttribute() 메서드를 통해
+			   새로운 세션 속성이 더해질 때마다 호출된다.
+ - 속성 제거
+	attributeRemeoved() : HttpSession.removeAttribute() 메서드를 통해
+			      세션 속성이 제거될 때마다 호출된다.
+ - 속성 대체
+	attributeReplaced() : HttpSession.setAttribute() 메서드를 통해
+			      새로운 값으로 대체될 때마다 호출된다.
+
+3. 이동 <javax.servlet.http.HttpSessionActivationListener>
+ HttpSessionActivationListener 인터페이스를 구현한 클래스로 만들어진 객체가 세션에 추가되면,
+ 이 객체는 세션이 active 상태나 passive 상태가 될때마다 event 알림을 받는다.
+
+ - 활성
+	sessionDidActivate() : 세션이 active(활성) 상태가 되었음을 알리는 메서드이다.
+ - 비활성
+	sessionWillPassivate() : 세션이 passive(비활성) 상태가 되었음을 알리는 메서드이다.
+
+
+
+
