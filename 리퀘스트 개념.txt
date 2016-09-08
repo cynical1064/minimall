@@ -1,0 +1,17 @@
+요청을 받고 응답할 때 - javax.servlet.ServletRequestListener
+ServletRequest에 값을 추가하고, 제거하고, 대체할 때 - javax.servlet.ServletRequestAttributeListener
+사용자로부터의 요청(request)가 들어올 때 마다 이를 감지하는 리스너이다
+
+요청 (request) 영역은 응답 (response) 이 처리되는 사이에 속성을 사용할 수 있습니다.
+따라서 포워딩이나 인클루딩 방식을 이용한다면, 여러개의 페이지에서도 요청 정보가 계속 유지되므로 
+request 영역의 속성을 여러 페이지에서 공유할 수 있습니다.
+
+requestInitialized() - 요청(request)을 하며 리퀘스트 영역을 생성하는 메서드 입니다
+
+requestDestroyed() - 응답(response)을하고 리퀘스트 영역이 종료되는 메서드 입니다
+
+attributeAdded() - 리퀘스트 영역에 값이 추가될 때 실행되는 메서드 입니다
+
+attributeReplaced() - 리퀘스트 영역에 값이 변경될 때 실행되는 메서드 입니다
+
+attributeRemoved() - 리퀘스트 영역에서 값이 삭제될 때 실행되는 메서드 입니다
