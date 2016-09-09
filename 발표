@@ -67,7 +67,7 @@
 
 웹어플리케이션에 있는 인터페이스부터 설명하겠습니다.
 
-ServletContextListener의 경우 인터페이스 구현을 통해 리스너 클래스는
+ServletContextListener(서블릿컨텍스트리스너)의 경우 인터페이스 구현을 통해 리스너 클래스는
 
 서버 시작과 함께 서블릿 컨텍스트 객체가 생성되고
 
@@ -77,15 +77,15 @@ ServletContextListener의 경우 인터페이스 구현을 통해 리스너 클�
 
  그리고 contextDestoryed(컨텍스트디스트로이)라는 메소드는 웹 어플리케이션이 종료될때 서블릿 컨텍스트의 객체가 사라짐을 알려주는 메소드입니다.
 
-ServletContextAttributeListener의 경우 
+ServletContextAttributeListener(서블릿컨텍스트어트리뷰트리스너)의 경우 
 
 서블릿 컨텍스트에 저장된 속성 값들의 변화가 있을 때 수행하기 위한 메소드를 정의한 인터페이스입니다.
 
-attributeAdded(ServletContextAttributeEvent scae) : void (가르키며)값을 추가
+attributeAdded(어트리뷰트에디드e) : void (가르키며)값을 추가
 
-attributeRemoved(ServletContextAttributeEvent scae) : void (가르키며)값을 삭제
+attributeRemoved(어트리뷰트리무브) : void (가르키며)값을 삭제
 
-attributeReplaced(ServletContextAttributeEvent scae) : void (가르키며)값을 변경할때
+attributeReplaced(어트리뷰트리플레이스) : void (가르키며)값을 변경할때
 
 알려주는 메서드들 입니다.
 
@@ -99,41 +99,41 @@ attributeReplaced(ServletContextAttributeEvent scae) : void (가르키며)값을
 통신을 마칠 때까지(접속을 종료할 때까지)의 기간을 뜻합니다.
 
 
-세션영역의 이벤트를 감지하는 HttpSessionListener 를 구현한 클래스 내에
-sessionCreated(HttpSession se) : void 메서드는 세션 영역이 생성되었을때 알려주는 메서드 이고
-sessionDestoryed(HttpSession se) : void 메서드는 세션영역이 소멸되었을때 알려주는 메서드입니다.
+세션영역의 이벤트를 감지하는 HttpSessionListener(에이치티티피세션리스너) 를 구현한 클래스 내에
+sessionCreated(세션크리에이티드) : void 메서드는 세션 영역이 생성되었을때 알려주는 메서드 이고
+sessionDestoryed(세션디스트로이) : void 메서드는 세션영역이 소멸되었을때 알려주는 메서드입니다.
 '세션 만료' 라는 말을 들어봐을 것입니다.
 사용자가 인터넷 서핑을 하다가 해당 사이트에서 아무런 행동을 하지 않았을 경우
 보안상의 문제로 세션을 만료시켜 페이지 새로고침을 요구하는 경우에 사용되기도 합니다.
 일반적인 세션의 지속시간은 30분이며, 시간은 자유롭게 설정할 수 있습니다..
 여러 방법이 있지만, 그 중 톰캣에 웹 어플리케이션을 설치할 때
-web.xml 파일 내에서 <session-timeout> 태그를 사용하여 표준 세션 타임아웃 시간을 지정해 주는 방법이 있습니다.
+web.xml 파일 내에서 <session-timeout>(세션타임아웃) 태그를 사용하여 표준 세션 타임아웃 시간을 지정해 주는 방법이 있습니다.
 만약 사용되는 세션이 자동 삭제되지 않게 하기 위해서는 값을 -1로 지정해줍니다
 최소 단위가 '분'입니다. 이 과정은 잠시후 구현해 보여드리겠습니다.
 
 
-HttpSessionActivationListener 는 조사를 했는데 깊게 알수가 없어 간단하게 설명해드리겠습니다.HttpSessionActivationListener 인터페이스를 구현한 클래스로 만들어진 객체가 세션에 추가되면,
- 이 객체는 세션이 active 상태나 passive 상태가 될때마다 event 알림을 받습니다.
+HttpSessionActivationListener(에이치티티피세션엑티베이션리스너) 는 조사를 했는데 깊게 알수가 없어 간단하게 설명해드리겠습니다.HttpSessionActivationListener 인터페이스를 구현한 클래스로 만들어진 객체가 세션에 추가되면,
+ 이 객체는 세션이 active(엑티브) 상태나 passive(패시브) 상태가 될때마다 event 알림을 받습니다.
 
-sessionDidActivate(HttpSessionEvent e) : void 는 세션이 활성화 될 때 실행
-sessionWillPassivate(HttpSessionEvent e) : void 세션이 비활성화 되려고 할 때 실행된다고 합니다.
+sessionDidActivate(세션디드엑티브) : void 는 세션이 활성화 될 때 실행
+sessionWillPassivate(세션윌패시배이트) : void 세션이 비활성화 되려고 할 때 실행된다고 합니다.
 
 
-HttpSessionAttributeListener 는 HTTP 세션에 대한 속성 값이 변경되었을 경우에 수행하기 위한 인터페이스입니다.
+HttpSessionAttributeListener(에이치티티피세션어트리뷰트리스너) 는 HTTP 세션에 대한 속성 값이 변경되었을 경우에 수행하기 위한 인터페이스입니다.
 
-attributeAdded(HttpSessionBindingEvent e) : void    세션에 새로운 속성 값이 추가
-attributeRemoved(HttpSessionBindingEvent e) : void  제거
-attributeReplaced(HttpSessionBindingEvent e) : void 변경될 때 실행 됩닙다.
+attributeAdded(어트리뷰트에디드) : void    세션에 새로운 속성 값이 추가
+attributeRemoved(어트리뷰트리무브) : void  제거
+attributeReplaced(어트리뷰트리플레이스) : void 변경될 때 실행 됩닙다.
 
 3-3
 
 
 
 
-다음으로 요청영역의 이벤트를 감지하는 ServletRequestListener를 구현한 클래스 내에 
-requestDestroyed(ServletRequestEvent sre) :void 요청이 서블릿으로 넘어가기 전 실행
+다음으로 요청영역의 이벤트를 감지하는 ServletRequestListener(서블릿리퀘스트리스너)를 구현한 클래스 내에 
+requestDestroyed(리퀘스트디스트로이) :void 요청이 서블릿으로 넘어가기 전 실행
 
-requestInitialized(ServletRequestEvent sre):void 요청이 없어지기 전 실행되는 메서드입니다.
+requestInitialized(리퀘스트이니셜라이즈):void 요청이 없어지기 전 실행되는 메서드입니다.
 
 ServletRequestAttributeListener는 ServletRequest에 값을 추가하고,제거하고, 대체하기위한 인터페이습니다.
 
