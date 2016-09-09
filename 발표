@@ -138,9 +138,9 @@ requestInitialized(리퀘스트이니셜라이즈):void 요청이 없어지기 �
 
 ServletRequestAttributeListener는 ServletRequest에 값을 추가하고,제거하고, 대체하기위한 인터페있습니다.
 
-attributeAdded(HttpSessionBindingEvent event)
-(세션에 새로운 속성 값이 추가될 때 실행)
-attributeRemoved(HttpSessionBindingEvent event)
-(세션의 속성 값이 제거될 실행)
-attributeReplaced(HttpSessionBindingEvent event)
-(세션의 속성 값이 변경될 때 실행)
+attributeAdded()
+(request 영역에 새로운 속성 값이 추가될 때 실행)
+attributeRemoved()
+(request 영역의 속성 값이 제거될 실행)
+attributeReplaced()
+(request 영역의 속성 값이 변경될 때 실행)
