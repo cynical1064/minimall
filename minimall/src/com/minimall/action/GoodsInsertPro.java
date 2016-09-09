@@ -1,5 +1,10 @@
 package com.minimall.action;
 
+import java.awt.List;
+import java.io.BufferedReader;
+import java.util.ArrayList;
+
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,6 +12,8 @@ import com.minimall.dao.GoodsDao;
 import com.minimall.dto.GoodsDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.MultipartResponse;
 
 public class GoodsInsertPro implements ActionInterFace {
 
@@ -15,6 +22,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		System.out.println("01 execute() GoodsInsertPro.java");
 		
 		request.setCharacterEncoding("euc-kr");
+		
 		String gId = request.getParameter("gId");
 		String gName = request.getParameter("gName");
 		String gCate = request.getParameter("gCate");

@@ -9,6 +9,7 @@ public class GoodsDto {
 	private int g_price;
 	private String g_date;
 	private char g_agree;
+	private byte[] g_image;
 	
 	public String getG_code() {
 		return g_code;
@@ -58,4 +59,11 @@ public class GoodsDto {
 	public void setG_agree(char g_agree) {
 		this.g_agree = g_agree;
 	}
+	public byte[] getG_image() {
+		return g_image;
+	}
+	public void setG_image(byte[] g_image) {
+		this.g_image = g_image;
+	}
+	
 }
