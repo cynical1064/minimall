@@ -126,15 +126,17 @@ attributeReplaced(어트리뷰트리플레이스) : void 변경될 때 실행 �
 
 3-3
 
+마지막으로 요청 영역의 인터페이스에 대한 설명입니다.
+요청 (request) 영역은 응답 (response) 이 처리되는 사이에 속성을 사용할 수 있습니다.
+따라서 포워딩이나 인클루딩 방식을 이용한다면, 여러개의 페이지에서도 요청 정보가 계속 유지되므로 
+request 영역의 속성을 여러 페이지에서 공유할 수 있습니다.
 
-
-
-다음으로 요청영역의 이벤트를 감지하는 ServletRequestListener(서블릿리퀘스트리스너)를 구현한 클래스 내에 
+요청영역의 이벤트를 감지하는 ServletRequestListener(서블릿리퀘스트리스너)를 구현한 클래스 내에는 2개의 메서드가 있습니다
 requestDestroyed(리퀘스트디스트로이) :void 요청이 서블릿으로 넘어가기 전 실행
 
 requestInitialized(리퀘스트이니셜라이즈):void 요청이 없어지기 전 실행되는 메서드입니다.
 
-ServletRequestAttributeListener는 ServletRequest에 값을 추가하고,제거하고, 대체하기위한 인터페이습니다.
+ServletRequestAttributeListener는 ServletRequest에 값을 추가하고,제거하고, 대체하기위한 인터페있습니다.
 
 attributeAdded(HttpSessionBindingEvent event)
 (세션에 새로운 속성 값이 추가될 때 실행)
