@@ -164,25 +164,19 @@
 				<c:choose>
 					<c:when test="${sessionScope.loginLevel == '관리자'}">
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a><span>admin님 환영합니다.</span></a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Mli/mList.mo">MEBER</a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></li>
-						</ul>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>admin님 환영합니다.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>						</ul>
 					</c:when>
 					<c:when test="${sessionScope.loginLevel == '판매자'}">
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a><span>판매자님 환영합니다.</span></a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Mli/mList.mo">MEBER</a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">등록상품</a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>판매자님 환영합니다.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>							
 						</ul>
 					</c:when>
 					<c:when test="${sessionScope.loginLevel == '구매자'}">
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-							<li style="cursor:pointer"><a>ORDER</a></li>
 						</ul>
 					</c:when>
 				</c:choose>
@@ -206,21 +200,16 @@
 					<c:when test="${sessionScope.loginLevel != null}">
 						<c:choose>
 							<c:when test="${sessionScope.loginLevel == '관리자'}">
-								<li class="loginNav"><a><span>admin님 환영합니다.</span></a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>admin님 환영합니다.</span></a></li>
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/Mli/mList.mo">MEBER</a></li>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></li>
 							</c:when>
 							<c:when test="${sessionScope.loginLevel == '판매자'}">
-								<li class="loginNav"><a><span>판매자 환영합니다.</span></a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>판매자 환영합니다.</span></a></li>
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/Mli/mList.mo">MEBER</a></li>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">등록상품</a></li>
 							</c:when>
 							<c:otherwise>
-								<li class="loginNav"><a><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-								<li class="loginNav"><a>ORDER</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:when>
