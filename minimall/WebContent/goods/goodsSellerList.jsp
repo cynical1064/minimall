@@ -12,6 +12,7 @@
 		<%@ include file = "/module/headerSub.jsp" %>
 		<div id="container">
 		<div class="content">
+			<a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go">상품 등록</a>
 			<table class="basic">
 				<tr>
 					<th>번호</th><th>상품코드</th><th>상품명</th><th>카테고리</th><th>가격</th>

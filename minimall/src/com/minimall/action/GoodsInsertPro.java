@@ -16,18 +16,25 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.MultipartResponse;
 
 public class GoodsInsertPro implements ActionInterFace {
-
+	private final String UPLOAD_DIRECTORY = "";
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsInsertPro.java");
 		
 		request.setCharacterEncoding("euc-kr");
-		
-		String gId = request.getParameter("gId");
+		/*String gId = request.getParameter("gId");
 		String gName = request.getParameter("gName");
 		String gCate = request.getParameter("gCate");
 		int gPrice = Integer.parseInt(request.getParameter("gPrice"));
-		String gSangse = request.getParameter("gSangse");
+		String gSangse = request.getParameter("gSangse");*/
+		
+		MultipartRequest multipartRequest = new MultipartRequest(request, UPLOAD_DIRECTORY);
+		String gId = multipartRequest.getParameter("gId");
+		String gName = multipartRequest.getParameter("gName");
+		String gCate = multipartRequest.getParameter("gCate");
+		int gPrice = Integer.parseInt(multipartRequest.getParameter("gPrice"));
+		String gSangse = multipartRequest.getParameter("gSangse");
 		System.out.println(gId + " : gId GoodsInsertPro.java");
 		System.out.println(gName + " : gName GoodsInsertPro.java");
 		System.out.println(gCate + " : gCate GoodsInsertPro.java");
