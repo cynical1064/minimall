@@ -77,6 +77,8 @@ table.basic th { background-color: #eeeeee; }
 #footer #footerWrap #footInfoWrap dl dt{font-size:14px; color:#000; padding:5px 0;}
 #footer #footerWrap #footInfoWrap dl dd{font-size:12px; color:#434343; line-height:1.5em;}
 
+/* mypage */
+
 /* clear≈¨∑°Ω∫ */
 .clearFix:after{content=""; display:block; clear:both;} 
 

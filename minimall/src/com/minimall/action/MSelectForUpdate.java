@@ -2,6 +2,7 @@ package com.minimall.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.minimall.dao.MemberDao;
 import com.minimall.dto.MemberDto;
@@ -14,7 +15,9 @@ public class MSelectForUpdate implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		MemberDao dao = new MemberDao();
-		String mid = request.getParameter("send_id");
+		
+		HttpSession session=request.getSession();
+		String mid = (String) session.getAttribute("loginId");
 		
 		System.out.println(mid);
 		MemberDto m =  dao.mSelectforUpdate(mid);
@@ -23,7 +26,8 @@ public class MSelectForUpdate implements ActionInterFace {
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);
-		forward.setPath("/mup/mUpdateForm.jsp");
+		forward.setPath("/mypage/mypageUpdate.jsp");
+		
 		return forward;
 	}
 

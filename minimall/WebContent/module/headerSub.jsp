@@ -179,7 +179,6 @@
 						<ul id="loginNav">
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
-							<li style="cursor:pointer"><a>ORDER</a></li>
 						</ul>
 					</c:when>
 				</c:choose>

@@ -222,7 +222,7 @@ public class MemberDao {
 		
 		con = ds.getConnection();
 		pstmt = con.prepareStatement(
-				"UPDATE member SET m_pw=?,m_level=?,m_name=?,m_email=?,m_email=?,m_addr=? WHERE m_id=?");
+				"UPDATE member SET m_pw=?, m_level=?, m_name=?, m_email=? ,m_addr=? WHERE m_id=?");
 		System.out.println(pstmt + "<-- pstmt 1");
 		pstmt.setString(1, m.getm_pw());
 		pstmt.setString(2, m.getm_level());
@@ -233,8 +233,16 @@ public class MemberDao {
 		
 		System.out.println(pstmt + "<-- pstmt 2");
 		
-		pstmt.executeUpdate();
-		
+		int result = pstmt.executeUpdate();
+		if(result == 1){
+			
+			System.out.println("업데이트 성공");
+			
+		}else{
+			
+			System.out.println("업데이트 실패");
+			
+		}
 		pstmt.close();
 		con.close();
 	}

@@ -16,7 +16,9 @@ public class MUpdateAction implements ActionInterFace {
 		request.setCharacterEncoding("euc-kr");
 		
 		System.out.println("MUpdateAction execute");
+		
 		MemberDao dao = new MemberDao();
+		
 		MemberDto m = new MemberDto();
 		
 		m.setm_id(request.getParameter("m_id"));
@@ -30,7 +32,7 @@ public class MUpdateAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath(request.getContextPath()+"/Mli/mList.mo");
+		forward.setPath(request.getContextPath()+"/Mup/mUpdateForm.mo");
 		return forward;
 	}
 

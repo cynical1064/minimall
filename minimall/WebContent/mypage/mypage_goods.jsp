@@ -15,7 +15,7 @@
 			
 			var btnIdx = $('.delMemberBtn').index(this);
 			
-			$('#memberId').each(function(i){				
+			$('#memberId').each(function(i){		
 				
 				
 			});
@@ -39,18 +39,42 @@
 						<dd>게시글 관리</dd>
 					</c:when>
 					<c:when test="${sessionScope.loginLevel == '판매자'}">
-						<dd><a href="${pageContext.request.contextPath}//Mup/mUpdateForm.mo">개인정보수정</a></dd>
+						<dd>개인정보수정</dd>
 						<dd><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">등록상품</a></dd>
 						<dd>게시글 관리</dd>
 					</c:when>
 					<c:otherwise>
-						<dd><a href="${pageContext.request.contextPath}//Mup/mUpdateForm.mo">개인정보수정</a></dd>
-						<dd><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo">order</a></dd>
+						<dd>개인정보수정</dd>
+						<dd>order</dd>
 						<dd>게시글 관리</dd>
 					</c:otherwise>
 				</c:choose>
 				<dd></dd>
 			</dl>
+		</div>
+		
+		<div id="myPageContent">			
+			<table class="basic">
+				<tr>
+					<th>번호</th><th>상품코드</th><th>상품명</th><th>카테고리</th><th>가격</th>
+					<th>상세내용</th><th>등록날짜</th><th>수정</th>
+				</tr>
+				<c:forEach var="goods" items="${goodsList}" varStatus="status">
+					<tr>
+						<td>${status.count}</td>
+						<td>${goods.g_code}</td>
+						<td>${goods.g_name}</td>
+						<td>${goods.g_cate}</td>
+						<td>${goods.g_price}</td>
+						<td>${goods.g_sangse}</td>
+						<td>${goods.g_date}</td>
+						<td>
+							<a href="${pageContext.request.contextPath}/Gup/goodsUpdateForm.go?gCode=${goods.g_code}">수정</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go">상품 등록</a>
 		</div>
 	</div>
 </div>
