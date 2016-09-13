@@ -18,7 +18,7 @@ public class QnaAddAction implements ActionInterFace {
 		ActionForward forward = new ActionForward();
 		
 		String realFolder = "";
-		String saveFolder = "boardUpLoad";
+		String saveFolder = "qnaBoard";
 		
 		realFolder = request.getServletContext().getRealPath(saveFolder);
 		System.out.println(realFolder + "<- realFolder execute¸Þ¼­µå QnaAddAction.java");

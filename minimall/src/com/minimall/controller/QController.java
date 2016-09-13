@@ -69,7 +69,8 @@ public class QController extends HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		} else if(command.equals("/board/BoardReplyView.bo")){
+		} else if(command.equals("/Qna/QnaReplyView.qn")){
+			System.out.println("04_05 조건문 내 /Qna/QnaReplyView.qn QController.java");
 			action = new QnaReplyView();
 			try{
 				forward=action.execute(request, response);

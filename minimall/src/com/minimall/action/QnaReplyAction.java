@@ -24,7 +24,7 @@ public class QnaReplyAction implements ActionInterFace {
 		   		qnadto.setQna_secret(request.getParameter("QNA_SECRET"));
 		   		qnadto.setQna_category(request.getParameter("QNA_CATEGORY"));
 		   		
-		   		result=qnadao.boardReply(qnadto);
+		   		result=qnadao.QnaReply(qnadto);
 		   		if(result==0){
 		   			System.out.println("답장 실패");
 		   			return null;

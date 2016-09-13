@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 import com.minimall.dto.QnaDto;
 
 
+
 public class QnaDao {
 	DataSource ds;
 	Connection con;
@@ -33,8 +34,10 @@ public class QnaDao {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	//±Û ´äº¯
-		public int boardReply(QnaDto qna){
+		public int QnaReply(QnaDto qna){
 			
 			String board_max_sql="select max(board_num) from QNA_BOARD";
 			String sql="";
