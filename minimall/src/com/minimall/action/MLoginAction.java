@@ -37,11 +37,13 @@ public class MLoginAction implements ActionInterFace {
 			session.setAttribute("loginLevel", loginLevel);
 			session.setAttribute("loginName", loginName);
 			session.setAttribute("loginId", loginId);
+			session.setAttribute("loginChk", 2);
 			//세션영역에 셋팅
 		}else{
 			
 			System.out.println("로그인 실패");
-			
+			session.setAttribute("loginChk", 1);
+
 		}
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
