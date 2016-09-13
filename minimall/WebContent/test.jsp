@@ -3,5 +3,5 @@
 <!DOCTYPE html >
 
 
-<% response.sendRedirect(request.getContextPath()+"/board/BoardWrite.reb");%>
-<%-- <% response.sendRedirect(request.getContextPath()+"/reBoard/reBoardList.jsp");%> --%>
+<% response.sendRedirect(request.getContextPath()+"/board/BoardWrite.reb"); %>
+<%-- <% response.sendRedirect(request.getContextPath()+"/reBoard/reBoardList.jsp");%>--%>

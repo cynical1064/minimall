@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"%>
-
+<!DOCTYPE html>
 <html>
 <head>
 	<title>리뷰 게시판</title>
@@ -12,7 +12,7 @@
 <body>
 
 <!-- 게시판 등록 -->
-<form action="<%= request.getContextPath() %>/board/BoardAddAction.reb" method="post" 
+<form action="${pageContext.request.contextPath}/board/BoardAddAction.reb" method="post" 
 	enctype="multipart/form-data" name="boardform">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">

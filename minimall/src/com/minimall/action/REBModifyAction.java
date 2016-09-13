@@ -47,7 +47,7 @@ import com.minimall.inter.ActionInterFace;
 		   	 System.out.println("게시판 수정 완료");
 		   	 
 		   	 forward.setRedirect(true);
-		   	 forward.setPath("/board/BoardDetailAction.reb?num="+boarddata.getBOARD_NUM());
+		   	 forward.setPath(request.getContextPath() + "/board/BoardDetailAction.reb?num="+boarddata.getBOARD_NUM());
 		   	 return forward;
 	   	 }catch(Exception ex){
 	   			ex.printStackTrace();	 

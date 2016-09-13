@@ -17,7 +17,7 @@
 <body>
 
 <!-- 게시판 수정 -->
-<form action="<%= request.getContextPath() %>/board/BoardModifyAction.reb" method="post" name="modifyform">
+<form action="/board/BoardModifyAction.reb" method="post" name="modifyform">
 <input type="hidden" name="BOARD_NUM" value=<%=board.getBOARD_NUM() %>>
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">

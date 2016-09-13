@@ -73,7 +73,7 @@ if(listcount > 0){
 			<%}else{ %>
 				▶
 			<%} %>
-			<a href="<%= request.getContextPath() %>/board/BoardDetailAction.reb?num=<%=bl.getBOARD_NUM()%>">
+			<a href="./BoardDetailAction.reb?num=<%=bl.getBOARD_NUM()%>">
 				<%=bl.getBOARD_SUBJECT()%>
 			</a>
 			</div>
@@ -95,21 +95,21 @@ if(listcount > 0){
 			<%if(nowpage<=1){ %>
 			[이전]&nbsp;
 			<%}else{ %>
-			<a href="<%= request.getContextPath() %>/board/BoardList.reb?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
 				[<%=a %>]
 				<%}else{ %>
-				<a href="<%= request.getContextPath() %>/board/BoardList.reb?page=<%=a %>">[<%=a %>]</a>&nbsp;
+				<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=a %>">[<%=a %>]</a>&nbsp;
 				<%} %>
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
 			[다음]
 			<%}else{ %>
-			<a href="<%= request.getContextPath() %>/board/BoardList.reb?page=<%=nowpage+1 %>">[다음]</a>
+			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage+1 %>">[다음]</a>
 			<%} %>
 		</td>
 	</tr>
@@ -129,7 +129,7 @@ if(listcount > 0){
 	%>
 	<tr align="right">
 		<td colspan="5">
-	   		<a href="<%= request.getContextPath() %>/board/BoardWrite.reb">[글쓰기]</a>
+	   		<a href="${pageContext.request.contextPath}/board/BoardWrite.reb">[글쓰기]</a>
 		</td>
 	</tr>
 </table>

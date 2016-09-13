@@ -37,11 +37,7 @@ public class REBAddAction implements ActionInterFace {
    			
    			MultipartRequest multi=null;
    			
-   			multi=new MultipartRequest(request,
-   					realFolder,
-   					fileSize,
-   					"euc-kr",
-   					new DefaultFileRenamePolicy());
+   			multi=new MultipartRequest(request,realFolder,fileSize,"euc-kr",new DefaultFileRenamePolicy());
    			System.out.println("!! 3");
    			boarddata.setBOARD_NAME(multi.getParameter("BOARD_NAME"));
    			boarddata.setBOARD_PASS(multi.getParameter("BOARD_PASS"));
@@ -60,7 +56,7 @@ public class REBAddAction implements ActionInterFace {
 	   		System.out.println("게시판 등록 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("/board/BoardList.reb");
+	   		forward.setPath(request.getContextPath() + "/board/BoardList.reb");
 	   		return forward;
 	   		
   		}catch(Exception ex){

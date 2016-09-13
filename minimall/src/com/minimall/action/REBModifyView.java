@@ -27,7 +27,7 @@ public class REBModifyView implements ActionInterFace {
 		   	
 		   	request.setAttribute("boarddata", boarddata);
 		   	forward.setRedirect(false);
-	   		forward.setPath("/reBoard/reBoardModify.jsp");
+	   		forward.setPath(request.getContextPath() + "/reBoard/reBoardModify.jsp");
 	   		return forward;
 	 }
 }

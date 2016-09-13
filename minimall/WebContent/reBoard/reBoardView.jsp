@@ -51,7 +51,7 @@
 		</td>
 		<td style="font-family:돋음; font-size:12">
 		<%if(!(board.getBOARD_FILE()==null)){ %>
-		<a href="<%= request.getContextPath() %>/reBoard/filedown.jsp?filename=<%=board.getBOARD_FILE()%>">
+		<a href="/reBoard/filedown.jsp?filename=<%=board.getBOARD_FILE()%>">
 			<%=board.getBOARD_FILE() %>			
 			
 			
@@ -68,16 +68,16 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="<%= request.getContextPath() %>/board/BoardReplyView.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="/board/BoardReplyView.reb?num=<%=board.getBOARD_NUM() %>">
 			[답변]
 			</a>&nbsp;&nbsp;
-			<a href="<%= request.getContextPath() %>/board/BoardModify.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="/board/BoardModify.reb?num=<%=board.getBOARD_NUM() %>">
 			[수정]
 			</a>&nbsp;&nbsp;
-			<a href="<%= request.getContextPath() %>/board/BoardDelete.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="/board/BoardDelete.reb?num=<%=board.getBOARD_NUM() %>">
 			[삭제]
 			</a>&nbsp;&nbsp;
-			<a href="<%= request.getContextPath() %>/board/BoardList.reb">[목록]</a>&nbsp;&nbsp;
+			<a href="/board/BoardList.reb">[목록]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>

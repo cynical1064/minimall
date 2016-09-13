@@ -7,7 +7,7 @@
 <title>¸®ºä °Ô½ÃÆÇ</title>
 </head>
 <body>
-<form name="deleteForm" action="<%= request.getContextPath() %>/board/BoardDeleteAction.reb?num=<%=num %>" 
+<form name="deleteForm" action="/board/BoardDeleteAction.reb?num=<%=num %>" 
 	method="post">
 <table border=1>
 <tr>

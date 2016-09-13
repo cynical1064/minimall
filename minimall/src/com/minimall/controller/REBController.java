@@ -40,7 +40,7 @@ import com.minimall.inter.ActionInterFace;
 			
 	 protected void doPro(HttpServletRequest request, HttpServletResponse response) 
 	 	throws ServletException, IOException {
-		 System.out.println("06 doProcess 호출 BoardFrontController.java");
+		 System.out.println("06 doPro 호출 BoardFrontController.java");
 		 String RequestURI=request.getRequestURI();
 		 String contextPath=request.getContextPath();
 		 String command=RequestURI.substring(contextPath.length());
@@ -52,12 +52,11 @@ import com.minimall.inter.ActionInterFace;
 		 System.out.println();
 		 ActionForward forward=null;
 		 ActionInterFace action=null;
-		
 		if(command.equals("/board/BoardWrite.reb")){
 			
 			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/reBoard/reBoardWrite.jsp");
+			forward.setRedirect(true);
+			forward.setPath(request.getContextPath()+"/reBoard/reBoardWrite.jsp");
 		}else if(command.equals("/board/BoardReplyAction.reb")){
 			action = new REBReplyAction();
 			try{
