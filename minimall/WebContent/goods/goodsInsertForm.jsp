@@ -13,7 +13,7 @@
 		<div class="content">
 			<div class="boardArea">
 				<div class="boardWrap">
-					<form action="${pageContext.request.contextPath}/Gin/goodsInsertPro.go" method="post">
+					<form action="${pageContext.request.contextPath}/Gin/goodsInsertPro.go" method="post" enctype="multipart/form-data">
 						<table class="basic">
 							<tr>
 								<td>판매자아이디</td>

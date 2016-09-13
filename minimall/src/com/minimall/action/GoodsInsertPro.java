@@ -5,13 +5,20 @@ import java.awt.List;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.minimall.dao.GoodsDao;
 import com.minimall.dto.GoodsDto;
@@ -31,29 +38,43 @@ public class GoodsInsertPro implements ActionInterFace {
 		String gCate = request.getParameter("gCate");
 		int gPrice = Integer.parseInt(request.getParameter("gPrice"));
 		String gSangse = request.getParameter("gSangse");
-		String gImageName = request.getParameter("myImage");
-		//byte[] gImage = request.getParameter("myImage").getBytes();
+		//String gImageName = request.getParameter("myImage");
+		Part gImage = (Part) request.getPart("myImage");
+		String gImageName = Paths.get(gImage.getName()).getFileName().toString();
 		
 		System.out.println(gId + " : gId GoodsInsertPro.java");
 		System.out.println(gName + " : gName GoodsInsertPro.java");
 		System.out.println(gCate + " : gCate GoodsInsertPro.java");
 		System.out.println(gPrice + " : gPrice GoodsInsertPro.java");
 		System.out.println(gSangse + " : gSangse GoodsInsertPro.java");
-		System.out.println(gImageName + " : gImage GoodsInsertPro.java");
+		System.out.println(gImageName + " : gImageName GoodsInsertPro.java");
 		
+		BufferedInputStream bufferedInputStream = new BufferedInputStream(gImage.getInputStream());
+		
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		byte[] buffer = new byte[1024000];
+		int count = 0;
+		while((count = bufferedInputStream.read()) >= 0) {
+			byteArrayOutputStream.write(buffer, 0, count);
+		}
+		byte[] gImageByte = byteArrayOutputStream.toByteArray();
+		System.out.println(byteArrayOutputStream.toByteArray());
+		
+		/*
 		File imgPath = new File(gImageName);
 		BufferedImage bufferedImage = ImageIO.read(imgPath);
-		
 		WritableRaster raster = bufferedImage.getRaster();
 		DataBufferByte data  = (DataBufferByte) raster.getDataBuffer();
 		System.out.println(data.getData());
-
+		 */
+		
 		GoodsDto goodsDto = new GoodsDto();
 		goodsDto.setG_id(gId);
 		goodsDto.setG_name(gName);
 		goodsDto.setG_cate(gCate);
 		goodsDto.setG_price(gPrice);
 		goodsDto.setG_sangse(gSangse);
+		goodsDto.setG_image(gImageByte);
 		
 		GoodsDao goodsDao = new GoodsDao();
 		goodsDao.goodsInsert(goodsDto);

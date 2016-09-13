@@ -62,7 +62,7 @@ public class GoodsDao {
 		
 		//goods테이블에 상품을 등록하는 insert 쿼리문 입니다.
 		String sql = "INSERT INTO goods";
-		sql += " VALUES(?,?,?,?,?,?,sysdate,'N')";
+		sql += " VALUES(?,?,?,?,?,?,sysdate,'N',?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, g_code);
 		pstmt.setString(2, goodsDto.getG_name());
@@ -70,6 +70,7 @@ public class GoodsDao {
 		pstmt.setString(4, goodsDto.getG_cate());
 		pstmt.setString(5, goodsDto.getG_sangse());
 		pstmt.setInt(6, goodsDto.getG_price());
+		pstmt.setBytes(7, goodsDto.getG_image());
 		System.out.println(pstmt + " : pstmt goodsInsert() GoodsDao.java");
 		
 		int getResult = pstmt.executeUpdate();
