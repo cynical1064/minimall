@@ -14,6 +14,7 @@ import com.minimall.inter.ActionInterFace;
 import com.minimall.action.QnaAddAction;
 import com.minimall.action.QnaDetailAction;
 import com.minimall.action.QnaListAction;
+import com.minimall.action.QnaReplyAction;
 import com.minimall.action.QnaReplyView;
 import com.minimall.forward.ActionForward;
 
@@ -75,6 +76,14 @@ public class QController extends HttpServlet {
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Qna/QnaReplyAction.qn")){
+	    	System.out.println("04_06 조건문 내 /Qna/QnaReplyAction.qn QController.java");
+			action = new QnaReplyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

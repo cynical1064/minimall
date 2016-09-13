@@ -15,9 +15,8 @@
 	</script>
 </head>
 <body>
-qna_board_reply.jsp <br>
 <!-- 게시판 답변 -->
-<form action="./QnaReplyAction.pn" method="post" name="boardform">
+<form action="${pageContext.request.contextPath}/Qna/QnaReplyAction.qn" method="post" name="boardform">
 <input type="hidden" name="qna_category" value="<%=qnadto.getQna_category() %>">
 <input type="hidden" name="qna_secret" value="<%=qnadto.getQna_secret() %>">
 

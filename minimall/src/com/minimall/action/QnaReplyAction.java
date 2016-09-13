@@ -32,7 +32,7 @@ public class QnaReplyAction implements ActionInterFace {
 	   		System.out.println("답장 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath(request.getContextPath() + "/Qna/QnaList.qn?num="+result);
+	   		forward.setPath(request.getContextPath() + "/Qna/QnaDetailAction.qn?num="+result);
 	   		return forward;
  		}
 }

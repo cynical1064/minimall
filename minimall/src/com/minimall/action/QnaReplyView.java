@@ -26,10 +26,10 @@ public class QnaReplyView implements ActionInterFace {
 	   		}
 	   		System.out.println("답장 페이지 이동 완료");
 	   		
-	   		request.setAttribute("boarddata", qnadto);
+	   		request.setAttribute("qnadto", qnadto);
 	   		
 	   		forward.setRedirect(false);
-	   		forward.setPath("./qna_reply.jsp");
+	   		forward.setPath("/qnaBoard/qna_reply.jsp");
 	   		return forward;
 		}
 }
