@@ -17,9 +17,9 @@ public class OrderListAction implements ActionInterFace {
 		System.out.println("execute OrderListAction.java");
 		
 		OrderDao odao = new OrderDao();
-		ArrayList<OrderDto> orderArrayList = odao.orderSelectAll();
+		ArrayList<OrderDto> orderList = odao.orderSelectAll();
 		
-		request.setAttribute("orderArrayList", orderArrayList);
+		request.setAttribute("orderList", orderList);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

@@ -39,11 +39,11 @@ $(document).ready(function(){
 <link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
 </head>
 <body>
-<jsp:include page="/module/headerMain.jsp" />
+<jsp:include page="/module/headerSub.jsp" />
 <div id="container"> 
 	<div class="content">
 		<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
-			<table border="1">
+			<table class="basic">
 				<tr>
 					<td>상품명</td>
 					<td>
@@ -78,7 +78,8 @@ $(document).ready(function(){
 						<input name="oTotal" id="oTotal" value="${goods.g_price}" readonly="readonly">원
 					</td>
 				</tr>
-				<tr>	
+				<tr>
+					<td></td>	
 					<td>				
 						<input type = "hidden" name="gCode" value="${goods.g_code}">
 						<input type = "hidden" name="mId" value="${sessionScope.loginId}">
