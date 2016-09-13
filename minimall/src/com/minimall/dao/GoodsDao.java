@@ -1,5 +1,10 @@
 package com.minimall.dao;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +26,7 @@ public class GoodsDao {
 	ResultSet rs;
 	GoodsDto goodsDto;
 	ArrayList<GoodsDto> goodsList = new ArrayList<GoodsDto>();
+	Blob blob = null;
 	
 	public GoodsDao() {
 		try {
@@ -70,7 +76,10 @@ public class GoodsDao {
 		pstmt.setString(4, goodsDto.getG_cate());
 		pstmt.setString(5, goodsDto.getG_sangse());
 		pstmt.setInt(6, goodsDto.getG_price());
-		pstmt.setBytes(7, goodsDto.getG_image());
+
+		byte[] buffer = goodsDto.getG_image();
+		pstmt.setBinaryStream(7, new ByteArrayInputStream(buffer));
+		
 		System.out.println(pstmt + " : pstmt goodsInsert() GoodsDao.java");
 		
 		int getResult = pstmt.executeUpdate();
@@ -84,13 +93,13 @@ public class GoodsDao {
 	}
 
 	//상품 전체 SELECT
-	public ArrayList<GoodsDto> goodsSelectAll() throws SQLException {
+	public ArrayList<GoodsDto> goodsSelectAll() throws SQLException, IOException {
 		System.out.println("02 goodsSelectAll() GoodsDao.java");
 		
 		conn = ds.getConnection();
 		
 		//goods테이블의 전체 데이터를 가져오는 select 쿼리문 입니다.
-		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_agree FROM goods";
+		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_agree, g_img FROM goods";
 		pstmt = conn.prepareStatement(sql);
 		System.out.println(pstmt + " : pstmt goodsSelectAll() GoodsDao.java");
 		rs = pstmt.executeQuery();
@@ -106,6 +115,15 @@ public class GoodsDao {
 			goodsDto.setG_price(rs.getInt("g_price"));
 			goodsDto.setG_date(rs.getString("g_date"));
 			goodsDto.setG_agree(rs.getString("g_agree").charAt(0));
+			
+			Blob blob = (Blob)rs.getBlob("g_img");
+			
+			BufferedInputStream bufferedInputStream = new BufferedInputStream(blob.getBinaryStream());
+			int imageSize = (int)blob.length();
+			byte[] buf = new byte[imageSize];
+			int nReadSize = bufferedInputStream.read(buf, 0, imageSize);
+			bufferedInputStream.close();
+			goodsDto.setG_image(buf);
 			
 			goodsList.add(goodsDto);
 		}

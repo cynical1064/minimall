@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import ="java.awt.image.BufferedImage" %>
+<%@ page import ="java.io.ByteArrayInputStream" %>
+<%@ page import ="javax.imageio.ImageIO" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,6 +34,9 @@
 						<tr>
 							<td>${status.count}</td>
 							<td>${goods.g_code}</td>
+							<td>
+								<img src="data:image/png;base64,${imageList[status.index]}" alt="No image">
+							</td>
 							<td>${goods.g_name}</td>
 							<td>${goods.g_id}</td>
 							<td>${goods.g_cate}</td>
