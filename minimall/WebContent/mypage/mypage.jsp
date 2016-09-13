@@ -28,7 +28,7 @@
 <body>
 <jsp:include page="/module/headerSub.jsp" />
 <div id="container">
-	<div class="content">
+	<div class="content clearFix">
 		<div id="leftMenuWrap">
 			<dl id="leftMenu">
 				<dt>마이페이지</dt>
