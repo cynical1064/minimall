@@ -76,8 +76,8 @@ public class OController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/Oli/OrderListOne.oo")){
-			System.out.println("조건문 내 /Oli/OrderListOne.oo OController.java");
+		}else if(command.equals("/Oli/orderListOne.oo")){
+			System.out.println("조건문 내 /Oli/orderListOne.oo OController.java");
 			action = new OrderListOneAction();
 			try {
 				forward = action.execute(request, response);

@@ -34,54 +34,61 @@ $(document).ready(function(){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+<link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
-		<table border="1">
-			<c:forEach var="goodsList" items="${goodsList}">
-			<tr>
-				<td>상품명</td>
-				<td>
-					<input type="hidden" name="gName" id="gName" value="${goodsList.g_name}">
-					${goodsList.g_name}
-				</td>
-			</tr>
-			<tr>
-				<td>판매자</td>
-				<td>
-					<input type="hidden" name="gId" id="gId" value="${goodsList.g_id}">
-					${goodsList.g_id}
-				</td>
-			</tr>
-			<tr>
-				<td>가격</td>
-				<td>
-					<input type="hidden" name="gPrice" id="gPrice" value="${goodsList.g_price}">
-					${goodsList.g_price}
-				</td>
-			</tr>
-			<tr>
-				<td>수량</td>
-				<td>
-					<input name="oCount" id="oCount" value="1" readonly="readonly">
-					<span id="upCount">▲</span>/<span id="downCount">▼</span><span id="count"></span>
-				</td>
-			</tr>
-			<tr>
-				<td>합계</td>
-				<td>
-					<input name="oTotal" id="oTotal" value="${goodsList.g_price}" readonly="readonly">원
-				</td>
-			</tr>
-			<tr>	
-				<td>
-					<input type="submit" value="구매">
-				</td>
-			</tr>			
-			<input type = "hidden" name="gCode" value="${goodsList.g_code}">
-			<input type = "hidden" name="mId" value="${sessionScope.loginId}">
-		</c:forEach>
-		</table>
-</form>
+<jsp:include page="/module/headerMain.jsp" />
+<div id="container"> 
+	<div class="content">
+		<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
+			<table border="1">
+				<tr>
+					<td>상품명</td>
+					<td>
+						<input type="hidden" name="gName" id="gName" value="${goods.g_name}">
+						${goods.g_name}
+					</td>
+				</tr>
+				<tr>
+					<td>판매자</td>
+					<td>
+						<input type="hidden" name="gId" id="gId" value="${goods.g_id}">
+						${goods.g_id}
+					</td>
+				</tr>
+				<tr>
+					<td>가격</td>
+					<td>
+						<input type="hidden" name="gPrice" id="gPrice" value="${goods.g_price}">
+						${goods.g_price}
+					</td>
+				</tr>
+				<tr>
+					<td>수량</td>
+					<td>
+						<input name="oCount" id="oCount" value="1" readonly="readonly">
+						<span id="upCount">▲</span>/<span id="downCount">▼</span><span id="count"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>합계</td>
+					<td>
+						<input name="oTotal" id="oTotal" value="${goods.g_price}" readonly="readonly">원
+					</td>
+				</tr>
+				<tr>	
+					<td>				
+						<input type = "hidden" name="gCode" value="${goods.g_code}">
+						<input type = "hidden" name="mId" value="${sessionScope.loginId}">
+						<input type="submit" value="구매">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>	
+<jsp:include page="/module/footer.jsp" />			
 </body>
 </html>

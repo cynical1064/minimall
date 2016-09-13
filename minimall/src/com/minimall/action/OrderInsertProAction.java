@@ -42,7 +42,7 @@ public class OrderInsertProAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Oli/OrderListOne.oo");
+		forward.setPath("/Oli/orderListOne.oo");
 		
 		return forward;
 	}

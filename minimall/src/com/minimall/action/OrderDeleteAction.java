@@ -19,7 +19,7 @@ public class OrderDeleteAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath(request.getContextPath() + "/Oli/OrderListOne.oo");
+		forward.setPath(request.getContextPath() + "/Oli/orderListOne.oo");
 			
 		return forward;
 	}

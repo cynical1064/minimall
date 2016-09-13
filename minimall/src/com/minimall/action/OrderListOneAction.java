@@ -17,7 +17,7 @@ public class OrderListOneAction implements ActionInterFace {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("execute() OrderListOneAction.java");
+		System.out.println("execute() orderListOneAction.java");
 		HttpSession session = request.getSession();		
 		String mId = (String)session.getAttribute("loginId");
 		System.out.println(mId + "<-- mId OrderListOne.java");
@@ -31,7 +31,7 @@ public class OrderListOneAction implements ActionInterFace {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/order/OrderListOne.jsp");
+		forward.setPath("/order/orderListOne.jsp");
 		
 		return forward;
 	}

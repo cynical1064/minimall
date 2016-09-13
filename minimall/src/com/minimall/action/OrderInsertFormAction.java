@@ -1,6 +1,5 @@
 package com.minimall.action;
 
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +16,8 @@ public class OrderInsertFormAction implements ActionInterFace {
 		System.out.println("execute orderInsertFormAction.java");
 		GoodsDao gdao = new GoodsDao();
 		String gCode = request.getParameter("gCode");
-		ArrayList<GoodsDto> goodsList = gdao.goodsSelectByGcode(gCode);
-		request.setAttribute("goodsList", goodsList);
+		GoodsDto goods = gdao.goodsSelectByGcode(gCode);
+		request.setAttribute("goods", goods);
 		
 		ActionForward forward = new ActionForward();
     	forward.setRedirect(false);
