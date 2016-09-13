@@ -35,7 +35,7 @@ public class REBReplyAction implements ActionInterFace {
 	   		System.out.println("답장 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath("/board/BoardDetailAction.reb?num="+result);
+	   		forward.setPath(request.getContextPath() + "/board/BoardDetailAction.reb?num="+result);
 	   		return forward;
 	}  	
 }

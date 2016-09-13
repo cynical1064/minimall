@@ -6,7 +6,13 @@
 
 <html>
 <head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 	<title>리뷰 게시판</title>
+	
+<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 	<script type="text/javascript">
 	function modifyboard(){
 		modifyform.submit();
@@ -16,8 +22,12 @@
 
 <body>
 
+<%@ include file = "/module/headerSub.jsp" %>
+<div id="container">
+	<div class="content">
+	
 <!-- 게시판 수정 -->
-<form action="/board/BoardModifyAction.reb" method="post" name="modifyform">
+<form action="${pageContext.request.contextPath}/board/BoardModifyAction.reb" method="post" name="modifyform">
 <input type="hidden" name="BOARD_NUM" value=<%=board.getBOARD_NUM() %>>
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
@@ -76,5 +86,9 @@
 </table>
 </form>
 <!-- 게시판 수정 -->
+	</div>
+</div>
+<%@ include file = "/module/footer.jsp" %>
+
 </body>
 </html>

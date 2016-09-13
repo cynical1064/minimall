@@ -2,7 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 	<title>리뷰 게시판</title>
+	
+	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 	<script language="javascript">
 	function addboard(){
 		boardform.submit();
@@ -11,6 +17,10 @@
 </head>
 <body>
 
+<%@ include file = "/module/headerSub.jsp" %>
+<div id="container">
+	<div class="content">
+	
 <!-- 게시판 등록 -->
 <form action="${pageContext.request.contextPath}/board/BoardAddAction.reb" method="post" 
 	enctype="multipart/form-data" name="boardform">
@@ -75,5 +85,9 @@
 </table>
 </form>
 <!-- 게시판 등록 -->
+	</div>
+</div>
+<%@ include file = "/module/footer.jsp" %>
+
 </body>
 </html>

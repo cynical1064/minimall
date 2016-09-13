@@ -6,7 +6,13 @@
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 	<title>MVC 게시판</title>
+	
+<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+	
 	<script language="javascript">
 	function replyboard(){
 		boardform.submit();
@@ -15,8 +21,12 @@
 </head>
 <body>
 
-<!-- 게시판 답변 -->
-<form action="/board/BoardReplyAction.reb" method="post" name="boardform">
+
+<%@ include file = "/module/headerSub.jsp" %>
+<div id="container">
+	<div class="content">
+	<!-- 게시판 답변 -->
+<form action="${pageContext.request.contextPath}/board/BoardReplyAction.reb" method="post" name="boardform">
 <input type="hidden" name="BOARD_NUM" value="<%=board.getBOARD_NUM() %>">
 <input type="hidden" name="BOARD_RE_REF" value="<%=board.getBOARD_RE_REF() %>">
 <input type="hidden" name="BOARD_RE_LEV" value="<%=board.getBOARD_RE_LEV() %>">
@@ -75,5 +85,10 @@
 </table>
 </form>
 <!-- 게시판 답변 -->
+
+	</div>
+</div>
+<%@ include file = "/module/footer.jsp" %>
+
 </body>
 </html>

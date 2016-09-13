@@ -16,12 +16,21 @@
 
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 	<title>리뷰 게시판</title>
+
+
+<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+
 </head>
 
 <body>
-
-<!-- 게시판 리스트 -->
+<%@ include file = "/module/headerSub.jsp" %>
+<div id="container">
+	<div class="content">
+	<!-- 게시판 리스트 -->
 
 <table width=50% border="0" cellpadding="0" cellspacing="0">
 <%
@@ -133,6 +142,11 @@ if(listcount > 0){
 		</td>
 	</tr>
 </table>
+
+	</div>
+</div>
+<%@ include file = "/module/footer.jsp" %>
+
 
 </body>
 </html>

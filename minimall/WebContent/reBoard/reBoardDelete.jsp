@@ -4,10 +4,20 @@
 %>
 <html>
 <head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 <title>리뷰 게시판</title>
+
+<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 </head>
 <body>
-<form name="deleteForm" action="/board/BoardDeleteAction.reb?num=<%=num %>" 
+
+<%@ include file = "/module/headerSub.jsp" %>
+<div id="container">
+	<div class="content">
+	<form name="deleteForm" action="${pageContext.request.contextPath}/board/BoardDeleteAction.reb?num=<%=num %>" 
 	method="post">
 <table border=1>
 <tr>
@@ -27,5 +37,10 @@
 </tr>
 </table>
 </form>
+
+	</div>
+</div>
+<%@ include file = "/module/footer.jsp" %>
+
 </body>
 </html>

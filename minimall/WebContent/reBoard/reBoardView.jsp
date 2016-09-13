@@ -6,11 +6,22 @@
 
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+
 	<title>리뷰 게시판</title>
+<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+	
 </head>
 
 <body>
+
+<%@ include file = "/module/headerSub.jsp" %>
+<div id="container">
+	<div class="content">
+	
 <!-- 게시판 수정 -->
+
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">리뷰 게시판</td>
@@ -68,20 +79,24 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="/board/BoardReplyView.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="${pageContext.request.contextPath}/board/BoardReplyView.reb?num=<%=board.getBOARD_NUM() %>">
 			[답변]
 			</a>&nbsp;&nbsp;
-			<a href="/board/BoardModify.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="${pageContext.request.contextPath}/board/BoardModify.reb?num=<%=board.getBOARD_NUM() %>">
 			[수정]
 			</a>&nbsp;&nbsp;
-			<a href="/board/BoardDelete.reb?num=<%=board.getBOARD_NUM() %>">
+			<a href="${pageContext.request.contextPath}/board/BoardDelete.reb?num=<%=board.getBOARD_NUM() %>">
 			[삭제]
 			</a>&nbsp;&nbsp;
-			<a href="/board/BoardList.reb">[목록]</a>&nbsp;&nbsp;
+			<a href="${pageContext.request.contextPath}/board/BoardList.reb">[목록]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table>
 <!-- 게시판 수정 -->
+	</div>
+</div>
+<%@ include file = "/module/footer.jsp" %>
+
 </body>
 </html>
