@@ -66,7 +66,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		WritableRaster raster = bufferedImage.getRaster();
 		DataBufferByte data  = (DataBufferByte) raster.getDataBuffer();
 		System.out.println(data.getData());
-		 */
+		*/
 		
 		GoodsDto goodsDto = new GoodsDto();
 		goodsDto.setG_id(gId);
