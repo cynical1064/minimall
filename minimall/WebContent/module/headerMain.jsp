@@ -65,7 +65,7 @@
 		<div id="loginArea">		
 			<h2>
 				Login
-			</h2>
+			</h2> 
 			<form id="loginForm" action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
 			<table>
 			<tr>
