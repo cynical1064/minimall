@@ -10,26 +10,26 @@ import com.minimall.inter.ActionInterFace;
 
 public class QnaReplyView implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
-			 	throws Exception{
-				 	ActionForward forward = new ActionForward();
-				 	
-					QnaDao qnadao=new QnaDao();
-					QnaDto qnadto=new QnaDto();
-			   		
-			   		int num=Integer.parseInt(request.getParameter("num"));
-			   		
-			   		qnadto=qnadao.getDetail(num);
-			   		
-			   		if(qnadto==null){
-			   			System.out.println("답장 페이지 이동 실패");
-			   			return null;
-			   		}
-			   		System.out.println("답장 페이지 이동 완료");
-			   		
-			   		request.setAttribute("boarddata", qnadto);
-			   		
-			   		forward.setRedirect(false);
-			   		forward.setPath("./qna_reply.jsp");
-			   		return forward;
-			}
+	 	throws Exception{
+		 	ActionForward forward = new ActionForward();
+		 	
+			QnaDao qnadao=new QnaDao();
+			QnaDto qnadto=new QnaDto();
+	   		
+	   		int num=Integer.parseInt(request.getParameter("num"));
+	   		
+	   		qnadto=qnadao.getDetail(num);
+	   		
+	   		if(qnadto==null){
+	   			System.out.println("답장 페이지 이동 실패");
+	   			return null;
+	   		}
+	   		System.out.println("답장 페이지 이동 완료");
+	   		
+	   		request.setAttribute("boarddata", qnadto);
+	   		
+	   		forward.setRedirect(false);
+	   		forward.setPath("./qna_reply.jsp");
+	   		return forward;
+		}
 }
