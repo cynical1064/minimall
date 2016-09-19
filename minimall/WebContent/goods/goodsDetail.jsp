@@ -17,11 +17,28 @@
             type:'GET',
             success:function(data){ 
                 	
-                   $('#reviewTab').html(data);
-                   
+                  $('#reviewTab').html(data); 
+            	
             }
+	        
+			
 	            
         });
+		 
+		 $.ajax({
+			 
+		 
+			 url:'${pageContext.request.contextPath}/Qna/QnaList.qn?id=${goods.g_name}',
+	         type:'GET',
+	         success:function(data){ 
+	             	
+	               $('#qnaTab').html(data);
+	    	
+	         }
+			 
+        });
+		 
+
 		
 		$('.goodsDetailTapBtn').eq(0).addClass('on');
 		
@@ -99,7 +116,9 @@
 			</tr>
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
-
+					<div id="qnaTab">
+						
+					</div>
 				</td>
 			</tr>
 			<tr class="goodsDetailTapContent">
