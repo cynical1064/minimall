@@ -25,7 +25,7 @@ public class QnaModifyView implements ActionInterFace {
 		   	}
 		   	System.out.println("(수정)상세보기 성공");
 		   	
-		   	request.setAttribute("boarddata", qnadto);
+		   	request.setAttribute("qnadto", qnadto);
 		   	forward.setRedirect(false);
 	   		forward.setPath("/qnaBoard/qna_modify.jsp");
 	   		return forward;

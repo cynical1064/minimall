@@ -18,7 +18,7 @@
 <body>
 qna_board_modify.jsp
 <!-- 게시판 수정 -->
-<form action="QnaModifyAction.qn" method="post" name="modifyform">
+<form action="${pageContext.request.contextPath}/Qna/QnaModifyAction.qn" method="post" name="modifyform">
 <input type="hidden" name="qna_no" value=<%=qnadto.getQna_no() %>>
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">

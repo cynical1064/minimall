@@ -29,7 +29,7 @@ public class QnaModifyAction implements ActionInterFace {
 				   		PrintWriter out=response.getWriter();
 				   		out.println("<script>");
 				   		out.println("alert('수정할 권한이 없습니다.');");
-				   		out.println("location.href='/Qna/QnaList.qn';");
+				   		out.println("location.href=request.getContextPath+'/Qna/QnaList.qn';");
 				   		out.println("</script>");
 				   		out.close();
 				   		return null;

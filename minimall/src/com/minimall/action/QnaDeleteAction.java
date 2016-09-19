@@ -4,8 +4,11 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.minimall.dao.MemberDao;
 import com.minimall.dao.QnaDao;
+import com.minimall.dto.MemberDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -20,11 +23,18 @@ public class QnaDeleteAction implements ActionInterFace {
 			   	boolean result=false;
 			   	boolean usercheck=false;
 			   	int num=Integer.parseInt(request.getParameter("num"));
+			   	HttpSession session = request.getSession();
 			   	
-			   	QnaDao qnadao=new QnaDao();
-			   	usercheck=qnadao.isBoardWriter(num, request.getParameter("qna_pass"));
+			   	//QnaDao qnadao=new QnaDao();
+			   	//usercheck=qnadao.isBoardWriter(num, request.getParameter("qna_pass"));
 			   	
-			   	if(usercheck==false){
+			   	String id = (String)session.getAttribute("loginId");
+			    String pw = request.getParameter("qna_pass");
+			   	
+			   	MemberDao memberdao = new MemberDao();
+			   	MemberDto boardchk = memberdao.userCheck(id, pw);
+			   	
+			   	if(boardchk == null){
 			   		response.setContentType("text/html;charset=euc-kr");
 			   		PrintWriter out=response.getWriter();
 			   		out.println("<script>");

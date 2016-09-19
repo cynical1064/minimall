@@ -326,9 +326,9 @@ public class QnaDao {
 				rs=pstmt.executeQuery();
 				rs.next();
 				
-				if(pass.equals(rs.getString("qna_PASS"))){
+				/*if(pass.equals(rs.getString("qna_PASS"))){
 					return true;
-				}
+				}*/
 			}catch(SQLException ex){
 				System.out.println("isBoardWriter ¿¡·¯ : "+ex);
 			}
