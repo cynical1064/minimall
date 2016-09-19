@@ -41,8 +41,8 @@ public class OrderInsertProAction implements ActionInterFace {
 		odao.OrderInsert(odto);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("/Oli/orderListOne.oo");
+		forward.setRedirect(true);
+		forward.setPath(request.getContextPath() + "/Oli/orderListOne.oo");
 		
 		return forward;
 	}

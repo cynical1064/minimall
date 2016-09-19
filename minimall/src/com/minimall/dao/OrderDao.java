@@ -57,30 +57,20 @@ public class OrderDao {
 		o_no = result;
 		System.out.println(o_no + " : o_no OrderInsert() OrderDao.java");
 		
-		
-		try{
+		String sql=null;
+		sql="insert into orders values(?,?,?,sysdate,?,?,?,'입금예정')";
+		pstmt = conn.prepareStatement(sql);
 			
-			String sql=null;
-			conn = ds.getConnection();
-			sql="insert into orders values(?,?,?,sysdate,?,?,?,'입금예정')";
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, o_no);
-			pstmt.setString(2, odto.getM_id());
-			pstmt.setString(3, odto.getG_id());
-			pstmt.setString(4, odto.getG_code());
-			pstmt.setInt(5, odto.getO_count());
-			pstmt.setInt(6, odto.getO_total());		
-			pstmt.executeUpdate();
+		pstmt.setInt(1, o_no);
+		pstmt.setString(2, odto.getM_id());
+		pstmt.setString(3, odto.getG_id());
+		pstmt.setString(4, odto.getG_code());
+		pstmt.setInt(5, odto.getO_count());
+		pstmt.setInt(6, odto.getO_total());		
+		pstmt.executeUpdate();
 		
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			try{
-				if(pstmt!=null)pstmt.close();
-				if(conn!=null)conn.close();
-			}catch(Exception ex) {}
-		}
+		pstmt.close();
+		conn.close();
 	}
 	
 	//주문리스트 조회 메서드
@@ -88,7 +78,8 @@ public class OrderDao {
 		System.out.println("orderSelectAll OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
-		sql = "select o.o_no, m.m_id, g.g_id, to_char(o.o_date, 'yyyy-mm-dd') as o_date, g.g_code, o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr from orders o inner join goods g on o.g_code = g.g_code inner join member m on m.m_id = o.m_id";
+		sql = "select o.o_no, m.m_id, g.g_id, to_char(o.o_date, 'yyyy-mm-dd') as o_date, g.g_code, o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
+				+ "from orders o inner join goods g on o.g_code = g.g_code inner join member m on m.m_id = o.m_id order by o.o_no asc";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		
@@ -124,7 +115,7 @@ public class OrderDao {
 		sql = "select o.o_no, m.m_id, g.g_id, to_char(o.o_date, 'yyyy-mm-dd') as o_date, g.g_code, "
 				+ "o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
 				+ "from orders o inner join goods g on o.g_code = g.g_code inner join "
-				+ "member m on m.m_id = o.m_id where o.m_id = ?";
+				+ "member m on m.m_id = o.m_id where o.m_id = ? order by o.o_no asc";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, mId);
 		rs = pstmt.executeQuery();

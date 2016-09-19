@@ -15,18 +15,25 @@
 			var idx = $('.delLink').index(this);
 			$('.hiddenTd').eq(idx).css('display', 'block');
 			$('#hiddenTh').css('display', 'block');
+			$('.delLink').css('display', 'none');
 			
-		});		
+		});
+		
+		$('.delLink2').click(function(){
+			$('#delForm').submit();
 				
+		});				
+		
 	});
 		
 	
 </script>
 </head>
-<c:if test="${sessionScope.goodsChk}==1">
+<c:if test="${requestScope.loginChk==1}">
 <script>
 	alert('비밀번호가 일치하지 않습니다.');
 </script>
+<c:set var="loginChk" />
 </c:if>
 <%-- <div id="delWarp">
 	<div id="loginContent">
@@ -63,7 +70,7 @@
 	<div class="content">
 		<table class="basic">
 			<tr>
-				<th>주문 번호</th><th>상품 이름</th><th>구매자 아이디</th><th>판매자 아이디</th><th>구매자 이름</th><th>배송지</th><th>주문 날짜</th><th>상품 코드</th><th>가격</th><th>수량</th><th>합계</th><th>주문 상태</th><th>주문 취소</th><th id="hiddenTh" style="display:none;">취소 확인</th>
+				<th>주문 번호</th><th>상품 이름</th><th>구매자 아이디</th><th>판매자 아이디</th><th>구매자 이름</th><th>배송지</th><th>주문 날짜</th><th>상품 코드</th><th>가격</th><th>수량</th><th>합계</th><th>주문 상태</th><th>주문 취소</th>
 			</tr>
 			<c:forEach var="order" items="${orderListOne}">
 				<tr>
@@ -79,12 +86,13 @@
 					<td>${order.o_count}</td>
 					<td>${order.o_total}</td>
 					<td>${order.o_state}</td>
-					<td class="hiddenTd" style="display:none;"> 비밀번호 확인 : <input type="password" id="delPw" size="10px"></td>
-					<td><input type="button" class="delLink" value="주문취소"></td>
-					
+					<form id="delForm" action="${pageContext.request.contextPath}/Odel/orderDeletePro.oo" method="post">
+					<td class="hiddenTd" style="display:none;"><input type="text" name="oNo" value="${order.o_no}" hidden="hidden" />비밀번호 확인 : <input type="password" id="delPw" name="delPw" size="10"> <input type="button" class="delLink2" value="취소확인"></td>
+					<td><input type="button" class="delLink" value="주문취소"></td>					
+					</form>						
 				</tr>
 			</c:forEach>
-		</table>	
+		</table>
 	</div>
 </div>	
 <jsp:include page="/module/footer.jsp" />

@@ -6,7 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
 
+import com.minimall.dao.MemberDao;
 import com.minimall.dao.OrderDao;
+import com.minimall.dto.MemberDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -14,27 +16,38 @@ public class OrderDeleteAction implements ActionInterFace {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("execute OrderDeleteAction.java");
 		
-		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession();		
+		String delPw = request.getParameter("delPw");
+		String loginId = (String)session.getAttribute("loginId");
 		int oNo = Integer.parseInt(request.getParameter("oNo"));
-		String mPw = request.getParameter("mPw");
-		String loginPw = (String)session.getAttribute("mPw");
+		System.out.println(oNo + "<--oNo");
+		System.out.println(delPw + "<--delPw");
+		System.out.println(loginId + "<--loginId");
+		
+		MemberDao mdao = new MemberDao();
+		MemberDto delchk = mdao.userCheck(loginId, delPw);
 		
 		ActionForward forward = new ActionForward();
 		
-		if(mPw != loginPw) {
+		if(delchk == null) {
 			
-			session.setAttribute("goodsChk", 1);
+			System.out.println("비밀번호 불일치");
+			request.setAttribute("loginChk", 1);
 			
-		}else{
+			forward.setRedirect(false);
+			forward.setPath("/Oli/orderListOne.oo");
 			
-			OrderDao odao = new OrderDao();
-			odao.OrderDelete(oNo);
+		} else {
+
+			
+		OrderDao odao = new OrderDao();
+		odao.OrderDelete(oNo);
 						
-			forward.setRedirect(true);
-			forward.setPath(request.getContextPath() + "/Oli/orderListOne.oo");
-				
+		forward.setRedirect(true);
+		forward.setPath(request.getContextPath() + "/Oli/orderListOne.oo");
+		
 		}
 		
 		return forward;
