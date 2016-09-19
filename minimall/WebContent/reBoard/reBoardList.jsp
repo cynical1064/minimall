@@ -27,12 +27,7 @@
 </head>
 
 <body>
-<%@ include file = "/module/headerSub.jsp" %>
-<div id="container">
-	<div class="content">
-	<!-- 게시판 리스트 -->
-
-<table width=50% border="0" cellpadding="0" cellspacing="0">
+<table class="basic">
 <%
 if(listcount > 0){
 %>
@@ -142,11 +137,5 @@ if(listcount > 0){
 		</td>
 	</tr>
 </table>
-
-	</div>
-</div>
-<%@ include file = "/module/footer.jsp" %>
-
-
 </body>
 </html>

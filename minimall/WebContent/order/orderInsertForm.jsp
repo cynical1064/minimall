@@ -40,7 +40,7 @@ $(document).ready(function(){
 </head>
 <body>
 		<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
-			<table class="basic">
+			<table class="basic orderForm">
 				<tr>
 					<td>상품명</td>
 					<td>
@@ -80,7 +80,7 @@ $(document).ready(function(){
 					<td>				
 						<input type = "hidden" name="gCode" value="${goods.g_code}">
 						<input type = "hidden" name="mId" value="${sessionScope.loginId}">
-						<input type="submit" value="구매">
+						<div id="buyBtn">구매</div>
 					</td>
 				</tr>
 			</table>

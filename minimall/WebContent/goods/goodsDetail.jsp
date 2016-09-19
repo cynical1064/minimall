@@ -10,6 +10,18 @@
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
 	$(document).ready(function(){
+
+		 $.ajax({
+			 
+		        url:'${pageContext.request.contextPath}/board/BoardList.reb',
+	            type:'POST',
+	            success:function(data){ 
+	                	
+                    $('#reviewTab').html(data);
+	                    
+	            }
+	            
+        });
 		
 		$('.goodsDetailTapBtn').eq(0).addClass('on');
 		
@@ -50,9 +62,14 @@
 <jsp:include page="/module/headerSub.jsp" />
 <div id="container"> 
 	<div class="content">
-	
-	<jsp:include page="/order/orderInsertForm.jsp" />
-	
+		<div id="detailContent">
+			<div id="detailImgArea">
+			
+			</div>		
+			<div id="orderForm">
+				<jsp:include page="/order/orderInsertForm.jsp" />
+			</div>
+		</div>
 		<table class="basic tapTable">
 			<colgroup>
 				<col width="25%">
@@ -75,16 +92,14 @@
 			</tr>
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
-					<div>
-						ªÛ«∞∏Æ∫‰
+					<div id="reviewTab">
+						
 					</div>
 				</td>
 			</tr>
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
-					<div>
-						qna
-					</div>
+
 				</td>
 			</tr>
 			<tr class="goodsDetailTapContent">

@@ -71,10 +71,26 @@ table.basic th, table.basic td {color:#678197; text-align:center; border-right: 
 										padding: 3px 0; text-align:center; } 
 table.basic th { background-color: #eeeeee; } 
 
+/* goodsDetail */
+#container .content #detailContent{width:100%; height:500px;}
+#container .content  #orderForm{width:50%; float:right; margin-bottom:28px;}
+#container .content .detailImgArea{width:50%; float:left;}
+
 /* tap */
-.tapTable .goodsDetailTapBtn{background:#434343; color:#fff; cursor:pointer; line-height:2em;}
+.tapTable .goodsDetailTapBtn{background:#434343; color:#fff; cursor:pointer; line-height:1.5em;}
 .tapTable .goodsDetailTapBtn.on{background:#fff; color:#434343; border-bottom:0;}
-.tapTable .goodsDetailTapContent{border:0; display:none;}
+.tapTable .goodsDetailTapContent{border-top:0; display:none;}
+.tapTable .goodsDetailTapContent>td{border-top:0;}
+
+/* orderForm */
+.orderForm{margin-top:15%;}
+.orderForm,
+.orderForm tr, 
+.orderForm th, 
+.orderForm td{border:0 !important; text-align:left; color:#434343 !important;}
+.orderForm td{line-height:2em;}
+.orderForm td input{border:0;}
+.orderForm #buyBtn{width:100px; color:#fff; background:#434343; line-height:2em; margin-top:20px; margin-left:30%; cursor:pointer}
 
 /* footer */
 #footer{width:100%; height:170px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
