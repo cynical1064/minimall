@@ -283,4 +283,25 @@ public class GoodsDao {
 		conn.close();
 	}
 
+	public void goodsDeleteByGcode(String gCode) throws SQLException {
+		System.out.println("08 goodsDeleteByGcode() GoodsDao.java");
+		System.out.println(gCode + " : gCode goodsDeleteByGcode() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		//gcode에 해당하는 데이터를 삭제하는 delete 쿼리문 입니다.
+		String sql = "DELETE FROM goods WHERE g_code=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, gCode);
+		System.out.println(pstmt + " : pstmt goodsDeleteByGcode() GoodsDao.java");
+		
+		int result = pstmt.executeUpdate();
+		if(result != 0) {
+			System.out.println("DELETE 성공!");
+		} else {
+			System.out.println("DELETE 실패!");
+		}
+		pstmt.close();
+		conn.close();
+	}
 }
