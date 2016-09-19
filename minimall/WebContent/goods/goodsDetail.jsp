@@ -39,7 +39,7 @@
 				
 				$(this).addClass('on');
 				
-			}			
+			}			 
 			
 		});
 		

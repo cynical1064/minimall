@@ -65,7 +65,7 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 #container .content #joinWarp input{height:20px; margin:10px 0; margin-left:10px; }
 #container .content #joinWarp .loginTitleTxt{font-size:13px; color:#434343; font-weight:bold;}
  
- /* table공통 */
+ /* table공통 */ 
 table.basic {width:100%; line-height:21px; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-collapse: collapse; } 
 table.basic th, table.basic td {color:#678197; text-align:center; border-right: 1px solid #cccccc; border-bottom: 1px solid #cccccc; 
 										padding: 3px 0; text-align:center; } 
