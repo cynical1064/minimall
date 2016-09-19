@@ -14,6 +14,7 @@ import com.minimall.action.GoodsAdminChkAction;
 import com.minimall.action.GoodsCustomListAction;
 import com.minimall.action.GoodsDForUpdateAction;
 import com.minimall.action.GoodsDeleteAction;
+import com.minimall.action.GoodsDetailAction;
 import com.minimall.action.GoodsInsertPro;
 import com.minimall.action.GoodsListAction;
 import com.minimall.action.GoodsSellerListAction;
@@ -152,6 +153,17 @@ public class GController extends HttpServlet {
 			System.out.println("03_09 /Gdel/goodsDeleteAction.go");
 			
 			action = new GoodsDeleteAction();
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Gdetail/goodsDetailAction.go")) {
+			System.out.println("03_10 /Gdetail/goodsDetailAction.go");
+			
+			action = new GoodsDetailAction();
+			
 			try {
 				forward = action.execute(request, response);
 				

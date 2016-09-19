@@ -9,7 +9,7 @@
 		<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 	</head>
 	<body>	
-		<%@ include file = "/module/headerSub.jsp" %>
+		<jsp:include page="/module/headerSub.jsp" />
 		<div id="container">
 			<div class="content">
 				<table class="basic">
@@ -26,7 +26,7 @@
 						<c:forEach var="goods" items="${goodsList}" varStatus="status">
 							<tr>
 								<td>${status.count}</td>
-								<td><a href="${pageContext.request.contextPath}/Oin/orderInsertForm.oo?gCode=${goods.g_code}">${goods.g_name}</a></td>
+								<td><a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">${goods.g_name}</a></td>
 								<td>${goods.g_id}</td>
 								<td>${goods.g_cate}</td>
 								<td>${goods.g_price}</td>
@@ -37,6 +37,6 @@
 				</table>
 			</div>
 		</div>
-		<%@ include file = "/module/footer.jsp" %>
+		<jsp:include page="/module/footer.jsp" />
 	</body>
 </html>

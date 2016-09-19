@@ -15,7 +15,7 @@
 		</script>
 	</head>
 	<body>
-		<%@ include file = "/module/headerSub.jsp" %>
+		<jsp:include page="/module/headerSub.jsp" />
 		<div id="container">
 			<div class="content">
 				<form action="${pageContext.request.contextPath}/Gup/GoodsUpdateAtion.go" method="post" name="modifyform">
@@ -51,6 +51,6 @@
 				</form>
 			</div>
 		</div>
-		<%@ include file = "/module/footer.jsp" %>
+		<jsp:include page="/module/footer.jsp" />
 	</body>
 </html>

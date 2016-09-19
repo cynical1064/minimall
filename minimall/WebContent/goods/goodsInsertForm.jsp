@@ -8,7 +8,7 @@
 		<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 	</head>
 	<body>	
-	<%@ include file = "/module/headerSub.jsp" %>
+	<jsp:include page="/module/headerSub.jsp" />
 	<div id="container">
 		<div class="content">
 			<div class="boardArea">
@@ -49,6 +49,6 @@
 				</div>
 			</div>
 		</div>
-		<%@ include file = "/module/footer.jsp" %>
+		<jsp:include page="/module/footer.jsp" />
 	</body>
 </html>
