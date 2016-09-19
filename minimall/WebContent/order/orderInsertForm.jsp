@@ -39,9 +39,6 @@ $(document).ready(function(){
 <link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
 </head>
 <body>
-<jsp:include page="/module/headerSub.jsp" />
-<div id="container"> 
-	<div class="content">
 		<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
 			<table class="basic">
 				<tr>
@@ -87,9 +84,6 @@ $(document).ready(function(){
 					</td>
 				</tr>
 			</table>
-		</form>
-	</div>
-</div>	
-<jsp:include page="/module/footer.jsp" />			
+		</form>		
 </body>
 </html>

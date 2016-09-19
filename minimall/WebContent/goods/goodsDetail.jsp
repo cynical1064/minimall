@@ -50,6 +50,9 @@
 <jsp:include page="/module/headerSub.jsp" />
 <div id="container"> 
 	<div class="content">
+	
+	<jsp:include page="/order/orderInsertForm.jsp" />
+	
 		<table class="basic tapTable">
 			<colgroup>
 				<col width="25%">
