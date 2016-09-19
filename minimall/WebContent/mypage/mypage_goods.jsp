@@ -57,7 +57,7 @@
 			<table class="basic">
 				<tr>
 					<th>번호</th><th>상품코드</th><th>상품명</th><th>카테고리</th><th>가격</th>
-					<th>상세내용</th><th>등록날짜</th><th>수정</th>
+					<th>상세내용</th><th>등록날짜</th><th>수정</th><th>삭제</th>
 				</tr>
 				<c:forEach var="goods" items="${goodsList}" varStatus="status">
 					<tr>
@@ -70,6 +70,9 @@
 						<td>${goods.g_date}</td>
 						<td>
 							<a href="${pageContext.request.contextPath}/Gup/goodsUpdateForm.go?gCode=${goods.g_code}">수정</a>
+						</td>
+						<td>
+							<a href="${pageContext.request.contextPath}/Gdel/goodsDeleteAction.go?gCode=${goods.g_code}">삭제</a>
 						</td>
 					</tr>
 				</c:forEach>

@@ -34,9 +34,6 @@
 						<tr>
 							<td>${status.count}</td>
 							<td>${goods.g_code}</td>
-							<td>
-								<img src="data:image/png;base64,${imageList[status.index]}" alt="No image">
-							</td>
 							<td>${goods.g_name}</td>
 							<td>${goods.g_id}</td>
 							<td>${goods.g_cate}</td>

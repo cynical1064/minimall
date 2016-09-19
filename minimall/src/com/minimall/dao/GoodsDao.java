@@ -68,19 +68,16 @@ public class GoodsDao {
 		
 		//goods테이블에 상품을 등록하는 insert 쿼리문 입니다.
 		String sql = "INSERT INTO goods";
-		sql += " VALUES(?,?,?,?,?,?,sysdate,'N',?)";
+		sql += "(g_code,g_name,g_id,g_cate,g_sangse,g_price,g_date,g_agree)";
+		sql += " VALUES(?,?,?,?,?,?,sysdate,'N')";
 		pstmt = conn.prepareStatement(sql);
+		
 		pstmt.setString(1, g_code);
 		pstmt.setString(2, goodsDto.getG_name());
 		pstmt.setString(3, goodsDto.getG_id());
 		pstmt.setString(4, goodsDto.getG_cate());
 		pstmt.setString(5, goodsDto.getG_sangse());
 		pstmt.setInt(6, goodsDto.getG_price());
-
-		byte[] buffer = goodsDto.getG_image();
-		pstmt.setBinaryStream(7, new ByteArrayInputStream(buffer));
-		
-		System.out.println(pstmt + " : pstmt goodsInsert() GoodsDao.java");
 		
 		int getResult = pstmt.executeUpdate();
 		if(getResult != 0) {
@@ -115,15 +112,6 @@ public class GoodsDao {
 			goodsDto.setG_price(rs.getInt("g_price"));
 			goodsDto.setG_date(rs.getString("g_date"));
 			goodsDto.setG_agree(rs.getString("g_agree").charAt(0));
-			
-			Blob blob = (Blob)rs.getBlob("g_img");
-			
-			BufferedInputStream bufferedInputStream = new BufferedInputStream(blob.getBinaryStream());
-			int imageSize = (int)blob.length();
-			byte[] buf = new byte[imageSize];
-			int nReadSize = bufferedInputStream.read(buf, 0, imageSize);
-			bufferedInputStream.close();
-			goodsDto.setG_image(buf);
 			
 			goodsList.add(goodsDto);
 		}
@@ -295,4 +283,25 @@ public class GoodsDao {
 		conn.close();
 	}
 
+	public void goodsDeleteByGcode(String gCode) throws SQLException {
+		System.out.println("08 goodsDeleteByGcode() GoodsDao.java");
+		System.out.println(gCode + " : gCode goodsDeleteByGcode() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		//gcode에 해당하는 데이터를 삭제하는 delete 쿼리문 입니다.
+		String sql = "DELETE FROM goods WHERE g_code=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, gCode);
+		System.out.println(pstmt + " : pstmt goodsDeleteByGcode() GoodsDao.java");
+		
+		int result = pstmt.executeUpdate();
+		if(result != 0) {
+			System.out.println("DELETE 성공!");
+		} else {
+			System.out.println("DELETE 실패!");
+		}
+		pstmt.close();
+		conn.close();
+	}
 }
