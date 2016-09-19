@@ -14,8 +14,6 @@ import javax.sql.DataSource;
 
 import com.minimall.dto.QnaDto;
 
-
-
 public class QnaDao {
 	DataSource ds;
 	Connection con;
@@ -34,12 +32,62 @@ public class QnaDao {
 			e.printStackTrace();
 		}
 	}
+
+	//글 수정
+	public boolean boardModify(QnaDto pna) throws Exception{
+		
+		String sql="update QNA_BOARD set QNA_SUBJECT=?,QNA_CONTENT=? where qna_no=?";
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pna.getQna_subject());
+			pstmt.setString(2, pna.getQna_content());
+			pstmt.setInt(3, pna.getQna_no());
+			pstmt.executeUpdate();
+			return true;
+		}catch(Exception ex){
+			System.out.println("boardModify 에러 : " + ex);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+			}
+		return false;
+	}
 	
+	//글 삭제
+	public boolean qnaDelete(int num){
+		
+		String qna_delete_sql="delete from QNA_BOARD where qna_no=?";
+		
+		int result=0;
+		
+		try{
+			con = ds.getConnection();
+			pstmt=con.prepareStatement(qna_delete_sql);
+			pstmt.setInt(1, num);
+			result=pstmt.executeUpdate();
+			if(result==0)return false;
+			
+			return true;
+		}catch(Exception ex){
+			System.out.println("boardDelete 에러 : "+ex);
+		}	finally{
+			try{
+				if(pstmt!=null)pstmt.close();
+				if(con!=null) con.close();
+				}
+				catch(Exception ex){}
+		}
+		
+		return false;
+	}
 	
 	//글 답변
 		public int QnaReply(QnaDto qna){
 			
-			String board_max_sql="select max(board_num) from QNA_BOARD";
+			String board_max_sql="select max(qna_no) from QNA_BOARD";
 			String sql="";
 			int num=0;
 			int result=0;
@@ -266,4 +314,32 @@ public class QnaDao {
 		}
 		return re;
 	}
+	//글쓴이인지 확인
+	public boolean isBoardWriter(int num,String pass){
+			
+			String qna_sql="select * from QNA_BOARD where QNA_NO=?";
+			
+			try{
+				con = ds.getConnection();
+				pstmt=con.prepareStatement(qna_sql);
+				pstmt.setInt(1, num);
+				rs=pstmt.executeQuery();
+				rs.next();
+				
+				if(pass.equals(rs.getString("qna_PASS"))){
+					return true;
+				}
+			}catch(SQLException ex){
+				System.out.println("isBoardWriter 에러 : "+ex);
+			}
+		finally{
+				try{
+				if(pstmt!=null)pstmt.close();
+				if(con!=null) con.close();
+				}
+				catch(Exception ex){}
+			
+		}
+			return false;
+		}
 }

@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.minimall.inter.ActionInterFace;
 
 import com.minimall.action.QnaAddAction;
+import com.minimall.action.QnaDeleteAction;
 import com.minimall.action.QnaDetailAction;
 import com.minimall.action.QnaListAction;
+import com.minimall.action.QnaModifyAction;
+import com.minimall.action.QnaModifyView;
 import com.minimall.action.QnaReplyAction;
 import com.minimall.action.QnaReplyView;
 import com.minimall.forward.ActionForward;
@@ -40,13 +43,13 @@ public class QController extends HttpServlet {
 		ActionForward forward = null;
 		ActionInterFace action = null;
 		
-		if(command.equals("/Qna/QnaAddWrite.qn")){
+		if(command.equals("/Qna/QnaAddWrite.qn")){		//글작성
 	    	System.out.println("04_01 조건문 내 /Qna/QnaAddWrite.qn QController.java");
 	    	forward = new ActionForward();		//주소값이 담겨있음
 	    	forward.setRedirect(false);
 	    	forward.setPath("/qnaBoard/qna_board_write.jsp");
 	    	forward.toString();
-		} else if(command.equals("/Qna/QnaAddAction.qn")){
+		} else if(command.equals("/Qna/QnaAddAction.qn")){		//글작성액션
 	    	System.out.println("04_02 조건문 내 /Qna/QnaAddAction.qn QController.java");
 			action = new QnaAddAction();
 			try {
@@ -54,7 +57,7 @@ public class QController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Qna/QnaList.qn")){
+		} else if(command.equals("/Qna/QnaList.qn")){		//리스트
 	    	System.out.println("04_03 조건문 내 /Qna/QnaList.qn QController.java");
 	    	action = new QnaListAction();
 	    	try {
@@ -62,7 +65,7 @@ public class QController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Qna/QnaDetailAction.qn")) {
+		} else if(command.equals("/Qna/QnaDetailAction.qn")) {		//글확인 액션
 			System.out.println("04_04 조건문 내 /Qna/QnaView.qn QController.java");
 			action = new QnaDetailAction();
 			try{
@@ -70,7 +73,7 @@ public class QController extends HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Qna/QnaReplyView.qn")){
+		} else if(command.equals("/Qna/QnaReplyView.qn")){		//답글
 			System.out.println("04_05 조건문 내 /Qna/QnaReplyView.qn QController.java");
 			action = new QnaReplyView();
 			try{
@@ -78,12 +81,37 @@ public class QController extends HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		} else if(command.equals("/Qna/QnaReplyAction.qn")){
+		} else if(command.equals("/Qna/QnaReplyAction.qn")){	//답글액션
 	    	System.out.println("04_06 조건문 내 /Qna/QnaReplyAction.qn QController.java");
 			action = new QnaReplyAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Qna/QnaDelete.qn")){	//글삭제
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/qnaBoard/qna_delete.jsp");
+		}else if(command.equals("/Qna/QnaDeleteAction.qn")){	//삭제액션
+			action = new QnaDeleteAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Qna/QnaModify.qn")){		//글수정
+			action = new QnaModifyView();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+	 	}else if(command.equals("/Qna/QnaModifyAction.qn")){	//수정액션
+			action = new QnaModifyAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}
