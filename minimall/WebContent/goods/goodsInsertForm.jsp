@@ -13,7 +13,7 @@
 		<div class="content">
 			<div class="boardArea">
 				<div class="boardWrap">
-					<form action="${pageContext.request.contextPath}/Gin/goodsInsertPro.go" method="post">
+					<form action="${pageContext.request.contextPath}/Gin/goodsInsertPro.go" method="post" enctype="multipart/form-data">
 						<table class="basic">
 							<tr>
 								<td>판매자아이디</td>
@@ -38,6 +38,12 @@
 								<td>상품상세설명</td>
 								<td>
 									<textarea name="gSangse" rows="5" cols="21"></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>사진</td>
+								<td>
+									<input type="file" name="myImage" accept="image/*" />
 								</td>
 							</tr>
 							<tr>
