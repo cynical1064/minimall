@@ -137,12 +137,12 @@
               </ul>
        </div>
 </div> --%>
-<div id="headerSub">
+<div id="headerSub" >
 	<div id="headerContent" class="clearFix">
 		<div id="logoWrap">
 				<h2><a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/img/logo.png" alt="logo"></a></h2>
 		</div>
-		<div id="itemNavWrap"  class="clearFix">
+		<div id="itemNavWrap" >
 			<ul id="itemNav">
 				<li><a>NEW ITEM</a></li>
 				<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">SHOP</a></li>
