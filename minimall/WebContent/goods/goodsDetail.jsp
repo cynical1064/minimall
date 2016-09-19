@@ -13,13 +13,13 @@
 
 		 $.ajax({
 			 
-		        url:'${pageContext.request.contextPath}/board/BoardList.reb',
-	            type:'POST',
-	            success:function(data){ 
-	                	
-                    $('#reviewTab').html(data);
-	                    
-	            }
+	        url:'${pageContext.request.contextPath}/board/BoardList.reb?id=${goods.g_name}',
+            type:'GET',
+            success:function(data){ 
+                	
+                   $('#reviewTab').html(data);
+                   
+            }
 	            
         });
 		

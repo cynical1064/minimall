@@ -11,6 +11,9 @@ import com.minimall.inter.ActionInterFace;
 
  public class REBListAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		 
+		System.out.println(request.getParameter("id")+" : id"); 
+
 		System.out.println("리스트 execute호출 net.board.action.BoardListAction"); 
 		 
 		REBoardDAO boarddao=new REBoardDAO();
