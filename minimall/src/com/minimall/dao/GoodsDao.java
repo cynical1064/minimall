@@ -97,7 +97,7 @@ public class GoodsDao {
 		conn = ds.getConnection();
 		
 		//goods테이블의 전체 데이터를 가져오는 select 쿼리문 입니다.
-		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_agree, g_img FROM goods";
+		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_agree, g_image FROM goods";
 		pstmt = conn.prepareStatement(sql);
 		System.out.println(pstmt + " : pstmt goodsSelectAll() GoodsDao.java");
 		rs = pstmt.executeQuery();
@@ -196,7 +196,7 @@ public class GoodsDao {
 		conn = ds.getConnection();
 		
 		//g_code이 gCode 값에 해당하는 한 개 상품 데이터를 가져오는 select 쿼리문 입니다.
-		String sql = "SELECT g_code, g_name, g_cate, g_sangse, g_id, g_price FROM goods";
+		String sql = "SELECT g_code, g_name, g_cate, g_sangse, g_id, g_price, g_image FROM goods";
 		sql += " WHERE g_code=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, gCode);
@@ -212,6 +212,8 @@ public class GoodsDao {
 			goodsDto.setG_sangse(rs.getString("g_sangse"));
 			goodsDto.setG_id(rs.getString("g_id"));
 			goodsDto.setG_price(rs.getInt("g_price"));
+			goodsDto.setG_image(rs.getString("g_image"));
+			System.out.println(goodsDto.getG_image());
 		}
 		rs.close();
 		pstmt.close();
