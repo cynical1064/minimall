@@ -2,6 +2,7 @@ package com.minimall.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,6 @@ import com.minimall.inter.ActionInterFace;
 public class QnaListAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		System.out.println("리스트 execute호출com.minimall.action.QnaListAction"); 
-		 
 		QnaDao qnadao=new QnaDao();
 		List qnalist=new ArrayList();
 		
@@ -48,9 +48,10 @@ public class QnaListAction implements ActionInterFace {
 		System.out.println(listcount+"<-listcount");
 		
 		ActionForward forward= new ActionForward();
-	 	forward.setRedirect(false);
-		forward.setPath("/qnaBoard/qna_list.jsp");
+	 	forward.setRedirect(true);
+		forward.setPath("/goods/goodsDetail.jsp");		
 		return forward;
+		
 	 }
 
 }
