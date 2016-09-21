@@ -25,8 +25,10 @@ public class GoodsInsertPro implements ActionInterFace {
 		int gPrice = Integer.parseInt(request.getParameter("gPrice"));
 		String gSangse = request.getParameter("gSangse");*/
 		
-/*		//goodsImage 弃歹 积己
-		File imageDirectory = new File("goodsImage");
+		//String imagePath = request.getServletContext().getRealPath("minimall");		
+		
+		/*//goodsImage 弃歹 积己
+		File imageDirectory = new File();
 
 		if(!imageDirectory.exists()){ 
 			imageDirectory.mkdirs();
