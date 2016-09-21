@@ -59,7 +59,17 @@
 			
 			$('#list').html(data);	
 			
-	});
+		});
+		
+	}
+	
+	function getNextBlock(no){
+		$.get(url, {page:no}, function(data){
+			
+			$('#list').html(data);	
+			
+		});
+		
 	}
 </script>
 </head>
