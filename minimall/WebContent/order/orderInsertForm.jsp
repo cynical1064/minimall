@@ -8,7 +8,13 @@ $(document).ready(function(){
 	
 	var price = parseInt($('#gPrice').val());
 	var count = parseInt($('#oCount').val());	
+	
+	$('#buyBtn').click(function(){
 		
+		$('form').submit();
+		
+	});	
+	
 	$('#upCount').click(function(){
 		
 		var count = parseInt($('#oCount').val());	
@@ -35,9 +41,7 @@ $(document).ready(function(){
 
 	});
 	
-	$('#buyBtn').click(function(){
-		$('#orderForm').submit();
-	});	
+	
 	
 });
 </script>
@@ -49,7 +53,7 @@ $(document).ready(function(){
 <link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post" id="orderForm">		
+	<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
 		<table class="basic orderForm">
 			<tr>
 				<td>상품명</td>
@@ -92,7 +96,7 @@ $(document).ready(function(){
 					<input type = "hidden" name="mId" value="${sessionScope.loginId}">
 					<div id="buyBtn">구매</div>
 				</td>
-			</tr>
+			</tr>			
 		</table>
 	</form>		
 </body>

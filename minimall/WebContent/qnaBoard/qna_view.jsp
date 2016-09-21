@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="com.minimall.dao.QnaDao" %>
 <%@ page import="com.minimall.dto.QnaDto" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	QnaDto qnadto = (QnaDto)request.getAttribute("qnadto");
 %>
@@ -11,6 +12,12 @@
 	<title>미니몰</title>
 	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+	<c:if test="${requestScope.loginChk==1}">
+		<script>
+			alert('비밀번호가 일치하지 않습니다.');
+		</script>
+	<c:set var="loginChk" />
+	</c:if>
 </head>
 <body>
 <%@ include file = "/module/headerSub.jsp" %>
@@ -30,7 +37,8 @@
 				<td style="font-family:돋음; font-size:12">
 				<%=qnadto.getQna_subject()%>
 				</td>
-			</tr>
+				
+			</tr>	
 			
 			<tr bgcolor="cccccc">
 				<td colspan="2" style="height:1px;">
@@ -65,7 +73,7 @@
 					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=<%=qnadto.getQna_no() %>">
 					[수정]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=<%=qnadto.getQna_no() %>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=<%=qnadto.getQna_no() %>&id=<%=qnadto.getM_id()%>">
 					[삭제]
 					</a>&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">[목록]</a>&nbsp;&nbsp;

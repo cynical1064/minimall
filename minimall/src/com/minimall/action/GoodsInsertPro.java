@@ -25,6 +25,18 @@ public class GoodsInsertPro implements ActionInterFace {
 		int gPrice = Integer.parseInt(request.getParameter("gPrice"));
 		String gSangse = request.getParameter("gSangse");*/
 		
+		//String imagePath = request.getServletContext().getRealPath("minimall");		
+		
+		/*//goodsImage 폴더 생성
+		File imageDirectory = new File();
+
+		if(!imageDirectory.exists()){ 
+			imageDirectory.mkdirs();
+			System.out.println("goodsImage 디렉토리를 생성했습니다.");
+		} else {
+		    System.out.println("goodsImage 디렉토리가 존재합니다.");
+		}*/
+		
 		String path = request.getServletContext().getRealPath("goodsImage");
 		System.out.println(path);
 		int maxSize = 1024*1024*100;
@@ -60,7 +72,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		goodsDto.setG_cate(gCate);
 		goodsDto.setG_price(gPrice);
 		goodsDto.setG_sangse(gSangse);
-		goodsDto.setG_image(gImageFile);
+		goodsDto.setG_image(gImageFileSysName);
 		
 		GoodsDao goodsDao = new GoodsDao();
 		goodsDao.goodsInsert(goodsDto);
