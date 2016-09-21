@@ -72,7 +72,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		goodsDto.setG_cate(gCate);
 		goodsDto.setG_price(gPrice);
 		goodsDto.setG_sangse(gSangse);
-		goodsDto.setG_image(gImageFile);
+		goodsDto.setG_image(gImageFileSysName);
 		
 		GoodsDao goodsDao = new GoodsDao();
 		goodsDao.goodsInsert(goodsDto);

@@ -26,10 +26,12 @@ public class GoodsCustomListAction implements ActionInterFace {
 		
 		ArrayList<String> b64Array = new ArrayList<String>();
 		
+		String path = request.getServletContext().getRealPath("goodsImage");
+		
 		for(int i=0; i<goodsList.size(); i++) {
 			goodsDto = goodsList.get(i);
 			//ÀÌ¹ÌÁö
-			File file = new File(goodsDto.getG_image());
+			File file = new File(path + "/" + goodsDto.getG_image());
 			BufferedImage image = ImageIO.read(file);
 			
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
