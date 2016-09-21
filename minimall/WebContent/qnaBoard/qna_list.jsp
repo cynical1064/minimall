@@ -104,7 +104,7 @@
 					if(a==nowpage){%>
 					[<%=a %>]
 					<%}else{ %>
-					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn?page=<%=a %>">[<%=a %>]</a>&nbsp;
+					<a style="cursor:pointer;" onclick="getPage('<%=a%>')">[<%=a %>]</a>&nbsp;
 					<%} %>
 				<%} %>
 				

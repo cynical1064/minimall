@@ -48,8 +48,8 @@ public class QnaListAction implements ActionInterFace {
 		System.out.println(listcount+"<-listcount");
 		
 		ActionForward forward= new ActionForward();
-	 	forward.setRedirect(true);
-		forward.setPath("/goods/goodsDetail.jsp");		
+	 	forward.setRedirect(false);
+		forward.setPath("/qnaBoard/qna_list.jsp");		
 		return forward;
 		
 	 }
