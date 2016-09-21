@@ -97,7 +97,7 @@
 				<%if(nowpage<=1){ %>
 				[이전]&nbsp;
 				<%}else{ %>
-				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage+5 %>')">[이전]</a>&nbsp;
+				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage-1 %>')">[이전]</a>&nbsp;
 				<%} %>
 				
 				<%for(int a=startpage;a<=endpage;a++){
@@ -111,7 +111,7 @@
 				<%if(nowpage>=maxpage){ %>
 				[다음]
 				<%}else{ %>
-				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage+5 %>')">[다음]</a>
+				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage+1 %>')">[다음]</a>
 				<%} %>
 			</td>
 		</tr>
