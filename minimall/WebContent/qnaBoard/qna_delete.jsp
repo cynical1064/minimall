@@ -7,7 +7,7 @@
 <title>문의하기</title>
 </head>
 <body>
-<form name="deleteForm" action="./QnaDeleteAction.qn?num=<%=num %>" method="post">
+<form name="deleteForm" action="${pageContext.request.contextPath}/Qna/QnaDeleteAction.qn?num=<%=num %>" method="post">
 <table border=1>
 <tr>
 	<td>

@@ -75,7 +75,7 @@
 				<%}else{ %>
 					¢º
 				<%} %> --%>
-				<a href="./QnaDetailAction.qn?num=<%= Qnalist.getQna_no() %>">
+				<a href="${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=<%= Qnalist.getQna_no() %>">
 					<%=Qnalist.getQna_subject()%>
 				</a>
 				</div>

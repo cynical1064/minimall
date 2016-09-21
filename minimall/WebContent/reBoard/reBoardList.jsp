@@ -77,7 +77,7 @@ if(listcount > 0){
 			<%}else{ %>
 				¢º
 			<%} %>
-			<a href="./BoardDetailAction.reb?num=<%=bl.getBOARD_NUM()%>">
+			<a href="${pageContext.request.contextPath}/board/BoardDetailAction.reb?num=<%=bl.getBOARD_NUM()%>">
 				<%=bl.getBOARD_SUBJECT()%>
 			</a>
 			</div>

@@ -68,31 +68,34 @@
 <jsp:include page="/module/headerSub.jsp"/>
 <div id="container"> 
 	<div class="content">
-		<table class="basic">
-			<tr>
-				<th>주문 번호</th><th>상품 이름</th><th>구매자 아이디</th><th>판매자 아이디</th><th>구매자 이름</th><th>배송지</th><th>주문 날짜</th><th>상품 코드</th><th>가격</th><th>수량</th><th>합계</th><th>주문 상태</th><th>주문 취소</th>
-			</tr>
-			<c:forEach var="order" items="${orderListOne}">
+		<form id="delForm" action="${pageContext.request.contextPath}/Odel/orderDeletePro.oo" method="post">
+			<table class="basic">
 				<tr>
-					<td>${order.o_no}</td>
-					<td>${order.g_name}</td>
-					<td>${order.m_id}</td>
-					<td>${order.g_id}</td>
-					<td>${order.m_name}</td>
-					<td>${order.m_addr}</td>
-					<td>${order.o_date}</td>
-					<td>${order.g_code}</td>
-					<td>${order.g_price}</td>
-					<td>${order.o_count}</td>
-					<td>${order.o_total}</td>
-					<td>${order.o_state}</td>
-					<form id="delForm" action="${pageContext.request.contextPath}/Odel/orderDeletePro.oo" method="post">
-					<td class="hiddenTd" style="display:none;"><input type="text" name="oNo" value="${order.o_no}" hidden="hidden" />비밀번호 확인 : <input type="password" id="delPw" name="delPw" size="10"> <input type="button" class="delLink2" value="취소확인"></td>
-					<td><input type="button" class="delLink" value="주문취소"></td>					
-					</form>						
+					<th>주문 번호</th><th>상품 이름</th><th>구매자 아이디</th><th>판매자 아이디</th><th>구매자 이름</th><th>배송지</th><th>주문 날짜</th><th>상품 코드</th><th>가격</th><th>수량</th><th>합계</th><th>주문 상태</th><th>주문 취소</th>
 				</tr>
-			</c:forEach>
-		</table>
+				<c:forEach var="order" items="${orderListOne}">
+					<tr>
+						<td>${order.o_no}</td>
+						<td>${order.g_name}</td>
+						<td>${order.m_id}</td>
+						<td>${order.g_id}</td>
+						<td>${order.m_name}</td>
+						<td>${order.m_addr}</td>
+						<td>${order.o_date}</td>
+						<td>${order.g_code}</td>
+						<td>${order.g_price}</td>
+						<td>${order.o_count}</td>
+						<td>${order.o_total}</td>
+						<td>${order.o_state}</td>					
+						<td class="hiddenTd" style="display:none;">
+							<input type="text" name="oNo" value="${order.o_no}" hidden="hidden" />
+							비밀번호 확인 : <input type="password" id="delPw" name="delPw" size="10"> <input type="button" class="delLink2" value="취소확인">
+						</td>
+						<td><input type="button" class="delLink" value="주문취소"></td>							
+					</tr>
+				</c:forEach>
+			</table>
+		</form>	
 	</div>
 </div>	
 <jsp:include page="/module/footer.jsp" />

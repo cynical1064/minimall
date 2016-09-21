@@ -59,16 +59,16 @@
 			<tr align="center" valign="middle">
 				<td colspan="5">
 					<font size=2>
-					<a href="./QnaReplyView.qn?num=<%=qnadto.getQna_no() %>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=<%=qnadto.getQna_no() %>">
 					[답변]
 					</a>&nbsp;&nbsp;
-					<a href="./QnaModify.qn?num=<%=qnadto.getQna_no() %>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=<%=qnadto.getQna_no() %>">
 					[수정]
 					</a>&nbsp;&nbsp;
-					<a href="./QnaDelete.qn?num=<%=qnadto.getQna_no() %>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=<%=qnadto.getQna_no() %>">
 					[삭제]
 					</a>&nbsp;&nbsp;
-					<a href="./QnaList.qn">[목록]</a>&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">[목록]</a>&nbsp;&nbsp;
 					</font>
 				</td>
 			</tr>
