@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>¹Ì´Ï¸ô</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ë¯¸ë‹ˆëª°</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
@@ -31,22 +31,22 @@
 	<div class="content clearFix">
 		<div id="leftMenuWrap">
 			<dl id="leftMenu" class="">
-				<dt>¸¶ÀÌÆäÀÌÁö</dt>
+				<dt>ë§ˆì´íŽ˜ì´ì§€</dt>
 				<c:choose>
-					<c:when test="${sessionScope.loginLevel == '°ü¸®ÀÚ'}">
+					<c:when test="${sessionScope.loginLevel == 'ê´€ë¦¬ìž'}">
 						<dd><a href="${pageContext.request.contextPath}/Mli/mList.mo">Member</a></dd>
-						<dd><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">½ÂÀÎ´ë±â</a></dd>
-						<dd><a href="">°Ô½Ã±Û °ü¸®</a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">ìŠ¹ì¸ëŒ€ê¸°</a></dd>
+						<dd><a href="">ê²Œì‹œê¸€ ê´€ë¦¬</a></dd>
 					</c:when>
-					<c:when test="${sessionScope.loginLevel == 'ÆÇ¸ÅÀÚ'}">
-						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">°³ÀÎÁ¤º¸¼öÁ¤</a></dd>
-						<dd><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">µî·Ï»óÇ°</a></dd>
-						<dd><a href="">°Ô½Ã±Û °ü¸®</a></dd>
+					<c:when test="${sessionScope.loginLevel == 'íŒë§¤ìž'}">
+						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">ê°œì¸ì •ë³´ìˆ˜ì •</a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">ë“±ë¡ìƒí’ˆ</a></dd>
+						<dd><a href="">ê²Œì‹œê¸€ ê´€ë¦¬</a></dd>
 					</c:when>
 					<c:otherwise>
-						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">°³ÀÎÁ¤º¸¼öÁ¤</a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">ê°œì¸ì •ë³´ìˆ˜ì •</a></dd>
 						<dd><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo">order</a></dd>
-						<dd><a href="">°Ô½Ã±Û °ü¸®</a></dd>
+						<dd><a href="">ê²Œì‹œê¸€ ê´€ë¦¬</a></dd>
 					</c:otherwise>
 				</c:choose>
 				
@@ -56,8 +56,8 @@
 		<div id="myPageContent">			
 			<table class="basic">
 				<tr>
-					<th>¹øÈ£</th><th>»óÇ°ÄÚµå</th><th>»óÇ°¸í</th><th>Ä«Å×°í¸®</th><th>°¡°Ý</th>
-					<th>»ó¼¼³»¿ë</th><th>µî·Ï³¯Â¥</th><th>¼öÁ¤</th><th>»èÁ¦</th>
+					<th>ë²ˆí˜¸</th><th>ìƒí’ˆì½”ë“œ</th><th>ìƒí’ˆëª…</th><th>ì¹´í…Œê³ ë¦¬</th><th>ê°€ê²©</th>
+					<th>ìƒì„¸ë‚´ìš©</th><th>ë“±ë¡ë‚ ì§œ</th><th>ìˆ˜ì •</th><th>ì‚­ì œ</th>
 				</tr>
 				<c:forEach var="goods" items="${goodsList}" varStatus="status">
 					<tr>
@@ -69,15 +69,15 @@
 						<td>${goods.g_sangse}</td>
 						<td>${goods.g_date}</td>
 						<td>
-							<a href="${pageContext.request.contextPath}/Gup/goodsUpdateForm.go?gCode=${goods.g_code}">¼öÁ¤</a>
+							<a href="${pageContext.request.contextPath}/Gup/goodsUpdateForm.go?gCode=${goods.g_code}">ìˆ˜ì •</a>
 						</td>
 						<td>
-							<a href="${pageContext.request.contextPath}/Gdel/goodsDeleteAction.go?gCode=${goods.g_code}">»èÁ¦</a>
+							<a href="${pageContext.request.contextPath}/Gdel/goodsDeleteAction.go?gCode=${goods.g_code}">ì‚­ì œ</a>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go">»óÇ° µî·Ï</a>
+			<a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go">ìƒí’ˆ ë“±ë¡</a>
 		</div>
 	</div>
 </div>

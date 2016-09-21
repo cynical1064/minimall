@@ -14,7 +14,7 @@ import com.minimall.inter.ActionInterFace;
 public class QnaModifyAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 			 	throws Exception{
-				 request.setCharacterEncoding("euc-kr");
+				 request.setCharacterEncoding("UTF-8");
 				 ActionForward forward = new ActionForward();
 				 boolean result = false;
 				 
@@ -25,7 +25,7 @@ public class QnaModifyAction implements ActionInterFace {
 				 
 				 boolean usercheck=qnadao.isBoardWriter(num, request.getParameter("qna_pass"));
 				 if(usercheck==false){
-				   		response.setContentType("text/html;charset=euc-kr");
+				   		response.setContentType("text/html;charset=UTF-8");
 				   		PrintWriter out=response.getWriter();
 				   		out.println("<script>");
 				   		out.println("alert('수정할 권한이 없습니다.');");

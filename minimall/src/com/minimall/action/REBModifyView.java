@@ -11,7 +11,7 @@ import com.minimall.inter.ActionInterFace;
 public class REBModifyView implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 	ActionForward forward = new ActionForward();
-		 	request.setCharacterEncoding("euc-kr");
+		 	request.setCharacterEncoding("UTF-8");
 	   		
 			REBoardDAO boarddao=new REBoardDAO();
 		   	REBoardDto boarddata=new REBoardDto();

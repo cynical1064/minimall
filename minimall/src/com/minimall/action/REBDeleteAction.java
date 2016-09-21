@@ -14,7 +14,7 @@ public class REBDeleteAction implements ActionInterFace {
 	 	throws Exception{
 		 
 		ActionForward forward = new ActionForward();
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		
 	   	boolean result=false;
 	   	boolean usercheck=false;
@@ -24,7 +24,7 @@ public class REBDeleteAction implements ActionInterFace {
 	   	usercheck=boarddao.isBoardWriter(num, request.getParameter("BOARD_PASS"));
 	   	
 	   	if(usercheck==false){
-	   		response.setContentType("text/html;charset=euc-kr");
+	   		response.setContentType("text/html;charset=UTF-8");
 	   		PrintWriter out=response.getWriter();
 	   		out.println("<script>");
 	   		out.println("alert('삭제할 권한이 없습니다.');");

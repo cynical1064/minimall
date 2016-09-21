@@ -16,7 +16,7 @@ public class GoodsUpdateAction implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsUpdateAction.java");
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		String gCode = request.getParameter("gCode");
 		String gName = request.getParameter("gName");
 		String gCate = request.getParameter("gCate");

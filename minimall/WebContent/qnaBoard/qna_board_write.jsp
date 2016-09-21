@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>¹Ì´Ï¸ô</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ë¯¸ë‹ˆëª°</title>
 	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 	<script language="javascript">
@@ -17,45 +17,45 @@
 <%@ include file = "/module/headerSub.jsp" %>
 <div id="container">
 	<div class="content">
-		<!-- °Ô½ÃÆÇ µî·Ï -->
+		<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 		<form action="${pageContext.request.contextPath}/Qna/QnaAddAction.qn" method="post" name="boardform">		
 		<table class="basic">
 			<tr align="center" valign="middle">
-				<td colspan="5">¹®ÀÇÇÏ±â</td>
+				<td colspan="5">ë¬¸ì˜í•˜ê¸°</td>
 			</tr>
 			<tr>
-				<td style="font-family:µ¸À½; font-size:12" height="16">
-					<div align="center">Áú¹®À¯Çü</div>
+				<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+					<div align="center">ì§ˆë¬¸ìœ í˜•</div>
 				</td>
 				<td>
-					<select name="qna_category" style="font-family:µ¸À½; font-size:12; width:97px;">
-						<option value="»óÇ°¹®ÀÇ">»óÇ°¹®ÀÇ</option>
-						<option value="°áÁ¦¹®ÀÇ">°áÁ¦¹®ÀÇ</option>
-						<option value="¹è¼Û¹®ÀÇ">¹è¼Û¹®ÀÇ</option>
-						<option value="ÀÔ±ÝÈ®ÀÎ">ÀÔ±ÝÈ®ÀÎ</option>
-						<option value="ÁÖ¹®¹®ÀÇ">ÁÖ¹®¹®ÀÇ</option>
-						<option value="±âÅ¸¹®ÀÇ">±âÅ¸¹®ÀÇ</option>
-						<option value="±³È¯¹®ÀÇ">±³È¯¹®ÀÇ</option>
-						<option value="ÇØ¿Ü¹è¼Û">ÇØ¿Ü¹è¼Û</option>
+					<select name="qna_category" style="font-family:ë‹ìŒ; font-size:12; width:97px;">
+						<option value="ìƒí’ˆë¬¸ì˜">ìƒí’ˆë¬¸ì˜</option>
+						<option value="ê²°ì œë¬¸ì˜">ê²°ì œë¬¸ì˜</option>
+						<option value="ë°°ì†¡ë¬¸ì˜">ë°°ì†¡ë¬¸ì˜</option>
+						<option value="ìž…ê¸ˆí™•ì¸">ìž…ê¸ˆí™•ì¸</option>
+						<option value="ì£¼ë¬¸ë¬¸ì˜">ì£¼ë¬¸ë¬¸ì˜</option>
+						<option value="ê¸°íƒ€ë¬¸ì˜">ê¸°íƒ€ë¬¸ì˜</option>
+						<option value="êµí™˜ë¬¸ì˜">êµí™˜ë¬¸ì˜</option>
+						<option value="í•´ì™¸ë°°ì†¡">í•´ì™¸ë°°ì†¡</option>
 					</select>
 				</td>
 				
-				<td align="right" style="font-family:µ¸À½; font-size:12" height="16">
+				<td align="right" style="font-family:ë‹ìŒ; font-size:12" height="16">
 					<input name="qna_secret" type="checkbox" value="y">
-					ºñ¹Ð±Û
+					ë¹„ë°€ê¸€
 				</td>
 			</tr>
 			<tr>
-				<td style="font-family:µ¸À½; font-size:12" height="16">
-					<div align="center">Á¦ ¸ñ</div>
+				<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+					<div align="center">ì œ ëª©</div>
 				</td>
 				<td colspan="2">
 					<input name="qna_subject" type="text" size="50" maxlength="100" value="" />
 				</td>
 			</tr>
 			<tr>
-				<td style="font-family:µ¸À½; font-size:12">
-					<div align="center">³» ¿ë</div>
+				<td style="font-family:ë‹ìŒ; font-size:12">
+					<div align="center">ë‚´ ìš©</div>
 				</td>
 				<td colspan="2">
 					<textarea name="qna_content" cols="67" rows="15"></textarea>
@@ -68,13 +68,13 @@
 			<tr><td colspan="2">&nbsp;</td></tr>
 			<tr align="center" valign="middle">
 				<td colspan="5">
-					<a href="javascript:addboard()">[µî·Ï]</a>&nbsp;&nbsp;
-					<a href="javascript:history.go(-1)">[µÚ·Î]</a>
+					<a href="javascript:addboard()">[ë“±ë¡]</a>&nbsp;&nbsp;
+					<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>
 				</td>
 			</tr>
 		</table>
 		</form>
-		<!-- °Ô½ÃÆÇ µî·Ï -->
+		<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>

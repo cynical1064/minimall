@@ -10,7 +10,7 @@ import com.minimall.inter.ActionInterFace;
 
  public class REBDetailAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
    		
 		REBoardDAO boarddao=new REBoardDAO();
 	   	REBoardDto boarddata=new REBoardDto();

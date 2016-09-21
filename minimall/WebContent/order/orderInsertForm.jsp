@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@ $(document).ready(function(){
 });
 </script>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
@@ -42,37 +42,37 @@ $(document).ready(function(){
 		<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
 			<table class="basic orderForm">
 				<tr>
-					<td>»óÇ°¸í</td>
+					<td>ìƒí’ˆëª…</td>
 					<td>
 						<input type="hidden" name="gName" id="gName" value="${goods.g_name}">
 						${goods.g_name}
 					</td>
 				</tr>
 				<tr>
-					<td>ÆÇ¸ÅÀÚ</td>
+					<td>íŒë§¤ì</td>
 					<td>
 						<input type="hidden" name="gId" id="gId" value="${goods.g_id}">
 						${goods.g_id}
 					</td>
 				</tr>
 				<tr>
-					<td>°¡°İ</td>
+					<td>ê°€ê²©</td>
 					<td>
 						<input type="hidden" name="gPrice" id="gPrice" value="${goods.g_price}">
 						${goods.g_price}
 					</td>
 				</tr>
 				<tr>
-					<td>¼ö·®</td>
+					<td>ìˆ˜ëŸ‰</td>
 					<td>
 						<input name="oCount" id="oCount" value="1" readonly="readonly">
-						<span id="upCount">¡ã</span>/<span id="downCount">¡å</span><span id="count"></span>
+						<span id="upCount">â–²</span>/<span id="downCount">â–¼</span><span id="count"></span>
 					</td>
 				</tr>
 				<tr>
-					<td>ÇÕ°è</td>
+					<td>í•©ê³„</td>
 					<td>
-						<input name="oTotal" id="oTotal" value="${goods.g_price}" readonly="readonly">¿ø
+						<input name="oTotal" id="oTotal" value="${goods.g_price}" readonly="readonly">ì›
 					</td>
 				</tr>
 				<tr>
@@ -80,7 +80,7 @@ $(document).ready(function(){
 					<td>				
 						<input type = "hidden" name="gCode" value="${goods.g_code}">
 						<input type = "hidden" name="mId" value="${sessionScope.loginId}">
-						<div id="buyBtn">±¸¸Å</div>
+						<div id="buyBtn">êµ¬ë§¤</div>
 					</td>
 				</tr>
 			</table>

@@ -1,5 +1,5 @@
 <%@page import="com.minimall.dto.REBoardDto"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 
@@ -16,9 +16,9 @@
 
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>¸®ºä °Ô½ÃÆÇ</title>
+	<title>ë¦¬ë·° ê²Œì‹œíŒ</title>
 
 
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
@@ -32,27 +32,27 @@
 if(listcount > 0){
 %>
 	<tr align="center" valign="middle">
-		<td colspan="4">¸®ºä °Ô½ÃÆÇ</td>
+		<td colspan="4">ë¦¬ë·° ê²Œì‹œíŒ</td>
 		<td align=right>
-			<font size=2>±Û °³¼ö : ${listcount }</font>
+			<font size=2>ê¸€ ê°œìˆ˜ : ${listcount }</font>
 		</td>
 	</tr>
 	
 	<tr align="center" valign="middle" bordercolor="#333333">
 		<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
-			<div align="center">¹øÈ£</div>
+			<div align="center">ë²ˆí˜¸</div>
 		</td>
 		<td style="font-family:Tahoma;font-size:8pt;" width="50%">
-			<div align="center">Á¦¸ñ</div>
+			<div align="center">ì œëª©</div>
 		</td>
 		<td style="font-family:Tahoma;font-size:8pt;" width="14%">
-			<div align="center">ÀÛ¼ºÀÚ</div>
+			<div align="center">ìž‘ì„±ìž</div>
 		</td>
 		<td style="font-family:Tahoma;font-size:8pt;" width="17%">
-			<div align="center">³¯Â¥</div>
+			<div align="center">ë‚ ì§œ</div>
 		</td>
 		<td style="font-family:Tahoma;font-size:8pt;" width="11%">
-			<div align="center">Á¶È¸¼ö</div>
+			<div align="center">ì¡°íšŒìˆ˜</div>
 		</td>
 	</tr>
 	
@@ -73,9 +73,9 @@ if(listcount > 0){
 				<%for(int a=0;a<=bl.getBOARD_RE_LEV()*2;a++){ %>
 				&nbsp;
 				<%} %>
-				¢º
+				â–¶
 			<%}else{ %>
-				¢º
+				â–¶
 			<%} %>
 			<a href="${pageContext.request.contextPath}/board/BoardDetailAction.reb?num=<%=bl.getBOARD_NUM()%>">
 				<%=bl.getBOARD_SUBJECT()%>
@@ -97,9 +97,9 @@ if(listcount > 0){
 	<tr align=center height=20>
 		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
 			<%if(nowpage<=1){ %>
-			[ÀÌÀü]&nbsp;
+			[ì´ì „]&nbsp;
 			<%}else{ %>
-			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage-1 %>">[ÀÌÀü]</a>&nbsp;
+			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage-1 %>">[ì´ì „]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
@@ -111,9 +111,9 @@ if(listcount > 0){
 			<%} %>
 			
 			<%if(nowpage>=maxpage){ %>
-			[´ÙÀ½]
+			[ë‹¤ìŒ]
 			<%}else{ %>
-			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage+1 %>">[´ÙÀ½]</a>
+			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage+1 %>">[ë‹¤ìŒ]</a>
 			<%} %>
 		</td>
 	</tr>
@@ -123,9 +123,9 @@ if(listcount > 0){
 	{
 	%>
 	<tr align="center" valign="middle">
-		<td colspan="4">¸®ºä °Ô½ÃÆÇ</td>
+		<td colspan="4">ë¦¬ë·° ê²Œì‹œíŒ</td>
 		<td align=right>
-			<font size=2>µî·ÏµÈ ¸®ºä°¡ ¾ø½À´Ï´Ù.</font>
+			<font size=2>ë“±ë¡ëœ ë¦¬ë·°ê°€ ì—†ìŠµë‹ˆë‹¤.</font>
 		</td>
 	</tr>
 	<%
@@ -133,7 +133,7 @@ if(listcount > 0){
 	%>
 	<tr align="right">
 		<td colspan="5">
-	   		<a href="${pageContext.request.contextPath}/board/BoardWrite.reb">[±Û¾²±â]</a>
+	   		<a href="${pageContext.request.contextPath}/board/BoardWrite.reb">[ê¸€ì“°ê¸°]</a>
 		</td>
 	</tr>
 </table>

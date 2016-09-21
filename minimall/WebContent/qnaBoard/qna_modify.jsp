@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="com.minimall.dao.QnaDao" %>
 <%@ page import="com.minimall.dto.QnaDto" %>
 <%
@@ -7,7 +7,7 @@
 
 <html>
 <head>
-	<title>¹®ÀÇÇÏ±â</title>
+	<title>ë¬¸ì˜í•˜ê¸°</title>
 	<script type="text/javascript">
 	function modifyboard(){
 		modifyform.submit();
@@ -17,16 +17,16 @@
 
 <body>
 qna_board_modify.jsp
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 <form action="${pageContext.request.contextPath}/Qna/QnaModifyAction.qn" method="post" name="modifyform">
 <input type="hidden" name="qna_no" value=<%=qnadto.getQna_no() %>>
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">¹®ÀÇÇÏ±â</td>
+		<td colspan="5">ë¬¸ì˜í•˜ê¸°</td>
 	</tr>
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:12">
-			<div align="center">Á¦ ¸ñ</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ì œ ëª©</div>
 		</td>
 		<td>
 			<input name="qna_subject" size="50" maxlength="100" 
@@ -34,16 +34,16 @@ qna_board_modify.jsp
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
 		<td>
 			<textarea name="qna_content" cols="67" rows="15"><%=qnadto.getQna_content() %></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:12">
-			<div align="center">ºñ¹Ğ¹øÈ£</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë¹„ë°€ë²ˆí˜¸</div>
 		</td>
 		<td>
 			<input name="qna_pass" type="password">
@@ -59,13 +59,13 @@ qna_board_modify.jsp
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="javascript:modifyboard()">[¼öÁ¤]</a>&nbsp;&nbsp;
-			<a href="javascript:history.go(-1)">[µÚ·Î]</a>&nbsp;&nbsp;
+			<a href="javascript:modifyboard()">[ìˆ˜ì •]</a>&nbsp;&nbsp;
+			<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table>
 </form>
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 </body>
 </html>

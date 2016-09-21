@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.minimall.dto.*" %>
@@ -17,40 +17,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>¹Ì´Ï¸ô</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ë¯¸ë‹ˆëª°</title>
 	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 </head>
 <body>
-	<!-- °Ô½ÃÆÇ ¸®½ºÆ® -->
+	<!-- ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ -->
 	<form action="${pageContext.request.contextPath}/Qna/QnaListAction.qn" method="post">
 	<table class="basic">
 	<%
 	if(listcount > 0){
 	%>
 		<tr align="center" valign="middle">
-			<td colspan="4">¹®ÀÇÇÏ±â</td>
+			<td colspan="4">ë¬¸ì˜í•˜ê¸°</td>
 			<td align=right>
-				<font size=2>±Û °³¼ö : ${listcount }</font>
+				<font size=2>ê¸€ ê°œìˆ˜ : ${listcount }</font>
 			</td>
 		</tr>
 		
 		<tr align="center" valign="middle" bordercolor="#333333">
 			<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
-				<div align="center">¹øÈ£</div>
+				<div align="center">ë²ˆí˜¸</div>
 			</td>
 			<td style="font-family:Tahoma;font-size:8pt;" width="50%">
-				<div align="center">Á¦¸ñ</div>
+				<div align="center">ì œëª©</div>
 			</td>
 			<td style="font-family:Tahoma;font-size:8pt;" width="14%">
-				<div align="center">ÀÛ¼ºÀÚ</div>
+				<div align="center">ìž‘ì„±ìž</div>
 			</td>
 			<td style="font-family:Tahoma;font-size:8pt;" width="17%">
-				<div align="center">³¯Â¥</div>
+				<div align="center">ë‚ ì§œ</div>
 			</td>
 			<td style="font-family:Tahoma;font-size:8pt;" width="11%">
-				<div align="center">Á¶È¸¼ö</div>
+				<div align="center">ì¡°íšŒìˆ˜</div>
 			</td>
 		</tr>
 		
@@ -71,9 +71,9 @@
 					<%for(int a=0;a<=Qnalist.getBOARD_RE_LEV()*2;a++){ %>
 					&nbsp;
 					<%} %>
-					¢º
+					â–¶
 				<%}else{ %>
-					¢º
+					â–¶
 				<%} %> --%>
 				<a href="${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=<%= Qnalist.getQna_no() %>">
 					<%=Qnalist.getQna_subject()%>
@@ -95,9 +95,9 @@
 		<tr align=center height=20>
 			<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
 				<%if(nowpage<=1){ %>
-				[ÀÌÀü]&nbsp;
+				[ì´ì „]&nbsp;
 				<%}else{ %>
-				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage-1 %>')">[ÀÌÀü]</a>&nbsp;
+				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage-1 %>')">[ì´ì „]</a>&nbsp;
 				<%} %>
 				
 				<%for(int a=startpage;a<=endpage;a++){
@@ -109,9 +109,9 @@
 				<%} %> 
 				
 				<%if(nowpage>=maxpage){ %>
-				[´ÙÀ½]
+				[ë‹¤ìŒ]
 				<%}else{ %>
-				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage+1 %>')">[´ÙÀ½]</a>
+				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage+1 %>')">[ë‹¤ìŒ]</a>
 				<%} %>
 			</td>
 		</tr>
@@ -120,9 +120,9 @@
 		{
 		%>
 		<tr align="center" valign="middle">
-			<td colspan="4">¹®ÀÇÇÏ±â</td>
+			<td colspan="4">ë¬¸ì˜í•˜ê¸°</td>
 			<td align=right>
-				<font size=2>µî·ÏµÈ ±ÛÀÌ ¾ø½À´Ï´Ù.</font>
+				<font size=2>ë“±ë¡ëœ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.</font>
 			</td>
 		</tr>
 		<%
@@ -130,7 +130,7 @@
 		%>
 		<tr align="right">
 			<td colspan="5">
-		   		<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">[±Û¾²±â]</a>
+		   		<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">[ê¸€ì“°ê¸°]</a>
 			</td>
 		</tr>
 	</table>

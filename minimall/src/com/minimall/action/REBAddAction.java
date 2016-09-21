@@ -37,7 +37,7 @@ public class REBAddAction implements ActionInterFace {
    			
    			MultipartRequest multi=null;
    			
-   			multi=new MultipartRequest(request,realFolder,fileSize,"euc-kr",new DefaultFileRenamePolicy());
+   			multi=new MultipartRequest(request,realFolder,fileSize,"UTF-8",new DefaultFileRenamePolicy());
    			System.out.println("!! 3");
    			boarddata.setBOARD_NAME(multi.getParameter("BOARD_NAME"));
    			boarddata.setBOARD_PASS(multi.getParameter("BOARD_PASS"));

@@ -10,7 +10,7 @@ import com.minimall.inter.ActionInterFace;
 
 public class QnaDetailAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
   		
 		QnaDao qnadao=new QnaDao();
 		QnaDto qnadto=new QnaDto();

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page import="com.minimall.dto.GoodsDto" %>
@@ -37,30 +37,30 @@
 						<form action="${pageContext.request.contextPath}/Gup/GoodsUpdateAtion.go" method="post" name="modifyform">
 							<table class="basic">
 								<tr>
-									<td colspan=2><h2 align="center">¼öÁ¤ÇÏ±â</h2></td>
+									<td colspan=2><h2 align="center">ìˆ˜ì •í•˜ê¸°</h2></td>
 								</tr>
 								<tr>
-									<td>Ä«Å×°í¸®</td>
+									<td>ì¹´í…Œê³ ë¦¬</td>
 									<td><input name="gCate" type="text" size="40" maxlength="30" value="${goodsDto.g_cate}"/></td>
 								</tr>
 								<tr>
-									<td>»óÇ°¸í</td>
+									<td>ìƒí’ˆëª…</td>
 									<td><input name="gName" type="text" size="40" maxlength="30" value="${goodsDto.g_name}"/></td>
 								</tr>
 								<tr>
-									<td>°¡°Ý</td>
+									<td>ê°€ê²©</td>
 									<td><input name="gPrice" type="text" size="40" maxlength="30" value="${goodsDto.g_price}"/></td>
 								</tr>
 								<tr>
-									<td>»óÇ°»ó¼¼¼³¸í</td>
+									<td>ìƒí’ˆìƒì„¸ì„¤ëª…</td>
 									<td><input type="hidden" name="gCode" value="${goodsDto.g_code}"/>
 										<textarea name="gSangse" rows="8" cols="45">${goodsDto.g_sangse}</textarea>
 									</td>
 								</tr>
 								<tr>
 									<td colspan=2>
-										<a href="javascript:modifygoods()">[¼öÁ¤]</a>&nbsp;&nbsp;
-										<a href="javascript:history.go(-1)">[µÚ·Î]</a>&nbsp;&nbsp;
+										<a href="javascript:modifygoods()">[ìˆ˜ì •]</a>&nbsp;&nbsp;
+										<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>&nbsp;&nbsp;
 									</td>
 								</tr>
 							</table>

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>¸®ºä °Ô½ÃÆÇ</title>
+	<title>ë¦¬ë·° ê²Œì‹œíŒ</title>
 	
 	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
@@ -21,16 +21,16 @@
 <div id="container">
 	<div class="content">
 	
-<!-- °Ô½ÃÆÇ µî·Ï -->
+<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 <form action="${pageContext.request.contextPath}/board/BoardAddAction.reb" method="post" 
 	enctype="multipart/form-data" name="boardform">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">¸®ºä °Ô½ÃÆÇ</td>
+		<td colspan="5">ë¦¬ë·° ê²Œì‹œíŒ</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12" height="16">
-			<div align="center">±Û¾´ÀÌ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+			<div align="center">ê¸€ì“´ì´</div>
 		</td>
 		<td>
 			<input name="BOARD_NAME" type="text" size="10" maxlength="10" 
@@ -38,8 +38,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12" height="16">
-			<div align="center">ºñ¹Ð¹øÈ£</div>
+		<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+			<div align="center">ë¹„ë°€ë²ˆí˜¸</div>
 		</td>
 		<td>
 			<input name="BOARD_PASS" type="password" size="10" maxlength="10" 
@@ -47,8 +47,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12" height="16">
-			<div align="center">Á¦ ¸ñ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+			<div align="center">ì œ ëª©</div>
 		</td>
 		<td>
 			<input name="BOARD_SUBJECT" type="text" size="50" maxlength="100" 
@@ -56,16 +56,16 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
 		<td>
 			<textarea name="BOARD_CONTENT" cols="67" rows="15"></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">ÆÄÀÏ Ã·ºÎ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">íŒŒì¼ ì²¨ë¶€</div>
 		</td>
 		<td>
 			<input name="BOARD_FILE" type="file"/>
@@ -78,13 +78,13 @@
 	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr align="center" valign="middle">
 		<td colspan="5">
-			<a href="javascript:addboard()">[µî·Ï]</a>&nbsp;&nbsp;
-			<a href="javascript:history.go(-1)">[µÚ·Î]</a>
+			<a href="javascript:addboard()">[ë“±ë¡]</a>&nbsp;&nbsp;
+			<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>
 		</td>
 	</tr>
 </table>
 </form>
-<!-- °Ô½ÃÆÇ µî·Ï -->
+<!-- ê²Œì‹œíŒ ë“±ë¡ -->
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>

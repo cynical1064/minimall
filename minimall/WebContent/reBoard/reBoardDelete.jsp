@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	int num=Integer.parseInt(request.getParameter("num"));
 %>
 <html>
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>¸®ºä °Ô½ÃÆÇ</title>
+<title>ë¦¬ë·° ê²Œì‹œíŒ</title>
 
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
@@ -22,7 +22,7 @@
 <table border=1>
 <tr>
 	<td>
-		<font size=2>±Û ºñ¹Ð¹øÈ£ : </font>
+		<font size=2>ê¸€ ë¹„ë°€ë²ˆí˜¸ : </font>
 	</td>
 	<td>
 		<input name="BOARD_PASS" type="password">
@@ -30,9 +30,9 @@
 </tr>
 <tr>
 	<td colspan=2 align=center>
-		<a href="javascript:deleteForm.submit()">»èÁ¦</a>
+		<a href="javascript:deleteForm.submit()">ì‚­ì œ</a>
 		&nbsp;&nbsp;
-		<a href="javascript:history.go(-1)">µ¹¾Æ°¡±â</a>
+		<a href="javascript:history.go(-1)">ëŒì•„ê°€ê¸°</a>
 	</td>
 </tr>
 </table>

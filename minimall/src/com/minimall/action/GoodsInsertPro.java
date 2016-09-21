@@ -18,7 +18,7 @@ public class GoodsInsertPro implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsInsertPro.java");
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		/*String gId = request.getParameter("gId");
 		String gName = request.getParameter("gName");
 		String gCate = request.getParameter("gCate");

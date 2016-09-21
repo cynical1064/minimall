@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="com.minimall.dao.QnaDao" %>
 <%@ page import="com.minimall.dto.QnaDto" %>
 <%
@@ -7,7 +7,7 @@
 
 <html>
 <head>
-	<title>¹Ì´Ï¸ô</title>
+	<title>ë¯¸ë‹ˆëª°</title>
 	<script language="javascript">
 	function replyboard(){
 		boardform.submit();
@@ -15,18 +15,18 @@
 	</script>
 </head>
 <body>
-<!-- °Ô½ÃÆÇ ´äº¯ -->
+<!-- ê²Œì‹œíŒ ë‹µë³€ -->
 <form action="${pageContext.request.contextPath}/Qna/QnaReplyAction.qn" method="post" name="boardform">
 <input type="hidden" name="qna_category" value="<%=qnadto.getQna_category() %>">
 <input type="hidden" name="qna_secret" value="<%=qnadto.getQna_secret() %>">
 
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">Q&A ´äº¯ÇÏ±â</td>
+		<td colspan="5">Q&A ë‹µë³€í•˜ê¸°</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12" height="16">
-			<div align="center">Á¦ ¸ñ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+			<div align="center">ì œ ëª©</div>
 		</td>
 		<td>
 			<input name="qna_subject" type="text" size="50" 
@@ -34,8 +34,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
 		<td>
 			<textarea name="qna_content" cols="67" rows="15"></textarea>
@@ -49,12 +49,12 @@
 	
 	<tr align="center" valign="middle">
 		<td colspan="5">
-		<a href="javascript:replyboard()">[µî·Ï]</a>&nbsp;&nbsp;
-		<a href="javascript:history.go(-1)">[µÚ·Î]</a>
+		<a href="javascript:replyboard()">[ë“±ë¡]</a>&nbsp;&nbsp;
+		<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>
 		</td>
 	</tr>
 </table>
 </form>
-<!-- °Ô½ÃÆÇ ´äº¯ -->
+<!-- ê²Œì‹œíŒ ë‹µë³€ -->
 </body>
 </html>

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
@@ -15,8 +15,8 @@
 	<div class="content">
 		<table class="basic">
 			<tr>
-				<td>ÁÖ¹® ¹øÈ£</td><td>»óÇ° ÀÌ¸§</td><td>±¸¸ÅÀÚ ¾ÆÀÌµð</td><td>ÆÇ¸ÅÀÚ ¾ÆÀÌµð</td><td>±¸¸ÅÀÚ ÀÌ¸§</td><td>¹è¼ÛÁö</td>
-				<td>ÁÖ¹® ³¯Â¥</td><td>»óÇ° ÄÚµå</td><td>°¡°Ý</td><td>¼ö·®</td><td>ÇÕ°è</td><td>ÁÖ¹® »óÅÂ</td><td>ÁÖ¹® Ãë¼Ò</td>
+				<td>ì£¼ë¬¸ ë²ˆí˜¸</td><td>ìƒí’ˆ ì´ë¦„</td><td>êµ¬ë§¤ìž ì•„ì´ë””</td><td>íŒë§¤ìž ì•„ì´ë””</td><td>êµ¬ë§¤ìž ì´ë¦„</td><td>ë°°ì†¡ì§€</td>
+				<td>ì£¼ë¬¸ ë‚ ì§œ</td><td>ìƒí’ˆ ì½”ë“œ</td><td>ê°€ê²©</td><td>ìˆ˜ëŸ‰</td><td>í•©ê³„</td><td>ì£¼ë¬¸ ìƒíƒœ</td><td>ì£¼ë¬¸ ì·¨ì†Œ</td>
 			</tr>
 			<c:forEach var="order" items="${orderList}">
 				<tr>
@@ -32,7 +32,7 @@
 					<td>${order.o_count}</td>
 					<td>${order.o_total}</td>
 					<td>${order.o_state}</td>
-					<td><a href="${pageContext.request.contextPath}/Odel/orderDeletePro.oo?oNo=${order.o_no}">ÁÖ¹® Ãë¼Ò</a></td>
+					<td><a href="${pageContext.request.contextPath}/Odel/orderDeletePro.oo?oNo=${order.o_no}">ì£¼ë¬¸ ì·¨ì†Œ</a></td>
 				</tr>
 			</c:forEach>
 		</table>

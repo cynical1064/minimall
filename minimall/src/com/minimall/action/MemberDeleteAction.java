@@ -34,7 +34,7 @@ public class MemberDeleteAction implements ActionInterFace{
                 forward.setPath("./member/member_out_ok.jsp");
 
             }else{  
-                response.setContentType("text/html; charset=euc-kr");
+                response.setContentType("text/html; charset=UTF-8");
                 PrintWriter out = response.getWriter();
                 out.println("<script>");
                 out.println("alert('비밀번호가 맞지않습니다.');");

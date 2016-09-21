@@ -11,7 +11,7 @@ import com.minimall.inter.ActionInterFace;
 public class REBReplyAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 throws Exception{
-		 	request.setCharacterEncoding("euc-kr");
+		 	request.setCharacterEncoding("UTF-8");
 		 	ActionForward forward = new ActionForward();
 		 	
 			REBoardDAO boarddao=new REBoardDAO();

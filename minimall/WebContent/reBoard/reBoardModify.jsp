@@ -1,5 +1,5 @@
 <%@page import="com.minimall.dto.REBoardDto"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	REBoardDto board = (REBoardDto)request.getAttribute("boarddata");
 %>
@@ -7,9 +7,9 @@
 <html>
 <head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>¸®ºä °Ô½ÃÆÇ</title>
+	<title>ë¦¬ë·° ê²Œì‹œíŒ</title>
 	
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
@@ -26,16 +26,16 @@
 <div id="container">
 	<div class="content">
 	
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 <form action="${pageContext.request.contextPath}/board/BoardModifyAction.reb" method="post" name="modifyform">
 <input type="hidden" name="BOARD_NUM" value=<%=board.getBOARD_NUM() %>>
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">¸®ºä °Ô½ÃÆÇ</td>
+		<td colspan="5">ë¦¬ë·° ê²Œì‹œíŒ</td>
 	</tr>
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:12">
-			<div align="center">Á¦ ¸ñ</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ì œ ëª©</div>
 		</td>
 		<td>
 			<input name="BOARD_SUBJECT" size="50" maxlength="100" 
@@ -43,8 +43,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
 		<td>
 			<textarea name="BOARD_CONTENT" cols="67" rows="15"><%=board.getBOARD_CONTENT() %></textarea>
@@ -52,8 +52,8 @@
 	</tr>
 	<%if(!(board.getBOARD_FILE()==null)){ %>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">ÆÄÀÏ Ã·ºÎ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">íŒŒì¼ ì²¨ë¶€</div>
 		</td>
 		<td>
 			&nbsp;&nbsp;<%=board.getBOARD_FILE() %>
@@ -61,8 +61,8 @@
 	</tr>
 	<%} %>
 	<tr>
-		<td height="16" style="font-family:µ¸À½; font-size:12">
-			<div align="center">ºñ¹Ð¹øÈ£</div>
+		<td height="16" style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë¹„ë°€ë²ˆí˜¸</div>
 		</td>
 		<td>
 			<input name="BOARD_PASS" type="password">
@@ -78,14 +78,14 @@
 	<tr align="center" valign="middle">
 		<td colspan="5">
 			<font size=2>
-			<a href="javascript:modifyboard()">[¼öÁ¤]</a>&nbsp;&nbsp;
-			<a href="javascript:history.go(-1)">[µÚ·Î]</a>&nbsp;&nbsp;
+			<a href="javascript:modifyboard()">[ìˆ˜ì •]</a>&nbsp;&nbsp;
+			<a href="javascript:history.go(-1)">[ë’¤ë¡œ]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table>
 </form>
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>

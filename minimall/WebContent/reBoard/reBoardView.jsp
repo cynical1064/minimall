@@ -1,14 +1,14 @@
 <%@page import="com.minimall.dto.REBoardDto"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	REBoardDto board = (REBoardDto)request.getAttribute("boarddata");
 %>
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>¸®ºä °Ô½ÃÆÇ</title>
+	<title>ë¦¬ë·° ê²Œì‹œíŒ</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 	
@@ -20,19 +20,19 @@
 <div id="container">
 	<div class="content">
 	
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">¸®ºä °Ô½ÃÆÇ</td>
+		<td colspan="5">ë¦¬ë·° ê²Œì‹œíŒ</td>
 	</tr>
 	
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12" height="16">
-			<div align="center">Á¦ ¸ñ&nbsp;&nbsp;</div>
+		<td style="font-family:ë‹ìŒ; font-size:12" height="16">
+			<div align="center">ì œ ëª©&nbsp;&nbsp;</div>
 		</td>
 		
-		<td style="font-family:µ¸À½; font-size:12">
+		<td style="font-family:ë‹ìŒ; font-size:12">
 		<%=board.getBOARD_SUBJECT()%>
 		</td>
 	</tr>
@@ -43,13 +43,13 @@
 	</tr>
 	
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">³» ¿ë</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ë‚´ ìš©</div>
 		</td>
-		<td style="font-family:µ¸À½; font-size:12">
+		<td style="font-family:ë‹ìŒ; font-size:12">
 			<table border=0 width=490 height=250 style="table-layout:fixed">
 				<tr>
-					<td valign=top style="font-family:µ¸À½; font-size:12">
+					<td valign=top style="font-family:ë‹ìŒ; font-size:12">
 					<%=board.getBOARD_CONTENT() %>
 					</td>
 				</tr>
@@ -57,10 +57,10 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="font-family:µ¸À½; font-size:12">
-			<div align="center">Ã·ºÎÆÄÀÏ</div>
+		<td style="font-family:ë‹ìŒ; font-size:12">
+			<div align="center">ì²¨ë¶€íŒŒì¼</div>
 		</td>
-		<td style="font-family:µ¸À½; font-size:12">
+		<td style="font-family:ë‹ìŒ; font-size:12">
 		<%if(!(board.getBOARD_FILE()==null)){ %>
 		<a href="/reBoard/filedown.jsp?filename=<%=board.getBOARD_FILE()%>">
 			<%=board.getBOARD_FILE() %>			
@@ -80,20 +80,20 @@
 		<td colspan="5">
 			<font size=2>
 			<a href="${pageContext.request.contextPath}/board/BoardReplyView.reb?num=<%=board.getBOARD_NUM() %>">
-			[´äº¯]
+			[ë‹µë³€]
 			</a>&nbsp;&nbsp;
 			<a href="${pageContext.request.contextPath}/board/BoardModify.reb?num=<%=board.getBOARD_NUM() %>">
-			[¼öÁ¤]
+			[ìˆ˜ì •]
 			</a>&nbsp;&nbsp;
 			<a href="${pageContext.request.contextPath}/board/BoardDelete.reb?num=<%=board.getBOARD_NUM() %>">
-			[»èÁ¦]
+			[ì‚­ì œ]
 			</a>&nbsp;&nbsp;
-			<a href="${pageContext.request.contextPath}/board/BoardList.reb">[¸ñ·Ï]</a>&nbsp;&nbsp;
+			<a href="${pageContext.request.contextPath}/board/BoardList.reb">[ëª©ë¡]</a>&nbsp;&nbsp;
 			</font>
 		</td>
 	</tr>
 </table>
-<!-- °Ô½ÃÆÇ ¼öÁ¤ -->
+<!-- ê²Œì‹œíŒ ìˆ˜ì • -->
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>

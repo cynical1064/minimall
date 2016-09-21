@@ -11,7 +11,7 @@ import com.minimall.inter.ActionInterFace;
 public class QnaModifyView implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		 	ActionForward forward = new ActionForward();
-		 	request.setCharacterEncoding("euc-kr");
+		 	request.setCharacterEncoding("UTF-8");
 	   		
 		 	QnaDao qnadao=new QnaDao();
 		 	QnaDto qnadto=new QnaDto();

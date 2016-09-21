@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>¹Ì´Ï¸ô</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ë¯¸ë‹ˆëª°</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
@@ -13,7 +13,7 @@
 		
 		$('#updateBtn').click(function(){
 			
-			alert('º¯°æµÇ¾ú½À´Ï´Ù.');
+			alert('ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.');
 				
 		});
 			
@@ -27,22 +27,22 @@
 	<div class="content clearFix">
 		<div id="leftMenuWrap" >
 			<dl id="leftMenu" class="clearFix">
-				<dt>¸¶ÀÌÆäÀÌÁö</dt>
+				<dt>ë§ˆì´íŽ˜ì´ì§€</dt>
 				<c:choose>
-					<c:when test="${sessionScope.loginLevel == '°ü¸®ÀÚ'}">
+					<c:when test="${sessionScope.loginLevel == 'ê´€ë¦¬ìž'}">
 						<dd><a href="${pageContext.request.contextPath}/Mli/mList.mo">Member</a></dd>
-						<dd><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">½ÂÀÎ´ë±â</a></dd>
-						<dd><a href="">°Ô½Ã±Û °ü¸®</a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">ìŠ¹ì¸ëŒ€ê¸°</a></dd>
+						<dd><a href="">ê²Œì‹œê¸€ ê´€ë¦¬</a></dd>
 					</c:when>
-					<c:when test="${sessionScope.loginLevel == 'ÆÇ¸ÅÀÚ'}">
-						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">°³ÀÎÁ¤º¸¼öÁ¤</a></dd>
-						<dd><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">µî·Ï»óÇ°</a></dd>
-						<dd><a href="">°Ô½Ã±Û °ü¸®</a></dd>
+					<c:when test="${sessionScope.loginLevel == 'íŒë§¤ìž'}">
+						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">ê°œì¸ì •ë³´ìˆ˜ì •</a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">ë“±ë¡ìƒí’ˆ</a></dd>
+						<dd><a href="">ê²Œì‹œê¸€ ê´€ë¦¬</a></dd>
 					</c:when>
 					<c:otherwise>
-						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">°³ÀÎÁ¤º¸¼öÁ¤</a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">ê°œì¸ì •ë³´ìˆ˜ì •</a></dd>
 						<dd><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo">order</a></dd>
-						<dd><a href="">°Ô½Ã±Û °ü¸®</a></dd>
+						<dd><a href="">ê²Œì‹œê¸€ ê´€ë¦¬</a></dd>
 					</c:otherwise>
 				</c:choose>
 				<dd></dd>
@@ -53,38 +53,38 @@
 			<form action="${pageContext.request.contextPath}/Mup/mUpdatePro.mo" method="post">			
 				<table border="1">
 				<tr>
-					<td><span class="loginTitleTxt">¾ÆÀÌµð</span></td>
+					<td><span class="loginTitleTxt">ì•„ì´ë””</span></td>
 					<td><input type="text" name="m_id" size="20" value="${m.m_id}" readonly="readonly"></td>
 				<tr>
 				<tr>
-					<td><span class="loginTitleTxt">¾ÏÈ£</span></td>
+					<td><span class="loginTitleTxt">ì•”í˜¸</span></td>
 					<td><input type="password" name="m_pw" size="20"  value="${m.m_pw}"></td>
 				<tr>
 				<tr>
-					<td><span class="loginTitleTxt">±ÇÇÑ</span></td>					
+					<td><span class="loginTitleTxt">ê¶Œí•œ</span></td>					
 					<td>
-						<c:if test="${m.m_level} == '±¸¸ÅÀÚ'">
-							<label for="m_level">±¸¸ÅÀÚ</label><input type="radio" name="m_level" size="20" value="±¸¸ÅÀÚ" checked="checked">
-							<label for="m_level">ÆÇ¸ÅÀÚ</label><input type="radio" name="m_level" size="20" value="ÆÇ¸ÅÀÚ">
+						<c:if test="${m.m_level} == 'êµ¬ë§¤ìž'">
+							<label for="m_level">êµ¬ë§¤ìž</label><input type="radio" name="m_level" size="20" value="êµ¬ë§¤ìž" checked="checked">
+							<label for="m_level">íŒë§¤ìž</label><input type="radio" name="m_level" size="20" value="íŒë§¤ìž">
 						</c:if>
-						<label for="m_level">±¸¸ÅÀÚ</label><input type="radio" name="m_level" size="20" value="±¸¸ÅÀÚ" >
-						<label for="m_level">ÆÇ¸ÅÀÚ</label><input type="radio" name="m_level" size="20" value="ÆÇ¸ÅÀÚ" checked="checked">					
+						<label for="m_level">êµ¬ë§¤ìž</label><input type="radio" name="m_level" size="20" value="êµ¬ë§¤ìž" >
+						<label for="m_level">íŒë§¤ìž</label><input type="radio" name="m_level" size="20" value="íŒë§¤ìž" checked="checked">					
 					</td>
 				<tr>
 				<tr>
-					<td><span class="loginTitleTxt">ÀÌ¸§</span></td>
+					<td><span class="loginTitleTxt">ì´ë¦„</span></td>
 					<td><input type="text" name="m_name" size="20"  value="${m.m_name}"></td>
 				<tr>
 				<tr>
-					<td><span class="loginTitleTxt">ÀÌ¸ÞÀÏ</span></td>
+					<td><span class="loginTitleTxt">ì´ë©”ì¼</span></td>
 					<td><input type="text" name="m_email" size="20"  value="${m.m_email}"></td>
 				<tr>
 				<tr>
-					<td><span class="loginTitleTxt">ÁÖ¼Ò</span></td>
+					<td><span class="loginTitleTxt">ì£¼ì†Œ</span></td>
 					<td><input type="text" name="m_addr" size="20"  value="${m.m_addr}"></td>
 				<tr>
 				<tr>
-					<td colspan="4"><input id="updateBtn" type="submit" value="Á¤º¸¼öÁ¤"></td>
+					<td colspan="4"><input id="updateBtn" type="submit" value="ì •ë³´ìˆ˜ì •"></td>
 				</tr>
 				</table>
 			</form>

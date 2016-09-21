@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
@@ -95,15 +95,15 @@
 				<col width="25%">
 			</colgroup>
 			<tr>
-				<th class="goodsDetailTapBtn">»óÇ°Á¤º¸</th>
-				<th class="goodsDetailTapBtn">»óÇ°¸®ºä</th>
-				<th class="goodsDetailTapBtn">»óÇ°Q&A</th>
-				<th class="goodsDetailTapBtn">ÆÇ¸ÅÀÚ/¹ÝÇ°/±³È¯Á¤º¸</th>
+				<th class="goodsDetailTapBtn">ìƒí’ˆì •ë³´</th>
+				<th class="goodsDetailTapBtn">ìƒí’ˆë¦¬ë·°</th>
+				<th class="goodsDetailTapBtn">ìƒí’ˆQ&A</th>
+				<th class="goodsDetailTapBtn">íŒë§¤ìž/ë°˜í’ˆ/êµí™˜ì •ë³´</th>
 			</tr>
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
 					<div>
-						»óÇ°Á¤º¸
+						ìƒí’ˆì •ë³´
 					</div>
 				</td>
 			</tr>
@@ -124,7 +124,7 @@
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
 					<div>
-						Á¤º¸
+						ì •ë³´
 					</div>
 				</td>
 			</tr>

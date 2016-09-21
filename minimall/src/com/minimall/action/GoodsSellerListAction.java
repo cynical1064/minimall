@@ -17,7 +17,7 @@ public class GoodsSellerListAction implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsSellerListAction.java");
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		//String sellerId = request.getParameter("send_id");
 		HttpSession session = request.getSession();
 		String sellerId = (String) session.getAttribute("loginId");

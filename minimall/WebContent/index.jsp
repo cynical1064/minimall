@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html> 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>¹Ì´Ï¸ô</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ë¯¸ë‹ˆëª°</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
@@ -25,7 +25,7 @@
 	<div class="content">
 		<div class="demo-wrapper">
 			<div class="brickfolio">
-				<!-- ±âº»ÀûÀ¸·Î aÅÂ±×´Â div¸¦ °¨½Ò ¼ö ¾øÁö¸¸ html5¿¡ ¿Í¼­ Çã¿ëÀÌ µÈ´Ù. -->
+				<!-- ê¸°ë³¸ì ìœ¼ë¡œ aíƒœê·¸ëŠ” divë¥¼ ê°ìŒ€ ìˆ˜ ì—†ì§€ë§Œ html5ì— ì™€ì„œ í—ˆìš©ì´ ëœë‹¤. -->
 				<a href="javascript:void(0)">
 					<div class="bf-item">
 						<img src="img/main2.jpg">

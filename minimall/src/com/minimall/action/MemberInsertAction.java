@@ -12,7 +12,7 @@ public class MemberInsertAction implements ActionInterFace {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		String m_Id = request.getParameter("m_id");
 		String m_pw = request.getParameter("m_pw");
 		String m_level = request.getParameter("m_level");

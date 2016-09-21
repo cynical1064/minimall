@@ -14,7 +14,7 @@ public class OrderInsertProAction implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {		
 		System.out.println("execute() OrderInsertProAction.java");
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		String gName = request.getParameter("gName");
 		String gId = request.getParameter("gId");
 		String mId = request.getParameter("mId");

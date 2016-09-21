@@ -13,7 +13,7 @@ import com.minimall.inter.ActionInterFace;
  public class REBModifyAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
-		 request.setCharacterEncoding("euc-kr");
+		 request.setCharacterEncoding("UTF-8");
 		 ActionForward forward = new ActionForward();
 		 boolean result = false;
 		 
@@ -24,7 +24,7 @@ import com.minimall.inter.ActionInterFace;
 		 
 		 boolean usercheck=boarddao.isBoardWriter(num, request.getParameter("BOARD_PASS"));
 		 if(usercheck==false){
-		   		response.setContentType("text/html;charset=euc-kr");
+		   		response.setContentType("text/html;charset=UTF-8");
 		   		PrintWriter out=response.getWriter();
 		   		out.println("<script>");
 		   		out.println("alert('수정할 권한이 없습니다.');");

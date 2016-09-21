@@ -13,7 +13,7 @@ public class MUpdateAction implements ActionInterFace {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		
 		System.out.println("MUpdateAction execute");
 		

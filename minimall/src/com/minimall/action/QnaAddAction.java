@@ -25,7 +25,7 @@ public class QnaAddAction implements ActionInterFace {
 		boolean result = false;
 		
 		try {
-			request.setCharacterEncoding("euc-kr");
+			request.setCharacterEncoding("UTF-8");
 			qnadto.setQna_subject(request.getParameter("qna_subject"));
 			qnadto.setM_id(request.getParameter("m_id"));
 			qnadto.setQna_content(request.getParameter("qna_content"));

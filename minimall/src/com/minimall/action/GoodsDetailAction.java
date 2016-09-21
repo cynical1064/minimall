@@ -19,7 +19,7 @@ public class GoodsDetailAction implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsDeleteAction.java");
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("UTF-8");
 		
 		String gCode = request.getParameter("gCode");
 		System.out.println(gCode + " : gCode GoodsInsertPro.java");

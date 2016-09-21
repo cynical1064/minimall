@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	int num=Integer.parseInt(request.getParameter("num"));
 %>
 <html>
 <head>
-<title>¹®ÀÇÇÏ±â</title>
+<title>ë¬¸ì˜í•˜ê¸°</title>
 </head>
 <body>
 <form name="deleteForm" action="${pageContext.request.contextPath}/Qna/QnaDeleteAction.qn?num=<%=num %>" method="post">
 <table border=1>
 <tr>
 	<td>
-		<font size=2>±Û ºñ¹Ð¹øÈ£ : </font>
+		<font size=2>ê¸€ ë¹„ë°€ë²ˆí˜¸ : </font>
 	</td>
 	<td>
 		<input name="qna_pass" type="password">
@@ -19,9 +19,9 @@
 </tr>
 <tr>
 	<td colspan=2 align=center>
-		<a href="javascript:deleteForm.submit()">»èÁ¦</a>
+		<a href="javascript:deleteForm.submit()">ì‚­ì œ</a>
 		&nbsp;&nbsp;
-		<a href="javascript:history.go(-1)">µ¹¾Æ°¡±â</a>
+		<a href="javascript:history.go(-1)">ëŒì•„ê°€ê¸°</a>
 	</td>
 </tr>
 </table>

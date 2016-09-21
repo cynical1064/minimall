@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">惑前格废(包府磊->惑前傈眉)</a>
+<a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">靸來拡氇╇(甏�毽瀽->靸來拡鞝勳泊)</a>
 </body>
 </html>

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
@@ -20,11 +20,11 @@
 			
 			if($('#mId').val()==''){
 				
-				alert('¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä');
+				alert('ì•„ì´ë””ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”');
 				
 			}else if($('#mPw').val()==''){
 				
-				alert('ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä');
+				alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”');
 				
 			}else{
 				
@@ -55,19 +55,19 @@
 			<form id="loginForm" action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
 			<table>
 			<tr>
-				<td><label for="mId">¾ÆÀÌµð</label></td>
+				<td><label for="mId">ì•„ì´ë””</label></td>
 				<td><input type="text" name="mId" id="mId" /></td>
 				<td><span></span></td>
 			</tr>	
 			<tr>
-				<td><label for="mPw">ºñ¹Ð¹øÈ£</label></td>
+				<td><label for="mPw">ë¹„ë°€ë²ˆí˜¸</label></td>
 				<td><input type="password" name="mPw" id="mPw"/></td>
 				<td><span></span></td>
 			</tr>	
 			<tr>
 				<td colspan="2">
 					<div id="loginSumbit" style="cursor:pointer;">
-						·Î±×ÀÎ
+						ë¡œê·¸ì¸
 					</div>
 				</td>
 			</tr>	
@@ -80,19 +80,19 @@
 <%-- <c:choose>
 	<c:when test="${sessionScope.loginLevel == null}">
 	<!-- 
-		sessionScope·Î ¼¼¼Ç¿µ¿ª µ¥ÀÌÅÍ È®ÀÎ 
-		whenÀ¸·Î nullÀÏ°æ¿ì ·Î±×ÀÎ ÆûÀ»
-		nullÀÌ ¾Æ´Ò°æ¿ì ·Î±×ÀÎ ¼º°ø	
+		sessionScopeë¡œ ì„¸ì…˜ì˜ì—­ ë°ì´í„° í™•ì¸ 
+		whenìœ¼ë¡œ nullì¼ê²½ìš° ë¡œê·¸ì¸ í¼ì„
+		nullì´ ì•„ë‹ê²½ìš° ë¡œê·¸ì¸ ì„±ê³µ	
 	-->
 		<form action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
 			<input type="text" name="mId" />
 			<input type="password" name="mPw" />
-			<button type="submit">·Î±×ÀÎ</button>	
+			<button type="submit">ë¡œê·¸ì¸</button>	
 		</form>
 	</c:when>
 	<c:when test="${sessionScope.loginLevel != null}">
-		<span>${sessionScope.loginName}´Ô È¯¿µÇÕ´Ï´Ù.</span>
-		<span><a href="${pageContext.request.contextPath}/logout/logout.mo">·Î±×¾Æ¿ô</a></span>
+		<span>${sessionScope.loginName}ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</span>
+		<span><a href="${pageContext.request.contextPath}/logout/logout.mo">ë¡œê·¸ì•„ì›ƒ</a></span>
 	</c:when>
 </c:choose>	
 <body>
@@ -100,37 +100,37 @@
        <div>
               <ul>
                      <c:choose>
-                            <c:when test="${sessionScope.loginLevel=='°ü¸®ÀÚ'}">
+                            <c:when test="${sessionScope.loginLevel=='ê´€ë¦¬ìž'}">
                             	<!-- 
-									¼¼¼Ç¿¡ ´ã±ä loginLevel·Î ±ÇÇÑº°·Î ¸Þ´º¼ÂÆÃ	
+									ì„¸ì…˜ì— ë‹´ê¸´ loginLevelë¡œ ê¶Œí•œë³„ë¡œ ë©”ë‰´ì…‹íŒ…	
 								-->
-                                         <!-- °ü¸®ÀÚ ¸Þ´º¼ÂÆÃ --> 
-                                         <li>°ü¸®ÀÚ</li>
-                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">È¸¿øµî·Ï</a>
-                                                <a href="${pageContext.request.contextPath}/user/user_list.jsp"> 02È¸¿ø¸®½ºÆ® </a>
-                                                <a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go"> 03»óÇ°µî·Ï </a>
-                                                <a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">»óÇ°¸ñ·Ï(°ü¸®ÀÚ->»óÇ°ÀüÃ¼)</a>
+                                         <!-- ê´€ë¦¬ìž ë©”ë‰´ì…‹íŒ… --> 
+                                         <li>ê´€ë¦¬ìž</li>
+                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">íšŒì›ë“±ë¡</a>
+                                                <a href="${pageContext.request.contextPath}/user/user_list.jsp"> 02íšŒì›ë¦¬ìŠ¤íŠ¸ </a>
+                                                <a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go"> 03ìƒí’ˆë“±ë¡ </a>
+                                                <a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">ìƒí’ˆëª©ë¡(ê´€ë¦¬ìž->ìƒí’ˆì „ì²´)</a>
                                                 <a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">Q&A</a>
                             </c:when>
-                            <c:when test="${sessionScope.loginLevel=='ÆÇ¸ÅÀÚ'}">
-                                          <!-- ÆÇ¸ÅÀÚ ¸Þ´º¼ÂÆÃ -->
-                                          <li>ÆÇ¸ÅÀÚ</li>
-                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">È¸¿øµî·Ï</a>
-                                                <a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go">»óÇ°µî·Ï</a>
-                                                <a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">»óÇ°¸ñ·Ï(°ü¸®ÀÚ->»óÇ°ÀüÃ¼)</a>
+                            <c:when test="${sessionScope.loginLevel=='íŒë§¤ìž'}">
+                                          <!-- íŒë§¤ìž ë©”ë‰´ì…‹íŒ… -->
+                                          <li>íŒë§¤ìž</li>
+                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">íšŒì›ë“±ë¡</a>
+                                                <a href="${pageContext.request.contextPath}/Gin/goodsInsertForm.go">ìƒí’ˆë“±ë¡</a>
+                                                <a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">ìƒí’ˆëª©ë¡(ê´€ë¦¬ìž->ìƒí’ˆì „ì²´)</a>
                                                 <a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">Q&A</a>
                             </c:when>
-                            <c:when test="${sessionScope.loginLevel=='±¸¸ÅÀÚ'}">
-                               <!-- ±¸¸ÅÀÚ ¸Þ´º¼ÂÆÃ -->
-                               <li>±¸¸ÅÀÚ</li>
-                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">È¸¿øµî·Ï</a>
-                                                <a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">»óÇ°¸ñ·Ï(±¸¸ÅÀÚ->½ÂÀÎY)</a>
+                            <c:when test="${sessionScope.loginLevel=='êµ¬ë§¤ìž'}">
+                               <!-- êµ¬ë§¤ìž ë©”ë‰´ì…‹íŒ… -->
+                               <li>êµ¬ë§¤ìž</li>
+                                                <a href="${pageContext.request.contextPath}/Min/mInsert.mo">íšŒì›ë“±ë¡</a>
+                                                <a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">ìƒí’ˆëª©ë¡(êµ¬ë§¤ìž->ìŠ¹ì¸Y)</a>
                             					<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">Q&A</a>
                             </c:when>
                             <c:otherwise>
-                               <!-- ±âº»¸Þ´º¼ÂÆÃ -->
-                               <li>±âº»¸Þ´º</li>
-                                          <a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">04»óÇ°¸®½ºÆ® </a>
+                               <!-- ê¸°ë³¸ë©”ë‰´ì…‹íŒ… -->
+                               <li>ê¸°ë³¸ë©”ë‰´</li>
+                                          <a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">04ìƒí’ˆë¦¬ìŠ¤íŠ¸ </a>
                                           <a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">Q&A</a>
                             </c:otherwise>
                      </c:choose>
@@ -163,21 +163,21 @@
 			</c:when>
 			<c:when test="${sessionScope.loginLevel != null}">
 				<c:choose>
-					<c:when test="${sessionScope.loginLevel == '°ü¸®ÀÚ'}">
+					<c:when test="${sessionScope.loginLevel == 'ê´€ë¦¬ìž'}">
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>admin´Ô È¯¿µÇÕ´Ï´Ù.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>adminë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 						</ul>
 					</c:when>
-					<c:when test="${sessionScope.loginLevel == 'ÆÇ¸ÅÀÚ'}">
+					<c:when test="${sessionScope.loginLevel == 'íŒë§¤ìž'}">
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>ÆÇ¸ÅÀÚ´Ô È¯¿µÇÕ´Ï´Ù.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>íŒë§¤ìžë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 						</ul>
 					</c:when>
-					<c:when test="${sessionScope.loginLevel == '±¸¸ÅÀÚ'}">
+					<c:when test="${sessionScope.loginLevel == 'êµ¬ë§¤ìž'}">
 						<ul id="loginNav">
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}´Ô È¯¿µÇÕ´Ï´Ù.</span></a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</span></a></li>
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 						</ul>
 					</c:when>
@@ -201,16 +201,16 @@
 					</c:when>
 					<c:when test="${sessionScope.loginLevel != null}">
 						<c:choose>
-							<c:when test="${sessionScope.loginLevel == '°ü¸®ÀÚ'}">
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>admin´Ô È¯¿µÇÕ´Ï´Ù.</span></a></li>
+							<c:when test="${sessionScope.loginLevel == 'ê´€ë¦¬ìž'}">
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>adminë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</span></a></li>
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 							</c:when>
-							<c:when test="${sessionScope.loginLevel == 'ÆÇ¸ÅÀÚ'}">
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>ÆÇ¸ÅÀÚ È¯¿µÇÕ´Ï´Ù.</span></a></li>
+							<c:when test="${sessionScope.loginLevel == 'íŒë§¤ìž'}">
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>íŒë§¤ìž í™˜ì˜í•©ë‹ˆë‹¤.</span></a></li>
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 							</c:when>
 							<c:otherwise>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}´Ô È¯¿µÇÕ´Ï´Ù.</span></a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.</span></a></li>
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
 							</c:otherwise>
 						</c:choose>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="com.minimall.dao.QnaDao" %>
 <%@ page import="com.minimall.dto.QnaDto" %>
 <%
@@ -7,8 +7,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>πÃ¥œ∏Ù</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ÎØ∏ÎãàÎ™∞</title>
 	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 </head>
@@ -16,18 +16,18 @@
 <%@ include file = "/module/headerSub.jsp" %>
 <div id="container">
 	<div class="content">
-		<!-- ∞‘Ω√∆« ºˆ¡§ -->
+		<!-- Í≤åÏãúÌåê ÏàòÏ†ï -->
 		<table class="basic">
 			<tr align="center" valign="middle">
-				<td colspan="5">πÆ¿««œ±‚</td>
+				<td colspan="5">Î¨∏ÏùòÌïòÍ∏∞</td>
 			</tr>
 			
 			<tr>
-				<td style="font-family:µ∏¿Ω; font-size:12" height="16">
-					<div align="center">¡¶ ∏Ò&nbsp;&nbsp;</div>
+				<td style="font-family:ÎèãÏùå; font-size:12" height="16">
+					<div align="center">Ï†ú Î™©&nbsp;&nbsp;</div>
 				</td>
 				
-				<td style="font-family:µ∏¿Ω; font-size:12">
+				<td style="font-family:ÎèãÏùå; font-size:12">
 				<%=qnadto.getQna_subject()%>
 				</td>
 			</tr>
@@ -38,13 +38,13 @@
 			</tr>
 			
 			<tr>
-				<td style="font-family:µ∏¿Ω; font-size:12">
-					<div align="center">≥ª øÎ</div>
+				<td style="font-family:ÎèãÏùå; font-size:12">
+					<div align="center">ÎÇ¥ Ïö©</div>
 				</td>
-				<td style="font-family:µ∏¿Ω; font-size:12">
+				<td style="font-family:ÎèãÏùå; font-size:12">
 					<table border=0 width=490 height=250 style="table-layout:fixed">
 						<tr>
-							<td valign=top style="font-family:µ∏¿Ω; font-size:12">
+							<td valign=top style="font-family:ÎèãÏùå; font-size:12">
 							<%=qnadto.getQna_content() %>
 							</td>
 						</tr>
@@ -60,20 +60,20 @@
 				<td colspan="5">
 					<font size=2>
 					<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=<%=qnadto.getQna_no() %>">
-					[¥‰∫Ø]
+					[ÎãµÎ≥Ä]
 					</a>&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=<%=qnadto.getQna_no() %>">
-					[ºˆ¡§]
+					[ÏàòÏ†ï]
 					</a>&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=<%=qnadto.getQna_no() %>">
-					[ªË¡¶]
+					[ÏÇ≠Ï†ú]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">[∏Ò∑œ]</a>&nbsp;&nbsp;
+					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">[Î™©Î°ù]</a>&nbsp;&nbsp;
 					</font>
 				</td>
 			</tr>
 		</table>
-		<!-- ∞‘Ω√∆« ºˆ¡§ -->
+		<!-- Í≤åÏãúÌåê ÏàòÏ†ï -->
 	</div>
 </div>
 <%@ include file = "/module/footer.jsp" %>

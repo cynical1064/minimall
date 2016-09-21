@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>¹Ì´Ï¸ô</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ë¯¸ë‹ˆëª°</title>
 <link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
@@ -31,8 +31,8 @@
 	<div class="content">
 		<table class="basic">
 		<tr>
-			<td>ÀÌ¸§</td><td>¾ÆÀÌµð</td><td>±ÇÇÑ</td><td>ÀÌ¸§</td><td>ÀÌ¸Þ
-			ÀÏ</td><td>°¡ÀÔ³¯Â¥</td><td>ÁÖ¼Ò</td><td>¼öÁ¤</td><td>»èÁ¦</td>
+			<td>ì´ë¦„</td><td>ì•„ì´ë””</td><td>ê¶Œí•œ</td><td>ì´ë¦„</td><td>ì´ë©”
+			ì¼</td><td>ê°€ìž…ë‚ ì§œ</td><td>ì£¼ì†Œ</td><td>ìˆ˜ì •</td><td>ì‚­ì œ</td>
 		</tr>		
 		<c:forEach var="member" items="${alm}">		
 			<tr>
@@ -44,10 +44,10 @@
 				<td>${member.m_date}</td>
 				<td>${member.m_addr}</td>
 				<td>
-					<a href="${pageContext.request.contextPath}/member/mUpdateForm.mo?send_id=${member.m_id}">¼öÁ¤Å¬¸¯</a>			
+					<a href="${pageContext.request.contextPath}/member/mUpdateForm.mo?send_id=${member.m_id}">ìˆ˜ì •í´ë¦­</a>			
 				</td>
 				<td>
-					<a class="delMemberBtn" >»èÁ¦Å¬¸¯</a>			
+					<a class="delMemberBtn" >ì‚­ì œí´ë¦­</a>			
 				</td>
 			</tr>
 		</c:forEach>

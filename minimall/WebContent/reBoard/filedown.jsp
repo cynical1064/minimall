@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*"%> 
 <%@ page import="java.io.*" %>
 <%@ page import="java.net.URLEncoder" %>
 
 
 <%
-    // ´Ù¿î·Îµå µÉ ÆÄÀÏ ¸í
+    // ë‹¤ìš´ë¡œë“œ ë  íŒŒì¼ ëª…
     String fullPath = request.getParameter("filename");
 	System.out.println(fullPath + "<-- fullPath filedown.jsp");
-    // ½ÇÁ¦ ÆÄÀÏ¸í
+    // ì‹¤ì œ íŒŒì¼ëª…
     //String fileName = request.getParameter("ofilename");
      
-    // ¼­¹ö»óÀÇ ÆÄÀÏ À§Ä¡
+    // ì„œë²„ìƒì˜ íŒŒì¼ ìœ„ì¹˜
    // String path = "D:/kangeunji/orderproject15/orderproject/WebContent/admin/admin_menu/uploadimage";
    // String path = "D:/leehyoungyeol/OracleWork15/OraJspJavaFileUp03/WebContent/admin/admin_menu/uploadimage";
 	String root = request.getSession().getServletContext().getRealPath("/");
@@ -21,13 +21,13 @@
    
    
    
-    // ÄÁÅÙÆ®Å¸ÀÔÀ» ´Ù¿î·Îµå·Î º¯°æ, ¾ÈµÉ °æ¿ì ´ÙÀ½°ú °°ÀÌ º¯°æ ÇØº¾´Ï´Ù.
+    // ì»¨í…íŠ¸íƒ€ìž…ì„ ë‹¤ìš´ë¡œë“œë¡œ ë³€ê²½, ì•ˆë  ê²½ìš° ë‹¤ìŒê³¼ ê°™ì´ ë³€ê²½ í•´ë´…ë‹ˆë‹¤.
     // application/octet-stream, application
      
     
     String downName = null;
     String browser = request.getHeader("User-Agent");
-    //ÆÄÀÏ ÀÎÄÚµù
+    //íŒŒì¼ ì¸ì½”ë”©
     if(browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")){             
         downName = URLEncoder.encode(fullPath,"UTF-8").replaceAll("\\+", "%20");
     } else {               
@@ -42,56 +42,56 @@
     //System.out.println((path+"/"+fullPath).getBytes("utf-8"));  
     
  
-    // ÆÄÀÏ¸íÀ» ÀÎÄÚµù ÇÕ´Ï´Ù.
-    //String filename2 = java.net.URLEncoder.encode(new String(fullPath.getBytes("iso-8859-1"), "euc-kr"), "UTF-8");
-    //String ofilename2 = java.net.URLEncoder.encode(new String(fullPath.getBytes("iso-8859-1"), "euc-kr"), "UTF-8");
+    // íŒŒì¼ëª…ì„ ì¸ì½”ë”© í•©ë‹ˆë‹¤.
+    //String filename2 = java.net.URLEncoder.encode(new String(fullPath.getBytes("iso-8859-1"), "UTF-8"), "UTF-8");
+    //String ofilename2 = java.net.URLEncoder.encode(new String(fullPath.getBytes("iso-8859-1"), "UTF-8"), "UTF-8");
     
     //System.out.println(filename2 + "<-- filename2  filedown.jsp");
     
-    // ´Ù¿î·ÎµåµÉ ÆÄÀÏ¸íÀ» ¼ÂÆÃÇÕ´Ï´Ù.
+    // ë‹¤ìš´ë¡œë“œë  íŒŒì¼ëª…ì„ ì…‹íŒ…í•©ë‹ˆë‹¤.
     //response.setHeader("Content-Disposition","attachment; filename="+fullPath+";");
      
     
     
     
-    // ÆÄÀÏÀ» ÀÐ°í ¾µ ½ºÆ®¸²
+    // íŒŒì¼ì„ ì½ê³  ì“¸ ìŠ¤íŠ¸ë¦¼
     BufferedInputStream in = null;
     BufferedOutputStream os = null;
      
-    // ÆÄÀÏ »ý¼º
+    // íŒŒì¼ ìƒì„±
     
 
     
-   // File file = new File (new String((path+"/"+fullPath).getBytes("utf-8"), "euc-kr"));
+   // File file = new File (new String((path+"/"+fullPath).getBytes("utf-8"), "UTF-8"));
      File file = new File (path+"/"+fullPath);
      
-    // ÀÌ°ÍÀº ¹Ýµå½Ã ÇØÁÖ¾î¾ß ÇÕ´Ï´Ù.
-    // ¿Ö³ÄÇÏ¸é jsp ±âº»°´Ã¼Áß ÇÏ³ªÀÎ outÀÌ response¿¡ ´ëÇØ¼­ ÀÌ¹Ì streamÀ» ¿­°í ÀÖ±â ¶§¹®ÀÔ´Ï´Ù. 
+    // ì´ê²ƒì€ ë°˜ë“œì‹œ í•´ì£¼ì–´ì•¼ í•©ë‹ˆë‹¤.
+    // ì™œëƒí•˜ë©´ jsp ê¸°ë³¸ê°ì²´ì¤‘ í•˜ë‚˜ì¸ outì´ responseì— ëŒ€í•´ì„œ ì´ë¯¸ streamì„ ì—´ê³  ìžˆê¸° ë•Œë¬¸ìž…ë‹ˆë‹¤. 
     out.clear();
     out = pageContext.pushBody();
      
-    // ÆÄÀÏÀ» ½ºÆ®¸²À¸·Î »Ñ·Á º¾´Ï´Ù.
+    // íŒŒì¼ì„ ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ ë¿Œë ¤ ë´…ë‹ˆë‹¤.
     try {
-        // ÀÎÇ² ¾Æ¿ôÇ² ½ºÆ®¸² »ý¼º
+        // ì¸í’‹ ì•„ì›ƒí’‹ ìŠ¤íŠ¸ë¦¼ ìƒì„±
         in = new BufferedInputStream(new FileInputStream(file));
         os = new BufferedOutputStream(response.getOutputStream());
          
-        // ¹öÆÛ
+        // ë²„í¼
         byte[] buf = new byte[(int)file.length()]; 
         int count = 0;
          
-        // ½Å³ª°Ô µ¹¸é¼­ ¹öÆÛ¿¡ ÀÖ´Â °ÍÀ» »Ñ¸³´Ï´Ù.
+        // ì‹ ë‚˜ê²Œ ëŒë©´ì„œ ë²„í¼ì— ìžˆëŠ” ê²ƒì„ ë¿Œë¦½ë‹ˆë‹¤.
         while ((count = in.read(buf)) != -1) {
             os.write(buf,0,count);
         }
     }
     catch(Exception e) {
-        // ¿¡·¯³ª¸é ¿¡·¯¸¦ ÄÜ¼Ö¿¡ »Ñ¸³´Ï´Ù.
+        // ì—ëŸ¬ë‚˜ë©´ ì—ëŸ¬ë¥¼ ì½˜ì†”ì— ë¿Œë¦½ë‹ˆë‹¤.
         e.printStackTrace();    
     }
     finally
     {
-        // ¿­·ÁÀÖ´Â ½ºÆ®¸²À» ÇÊ½Ã ´Ý¾ÆÁÝ´Ï´Ù.
+        // ì—´ë ¤ìžˆëŠ” ìŠ¤íŠ¸ë¦¼ì„ í•„ì‹œ ë‹«ì•„ì¤ë‹ˆë‹¤.
         if(in != null) try{in.close();}catch(Exception e){}
         if(os != null) try{os.close();}catch(Exception e){}
     }
