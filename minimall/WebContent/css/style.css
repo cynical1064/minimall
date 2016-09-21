@@ -75,6 +75,7 @@ table.basic th { background-color: #eeeeee; }
 #container .content #detailContent{width:100%; height:500px;}
 #container .content  #orderForm{width:50%; float:right; margin-bottom:28px;}
 #container .content .detailImgArea{width:50%; float:left;}
+#container .content .detailImgArea img{float:left;}
 
 /* tap */
 .tapTable .goodsDetailTapBtn{background:#434343; color:#fff; cursor:pointer; line-height:1.5em;}
