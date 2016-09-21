@@ -102,7 +102,7 @@
 				
 				<%for(int a=startpage;a<=endpage;a++){
 					if(a==nowpage){%>
-					[<%=a %>]
+					<a style="color:#434343; font-weight:bold;" >[<%=a %>]</a>
 					<%}else{ %>
 					<a style="cursor:pointer;" onclick="getPage('<%=a%>')">[<%=a %>]</a>&nbsp;
 					<%} %>

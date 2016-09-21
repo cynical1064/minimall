@@ -64,6 +64,7 @@
 	}
 	
 	function getNextBlock(no){
+		var url = "${pageContext.request.contextPath}/Qna/QnaList.qn";
 		$.get(url, {page:no}, function(data){
 			
 			$('#list').html(data);	
@@ -71,6 +72,7 @@
 		});
 		
 	}
+
 </script>
 </head>
 <body>
