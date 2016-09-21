@@ -70,7 +70,7 @@
 					<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=<%=qnadto.getQna_no() %>">
 					[답변]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=<%=qnadto.getQna_no() %>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=<%=qnadto.getQna_no() %>&id=<%=qnadto.getM_id()%>">
 					[수정]
 					</a>&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=<%=qnadto.getQna_no() %>&id=<%=qnadto.getM_id()%>">

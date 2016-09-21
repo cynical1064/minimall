@@ -47,6 +47,7 @@ qna_board_modify.jsp
 		</td>
 		<td>
 			<input name="qna_pass" type="password">
+			<input type="hidden" value="${requestScope.id}">
 		</td>
 	</tr>
 	
