@@ -15,19 +15,29 @@ $(document).ready(function(){
 		$('#oCount').val(count+1);
 		$('#oTotal').val(price * (count+1));
 		
-	})
+	});
 	
 	$('#downCount').click(function(){
 		
-		if($('#oCount').val() > 0){
+		if($('#oCount').val() > 1){
 			
 			var count = parseInt($('#oCount').val());
 			$('#oCount').val(count-1);
 			$('#oTotal').val(price * (count-1));
 		}
 		
-		
 	});
+	
+	$('#oCount').focusout(function(){
+		
+		var count = parseInt($('#oCount').val());
+		$('#oTotal').val(price * count);
+
+	});
+	
+	$('#buyBtn').click(function(){
+		$('#orderForm').submit();
+	});	
 	
 });
 </script>
@@ -39,51 +49,51 @@ $(document).ready(function(){
 <link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
 </head>
 <body>
-		<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
-			<table class="basic orderForm">
-				<tr>
-					<td>상품명</td>
-					<td>
-						<input type="hidden" name="gName" id="gName" value="${goods.g_name}">
-						${goods.g_name}
-					</td>
-				</tr>
-				<tr>
-					<td>판매자</td>
-					<td>
-						<input type="hidden" name="gId" id="gId" value="${goods.g_id}">
-						${goods.g_id}
-					</td>
-				</tr>
-				<tr>
-					<td>가격</td>
-					<td>
-						<input type="hidden" name="gPrice" id="gPrice" value="${goods.g_price}">
-						${goods.g_price}
-					</td>
-				</tr>
-				<tr>
-					<td>수량</td>
-					<td>
-						<input name="oCount" id="oCount" value="1" readonly="readonly">
-						<span id="upCount">▲</span>/<span id="downCount">▼</span><span id="count"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>합계</td>
-					<td>
-						<input name="oTotal" id="oTotal" value="${goods.g_price}" readonly="readonly">원
-					</td>
-				</tr>
-				<tr>
-					<td></td>	
-					<td>				
-						<input type = "hidden" name="gCode" value="${goods.g_code}">
-						<input type = "hidden" name="mId" value="${sessionScope.loginId}">
-						<div id="buyBtn">구매</div>
-					</td>
-				</tr>
-			</table>
-		</form>		
+	<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post" id="orderForm">		
+		<table class="basic orderForm">
+			<tr>
+				<td>상품명</td>
+				<td>
+					<input type="hidden" name="gName" id="gName" value="${goods.g_name}">
+					${goods.g_name}
+				</td>
+			</tr>
+			<tr>
+				<td>판매자</td>
+				<td>
+					<input type="hidden" name="gId" id="gId" value="${goods.g_id}">
+					${goods.g_id}
+				</td>
+			</tr>
+			<tr>
+				<td>가격</td>
+				<td>
+					<input type="hidden" name="gPrice" id="gPrice" value="${goods.g_price}">
+					${goods.g_price}
+				</td>
+			</tr>
+			<tr>
+				<td>수량</td>
+				<td>
+					<input name="oCount" id="oCount" value="1" >
+					<span id="upCount" style="cursor:pointer;">▲</span>/<span id="downCount" style="cursor:pointer;">▼</span><span id="count"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>합계</td>
+				<td>
+					<input name="oTotal" id="oTotal" value="${goods.g_price}" readonly="readonly">원
+				</td>
+			</tr>
+			<tr>
+				<td></td>	
+				<td>				
+					<input type = "hidden" name="gCode" value="${goods.g_code}">
+					<input type = "hidden" name="mId" value="${sessionScope.loginId}">
+					<div id="buyBtn">구매</div>
+				</td>
+			</tr>
+		</table>
+	</form>		
 </body>
 </html>

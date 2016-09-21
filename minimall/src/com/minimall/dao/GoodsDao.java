@@ -130,7 +130,7 @@ public class GoodsDao {
 		conn = ds.getConnection();
 		
 		//goods테이블의 전체 데이터 중 승인여부가 'Y' 인 것만 가져오는 select 쿼리문 입니다.
-		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date FROM goods";
+		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_image FROM goods";
 		sql += " WHERE g_agree LIKE 'Y'";
 		pstmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
@@ -153,6 +153,8 @@ public class GoodsDao {
 			goodsDto.setG_sangse(rs.getString("g_sangse"));
 			goodsDto.setG_price(rs.getInt("g_price"));
 			goodsDto.setG_date(rs.getString("g_date"));
+			goodsDto.setG_image(rs.getString("g_image"));
+			System.out.println(goodsDto.getG_image());
 			
 			goodsList.add(goodsDto);
 		}

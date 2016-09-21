@@ -14,7 +14,7 @@
 			<div class="content">
 				<table class="basic">
 					<tr>
-						<th>번호</th><th>상품명</th><th>판매자아이디</th><th>카테고리</th><th>가격</th><th>등록날짜</th>
+						<th>번호</th><th>이미지</th><th>상품명</th><th>판매자아이디</th><th>카테고리</th><th>가격</th><th>등록날짜</th>
 					</tr>
 					<c:set var="listChk" value="${goodsList}" />
 					<c:if test="${listChk eq null}">
@@ -26,6 +26,7 @@
 						<c:forEach var="goods" items="${goodsList}" varStatus="status">
 							<tr>
 								<td>${status.count}</td>
+								<td><img id="customImage" src="data:image/png;base64, ${b64[status.index]}" alt="image not found" width="50px" height="50px"/></td>
 								<td><a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">${goods.g_name}</a></td>
 								<td>${goods.g_id}</td>
 								<td>${goods.g_cate}</td>
