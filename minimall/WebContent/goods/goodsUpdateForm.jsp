@@ -31,7 +31,7 @@
 			<div class="content">
 				<div id="detailContent">
 					<div id="detailImgArea">
-						<img src="data:image/png;base64, ${b64}" alt="Visruth.jpg not found"/>
+						<img src="data:image/png;base64, ${b64}" alt="image not found"/>
 					</div>
 					<div id="orderForm">
 						<form action="${pageContext.request.contextPath}/Gup/GoodsUpdateAtion.go" method="post" name="modifyform">

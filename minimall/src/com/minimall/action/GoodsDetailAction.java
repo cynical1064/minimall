@@ -1,5 +1,10 @@
 package com.minimall.action;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +26,20 @@ public class GoodsDetailAction implements ActionInterFace {
 		
 		GoodsDao goodsDao = new GoodsDao();
 		GoodsDto goodsDto = goodsDao.goodsSelectByGcode(gCode);
+		
+		//¿ÃπÃ¡ˆ
+		File file = new File(goodsDto.getG_image());
+		BufferedImage image = ImageIO.read(file);
+		
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(image,"png",baos);
+		baos.flush();
+		byte[] imageInByteArray = baos.toByteArray();
+		baos.close();
+		String b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
+		
 		request.setAttribute("goods", goodsDto);
+		request.setAttribute("b64", b64);
 		
 		ActionForward forward = new ActionForward();
     	forward.setRedirect(false);
