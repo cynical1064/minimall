@@ -49,7 +49,7 @@ public class GoodsDao {
 		String temp = "gcode_";
 		
 		//g_code 중 마지막 숫자(가장 큰 숫자)를 가져오기 위한 select 쿼리문 입니다.
-		pstmt_select = conn.prepareStatement("SELECT MAX(substr(g_code,7)) FROM goods");
+		pstmt_select = conn.prepareStatement("SELECT MAX(TO_NUMBER(SUBSTR(g_code,7))) FROM goods");
 		System.out.println(pstmt_select + " : pstmt_select goodsInsert() GoodsDao.java");
 		rs = pstmt_select.executeQuery();
 		

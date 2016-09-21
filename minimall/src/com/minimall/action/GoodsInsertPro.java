@@ -18,7 +18,7 @@ public class GoodsInsertPro implements ActionInterFace {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsInsertPro.java");
 		
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("euc-kr");
 		/*String gId = request.getParameter("gId");
 		String gName = request.getParameter("gName");
 		String gCate = request.getParameter("gCate");
@@ -37,7 +37,6 @@ public class GoodsInsertPro implements ActionInterFace {
 		String gCate = multipartRequest.getParameter("gCate");
 		int gPrice = Integer.parseInt(multipartRequest.getParameter("gPrice"));
 		String gSangse = multipartRequest.getParameter("gSangse");
-		String gImage = multipartRequest.getParameter("myImage");
 		
 		String gImageFileSysName = multipartRequest.getFilesystemName("myImage");
 		String gImgageOriginName = multipartRequest.getOriginalFileName("myImage");
@@ -48,7 +47,6 @@ public class GoodsInsertPro implements ActionInterFace {
 		System.out.println(gPrice + " : gPrice GoodsInsertPro.java");
 		System.out.println(gSangse + " : gSangse GoodsInsertPro.java");
 		
-		System.out.println(gImage + " : gImage GoodsInsertPro.java");
 		System.out.println(gImageFileSysName + " : gImageFileSysName GoodsInsertPro.java");
 		System.out.println(gImgageOriginName + " : gImgageOriginName GoodsInsertPro.java");
 		
