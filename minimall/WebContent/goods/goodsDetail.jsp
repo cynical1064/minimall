@@ -20,6 +20,7 @@
 		});
 		
 		
+		
 		$.get(reviewUrl, {page:1}, function(data){
 			
 			$('#list2').html(data);	
