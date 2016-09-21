@@ -33,7 +33,6 @@ public class REBReplyAction implements ActionInterFace {
 	   			return null;
 	   		}
 	   		System.out.println("답장 완료");
-	   		
 	   		forward.setRedirect(true);
 	   		forward.setPath(request.getContextPath() + "/board/BoardDetailAction.reb?num="+result);
 	   		return forward;

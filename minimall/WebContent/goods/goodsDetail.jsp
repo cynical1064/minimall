@@ -10,8 +10,22 @@
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
+	var qnaUrl = "${pageContext.request.contextPath}/Qna/QnaList.qn";
+	var reviewUrl = "${pageContext.request.contextPath}/board/BoardList.reb";
 	$(document).ready(function(){
+		$.get(qnaUrl, {page:1}, function(data){
 
+			$('#list').html(data);	
+		
+		});
+		
+		
+		$.get(reviewUrl, {page:1}, function(data){
+			
+			$('#list2').html(data);	
+		
+		});
+		
 		$('.goodsDetailTapBtn').eq(0).addClass('on');
 		
 		$('.goodsDetailTapContent').eq(0).show();
@@ -44,18 +58,10 @@
 			
 		});
 		
-	});
-	
-	var url = "${pageContext.request.contextPath}/Qna/QnaList.qn";
-	
-	$.get(url, {page:1}, function(data){
-		
-		$('#list').html(data);	
-	
-	});
+	});	
 	
 	function getPage(no){
-		$.get(url, {page:no}, function(data){
+		$.get(qnaUrl, {page:no}, function(data){
 			
 			$('#list').html(data);	
 			
@@ -64,14 +70,37 @@
 	}
 	
 	function getNextBlock(no){
-		var url = "${pageContext.request.contextPath}/Qna/QnaList.qn";
-		$.get(url, {page:no}, function(data){
+		
+		$.get(qnaUrl, {page:no}, function(data){
 			
 			$('#list').html(data);	
 			
 		});
 		
 	}
+	
+
+	
+	function getPage2(no){
+		$.get(reviewUrl, {page:no}, function(data){
+			
+			$('#list2').html(data);	
+			
+		});
+		
+	}
+	
+	function getNextBlock2(no){
+		
+		$.get(reviewUrl, {page:no}, function(data){
+			
+			$('#list2').html(data);	
+			
+		});
+		
+	}
+	
+	
 
 </script>
 </head>
@@ -109,7 +138,7 @@
 			</tr>
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
-					<div id="reviewTab">
+					<div id="list2">
 						
 					</div>
 				</td>

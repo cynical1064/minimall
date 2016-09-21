@@ -99,21 +99,21 @@ if(listcount > 0){
 			<%if(nowpage<=1){ %>
 			[이전]&nbsp;
 			<%}else{ %>
-			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+			<a style="cursor:pointer;"  onclick="getNextBlock2('<%=nowpage-1 %>')">[이전]</a>&nbsp;
 			<%} %>
 			
 			<%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
-				[<%=a %>]
+				<a style="color:#434343; font-weight:bold;" >[<%=a %>]</a>
 				<%}else{ %>
-				<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=a %>">[<%=a %>]</a>&nbsp;
+				<a style="cursor:pointer;" onclick="getPage2('<%=a%>')">[<%=a %>]</a>&nbsp;
 				<%} %>
-			<%} %>
+			<%} %> 
 			
 			<%if(nowpage>=maxpage){ %>
 			[다음]
 			<%}else{ %>
-			<a href="${pageContext.request.contextPath}/board/BoardList.reb?page=<%=nowpage+1 %>">[다음]</a>
+			<a style="cursor:pointer;"  onclick="getNextBlock2('<%=nowpage+1 %>')">[다음]</a>
 			<%} %>
 		</td>
 	</tr>
