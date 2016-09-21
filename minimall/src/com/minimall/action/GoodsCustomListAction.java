@@ -28,7 +28,6 @@ public class GoodsCustomListAction implements ActionInterFace {
 		
 		for(int i=0; i<goodsList.size(); i++) {
 			goodsDto = goodsList.get(i);
-			
 			//ÀÌ¹ÌÁö
 			File file = new File(goodsDto.getG_image());
 			BufferedImage image = ImageIO.read(file);
