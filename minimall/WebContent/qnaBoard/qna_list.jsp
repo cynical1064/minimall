@@ -106,7 +106,7 @@
 					<%}else{ %>
 					<a style="cursor:pointer;" onclick="getPage('<%=a%>')">[<%=a %>]</a>&nbsp;
 					<%} %>
-				<%} %>
+				<%} %> 
 				
 				<%if(nowpage>=maxpage){ %>
 				[¥Ÿ¿Ω]
