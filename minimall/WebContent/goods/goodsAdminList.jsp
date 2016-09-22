@@ -14,6 +14,11 @@
 		<script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 		<script>
 			$(document).ready(function() {
+				$('#agreeCheckAll').click(function() {
+					//체크박스 눌렀을때 승인을 전체 체크하기 위한 코드
+					$('.agreeChange').prop('checked', this.checked);
+				});
+				
 				$('#chkBtn').click(function() {
 					$('#chkForm').submit();
 				});
@@ -24,6 +29,9 @@
 	<jsp:include page="/module/headerSub.jsp" />
 	<div id="container">
 		<div class="content">
+			<div>
+				전체 승인<input type="checkbox" id="agreeCheckAll"/>
+			</div>
 			<form action="${pageContext.request.contextPath}/Gchk/GoodsAdminChk.go" method="post" id="chkForm">
 				<table class="basic">
 					<tr>
@@ -44,7 +52,7 @@
 							<td>
 								<c:set var="chk" value="${goods.g_agree}o" />
 								<c:if test="${chk eq 'No'}">
-			    					<input type="checkbox" name="agreeChange" class="agreeChange" value="${goods.g_code}"/>
+			    					<input type="checkbox" class="agreeChange" name="agreeChange" class="agreeChange" value="${goods.g_code}"/>
 			    					<%-- <input type="hidden" value="${goods.g_code}" id="hiddenGcode"/> --%>
 			    					<%-- <c:set var="gCodeArray" value="${goods.g_code}" scope="request"/> --%>
 			    					<%-- <c:out value="${gCodeArray}"/> --%>

@@ -15,46 +15,81 @@ import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
 public class GoodsCustomListAction implements ActionInterFace {
-
+	ArrayList<GoodsDto> goodsList = null;
+	ArrayList<String> b64Array = new ArrayList<String>();
+	ArrayList<String> gImageType = new ArrayList<String>();
+	File file;
+	int goodsListAllCount;	//goods 테이블의 총 데이터 갯수		
+	int goodsListCount;		//goodsList의 size
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsCustomListAction.java");
 		
+		int page = 1;		//현재 페이지 번호
+		int limit = 10;		//보여줄 리스트 갯수
+		
 		GoodsDto goodsDto = new GoodsDto();
 		GoodsDao goodsDao = new GoodsDao();
-		ArrayList<GoodsDto> goodsList = goodsDao.goodsSelectForCustom();
-		
-		ArrayList<String> b64Array = new ArrayList<String>();
-		
-		String path = request.getServletContext().getRealPath("goodsImage");
-		ArrayList<String> gImageType = new ArrayList<String>();
-		for(int i=0; i<goodsList.size(); i++) {
-			goodsDto = goodsList.get(i);
-			//이미지
-			File file = new File(path + "/" + goodsDto.getG_image());
-			BufferedImage image = ImageIO.read(file);
-			String type = goodsDto.getG_image().substring(goodsDto.getG_image().lastIndexOf(".") + 1);
-			System.out.println(type + " : type GoodsInsertPro.java");
+		goodsListAllCount = goodsDao.getListCount();
+		goodsList = goodsDao.goodsSelectForCustom(page, limit);
+		goodsListCount = goodsList.size();
+		String ImageName;
+		String type;
+		String b64;
+		if(goodsListAllCount != 0) {
+			String path = request.getServletContext().getRealPath("goodsImage");
+			System.out.println("가져온 데이터 갯수 : " + goodsListCount + " : GoodsCustomListAction.java");
+			for(int i=0; i<goodsListCount; i++) {
+				goodsDto = goodsList.get(i);
+				
+				//저장되어있는 이미지의 확장자만 잘라서 변수에 담고 대문자를 소문자로 변환
+				ImageName = goodsDto.getG_image();
+				type = ImageName.substring(ImageName.lastIndexOf(".") + 1);
+				type = type.toLowerCase();
+				
+				//DB에서 가져온 여러개의 이미지의 이름에 경로를 붙여 File로 만든뒤 ByteArrayOutputStream.toByteArray()를 통해 byte[]로 만든다.
+				file = new File(path + "/" + ImageName);
+				BufferedImage image = ImageIO.read(file);
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				ImageIO.write(image,type,baos);
+				baos.flush();
+				byte[] imageInByteArray = baos.toByteArray();
+				baos.close();
+				//byte[]를 String으로 변환
+				b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
+				
+				b64Array.add(b64);
+				gImageType.add(type);
+			}
+			System.out.println("goodsList.size() : " + goodsList.size() + ", b64Array.size() : " + b64Array.size() + " GoodsCustomListAction.java");
 			
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write(image,type,baos);
-			baos.flush();
-			byte[] imageInByteArray = baos.toByteArray();
-			baos.close();
-			String b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
-			
-			b64Array.add(b64);
-			gImageType.add(type);
-		}
-		if(gImageType != null) {
+			request.setAttribute("b64", b64Array);
 			request.setAttribute("gImageType", gImageType);
+		}	
+		request.setAttribute("goodsList", goodsList);
+		
+		//페이징 처리		
+		if(request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
-		System.out.println(goodsList.size());
-		System.out.println(b64Array.size());
+		int maxPage = (int) ((double)goodsListAllCount/limit +0.95);	//총 페이지 수
+		int startPage = ((int) (((double)page/10+0.9)) -1) *10 +1;	//현재 페이지에 보여줄 시작 페이지 번호
+		int endPage = startPage +10 -1;								//현재 페이지에 보여줄 마지막 페이지 번호
+		if(endPage > maxPage) endPage = maxPage;					//마지막 페이지 번호가 총 페이지 수보다 클 경우
+																	//endPage에 maxPage의 값을 담는다.
 		
-		request.setAttribute("goodsList", goodsList);
-		request.setAttribute("b64", b64Array);
+		System.out.println(page + " : page GoodsCustomListAction.java");
+		System.out.println(maxPage + " : maxPage GoodsCustomListAction.java");
+		System.out.println(startPage + " : startPage GoodsCustomListAction.java");
+		System.out.println(endPage + " : endPage GoodsCustomListAction.java");
+		
+		request.setAttribute("page", page);
+		request.setAttribute("maxPage", maxPage);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		request.setAttribute("goodsListAllCount", goodsListAllCount);		//보여줄 글의 총 갯수
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

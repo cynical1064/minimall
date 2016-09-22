@@ -123,21 +123,58 @@ public class GoodsDao {
 		return goodsList;
 	}
 	
-	//구매자를 위한 select! 상품 중 승인여부가 Y인 것만 가져오기
-	public ArrayList<GoodsDto> goodsSelectForCustom() throws SQLException {
-		System.out.println("03 goodsSelectForCustom() GoodsDao.java");
+	//글 갯수 구하기
+	public int getListCount() throws SQLException {
+		System.out.println("03_0 getListCount() GoodsDao.java");
+		int count = 0;
 		
 		conn = ds.getConnection();
 		
+		//goods테이블의 전체 데이터 갯수 가져오는 select 쿼리문 입니다.
+		pstmt = conn.prepareStatement("SELECT count(*) FROM goods");
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			count = rs.getInt(1);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		System.out.println(count + " : 글 갯수");
+		
+		return count;
+	}
+	
+	//구매자를 위한 select! 상품 중 승인여부가 Y인 것만 가져오기
+	public ArrayList<GoodsDto> goodsSelectForCustom(int page, int limit) throws SQLException {
+		System.out.println("03_1 goodsSelectForCustom() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		int startRow = (page-1) *10 +1;
+		int endRow = startRow +limit -1;
+		
+		System.out.println(startRow + " : startRow goodsSelectForCustom GoosDao.java");
+		System.out.println(endRow + " : endRow goodsSelectForCustom GoosDao.java");
+		
 		//goods테이블의 전체 데이터 중 승인여부가 'Y' 인 것만 가져오는 select 쿼리문 입니다.
-		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_image FROM goods";
-		sql += " WHERE g_agree LIKE 'Y'";
+		/*String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, to_char(g_date, 'yyyy-mm-dd') as g_date, g_image FROM goods";
+		sql += " WHERE g_agree LIKE 'Y'";*/
+		String sql = "select * from";				
+		sql += " (select rownum rnum, g_code, g_name, g_id, g_cate, g_sangse, g_price, TO_CHAR(g_date, 'yyyymmdd') as g_date, g_image from";
+		sql += "  (select * from goods order by TO_NUMBER(SUBSTR(g_code,7)) desc)";
+		sql	+= " where g_agree LIKE 'Y')";
+		sql += " where rnum>=? and rnum<=?";
 		pstmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		pstmt.setInt(1, startRow);
+		pstmt.setInt(2, endRow);
 		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
 		rs = pstmt.executeQuery();
 		
 		rs.last();
 		int rowCount = rs.getRow();
+		System.out.println(rowCount);
 		rs.beforeFirst();
 		if(rowCount == 0) {
 			return null;
@@ -146,7 +183,6 @@ public class GoodsDao {
 		while(rs.next()) {
 			goodsDto = new GoodsDto();
 			goodsDto.setG_code(rs.getString("g_code"));
-			System.out.println(goodsDto.getG_code());
 			goodsDto.setG_name(rs.getString("g_name"));
 			goodsDto.setG_id(rs.getString("g_id"));
 			goodsDto.setG_cate(rs.getString("g_cate"));
@@ -154,7 +190,6 @@ public class GoodsDao {
 			goodsDto.setG_price(rs.getInt("g_price"));
 			goodsDto.setG_date(rs.getString("g_date"));
 			goodsDto.setG_image(rs.getString("g_image"));
-			System.out.println(goodsDto.getG_image());
 			
 			goodsList.add(goodsDto);
 		}
