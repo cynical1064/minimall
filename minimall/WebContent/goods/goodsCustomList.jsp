@@ -26,7 +26,7 @@
 						<c:forEach var="goods" items="${goodsList}" varStatus="status">
 							<tr>
 								<td>${status.count}</td>
-								<td><img id="customImage" src="data:image/png;base64, ${b64[status.index]}" alt="image not found" width="50px" height="50px"/></td>
+								<td><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" width="50px" height="50px"/></td>
 								<td><a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">${goods.g_name}</a></td>
 								<td>${goods.g_id}</td>
 								<td>${goods.g_cate}</td>

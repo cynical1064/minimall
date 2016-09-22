@@ -51,7 +51,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		String gSangse = multipartRequest.getParameter("gSangse");
 		
 		String gImageFileSysName = multipartRequest.getFilesystemName("myImage");
-		String gImgageOriginName = multipartRequest.getOriginalFileName("myImage");
+		String gImageOriginName = multipartRequest.getOriginalFileName("myImage");
 		
 		System.out.println(gId + " : gId GoodsInsertPro.java");
 		System.out.println(gName + " : gName GoodsInsertPro.java");
@@ -60,7 +60,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		System.out.println(gSangse + " : gSangse GoodsInsertPro.java");
 		
 		System.out.println(gImageFileSysName + " : gImageFileSysName GoodsInsertPro.java");
-		System.out.println(gImgageOriginName + " : gImgageOriginName GoodsInsertPro.java");
+		System.out.println(gImageOriginName + " : gImgageOriginName GoodsInsertPro.java");
 		
 		File file = multipartRequest.getFile("myImage");
 		System.out.println(file);

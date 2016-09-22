@@ -111,7 +111,7 @@
 	<div class="content">
 		<div id="detailContent">
 			<div id="detailImgArea">
-				<img src="data:image/png;base64, ${b64}" alt="image not found" width="100%" height="100%"/>
+				<img src="data:image/${gImageType};base64, ${b64}" alt="image not found" width="100%" height="100%"/>
 			</div>
 			<div id="orderForm">
 				<jsp:include page="/order/orderInsertForm.jsp" />

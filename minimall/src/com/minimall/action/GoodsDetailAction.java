@@ -3,6 +3,7 @@ package com.minimall.action;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -28,8 +29,13 @@ public class GoodsDetailAction implements ActionInterFace {
 		GoodsDto goodsDto = goodsDao.goodsSelectByGcode(gCode);
 		
 		//¿ÃπÃ¡ˆ
-		File file = new File(goodsDto.getG_image());
+		String path = request.getServletContext().getRealPath("goodsImage");
+		ArrayList<String> gImageType = new ArrayList<String>();
+		
+		File file = new File(path + "/" + goodsDto.getG_image());
 		BufferedImage image = ImageIO.read(file);
+		String type = goodsDto.getG_image().substring(goodsDto.getG_image().lastIndexOf(".") + 1);
+		System.out.println(type + " : type GoodsInsertPro.java");
 		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		ImageIO.write(image,"png",baos);
@@ -40,6 +46,7 @@ public class GoodsDetailAction implements ActionInterFace {
 		
 		request.setAttribute("goods", goodsDto);
 		request.setAttribute("b64", b64);
+		request.setAttribute("gImageType", gImageType);
 		
 		ActionForward forward = new ActionForward();
     	forward.setRedirect(false);
