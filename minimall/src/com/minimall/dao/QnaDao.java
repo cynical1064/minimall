@@ -139,7 +139,7 @@ public class QnaDao {
 		}
 		
 	//글 목록 보기
-		public List getQnaList(int page,int limit){
+		public List getQnaList(int page,int limit){ 
 		
 			String qna_list_sql="select * from "+
 			"(select rownum rnum,qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount from "+
