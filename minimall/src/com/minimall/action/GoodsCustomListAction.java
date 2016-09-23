@@ -21,19 +21,31 @@ public class GoodsCustomListAction implements ActionInterFace {
 	File file;
 	int goodsListAllCount;	//goods 테이블의 총 데이터 갯수		
 	int goodsListCount;		//goodsList의 size
+	int page = 1;		//현재 페이지 번호
+	int limit = 10;		//보여줄 리스트 갯수
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("01 execute() GoodsCustomListAction.java");
 		
-		int page = 1;		//현재 페이지 번호
-		int limit = 10;		//보여줄 리스트 갯수
-		
 		GoodsDto goodsDto = new GoodsDto();
 		GoodsDao goodsDao = new GoodsDao();
 		goodsListAllCount = goodsDao.getListCount();
+		
+		//페이징 처리		
+		if(request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
+		}
+		
 		goodsList = goodsDao.goodsSelectForCustom(page, limit);
 		goodsListCount = goodsList.size();
+		
+		int maxPage = (int) ((double)goodsListAllCount/limit +0.95);	//총 페이지 수
+		int startPage = ((int) (((double)page/10+0.9)) -1) *10 +1;	//현재 페이지에 보여줄 시작 페이지 번호
+		int endPage = startPage +10 -1;								//현재 페이지에 보여줄 마지막 페이지 번호
+		if(endPage > maxPage) endPage = maxPage;					//마지막 페이지 번호가 총 페이지 수보다 클 경우
+																	//endPage에 maxPage의 값을 담는다.
+		
 		String ImageName;
 		String type;
 		String b64;
@@ -68,17 +80,6 @@ public class GoodsCustomListAction implements ActionInterFace {
 			request.setAttribute("gImageType", gImageType);
 		}	
 		request.setAttribute("goodsList", goodsList);
-		
-		//페이징 처리		
-		if(request.getParameter("page") != null) {
-			page = Integer.parseInt(request.getParameter("page"));
-		}
-		
-		int maxPage = (int) ((double)goodsListAllCount/limit +0.95);	//총 페이지 수
-		int startPage = ((int) (((double)page/10+0.9)) -1) *10 +1;	//현재 페이지에 보여줄 시작 페이지 번호
-		int endPage = startPage +10 -1;								//현재 페이지에 보여줄 마지막 페이지 번호
-		if(endPage > maxPage) endPage = maxPage;					//마지막 페이지 번호가 총 페이지 수보다 클 경우
-																	//endPage에 maxPage의 값을 담는다.
 		
 		System.out.println(page + " : page GoodsCustomListAction.java");
 		System.out.println(maxPage + " : maxPage GoodsCustomListAction.java");

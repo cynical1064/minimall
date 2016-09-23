@@ -39,7 +39,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		
 		String path = request.getServletContext().getRealPath("goodsImage");
 		System.out.println(path);
-		int maxSize = 1024*1024*100;
+		int maxSize = 500*500*100;
 		String encType = "UTF-8";
 		
 		MultipartRequest multipartRequest = new MultipartRequest(request, path, maxSize, encType, new DefaultFileRenamePolicy());
