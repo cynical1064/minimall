@@ -42,16 +42,16 @@
 											[이전]&nbsp;
 										</c:when>
 										<c:otherwise>
-											<a style="cursor:pointer;" onclick="getNextBlock('${page-1}')">[이전]</a>&nbsp;
+											<a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${page-1}">[이전]</a>&nbsp;
 										</c:otherwise>
 									</c:choose>
-									<c:forEach begin="${startPage}" end="${maxPage}" varStatus="status">
+									<c:forEach begin="${startPage}" end="${endPage}" varStatus="status">
 										<c:choose>
 											<c:when test="${status.count == page}">
 												[${status.count}]
 											</c:when>
 											<c:otherwise>
-												<a style="cursor:pointer;" onclick="getPage('${status.count}')">[${status.count}]</a>
+												<a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${status.count}">[${status.count}]</a>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>
