@@ -23,8 +23,8 @@ public class REBoardDAO {
 	public REBoardDAO() {
 		try{
 			Context init = new InitialContext();
-			
-	  	    ds = (DataSource) init.lookup("java:comp/env/jdbc/Oracle2");
+			System.out.println(init + " : init GoodsDao.java");
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
 	  	  System.out.println("db연결성공 ");
 	  		
 		}catch(Exception ex){

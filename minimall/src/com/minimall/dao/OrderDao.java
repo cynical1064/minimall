@@ -28,7 +28,7 @@ public class OrderDao {
 		try {
 			Context init = new InitialContext();
 			System.out.println(init + " : init GoodsDao.java");
-			ds = (DataSource) init.lookup("java:comp/env/jdbc/Oracle2");
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
 		} catch(NamingException e) {
 			System.out.println("DB 연결 실패");
 			e.printStackTrace();

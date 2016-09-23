@@ -1,12 +1,12 @@
  <Context> 
-     <Resource name="jdbc/Oracle2" 
+     <Resource name="jdbc/mysql" 
          auth="Container"
          type="javax.sql.DataSource" 
-         username="firework" 
-         password="0000"
-         driverClassName="oracle.jdbc.OracleDriver"
-         factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
-         url="jdbc:oracle:thin:@localhost:1521:XE"
-         maxActive="500" 
-         maxIdle="100"/>  
+         username="cynical1031" 
+         password="whfxk10641064"
+         driverClassName="com.mysql.jdbc.Driver"
+         factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+         url="jdbc:mysql://cynical1031.cafe24.com:3306/cynical1031"
+         maxTotal="500" 
+         maxIdle="100"/>          
  </Context>

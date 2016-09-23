@@ -27,8 +27,9 @@ public class MemberDao {
 	public MemberDao() {
 		
 		try{
-			Context initCtx=new InitialContext();
-		    ds = (DataSource) initCtx.lookup("java:comp/env/jdbc/Oracle2");
+			Context init = new InitialContext();
+			System.out.println(init + " : init GoodsDao.java");
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
 			System.out.println("db연결성공");
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -42,7 +43,7 @@ public class MemberDao {
 		try{
 			
 			con = ds.getConnection();
-			sql="insert into member values(?,?,?,?,?, sysdate,?)";
+			sql="insert into member values(?,?,?,?,?, sysdate(),?)";
 			
 			pstmt=con.prepareStatement(sql);			
 			

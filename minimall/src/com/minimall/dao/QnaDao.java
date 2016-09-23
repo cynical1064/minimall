@@ -25,8 +25,8 @@ public class QnaDao {
 	public QnaDao() {
 		try {
 			Context init = new InitialContext();
-			System.out.println(init + " : QnaDao.java");
-			ds = (DataSource) init.lookup("java:comp/env/jdbc/Oracle2");
+			System.out.println(init + " : init GoodsDao.java");
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
 		} catch(NamingException e) {
 			System.out.println("DB 연결 실패");
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class QnaDao {
 	//글 수정
 	public boolean boardModify(QnaDto pna) throws Exception{
 		
-		String sql="update QNA_BOARD set QNA_SUBJECT=?,QNA_CONTENT=? where qna_no=?";
+		String sql="update qna_board set qna_subject=?,qna_content=? where qna_no=?";
 		
 		try{
 			con = ds.getConnection();
@@ -59,7 +59,7 @@ public class QnaDao {
 	//글 삭제
 	public boolean qnaDelete(int num){
 		
-		String qna_delete_sql="delete from QNA_BOARD where qna_no=?";
+		String qna_delete_sql="delete from qna_board where qna_no=?";
 		
 		int result=0;
 		
@@ -87,7 +87,7 @@ public class QnaDao {
 	//글 답변
 		public int QnaReply(QnaDto qna){
 			
-			String board_max_sql="select max(qna_no) from QNA_BOARD";
+			String board_max_sql="select max(qna_no) from qna_board";
 			String sql="";
 			int num=0;
 			int result=0;
@@ -114,7 +114,7 @@ public class QnaDao {
 				re_seq = re_seq + 1;
 				re_lev = re_lev+1;*/
 				
-				sql="insert into QNA_BOARD (QNA_NO,QNA_SUBJECT,M_ID,QNA_CONTENT,QNA_SECRET,QNA_CATEGORY,QNA_DATE) values (?,?,?,?,?,?,sysdate)";
+				sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date) values (?,?,?,?,?,?,sysdate)";
 				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, num+1);
@@ -143,7 +143,7 @@ public class QnaDao {
 		
 			String qna_list_sql="select * from "+
 			"(select rownum rnum,qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount from "+
-			"(select * from QNA_BOARD order by qna_no desc)) where rnum>=? and rnum<=?";
+			"(select * from qna_board order by qna_no desc)) where rnum>=? and rnum<=?";
 			
 			List list = new ArrayList();
 			System.out.println(qna_list_sql + "<-- board_list_sql getQnaList QnaDAO.java");
@@ -192,7 +192,7 @@ public class QnaDao {
 			
 			try{
 				con = ds.getConnection();
-				pstmt = con.prepareStatement("select * from QNA_BOARD where qna_no = ?");
+				pstmt = con.prepareStatement("select * from qna_board where qna_no = ?");
 				pstmt.setInt(1, num);
 				
 				rs= pstmt.executeQuery();
@@ -225,7 +225,7 @@ public class QnaDao {
 			try{
 				con=ds.getConnection();
 				System.out.println("getConnection");
-				pstmt=con.prepareStatement("select count(*) from QNA_BOARD");
+				pstmt=con.prepareStatement("select count(*) from qna_board");
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
@@ -245,7 +245,7 @@ public class QnaDao {
 	//조회수 업데이트
 		public void setReadCountUpdate(int num) throws Exception{
 			
-			String sql="update QNA_BOARD set QNA_READCOUNT = QNA_READCOUNT+1 where QNA_NO = "+num;
+			String sql="update qna_board set qna_readcount = qna_readcount+1 where qna_no = "+num;
 			
 			try{
 				con = ds.getConnection();
@@ -287,7 +287,7 @@ public class QnaDao {
 			if(qna.getQna_secret() == null) {
 				qna.setQna_secret("n");
 			}
-			sql="insert into QNA_BOARD (QNA_NO,QNA_SUBJECT,M_ID,QNA_CONTENT,QNA_SECRET,QNA_CATEGORY,QNA_DATE) values (?,?,?,?,?,?,sysdate)";
+			sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date) values (?,?,?,?,?,?,sysdate())";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num+1);
@@ -317,7 +317,7 @@ public class QnaDao {
 	//글쓴이인지 확인
 	public boolean isBoardWriter(int num,String pass){
 			
-			String qna_sql="select * from QNA_BOARD where QNA_NO=?";
+			String qna_sql="select * from qna_board where qna_no=?";
 			
 			try{
 				con = ds.getConnection();
