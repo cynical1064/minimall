@@ -32,7 +32,7 @@ public class GoodsDao {
 		try {
 			Context init = new InitialContext();
 			System.out.println(init + " : init GoodsDao.java");
-			ds = (DataSource) init.lookup("jdbc/mysql");
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
 		} catch(NamingException e) {
 			System.out.println("DB 연결 실패");
 			e.printStackTrace();
