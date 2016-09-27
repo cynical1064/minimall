@@ -78,7 +78,7 @@ public class OrderDao {
 		System.out.println("orderSelectAll OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
-		sql = "select o.o_no, m.m_id, g.g_id, to_char(o.o_date, 'yyyy-mm-dd') as o_date, g.g_code, o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
+		sql = "select o.o_no, m.m_id, g.g_id, date_format(o.o_date, '%y-%m-%d') as o_date, g.g_code, o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
 				+ "from orders o inner join goods g on o.g_code = g.g_code inner join member m on m.m_id = o.m_id order by o.o_no asc";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
@@ -112,7 +112,7 @@ public class OrderDao {
 		System.out.println("orderListOne OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
-		sql = "select o.o_no, m.m_id, g.g_id, to_char(o.o_date, 'yyyy-mm-dd') as o_date, g.g_code, "
+		sql = "select o.o_no, m.m_id, g.g_id, date_format(o.o_date, '%y-%m-%d') as o_date, g.g_code, "
 				+ "o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
 				+ "from orders o inner join goods g on o.g_code = g.g_code inner join "
 				+ "member m on m.m_id = o.m_id where o.m_id = ? order by o.o_no asc";

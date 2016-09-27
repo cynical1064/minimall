@@ -36,7 +36,7 @@
 					<c:when test="${sessionScope.loginLevel == '관리자'}">
 						<dd><a href="${pageContext.request.contextPath}/Mli/mList.mo">Member</a></dd>
 						<dd><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></dd>
-						<dd><a href="${pageContext.request.contextPath}/Oli/orderList.oo"></a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Oli/orderList.oo">입금확인</a></dd>
 						<dd>게시글 관리</dd>
 					</c:when>
 					<c:when test="${sessionScope.loginLevel == '판매자'}">

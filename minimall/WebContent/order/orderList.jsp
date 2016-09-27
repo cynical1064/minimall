@@ -49,10 +49,8 @@
 						</td>
 					</tr>
 				</c:forEach>
-					<tr>
-						<td><input type="button" value="확인" id="chkBtn"/></td>
-					</tr>
 			</table>
+			<input type="button" value="확인" id="chkBtn"/>
 		</form>
 	</div>
 </div>	
