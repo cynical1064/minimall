@@ -38,7 +38,7 @@ public class GoodsInsertPro implements ActionInterFace {
 		}*/
 		
 		//String path = request.getServletContext().getRealPath("goodsImage");
-		String path = "http://cynical1031.cafe24.com/upload/goodsImage";
+		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage"; 
 		System.out.println(path);
 		int maxSize = 500*500*100;
 		String encType = "UTF-8";
