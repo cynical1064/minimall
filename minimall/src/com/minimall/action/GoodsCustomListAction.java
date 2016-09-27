@@ -51,8 +51,8 @@ public class GoodsCustomListAction implements ActionInterFace {
 		String b64;
 		if(goodsListAllCount != 0) {
 			//String path = request.getServletContext().getRealPath("goodsImage");
-			String path = "http://cynical1031.cafe24.com/upload/goodsImage";
-			System.out.println(path + " : path");
+			String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
+			
 			System.out.println("가져온 데이터 갯수 : " + goodsListCount + " : GoodsCustomListAction.java");
 			for(int i=0; i<goodsListCount; i++) {
 				goodsDto = goodsList.get(i);
@@ -63,6 +63,7 @@ public class GoodsCustomListAction implements ActionInterFace {
 				type = type.toLowerCase();
 				
 				//DB에서 가져온 여러개의 이미지의 이름에 경로를 붙여 File로 만든뒤 ByteArrayOutputStream.toByteArray()를 통해 byte[]로 만든다.
+				System.out.println(path + "/" + ImageName + " : path");
 				file = new File(path + "/" + ImageName);
 				BufferedImage image = ImageIO.read(file);
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
