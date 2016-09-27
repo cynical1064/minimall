@@ -165,7 +165,6 @@ public class GoodsDao {
 		sql += "  (select * from goods order by TO_NUMBER(SUBSTR(g_code,7)) desc)";
 		sql	+= " where g_agree LIKE 'Y')";
 		sql += " where rnum>=? and rnum<=?";*/
-		
 
 		String sql = "SELECT g.g_code as g_code, g.g_name as g_name, g.g_id as g_id, g.g_cate as g_cate, g.g_sangse as g_sangse, g.g_price as g_price, g.g_date as g_date, g.g_image as g_image FROM";
 		sql += " (SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, date_format(g_date, '%y%m%d') as g_date, g_image";
