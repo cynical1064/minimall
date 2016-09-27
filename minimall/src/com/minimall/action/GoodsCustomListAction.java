@@ -63,8 +63,8 @@ public class GoodsCustomListAction implements ActionInterFace {
 				type = type.toLowerCase();
 				
 				//DB에서 가져온 여러개의 이미지의 이름에 경로를 붙여 File로 만든뒤 ByteArrayOutputStream.toByteArray()를 통해 byte[]로 만든다.
-				System.out.println(path + "/" + ImageName + " : path");
-				file = new File(path + "/" + ImageName);
+				System.out.println(path + "\\" + ImageName + " : path");
+				file = new File(path + "\\" + ImageName);
 				BufferedImage image = ImageIO.read(file);
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				ImageIO.write(image,type,baos);
