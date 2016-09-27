@@ -67,7 +67,7 @@ public class GoodsDao {
 		//goods테이블에 상품을 등록하는 insert 쿼리문 입니다.
 		String sql = "INSERT INTO goods";
 		sql += "(g_code,g_name,g_id,g_cate,g_sangse,g_price,g_date,g_agree,g_image)";
-		sql += " VALUES(?,?,?,?,?,?,sysdate,'N',?)";
+		sql += " VALUES(?,?,?,?,?,?,sysdate(),'N',?)";
 		pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setString(1, g_code);
