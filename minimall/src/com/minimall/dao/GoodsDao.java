@@ -1,9 +1,6 @@
 package com.minimall.dao;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,7 +46,8 @@ public class GoodsDao {
 		String temp = "gcode_";
 		
 		//g_code 중 마지막 숫자(가장 큰 숫자)를 가져오기 위한 select 쿼리문 입니다.
-		pstmt_select = conn.prepareStatement("SELECT MAX(TO_NUMBER(SUBSTR(g_code,7))) FROM goods");
+		//pstmt_select = conn.prepareStatement("SELECT MAX(TO_NUMBER(SUBSTR(g_code,7))) FROM goods");
+		pstmt_select = conn.prepareStatement("SELECT MAX(CONVERT(SUBSTRING(g_code,7), UNSIGNED)) FROM goods");
 		System.out.println(pstmt_select + " : pstmt_select goodsInsert() GoodsDao.java");
 		rs = pstmt_select.executeQuery();
 		
@@ -161,11 +159,17 @@ public class GoodsDao {
 		//goods테이블의 전체 데이터 중 승인여부가 'Y' 인 것만 가져오는 select 쿼리문 입니다.
 		/*String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, to_char(g_date, 'yyyy-mm-dd') as g_date, g_image FROM goods";
 		sql += " WHERE g_agree LIKE 'Y'";*/
-		String sql = "select * from";				
+		
+		/*String sql = "select * from";				
 		sql += " (select rownum rnum, g_code, g_name, g_id, g_cate, g_sangse, g_price, TO_CHAR(g_date, 'yyyymmdd') as g_date, g_image from";
 		sql += "  (select * from goods order by TO_NUMBER(SUBSTR(g_code,7)) desc)";
 		sql	+= " where g_agree LIKE 'Y')";
-		sql += " where rnum>=? and rnum<=?";
+		sql += " where rnum>=? and rnum<=?";*/
+		
+
+		String sql = "SELECT * FROM (SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, date_format(g_date, '%y%m%d') as g_date, g_image";
+		sql += " FROM (SELECT * FROM goods ORDER BY CONVERT(SUBSTRING(g_code,7), UNSIGNED) DESC)as g2 WHERE g_agree LIKE 'Y') as g LIMIT ?,?";
+		
 		pstmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		pstmt.setInt(1, startRow);
 		pstmt.setInt(2, endRow);
