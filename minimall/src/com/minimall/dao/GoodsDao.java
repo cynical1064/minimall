@@ -167,11 +167,12 @@ public class GoodsDao {
 		sql += " where rnum>=? and rnum<=?";*/
 		
 
-		String sql = "SELECT * FROM (SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, date_format(g_date, '%y%m%d') as g_date, g_image";
+		String sql = "SELECT g.g_code as g_code, g.g_name as g_name, g.g_id as g_id, g.g_cate as g_cate, g.g_sangse as g_sangse, g.g_price as g_price, g.g_date as g_date, g.g_image as g_image FROM";
+		sql += " (SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, date_format(g_date, '%y%m%d') as g_date, g_image";
 		sql += " FROM (SELECT * FROM goods ORDER BY CONVERT(SUBSTRING(g_code,7), UNSIGNED) DESC)as g2 WHERE g_agree LIKE 'Y') as g LIMIT ?,?";
 		
 		pstmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-		pstmt.setInt(1, startRow);
+		pstmt.setInt(1, startRow-1);
 		pstmt.setInt(2, endRow);
 		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
 		rs = pstmt.executeQuery();

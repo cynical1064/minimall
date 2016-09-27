@@ -6,7 +6,7 @@
          password="whfxk10641064"
          driverClassName="com.mysql.jdbc.Driver"
          factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-         url="jdbc:mysql://localhost:3306/cynical1031"
+         url="jdbc:mysql://cynical1031.cafe24.com:3306/cynical1031"
          maxTotal="500" 
          maxIdle="100"/>          
  </Context> 
