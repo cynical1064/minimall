@@ -65,17 +65,19 @@ public class GoodsCustomListAction implements ActionInterFace {
 				//DB에서 가져온 여러개의 이미지의 이름에 경로를 붙여 File로 만든뒤 ByteArrayOutputStream.toByteArray()를 통해 byte[]로 만든다.
 				System.out.println(path + "\\" + ImageName + " : path");
 				file = new File(path + "\\" + ImageName);
-				BufferedImage image = ImageIO.read(file);
-				ByteArrayOutputStream baos = new ByteArrayOutputStream();
-				ImageIO.write(image,type,baos);
-				baos.flush();
-				byte[] imageInByteArray = baos.toByteArray();
-				baos.close();
-				//byte[]를 String으로 변환
-				b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
-				
-				b64Array.add(b64);
-				gImageType.add(type);
+				if(file.exists()) {
+					BufferedImage image = ImageIO.read(file);
+					ByteArrayOutputStream baos = new ByteArrayOutputStream();
+					ImageIO.write(image,type,baos);
+					baos.flush();
+					byte[] imageInByteArray = baos.toByteArray();
+					baos.close();
+					//byte[]를 String으로 변환
+					b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
+					
+					b64Array.add(b64);
+					gImageType.add(type);
+				}
 			}
 			System.out.println("goodsList.size() : " + goodsList.size() + ", b64Array.size() : " + b64Array.size() + " GoodsCustomListAction.java");
 			
