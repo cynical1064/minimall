@@ -140,17 +140,22 @@ public class QnaDao {
 		
 	//글 목록 보기
 		public List getQnaList(int page,int limit){ 
-		
-			String qna_list_sql="select * from "+
+			//오라클
+			/*String qna_list_sql="select * from "+
 			"(select rownum rnum,qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount from "+
-			"(select * from qna_board order by qna_no desc)) where rnum>=? and rnum<=?";
+			"(select * from qna_board order by qna_no desc)) where rnum>=? and rnum<=?";*/
+
+			//mySql
+			String qna_list_sql = "SELECT q.qna_no as qna_no, q.qna_subject as qna_subject, q.m_id as m_id, q.qna_content as qna_content, q.qna_secret as qna_secret,"+
+			" q.qna_category as qna_category, q.qna_date as qna_date, q.qna_readcount as qna_readcount, q.g_code as g_code"+
+			" FROM (SELECT qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount, g_code"+
+			" FROM (SELECT * FROM qna_board ORDER BY qna_no DESC) as qq)as q LIMIT ?,?";
 			
 			List list = new ArrayList();
 			System.out.println(qna_list_sql + "<-- board_list_sql getQnaList QnaDAO.java");
 			System.out.println(page + "<-- page getQnaList QnaDAO.java");
 			System.out.println(limit + "<-- limit getQnaList QnaDAO.java");
 			System.out.println();
-			
 			
 			int startrow=(page-1)*10+1; //읽기 시작할 row 번호.
 			int endrow=startrow+limit-1; //읽을 마지막 row 번호.	
@@ -161,13 +166,14 @@ public class QnaDao {
 			try{
 				con = ds.getConnection();
 				pstmt = con.prepareStatement(qna_list_sql);
-				pstmt.setInt(1, startrow);
+				pstmt.setInt(1, startrow-1);
 				pstmt.setInt(2, endrow);
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()){
 					QnaDto qnadto = new QnaDto();
 					qnadto.setQna_no(rs.getInt("qna_no"));
+					System.out.println(qnadto.getQna_no());
 					qnadto.setQna_subject(rs.getString("qna_subject"));
 					qnadto.setM_id(rs.getString("m_id"));
 					qnadto.setQna_content(rs.getString("qna_content"));
@@ -175,6 +181,8 @@ public class QnaDao {
 					qnadto.setQna_category(rs.getString("qna_category"));
 					qnadto.setQna_date(rs.getDate("qna_date"));
 					qnadto.setQna_readcount(rs.getInt("qna_readcount"));
+					qnadto.setG_code(rs.getString("g_code"));
+					System.out.println(qnadto.getG_code());
 					list.add(qnadto);
 				}
 			}catch(Exception ex){
@@ -287,16 +295,16 @@ public class QnaDao {
 			if(qna.getQna_secret() == null) {
 				qna.setQna_secret("n");
 			}
-			sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date) values (?,?,?,?,?,?,sysdate())";
+			sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date,g_code) values (?,?,?,?,?,?,sysdate(),?)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num+1);
 			pstmt.setString(2, qna.getQna_subject());
-			//pstmt.setString(3, qna.getM_id());
-			pstmt.setString(3, "id001");
+			pstmt.setString(3, qna.getM_id());
 			pstmt.setString(4, qna.getQna_content());
 			pstmt.setString(5, qna.getQna_secret());
 			pstmt.setString(6, qna.getQna_category());
+			pstmt.setString(7, qna.getG_code());
 			
 			result=pstmt.executeUpdate();
 			

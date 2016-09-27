@@ -11,6 +11,7 @@ public class QnaDto {
 	private String qna_category;
 	private Date qna_date;
 	private int qna_readcount;
+	private String g_code;
 	
 	public int getQna_no() {
 		return qna_no;
@@ -59,6 +60,12 @@ public class QnaDto {
 	}
 	public void setQna_readcount(int qna_readcount) {
 		this.qna_readcount = qna_readcount;
+	}
+	public String getG_code() {
+		return g_code;
+	}
+	public void setG_code(String g_code) {
+		this.g_code = g_code;
 	}
 	
 }
