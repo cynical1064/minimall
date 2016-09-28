@@ -27,23 +27,24 @@ public class GoodsDetailAction implements ActionInterFace {
 		
 		GoodsDao goodsDao = new GoodsDao();
 		GoodsDto goodsDto = goodsDao.goodsSelectByGcode(gCode);
-		
+		String b64 = "";
 		//¿ÃπÃ¡ˆ
 		String path = request.getServletContext().getRealPath("goodsImage");
 		ArrayList<String> gImageType = new ArrayList<String>();
 		
 		File file = new File(path + "/" + goodsDto.getG_image());
-		BufferedImage image = ImageIO.read(file);
-		String type = goodsDto.getG_image().substring(goodsDto.getG_image().lastIndexOf(".") + 1);
-		System.out.println(type + " : type GoodsInsertPro.java");
-		
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ImageIO.write(image,"png",baos);
-		baos.flush();
-		byte[] imageInByteArray = baos.toByteArray();
-		baos.close();
-		String b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
-		
+		if(file.exists()) {
+			BufferedImage image = ImageIO.read(file);
+			String type = goodsDto.getG_image().substring(goodsDto.getG_image().lastIndexOf(".") + 1);
+			System.out.println(type + " : type GoodsInsertPro.java");
+			
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(image,"png",baos);
+			baos.flush();
+			byte[] imageInByteArray = baos.toByteArray();
+			baos.close();
+			b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
+		}
 		request.setAttribute("goods", goodsDto);
 		request.setAttribute("b64", b64);
 		request.setAttribute("gImageType", gImageType);
