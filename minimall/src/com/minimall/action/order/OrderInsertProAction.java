@@ -29,7 +29,6 @@ public class OrderInsertProAction implements ActionInterFace {
 		System.out.println(oTotal + "<- oTotal");
 		
 		OrderDto odto = new OrderDto();
-		odto.setG_id(gId);
 		odto.setM_id(mId);
 		odto.setG_code(gCode);
 		odto.setO_count(oCount);

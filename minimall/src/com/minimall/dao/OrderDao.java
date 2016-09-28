@@ -58,15 +58,14 @@ public class OrderDao {
 		System.out.println(o_no + " : o_no OrderInsert() OrderDao.java");
 		
 		String sql=null;
-		sql="insert into orders values(?,?,?,sysdate,?,?,?,'입금예정')";
+		sql="insert into orders values(?,?,sysdate(),?,?,?,'입금예정')";
 		pstmt = conn.prepareStatement(sql);
 			
 		pstmt.setInt(1, o_no);
 		pstmt.setString(2, odto.getM_id());
-		pstmt.setString(3, odto.getG_id());
-		pstmt.setString(4, odto.getG_code());
-		pstmt.setInt(5, odto.getO_count());
-		pstmt.setInt(6, odto.getO_total());		
+		pstmt.setString(3, odto.getG_code());
+		pstmt.setInt(4, odto.getO_count());
+		pstmt.setInt(5, odto.getO_total());		
 		pstmt.executeUpdate();
 		
 		pstmt.close();

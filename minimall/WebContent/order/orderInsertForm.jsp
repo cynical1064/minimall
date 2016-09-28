@@ -10,8 +10,8 @@ $(document).ready(function(){
 	var count = parseInt($('#oCount').val());	
 	
 	$('#buyBtn').click(function(){
-		
-		$('form').submit();
+		alert('test..');
+		$('.orderForm').submit();
 		
 	});	
 	
@@ -53,7 +53,7 @@ $(document).ready(function(){
 <link href="${pageContext.request.contextPath}/css/jquery.brickfolio.min.css"  rel="stylesheet" >
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
+	<form class="orderForm" action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
 		<table class="basic orderForm">
 			<tr>
 				<td>상품명</td>
