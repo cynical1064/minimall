@@ -12,29 +12,28 @@
 		<jsp:include page="/module/headerSub.jsp" />
 		<div id="container">
 			<div class="content">
-				<table class="basic">
-					<tr>
-						<th>번호</th><th>이미지</th><th>상품명</th><th>판매자아이디</th><th>카테고리</th><th>가격</th><th>등록날짜</th>
-					</tr>
+			
 					<c:set var="listChk" value="${goodsList}" />
 					<c:choose>
 						<c:when test="${listChk eq null}">
-							<tr>
-								<td colspan=7>등록된 상품이 없습니다.</td>
-							</tr>
-						</c:when>
+							<div>
+								<p>등록된 상품이 없습니다.</p>
+							</div>
+						</c:when>						
 						<c:when test="${listChk ne null}">
+						<ul id="customListWrap" class="clearFix">
 							<c:forEach var="goods" items="${goodsList}" varStatus="status">
-								<tr>
-									<td>${status.count}</td>
-									<td><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" width="50px" height="50px"/></td>
-									<td><a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">${goods.g_name}</a></td>
-									<td>${goods.g_id}</td>
-									<td>${goods.g_cate}</td>
-									<td>${goods.g_price}</td>
-									<td>${goods.g_date}</td>
-								</tr>
+								<li>
+									<a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">
+										<%-- <span>${status.count}</span> --%>
+										<p><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" width="300px" height="300px"/></p>
+										<p>${goods.g_name}</p>
+										<p>${goods.g_id}</p>
+										<p>${goods.g_price}</p>
+									</a>
+								</li>	
 							</c:forEach>
+						</ul>	
 							<tr>
 								<td colspan=7>
 									<c:choose>
