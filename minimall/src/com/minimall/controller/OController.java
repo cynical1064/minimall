@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.minimall.action.OderCheckProAction;
-import com.minimall.action.OrderDeleteAction;
-import com.minimall.action.OrderInsertFormAction;
-import com.minimall.action.OrderInsertProAction;
-import com.minimall.action.OrderListAction;
-import com.minimall.action.OrderListOneAction;
+import com.minimall.action.order.OderCheckProAction;
+import com.minimall.action.order.OrderDeleteAction;
+import com.minimall.action.order.OrderInsertFormAction;
+import com.minimall.action.order.OrderInsertProAction;
+import com.minimall.action.order.OrderListAction;
+import com.minimall.action.order.OrderListOneAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 

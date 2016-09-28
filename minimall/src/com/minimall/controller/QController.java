@@ -10,15 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.inter.ActionInterFace;
-
-import com.minimall.action.QnaAddAction;
-import com.minimall.action.QnaDeleteAction;
-import com.minimall.action.QnaDetailAction;
-import com.minimall.action.QnaListAction;
-import com.minimall.action.QnaModifyAction;
-import com.minimall.action.QnaModifyView;
-import com.minimall.action.QnaReplyAction;
-import com.minimall.action.QnaReplyView;
+import com.minimall.action.qna.QnaAddAction;
+import com.minimall.action.qna.QnaDeleteAction;
+import com.minimall.action.qna.QnaDetailAction;
+import com.minimall.action.qna.QnaListAction;
+import com.minimall.action.qna.QnaModifyAction;
+import com.minimall.action.qna.QnaModifyView;
+import com.minimall.action.qna.QnaReplyAction;
+import com.minimall.action.qna.QnaReplyView;
 import com.minimall.forward.ActionForward;
 
 @WebServlet("/QController")

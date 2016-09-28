@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.minimall.action.MLoginAction;
-import com.minimall.action.MSelectForUpdate;
-import com.minimall.action.MUpdateAction;
-import com.minimall.action.MemberDeleteAction;
-import com.minimall.action.MemberInsertAction;
-import com.minimall.action.MemberListAction;
+import com.minimall.action.member.MLoginAction;
+import com.minimall.action.member.MSelectForUpdate;
+import com.minimall.action.member.MUpdateAction;
+import com.minimall.action.member.MemberDeleteAction;
+import com.minimall.action.member.MemberInsertAction;
+import com.minimall.action.member.MemberListAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 

@@ -11,7 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.*;
-
+import com.minimall.action.reb.REBAddAction;
+import com.minimall.action.reb.REBDeleteAction;
+import com.minimall.action.reb.REBDetailAction;
+import com.minimall.action.reb.REBListAction;
+import com.minimall.action.reb.REBModifyAction;
+import com.minimall.action.reb.REBModifyView;
+import com.minimall.action.reb.REBReplyAction;
+import com.minimall.action.reb.REBReplyView;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 

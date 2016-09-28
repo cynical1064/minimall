@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.minimall.action.GoodsAdminChkAction;
-import com.minimall.action.GoodsCustomListAction;
-import com.minimall.action.GoodsDForUpdateAction;
-import com.minimall.action.GoodsDeleteAction;
-import com.minimall.action.GoodsDetailAction;
-import com.minimall.action.GoodsInsertPro;
-import com.minimall.action.GoodsListAction;
-import com.minimall.action.GoodsSellerListAction;
-import com.minimall.action.GoodsUpdateAction;
+import com.minimall.action.goods.GoodsAdminChkAction;
+import com.minimall.action.goods.GoodsCustomListAction;
+import com.minimall.action.goods.GoodsDForUpdateAction;
+import com.minimall.action.goods.GoodsDeleteAction;
+import com.minimall.action.goods.GoodsDetailAction;
+import com.minimall.action.goods.GoodsInsertPro;
+import com.minimall.action.goods.GoodsListAction;
+import com.minimall.action.goods.GoodsSellerListAction;
+import com.minimall.action.goods.GoodsUpdateAction;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
