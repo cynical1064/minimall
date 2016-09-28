@@ -44,7 +44,7 @@
 						<td>
 							<c:set var="ochk" value="${order.o_state}"></c:set>
 							<c:if test="${ochk eq '입금예정'}">
-								<input type="checkbox" class="moneyChk" name="moneyChk">	
+								<input type="checkbox" class="moneyChk" name="moneyChk" value="${order.o_no}">	
 							</c:if>
 						</td>
 					</tr>

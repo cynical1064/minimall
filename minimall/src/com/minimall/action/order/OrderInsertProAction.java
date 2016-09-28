@@ -37,7 +37,7 @@ public class OrderInsertProAction implements ActionInterFace {
 		request.setAttribute("mId", mId);
 		
 		OrderDao odao = new OrderDao();
-		odao.OrderInsert(odto);
+		odao.orderInsert(odto);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);

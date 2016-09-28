@@ -43,7 +43,7 @@ public class OrderDeleteAction implements ActionInterFace {
 
 			
 		OrderDao odao = new OrderDao();
-		odao.OrderDelete(oNo);
+		odao.orderDelete(oNo);
 						
 		forward.setRedirect(true);
 		forward.setPath(request.getContextPath() + "/Oli/orderListOne.oo");

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.minimall.action.order.OderCheckProAction;
+import com.minimall.action.order.OrderCheckProAction;
 import com.minimall.action.order.OrderDeleteAction;
 import com.minimall.action.order.OrderInsertFormAction;
 import com.minimall.action.order.OrderInsertProAction;
@@ -87,7 +87,7 @@ public class OController extends HttpServlet {
 			}
 		}else if(command.equals("/Ochk/orderCheckPro.oo")){
 			System.out.println("조건문 내 /Ochk/orderCheckPro.oo OController.java");
-			action = new OderCheckProAction();
+			action = new OrderCheckProAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

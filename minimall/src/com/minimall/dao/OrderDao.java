@@ -36,8 +36,8 @@ public class OrderDao {
 	}	
 	
 	//구매화면 메서드
-	public void OrderInsert(OrderDto odto) throws SQLException {
-		System.out.println("OrderInsert OrderDao.java");
+	public void orderInsert(OrderDto odto) throws SQLException {
+		System.out.println("orderInsert OrderDao.java");
 		
 		conn = ds.getConnection();		
 		int o_no = 0;
@@ -145,7 +145,7 @@ public class OrderDao {
 	}
 	
 	//주문취소 메서드
-	public void OrderDelete(int oNo) throws SQLException{
+	public void orderDelete(int oNo) throws SQLException{
 		System.out.println("OrderDelete OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
@@ -156,5 +156,27 @@ public class OrderDao {
 		
 		pstmt.close();
 		conn.close();		
+	}
+	
+	//입금확인 메서드
+	public void orderMoneyCheck(String[] moneyChkArray) throws SQLException {
+		System.out.println("OrderMoneyCheck OrderDao.java");
+		int[] orderMoneyCheck = new int[moneyChkArray.length];	
+		// String 타입 배열 moneyChkArry 의 길이과 같은 길이의 int 타입 배열 orderMoneyChk를 만들어 준다
+		
+		String sql = "update orders set o_state = '입금확인' where o_no = ?";
+		conn = ds.getConnection();
+		
+		for(int i = 0; i < moneyChkArray.length; i ++) {
+			orderMoneyCheck[i]	= Integer.parseInt(moneyChkArray[i]);
+			// moneyChkArray의 길이만큼 반복문을 돌려 출력되는 결과를 int로 형변환 후 쿼리문에 삽입
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, orderMoneyCheck[i]);
+			pstmt.executeUpdate();
+		}
+		
+		pstmt.close();
+		conn.close();
+		
 	}
 }
