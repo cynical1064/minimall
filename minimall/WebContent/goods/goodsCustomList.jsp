@@ -26,7 +26,7 @@
 							<div>
 								<p>등록된 상품이 없습니다.</p>
 							</div>
-						</c:when>						
+						</c:when>
 						<c:when test="${listChk ne null}">
 						<ul id="customListWrap" class="clearFix">
 							<c:forEach var="goods" items="${goodsList}" varStatus="status">

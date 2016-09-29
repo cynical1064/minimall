@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.goods.GoodsAdminChkAction;
+import com.minimall.action.goods.GoodsAdminListAction;
 import com.minimall.action.goods.GoodsCustomListAction;
 import com.minimall.action.goods.GoodsDForUpdateAction;
 import com.minimall.action.goods.GoodsDeleteAction;
 import com.minimall.action.goods.GoodsDetailAction;
 import com.minimall.action.goods.GoodsInsertPro;
-import com.minimall.action.goods.GoodsListAction;
 import com.minimall.action.goods.GoodsSellerListAction;
 import com.minimall.action.goods.GoodsUpdateAction;
+import com.minimall.action.goods.indexGoodsList;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -69,7 +70,17 @@ public class GController extends HttpServlet {
 		ActionForward forward = null;
 		ActionInterFace action = null;
 		
-		if(command.equals("/Gin/goodsInsertForm.go")) {
+		if(command.equals("/index.go")) {
+			System.out.println("03_00 /index");
+			
+			action = new indexGoodsList();
+			try {
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("/Gin/goodsInsertForm.go")) {
 			System.out.println("03_01 /Gin/goodsInsertForm.go");
 			
 			forward = new ActionForward();
@@ -89,7 +100,7 @@ public class GController extends HttpServlet {
 		} else if(command.equals("/Glist/goodsAdminList.go")) {
 			System.out.println("03_03 /Glist/goodsAdminList.go");
 			
-			action = new GoodsListAction();
+			action = new GoodsAdminListAction();
 			
 			try {
 				forward = action.execute(request, response);

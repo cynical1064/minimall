@@ -10,7 +10,7 @@ import com.minimall.dto.GoodsDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
-public class GoodsListAction implements ActionInterFace {
+public class GoodsAdminListAction implements ActionInterFace {
 	GoodsDto goodsDto;
 	
 	@Override
