@@ -134,7 +134,7 @@ public class MController extends HttpServlet {
 			session.invalidate();
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath(request.getContextPath()+"/index.jsp");
+			forward.setPath(request.getHeader("referer"));
 			
 		}else if(cutUrl.equals("/member/MemberDeleteAction.mo")){ //member 昏力 贸府
             System.out.println("member 昏力 贸府");
