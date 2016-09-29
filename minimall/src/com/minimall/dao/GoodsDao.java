@@ -327,6 +327,7 @@ public class GoodsDao {
 		conn.close();
 	}
 
+	//판매자가 선택한 gCode에 해당하는 상품을 삭제하는 메서드입니다.
 	public void goodsDeleteByGcode(String gCode) throws SQLException {
 		System.out.println("08 goodsDeleteByGcode() GoodsDao.java");
 		System.out.println(gCode + " : gCode goodsDeleteByGcode() GoodsDao.java");
@@ -347,5 +348,33 @@ public class GoodsDao {
 		}
 		pstmt.close();
 		conn.close();
+	}
+	
+	//판매자가 선택한 gCode에 해당하는 상품의 이미지 이름을 가져오는 메서드입니다.
+	public ArrayList<GoodsDto> goodsSelectForDeleteByGCode(String gCode) throws SQLException {
+		System.out.println("09 goodsSelectForDeleteByGCode() GoodsDao.java");
+		System.out.println(gCode + " : gCode goodsSelectForDeleteByGCode() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		//gcode에 해당하는 이미지 이름을 가져오는 select 쿼리문 입니다.
+		String sql = "SELECT g_code, g_image FROM goods WHERE g_code=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, gCode);
+		System.out.println(pstmt + " : pstmt goodsSelectForDeleteByGCode() GoodsDao.java");
+		
+		rs = pstmt.executeQuery();
+		while(rs.next()) {
+			goodsDto = new GoodsDto();
+			rs.getString("g_code");
+			rs.getString("g_image");
+			
+			goodsList.add(goodsDto);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return goodsList;
 	}
 }
