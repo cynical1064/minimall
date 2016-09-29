@@ -41,7 +41,7 @@ public class REBoardDAO {
 			
 			con=ds.getConnection();
 			System.out.println("getConnection");
-			pstmt=con.prepareStatement("select count(*) from re_board");
+			pstmt=con.prepareStatement("select count(*) from reb_board");
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -64,8 +64,10 @@ public class REBoardDAO {
 		"(select rownum rnum,BOARD_NUM,BOARD_NAME,BOARD_SUBJECT,"+
 		"BOARD_CONTENT,BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,"+
 		"BOARD_RE_SEQ,BOARD_READCOUNT,BOARD_DATE from "+
-		"(select * from re_board order by BOARD_RE_REF desc,BOARD_RE_SEQ asc)) "+
+		"(select * from reb_board order by BOARD_RE_REF desc,BOARD_RE_SEQ asc)) "+
 		"where rnum>=? and rnum<=?";
+		
+		
 		
 		List list = new ArrayList();
 		System.out.println(board_list_sql + "<-- board_list_sql getBoardList BoardDAO.java");
@@ -120,7 +122,7 @@ public class REBoardDAO {
 		try{
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(
-					"select * from re_board where BOARD_NUM = ?");
+					"select * from reb_board where BOARD_NUM = ?");
 			pstmt.setInt(1, num);
 			
 			rs= pstmt.executeQuery();
@@ -160,7 +162,7 @@ public class REBoardDAO {
 		try{
 			con = ds.getConnection();
 			System.out.println(con + "<-- con boardInsert() BoardDAO.java");
-			pstmt=con.prepareStatement("select max(board_num) from re_board");
+			pstmt=con.prepareStatement("select max(board_num) from reb_board");
 			rs = pstmt.executeQuery();
 			
 			if(rs.next())
@@ -168,7 +170,7 @@ public class REBoardDAO {
 			else
 				num=1;
 			
-			sql="insert into re_board (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
+			sql="insert into reb_board (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
 			sql+="BOARD_CONTENT, BOARD_FILE, BOARD_RE_REF,"+
 				"BOARD_RE_LEV,BOARD_RE_SEQ,BOARD_READCOUNT,"+
 				"BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
@@ -206,7 +208,7 @@ public class REBoardDAO {
 	//글 답변
 	public int boardReply(REBoardDto board){
 		
-		String board_max_sql="select max(board_num) from re_board";
+		String board_max_sql="select max(board_num) from reb_board";
 		String sql="";
 		int num=0;
 		int result=0;
@@ -222,7 +224,7 @@ public class REBoardDAO {
 			if(rs.next())num =rs.getInt(1)+1;
 			else num=1;
 			
-			sql="update re_board set BOARD_RE_SEQ=BOARD_RE_SEQ+1 where BOARD_RE_REF=? ";
+			sql="update reb_board set BOARD_RE_SEQ=BOARD_RE_SEQ+1 where BOARD_RE_REF=? ";
 			sql+="and BOARD_RE_SEQ>?";
 			
 			pstmt = con.prepareStatement(sql);
@@ -233,7 +235,7 @@ public class REBoardDAO {
 			re_seq = re_seq + 1;
 			re_lev = re_lev+1;
 			
-			sql="insert into re_board (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
+			sql="insert into reb_board (BOARD_NUM,BOARD_NAME,BOARD_PASS,BOARD_SUBJECT,";
 			sql+="BOARD_CONTENT, BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,BOARD_RE_SEQ,";
 			sql+="BOARD_READCOUNT,BOARD_DATE) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
 			
@@ -263,7 +265,7 @@ public class REBoardDAO {
 	//글 수정
 	public boolean boardModify(REBoardDto modifyboard) throws Exception{
 		
-		String sql="update re_board set BOARD_SUBJECT=?,BOARD_CONTENT=? where BOARD_NUM=?";
+		String sql="update reb_board set BOARD_SUBJECT=?,BOARD_CONTENT=? where BOARD_NUM=?";
 		
 		try{
 			con = ds.getConnection();
@@ -286,7 +288,7 @@ public class REBoardDAO {
 	//글 삭제
 	public boolean boardDelete(int num){
 		
-		String board_delete_sql="delete from re_board where BOARD_num=?";
+		String board_delete_sql="delete from reb_board where BOARD_num=?";
 		
 		int result=0;
 		
@@ -315,7 +317,7 @@ public class REBoardDAO {
 	//조회수 업데이트
 	public void setReadCountUpdate(int num) throws Exception{
 		
-		String sql="update re_board set BOARD_READCOUNT = "+
+		String sql="update reb_board set BOARD_READCOUNT = "+
 			"BOARD_READCOUNT+1 where BOARD_NUM = "+num;
 		
 		try{
@@ -338,7 +340,7 @@ public class REBoardDAO {
 	//글쓴이인지 확인
 	public boolean isBoardWriter(int num,String pass){
 		
-		String board_sql="select * from re_board where BOARD_NUM=?";
+		String board_sql="select * from reb_board where BOARD_NUM=?";
 		
 		try{
 			con = ds.getConnection();
