@@ -12,7 +12,14 @@
 		<jsp:include page="/module/headerSub.jsp" />
 		<div id="container">
 			<div class="content">
-			
+				<div id="customSortWarp" class="clearFix">
+					<h3>SHOP</h3>
+					<ul id="sortList">
+						<li>낮은가격 <span>▲</span></li>
+						<li>높은가격 <span>▼</span></li>
+						<li>최신순</li>
+					</ul>
+				</div>			
 					<c:set var="listChk" value="${goodsList}" />
 					<c:choose>
 						<c:when test="${listChk eq null}">
@@ -26,10 +33,10 @@
 								<li>
 									<a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">
 										<%-- <span>${status.count}</span> --%>
-										<p><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" width="300px" height="300px"/></p>
-										<p>${goods.g_name}</p>
-										<p>${goods.g_id}</p>
-										<p>${goods.g_price}</p>
+										<p><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" width="500px" height="500px"/></p>
+										<p><span>상품명 : </span>${goods.g_name}</p>
+										<p><span>판매자 : </span>${goods.g_id}</p>
+										<p><span>가격 : </span>&#8361; ${goods.g_price}</p>
 									</a>
 								</li>	
 							</c:forEach>
