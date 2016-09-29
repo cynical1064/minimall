@@ -1,9 +1,13 @@
 package com.minimall.action.goods;
 
+import java.io.File;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.dao.GoodsDao;
+import com.minimall.dto.GoodsDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -18,8 +22,30 @@ public class GoodsDeleteAction implements ActionInterFace {
 		String gCode = request.getParameter("gCode");
 		System.out.println(gCode + " : gCode GoodsInsertPro.java");
 		
+		String path = request.getServletContext().getRealPath("goodsImage");
+		//String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
+		
 		GoodsDao goodsDao = new GoodsDao();
-		goodsDao.goodsDeleteByGcode(gCode);
+		ArrayList<GoodsDto> goodsList = goodsDao.goodsSelectForDeleteByGCode(gCode);
+		
+		
+		for(int i=0; i<=goodsList.size(); i++) {
+			GoodsDto goodsDto = goodsList.get(i);
+			String imageName = goodsDto.getG_image();
+			
+			File file = new File(path + "\\" + imageName);
+			goodsDao.goodsDeleteByGcode(gCode);
+			if(file.exists()) {
+				if(file.delete()) {
+					System.out.println(imageName + " 이미지 삭제 완료!");
+					
+				} else {
+					System.out.println(imageName + " 이미지 삭제 실패!");
+				}
+			} else {
+				System.out.println(imageName + " 이미지가 없습니다!");
+			}
+		}
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
