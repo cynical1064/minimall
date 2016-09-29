@@ -72,19 +72,20 @@ table.basic th, table.basic td {color:#678197; text-align:center; border-right: 
 table.basic th { background-color: #eeeeee; }
 
 /* qnaBoard */ 
-
+table.basic.qnaBoard{border:0; padding-top:35px;}
+able.basic.qnaBoard thead{border-bottom:2px solid #434343; background:#f8f8f8;}
+table.basic.qnaBoard th{border:0;}
+table.basic.qnaBoard th,
+table.basic.qnaBoard td{border:0;}
+table.basic.qnaBoard td{line-height:1.5em;}
+table.basic.qnaBoard th,
+table.basic.qnaBoard td,
+table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 /* goodsDetail */
 #container .content #detailContent{width:100%; height:500px;}
 #container .content #detailImgArea{width:40%; float:left; margin-right:100px;}
 #container .content #detailImgArea img{float:left;}
 #container .content #orderForm{width:50%; float:left; margin-bottom:28px;}
-
-
-/* tap */
-.tapTable .goodsDetailTapBtn{background:#434343; color:#fff; cursor:pointer; line-height:1.5em;}
-.tapTable .goodsDetailTapBtn.on{background:#fff; color:#434343; border-bottom:0;}
-.tapTable .goodsDetailTapContent{border-top:0; display:none;}
-.tapTable .goodsDetailTapContent>td{border-top:0;}
 
 /* orderForm */
 .orderForm{margin-top:15%;}
@@ -96,6 +97,18 @@ table.basic th { background-color: #eeeeee; }
 .orderForm td input{border:0;}
 .orderForm #buyBtn{width:100px; color:#fff; background:#434343; line-height:2em; margin-top:20px; margin-left:30%; cursor:pointer}
 
+/* tap */
+.tapTable{border:0;}
+.tapTable .goodsDetailTapBtn{background:#434343; color:#fff; cursor:pointer; line-height:1.5em;}
+.tapTable .goodsDetailTapBtn.on{background:#fff; color:#434343; border-bottom:0;}
+.tapTable .goodsDetailTapContent{border:0; display:none; }
+.tapTable .goodsDetailTapContent div{color:#434343; font-size:12px;}
+.tapTable .goodsDetailTapContent td{border-top:0;}
+
+
+/* sellerInfo */
+#sellerInfo .sellerInfoTable{width:100%; border:0;}
+#sellerInfo .sellerInfoTable tr{border-bottom:1px;}
 /* customListWrap */
 #customSortWarp{width:100%; border-bottom:1px solid #ccc;}
 #customSortWarp h3{float:left;}
@@ -106,6 +119,7 @@ table.basic th { background-color: #eeeeee; }
 #customListWrap li{float:left; padding:0 8px; padding-bottom:30px; text-align:center;}
 #customListWrap li a{text-decoration:none;}
 #customListWrap li a p{font-size:12px; color:#434343; line-height:1.5em; }
+
 /* footer */
 #footer{width:100%; height:170px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
 #footer #footerWrap{width:80%; height:100%; margin:0 auto;}

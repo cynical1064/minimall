@@ -153,8 +153,8 @@
 			</tr>
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
-					<div>
-						정보
+					<div id="sellerInfo">
+						<img src="../img/sellerInfo.jpg" />
 					</div>
 				</td>
 			</tr>
