@@ -45,7 +45,6 @@ public class GoodsCustomListAction implements ActionInterFace {
 		int endPage = startPage +10 -1;								//현재 페이지에 보여줄 마지막 페이지 번호
 		if(endPage > maxPage) endPage = maxPage;					//마지막 페이지 번호가 총 페이지 수보다 클 경우
 																	//endPage에 maxPage의 값을 담는다.
-		
 		String ImageName;
 		String type;
 		String b64;

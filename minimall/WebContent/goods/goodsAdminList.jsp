@@ -20,7 +20,9 @@
 				});
 				
 				$('#chkBtn').click(function() {
-					$('#chkForm').submit();
+					if($('.agreeChange:checked').length > 0) {
+						$('#chkForm').submit();
+					}
 				});
 			});
 		</script>

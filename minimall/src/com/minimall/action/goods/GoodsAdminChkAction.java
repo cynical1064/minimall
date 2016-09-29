@@ -1,7 +1,5 @@
 package com.minimall.action.goods;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,7 +16,7 @@ public class GoodsAdminChkAction implements ActionInterFace {
 		String[] gCodeArray = request.getParameterValues("agreeChange");
 		System.out.println(gCodeArray + " : gCodeArray GoodsAdminChkAction.java");
 		System.out.println(gCodeArray.length);
-		
+
 		GoodsDao goodsDao = new GoodsDao();
 		goodsDao.goodsCheckAgree(gCodeArray);
 		
@@ -28,5 +26,4 @@ public class GoodsAdminChkAction implements ActionInterFace {
 		
 		return forward;
 	}
-
 }
