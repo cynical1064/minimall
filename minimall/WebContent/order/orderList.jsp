@@ -11,9 +11,15 @@
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
 	$(document).ready(function() {
+		
+		$('#moneyChkAll').click(function() {
+			$('.moneyChk').prop('checked', this.checked);
+		});
+		
 		$('#chkBtn').click(function() {
 			$('#chkForm').submit();
 		});
+				
 	});
 </script>
 </head>
@@ -22,6 +28,7 @@
 <div id="container"> 
 	<div class="content">
 		<form id="chkForm" action="${pageContext.request.contextPath}/Ochk/orderCheckPro.oo" method="post">
+			전체 확인 <input type="checkbox" id="moneyChkAll">	
 			<table class="basic">
 				<tr>
 					<td>주문 번호</td><td>상품 이름</td><td>구매자 아이디</td><td>판매자 아이디</td><td>구매자 이름</td><td>배송지</td>

@@ -10,7 +10,7 @@ $(document).ready(function(){
 	var count = parseInt($('#oCount').val());	
 	
 	$('#buyBtn').click(function(){
-		if("<c:out value='${sessionScope.loginId}'/>" ==""){
+		if("<c:out value='${sessionScope.loginId}'/>" == ""){
 			
 			alert('로그인 후 이용해주세요.')
 			$('#loginWrap').show();

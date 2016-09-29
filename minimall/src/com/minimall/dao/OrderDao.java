@@ -164,7 +164,7 @@ public class OrderDao {
 		int[] orderMoneyCheck = new int[moneyChkArray.length];	
 		// String 타입 배열 moneyChkArry 의 길이과 같은 길이의 int 타입 배열 orderMoneyChk를 만들어 준다
 		
-		String sql = "update orders set o_state = '입금확인' where o_no = ?";
+		String sql = "update orders set o_state = '입금완료' where o_no = ?";
 		conn = ds.getConnection();
 		
 		for(int i = 0; i < moneyChkArray.length; i ++) {
