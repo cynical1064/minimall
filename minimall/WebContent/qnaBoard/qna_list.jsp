@@ -81,7 +81,7 @@
 				</div>
 			</td>
 	
-			<td>
+			<td> 
 				<div><%=Qnalist.getM_id() %></div>
 			</td>
 			<td>
