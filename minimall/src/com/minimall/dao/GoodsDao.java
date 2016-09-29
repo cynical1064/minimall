@@ -90,7 +90,7 @@ public class GoodsDao {
 
 	//상품 전체 SELECT
 	public ArrayList<GoodsDto> goodsSelectAll() throws SQLException, IOException {
-		System.out.println("02 goodsSelectAll() GoodsDao.java");
+		System.out.println("02_0 goodsSelectAll() GoodsDao.java");
 		
 		conn = ds.getConnection();
 		
@@ -118,6 +118,46 @@ public class GoodsDao {
 		pstmt.close();
 		conn.close();
 		
+		return goodsList;
+	}
+	
+	//index.jsp 에 보일 최신 상품 리스트를 가져오는 메서드 입니다.
+	public ArrayList<GoodsDto> goodsSelectOrderByDate() throws SQLException {
+		System.out.println("02_1 getListCount() GoodsDao.java");
+		
+		conn = ds.getConnection();
+		
+		/*String sql = "SELECT g.g_code as g_code, g.g_name as g_name, g.g_cate as g_cate, g.g_sangse as g_sangse, g.g_price as g_price, g.g_image as g_image FROM";
+		sql += " (SELECT g_code, g_name, g_cate, g_sangse, g_price, g_image";
+		sql += " FROM (SELECT * FROM goods ORDER BY g_date WHERE BETWEEN DATE_ADD(NOW(),INTERVAL -1 MONTH ) AND NOW() DESC AND CONVERT(SUBSTRING(g_code,7), UNSIGNED) ASC)as g2 WHERE g_agree LIKE 'Y') as g";
+		*/
+		
+		String sql = "SELECT g.g_code as g_code, g.g_name as g_name, g.g_cate as g_cate,"+
+		"g.g_sangse as g_sangse, g.g_price as g_price, g.g_image as g_image, g.g_date as g_date FROM"+
+		" (SELECT g_code, g_name, g_cate, g_sangse, g_price, g_image, g_date"+
+		" FROM (SELECT * FROM goods WHERE g_date >= DATE_ADD(NOW(), INTERVAL -1 MONTH) ORDER BY g_date DESC) as g2"+
+		" WHERE g_agree LIKE 'Y') as g";
+		
+		pstmt = conn.prepareStatement(sql);
+		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			goodsDto = new GoodsDto();
+			goodsDto.setG_code(rs.getString("g_code"));
+			goodsDto.setG_name(rs.getString("g_name"));
+			goodsDto.setG_cate(rs.getString("g_cate"));
+			goodsDto.setG_sangse(rs.getString("g_sangse"));
+			goodsDto.setG_price(rs.getInt("g_price"));
+			goodsDto.setG_date(rs.getString("g_date"));
+			goodsDto.setG_image(rs.getString("g_image"));
+			
+			goodsList.add(goodsDto);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+			
 		return goodsList;
 	}
 	
