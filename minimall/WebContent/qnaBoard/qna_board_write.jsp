@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 	</script>
 </head>
 <body>
-<%@ include file = "/module/headerSub.jsp" %>
+<jsp:include page="/module/headerSub.jsp" />
 <div id="container">
 	<div class="content">
 		<!-- 게시판 등록 -->
@@ -78,6 +78,6 @@
 		<!-- 게시판 등록 -->
 	</div>
 </div>
-<%@ include file = "/module/footer.jsp" %>
+<jsp:include page = "/module/footer.jsp" />
 </body>
 </html>

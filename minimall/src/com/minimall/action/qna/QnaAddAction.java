@@ -31,12 +31,14 @@ public class QnaAddAction implements ActionInterFace {
 			qnadto.setQna_content(request.getParameter("qna_content"));
 			qnadto.setQna_secret(request.getParameter("qna_secret"));
 			qnadto.setQna_category(request.getParameter("qna_category"));
+			qnadto.setG_code(request.getParameter("g_code"));
 			
 			System.out.println(qnadto.getQna_subject() + " <- qnadto.getQna_subject()");
 			System.out.println(qnadto.getM_id() + " <- qnadto.getM_id()");
 			System.out.println(qnadto.getQna_content() + " <- qnadto.getQna_content()");
 			System.out.println(qnadto.getQna_secret() + " <- qnadto.getQna_secret()");
 			System.out.println(qnadto.getQna_category() + " <- qnadto.getQna_category()");
+			System.out.println(qnadto.getG_code() + " <- qnadto.getG_code()");
 			
 			result=qnadao.boardInsert(qnadto);
 			

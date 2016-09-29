@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="com.minimall.dao.QnaDao" %>
-<%@ page import="com.minimall.dto.QnaDto" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	QnaDto qnadto = (QnaDto)request.getAttribute("qnadto");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +16,7 @@
 	</c:if>
 </head>
 <body>
-<%@ include file = "/module/headerSub.jsp" %>
+<jsp:include page="/module/headerSub.jsp" />
 <div id="container">
 	<div class="content">
 		<!-- 게시판 수정 -->
@@ -35,7 +31,7 @@
 				</td>
 				
 				<td style="font-family:돋음; font-size:12">
-				<%=qnadto.getQna_subject()%>
+				${qnadto.qna_subject}
 				</td>
 				
 			</tr>	
@@ -53,7 +49,7 @@
 					<table border=0 width=490 height=250 style="table-layout:fixed">
 						<tr>
 							<td valign=top style="font-family:돋음; font-size:12">
-							<%=qnadto.getQna_content() %>
+							${qnadto.qna_content}
 							</td>
 						</tr>
 					</table>
@@ -67,13 +63,13 @@
 			<tr align="center" valign="middle">
 				<td colspan="5">
 					<font size=2>
-					<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=<%=qnadto.getQna_no() %>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=${qnadto.qna_no}">
 					[답변]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=<%=qnadto.getQna_no() %>&id=<%=qnadto.getM_id()%>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=${qnadto.qna_no}&id=${qnadto.m_id}">
 					[수정]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=<%=qnadto.getQna_no() %>&id=<%=qnadto.getM_id()%>">
+					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=${qnadto.qna_no}&id=${qnadto.m_id}">
 					[삭제]
 					</a>&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">[목록]</a>&nbsp;&nbsp;
@@ -84,6 +80,6 @@
 		<!-- 게시판 수정 -->
 	</div>
 </div>
-<%@ include file = "/module/footer.jsp" %>
+<jsp:include page = "/module/footer.jsp" />
 </body>
 </html>

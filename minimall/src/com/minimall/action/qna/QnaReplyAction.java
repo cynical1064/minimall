@@ -18,11 +18,18 @@ public class QnaReplyAction implements ActionInterFace {
 		 	QnaDto qnadto=new QnaDto();
 	   		int result=0;
 	   		
-	   		qnadto.setQna_subject(request.getParameter("QNA_SUBJECT"));
-	   		qnadto.setM_id(request.getParameter("M_ID"));
-	   		qnadto.setQna_content(request.getParameter("QNA_CONTENT"));
-	   		qnadto.setQna_secret(request.getParameter("QNA_SECRET"));
-	   		qnadto.setQna_category(request.getParameter("QNA_CATEGORY"));
+	   		qnadto.setQna_no(Integer.parseInt(request.getParameter("qna_no")));
+	   		qnadto.setQna_subject(request.getParameter("qna_subject"));
+	   		qnadto.setM_id(request.getParameter("m_id"));
+	   		qnadto.setQna_content(request.getParameter("qna_content"));
+	   		qnadto.setQna_secret(request.getParameter("qna_secret"));
+	   		qnadto.setQna_category(request.getParameter("qna_category"));
+	   		
+	   		System.out.println(qnadto.getQna_subject());
+	   		System.out.println(qnadto.getM_id());
+	   		System.out.println(qnadto.getQna_content());
+	   		System.out.println(qnadto.getQna_secret());
+	   		System.out.println(qnadto.getQna_category());
 	   		
 	   		result=qnadao.QnaReply(qnadto);
 	   		if(result==0){

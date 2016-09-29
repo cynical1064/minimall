@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="com.minimall.dao.QnaDao" %>
-<%@ page import="com.minimall.dto.QnaDto" %>
-<%
-	QnaDto qnadto =(QnaDto)request.getAttribute("qnadto");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -17,8 +13,8 @@
 <body>
 <!-- 게시판 답변 -->
 <form action="${pageContext.request.contextPath}/Qna/QnaReplyAction.qn" method="post" name="boardform">
-<input type="hidden" name="qna_category" value="<%=qnadto.getQna_category() %>">
-<input type="hidden" name="qna_secret" value="<%=qnadto.getQna_secret() %>">
+<input type="hidden" name="qna_category" value="${qnadto.qna_category}">
+<input type="hidden" name="qna_secret" value="${qnadto.qna_secret}>">
 
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
@@ -30,7 +26,7 @@
 		</td>
 		<td>
 			<input name="qna_subject" type="text" size="50" 
-				maxlength="100" value="Re: <%=qnadto.getQna_subject() %>"/>
+				maxlength="100" value="Re: ${qnadto.qna_subject}>"/>
 		</td>
 	</tr>
 	<tr>

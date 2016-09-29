@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%
-	int num = Integer.parseInt(request.getParameter("num"));
-	String id = request.getParameter("id");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>문의하기</title>
 </head>
 <body>
-<form name="deleteForm" action="${pageContext.request.contextPath}/Qna/QnaDeleteAction.qn?num=<%=num %>&id=<%=id %>" method="post">
+<form name="deleteForm" action="${pageContext.request.contextPath}/Qna/QnaDeleteAction.qn?num=${num}&id=${id}" method="post">
 <table border=1>
 <tr>
 	<td>

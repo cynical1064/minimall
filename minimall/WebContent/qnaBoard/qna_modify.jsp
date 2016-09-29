@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="com.minimall.dao.QnaDao" %>
-<%@ page import="com.minimall.dto.QnaDto" %>
-<%
-	QnaDto qnadto = (QnaDto)request.getAttribute("qnadto");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -16,10 +12,9 @@
 </head>
 
 <body>
-qna_board_modify.jsp
 <!-- 게시판 수정 -->
 <form action="${pageContext.request.contextPath}/Qna/QnaModifyAction.qn" method="post" name="modifyform">
-<input type="hidden" name="qna_no" value=<%=qnadto.getQna_no() %>>
+<input type="hidden" name="qna_no" value="${qnadto.qna_no}">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">문의하기</td>
@@ -30,7 +25,7 @@ qna_board_modify.jsp
 		</td>
 		<td>
 			<input name="qna_subject" size="50" maxlength="100" 
-				value="<%=qnadto.getQna_subject()%>">
+				value="${qnadto.qna_subject}">
 		</td>
 	</tr>
 	<tr>
@@ -38,7 +33,7 @@ qna_board_modify.jsp
 			<div align="center">내 용</div>
 		</td>
 		<td>
-			<textarea name="qna_content" cols="67" rows="15"><%=qnadto.getQna_content() %></textarea>
+			<textarea name="qna_content" cols="67" rows="15">${qnadto.qna_content}</textarea>
 		</td>
 	</tr>
 	<tr>
