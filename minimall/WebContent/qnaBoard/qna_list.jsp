@@ -25,32 +25,32 @@
 <body>
 	<!-- 게시판 리스트 -->
 	<form action="${pageContext.request.contextPath}/Qna/QnaListAction.qn" method="post">
-	<table class="basic">
+	<table id="qnaBoard" class="basic">
 	<%
 	if(listcount > 0){
 	%>
-		<tr align="center" valign="middle">
-			<td colspan="4">문의하기</td>
-			<td align=right>
-				<font size=2>글 개수 : ${listcount }</font>
+		<tr>
+			<td>문의하기</td>
+			<td>
+				<font>글 개수 : ${listcount }</font>
 			</td>
 		</tr>
 		
-		<tr align="center" valign="middle" bordercolor="#333333">
-			<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
-				<div align="center">번호</div>
+		<tr>
+			<td>
+				<div>번호</div>
 			</td>
-			<td style="font-family:Tahoma;font-size:8pt;" width="50%">
-				<div align="center">제목</div>
+			<td>
+				<div>제목</div>
 			</td>
-			<td style="font-family:Tahoma;font-size:8pt;" width="14%">
-				<div align="center">작성자</div>
+			<td>
+				<div>작성자</div>
 			</td>
-			<td style="font-family:Tahoma;font-size:8pt;" width="17%">
-				<div align="center">날짜</div>
+			<td>
+				<div>날짜</div>
 			</td>
-			<td style="font-family:Tahoma;font-size:8pt;" width="11%">
-				<div align="center">조회수</div>
+			<td>
+				<div>조회수</div>
 			</td>
 		</tr>
 		
@@ -65,8 +65,8 @@
 				<%= Qnalist.getQna_no() %>
 			</td>
 		
-			<td style="font-family:Tahoma;font-size:10pt;">
-				<div align="left">
+			<td>
+				<div>
 				<%-- <%if(Qnalist.getBOARD_RE_LEV()!=0){ %>
 					<%for(int a=0;a<=Qnalist.getBOARD_RE_LEV()*2;a++){ %>
 					&nbsp;
@@ -81,19 +81,19 @@
 				</div>
 			</td>
 	
-			<td style="font-family:Tahoma;font-size:10pt;">
-				<div align="center"><%=Qnalist.getM_id() %></div>
+			<td>
+				<div><%=Qnalist.getM_id() %></div>
 			</td>
-			<td style="font-family:Tahoma;font-size:10pt;">
-				<div align="center"><%=Qnalist.getQna_date() %></div>
+			<td>
+				<div><%=Qnalist.getQna_date() %></div>
 			</td>	
-			<td style="font-family:Tahoma;font-size:10pt;">
-				<div align="center"><%=Qnalist.getQna_readcount() %></div>
+			<td>
+				<div><%=Qnalist.getQna_readcount() %></div>
 			</td>
 		</tr>
 		<%} %>
-		<tr align=center height=20>
-			<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+		<tr>
+			<td>
 				<%if(nowpage<=1){ %>
 				[이전]&nbsp;
 				<%}else{ %>
@@ -111,7 +111,7 @@
 				<%if(nowpage>=maxpage){ %>
 				[다음]
 				<%}else{ %>
-				<a style="cursor:pointer;"  onclick="getNextBlock('<%=nowpage+1 %>')">[다음]</a>
+				<aonclick="getNextBlock('<%=nowpage+1 %>')">[다음]</a>
 				<%} %>
 			</td>
 		</tr>
@@ -119,17 +119,17 @@
 	    } else
 		{
 		%>
-		<tr align="center" valign="middle">
-			<td colspan="4">문의하기</td>
-			<td align=right>
-				<font size=2>등록된 글이 없습니다.</font>
+		<tr>
+			<td>문의하기</td>
+			<td>
+				<font>등록된 글이 없습니다.</font>
 			</td>
 		</tr>
 		<%
 		}
 		%>
-		<tr align="right">
-			<td colspan="5">
+		<tr>
+			<td>
 		   		<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">[글쓰기]</a>
 			</td>
 		</tr>
