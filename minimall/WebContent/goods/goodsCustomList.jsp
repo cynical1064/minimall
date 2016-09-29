@@ -33,7 +33,7 @@
 								<li>
 									<a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">
 										<%-- <span>${status.count}</span> --%>
-										<p><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" width="500px" height="500px"/></p>
+										<p><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" /></p>
 										<p><span>상품명 : </span>${goods.g_name}</p>
 										<p><span>판매자 : </span>${goods.g_id}</p>
 										<p><span>가격 : </span>&#8361; ${goods.g_price}</p>
