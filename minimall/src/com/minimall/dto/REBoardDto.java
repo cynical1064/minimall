@@ -3,82 +3,82 @@ package com.minimall.dto;
 import java.sql.Date;
 
 public class REBoardDto {
-	private int BOARD_NUM;
-	private String BOARD_NAME;
-	private String BOARD_PASS;
-	private String BOARD_SUBJECT;
-	private String BOARD_CONTENT;
-	private String BOARD_FILE;
-	private int BOARD_RE_REF;
-	private int BOARD_RE_LEV;
-	private int BOARD_RE_SEQ;
-	private int BOARD_READCOUNT;
-	private Date BOARD_DATE;
+	private int reb_no;
+	private String reb_subject;
+	private String reb_pass;
+	private String m_id;
+	private String reb_content;
+	private String reb_file;
+	private int reb_re_ref;
+	private int reb_re_lev;
+	private int reb_re_seq;
+	private int reb_readcount;
+	private Date reb_date;
+	public int getReb_no() {
+		return reb_no;
+	}
+	public void setReb_no(int reb_no) {
+		this.reb_no = reb_no;
+	}
+	public String getReb_subject() {
+		return reb_subject;
+	}
+	public void setReb_subject(String reb_subject) {
+		this.reb_subject = reb_subject;
+	}
+	public String getReb_pass() {
+		return reb_pass;
+	}
+	public void setReb_pass(String reb_pass) {
+		this.reb_pass = reb_pass;
+	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+	public String getReb_content() {
+		return reb_content;
+	}
+	public void setReb_content(String reb_content) {
+		this.reb_content = reb_content;
+	}
+	public String getReb_file() {
+		return reb_file;
+	}
+	public void setReb_file(String reb_file) {
+		this.reb_file = reb_file;
+	}
+	public int getReb_re_ref() {
+		return reb_re_ref;
+	}
+	public void setReb_re_ref(int reb_re_ref) {
+		this.reb_re_ref = reb_re_ref;
+	}
+	public int getReb_re_lev() {
+		return reb_re_lev;
+	}
+	public void setReb_re_lev(int reb_re_lev) {
+		this.reb_re_lev = reb_re_lev;
+	}
+	public int getReb_re_seq() {
+		return reb_re_seq;
+	}
+	public void setReb_re_seq(int reb_re_seq) {
+		this.reb_re_seq = reb_re_seq;
+	}
+	public int getReb_readcount() {
+		return reb_readcount;
+	}
+	public void setReb_readcount(int reb_readcount) {
+		this.reb_readcount = reb_readcount;
+	}
+	public Date getReb_date() {
+		return reb_date;
+	}
+	public void setReb_date(Date reb_date) {
+		this.reb_date = reb_date;
+	}
 	
-	public int getBOARD_NUM() {
-		return BOARD_NUM;
-	}
-	public void setBOARD_NUM(int board_num) {
-		this.BOARD_NUM = board_num;
-	}
-	public String getBOARD_NAME() {
-		return BOARD_NAME;
-	}
-	public void setBOARD_NAME(String board_name) {
-		this.BOARD_NAME = board_name;
-	}
-	public String getBOARD_PASS() {
-		return BOARD_PASS;
-	}
-	public void setBOARD_PASS(String board_pass) {
-		this.BOARD_PASS = board_pass;
-	}
-	public String getBOARD_SUBJECT() {
-		return BOARD_SUBJECT;
-	}
-	public void setBOARD_SUBJECT(String board_subject) {
-		this.BOARD_SUBJECT = board_subject;
-	}
-	public String getBOARD_CONTENT() {
-		return BOARD_CONTENT;
-	}
-	public void setBOARD_CONTENT(String board_content) {
-		this.BOARD_CONTENT = board_content;
-	}
-	public String getBOARD_FILE() {
-		return BOARD_FILE;
-	}
-	public void setBOARD_FILE(String board_file) {
-		this.BOARD_FILE = board_file;
-	}
-	public int getBOARD_RE_REF() {
-		return BOARD_RE_REF;
-	}
-	public void setBOARD_RE_REF(int board_re_ref) {
-		this.BOARD_RE_REF = board_re_ref;
-	}
-	public int getBOARD_RE_LEV() {
-		return BOARD_RE_LEV;
-	}
-	public void setBOARD_RE_LEV(int board_re_lev) {
-		this.BOARD_RE_LEV = board_re_lev;
-	}
-	public int getBOARD_RE_SEQ() {
-		return BOARD_RE_SEQ;
-	}
-	public void setBOARD_RE_SEQ(int board_re_seq) {
-		this.BOARD_RE_SEQ = board_re_seq;
-	}
-	public int getBOARD_READCOUNT() {
-		return BOARD_READCOUNT;
-	}
-	public void setBOARD_READCOUNT(int board_readcount) {
-		this.BOARD_READCOUNT = board_readcount;
-	}
-	public Date getBOARD_DATE() {
-		return BOARD_DATE;
-	}
-	public void setBOARD_DATE(Date board_date) {
-		this.BOARD_DATE = board_date;
-	}
 }
