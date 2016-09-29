@@ -47,7 +47,7 @@ public class MLoginAction implements ActionInterFace {
 		}
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath(request.getContextPath()+"/index.jsp");
+		forward.setPath(request.getHeader("referer"));
 		return forward;
 	}
 
