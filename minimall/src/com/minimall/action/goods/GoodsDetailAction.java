@@ -36,10 +36,11 @@ public class GoodsDetailAction implements ActionInterFace {
 		if(file.exists()) {
 			BufferedImage image = ImageIO.read(file);
 			String type = goodsDto.getG_image().substring(goodsDto.getG_image().lastIndexOf(".") + 1);
+			type = type.toLowerCase();
 			System.out.println(type + " : type GoodsInsertPro.java");
 			
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write(image,"png",baos);
+			ImageIO.write(image,type,baos);
 			baos.flush();
 			byte[] imageInByteArray = baos.toByteArray();
 			baos.close();

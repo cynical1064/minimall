@@ -133,7 +133,7 @@
 			<tr class="goodsDetailTapContent">
 				<td colspan="4">
 					<div>
-						상품정보
+						${goods.g_sangse}
 					</div>
 				</td>
 			</tr>
