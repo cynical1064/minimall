@@ -156,7 +156,7 @@ public class MController extends HttpServlet {
 				
 			}else{
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath()); 
 				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로]  BoardFrontController.java");
 				System.out.println();
 				
