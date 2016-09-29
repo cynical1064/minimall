@@ -43,6 +43,20 @@
 	});
 </script>
 </head>
+<c:choose>
+<c:when test="${sessionScope.loginChk == 1}">
+	<script>
+		alert("로그인에 실패했습니다.");
+	</script>
+	<c:set var="loginChk" scope="session" />
+</c:when>
+<c:when test="${sessionScope.loginChk == 2}">
+	<script>
+		alert("로그인에 성공했습니다.");
+	</script>
+	<c:set var="loginChk" scope="session" />
+</c:when>
+</c:choose>
 <div id="loginWrap">
 	<div id="loginContent">
 		<span id="closeLoginWrap">

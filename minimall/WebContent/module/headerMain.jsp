@@ -56,7 +56,6 @@
 	<c:set var="loginChk" scope="session" />
 </c:when>
 </c:choose>
-
 <div id="loginWrap"> 
 	<div id="loginContent">
 		<span id="closeLoginWrap">
