@@ -46,7 +46,7 @@
 					</c:when>
 					<c:otherwise>
 						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">개인정보수정</a></dd>
-						<dd><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo">order</a></dd>
+						<dd><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo">주문 리스트</a></dd>
 						<dd>게시글 관리</dd>
 					</c:otherwise>
 				</c:choose>

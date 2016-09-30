@@ -71,7 +71,8 @@
 		<form id="delForm" action="${pageContext.request.contextPath}/Odel/orderDeletePro.oo" method="post">
 			<table class="basic">
 				<tr>
-					<th>주문 번호</th><th>상품 이름</th><th>구매자 아이디</th><th>판매자 아이디</th><th>구매자 이름</th><th>배송지</th><th>주문 날짜</th><th>상품 코드</th><th>가격</th><th>수량</th><th>합계</th><th>주문 상태</th><th>주문 취소</th>
+					<th>주문 번호</th><th>상품 이름</th><th>구매자 아이디</th><th>판매자 아이디</th><th>구매자 이름</th><th>배송지</th>
+					<th>주문 날짜</th><th>상품 코드</th><th>가격</th><th>수량</th><th>합계</th><th>주문 상태</th><th>주문 취소</th>
 				</tr>
 				<c:forEach var="order" items="${orderListOne}">
 					<tr>
