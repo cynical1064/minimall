@@ -61,7 +61,9 @@ public class indexGoodsList implements ActionInterFace {
 					baos.close();
 					//byte[]를 String으로 변환
 					b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
-				}	
+				} else {
+					b64 = null;
+				}
 				b64Array.add(b64);
 				gImageType.add(type);
 			}
