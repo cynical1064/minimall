@@ -5,7 +5,7 @@
 <title>문의하기</title>
 </head>
 <body>
-<form name="deleteForm" action="${pageContext.request.contextPath}/Qna/QnaDeleteAction.qn?num=${num}&id=${id}" method="post">
+<form name="deleteForm" action="${pageContext.request.contextPath}/Qna/QnaDeleteAction.qn" method="post">
 <table border=1>
 <tr>
 	<td>
@@ -13,6 +13,8 @@
 	</td>
 	<td>
 		<input name="qna_pass" type="password">
+		<input type="hidden" name="num" value="${num}"/>
+		<input type="hidden" name="id" value="${id}"/>
 	</td>
 </tr>
 <tr>

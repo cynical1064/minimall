@@ -16,22 +16,27 @@ public class QnaDetailAction implements ActionInterFace {
 		QnaDto qnadto=new QnaDto();
 	   	
 		int num=Integer.parseInt(request.getParameter("num"));
+		System.out.println(num);
 		qnadao.setReadCountUpdate(num);
 		qnadto=qnadao.getDetail(num);
 		
-	   	if(qnadto==null){
+	   	if(qnadto == null){
 	   		System.out.println("상세보기 실패");
 	   		return null;
+	   		
+	   	}else{
+	   		
+	   		System.out.println("상세보기 성공");
+			System.out.println(qnadto.getQna_no());
+		   	request.setAttribute("qnadto", qnadto);
+		   	System.out.println(qnadto + ": qnadto");
+		   	
+		   	ActionForward forward = new ActionForward();
+		   	forward.setRedirect(false);
+	  		forward.setPath("/qnaBoard/qna_view.jsp");
+	  		return forward;
 	   	}
-	   	System.out.println("상세보기 성공");
 	   	
-	   	request.setAttribute("qnadto", qnadto);
-	   	System.out.println(qnadto+": qnqdto");
-	   	
-	   	ActionForward forward = new ActionForward();
-	   	forward.setRedirect(false);
-  		forward.setPath("/qnaBoard/qna_view.jsp");
-  		return forward;
 
 	 }
 }

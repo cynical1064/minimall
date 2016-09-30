@@ -69,7 +69,7 @@
 					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=${qnadto.qna_no}&id=${qnadto.m_id}">
 					[수정]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Qna/QnaDelete.qn?num=${qnadto.qna_no}&id=${qnadto.m_id}">
+					<a href="${pageContext.request.contextPath}/Qna/QnaDeleteForm.qn?num=${qnadto.qna_no}&id=${qnadto.m_id}">
 					[삭제]
 					</a>&nbsp;&nbsp;
 					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">[목록]</a>&nbsp;&nbsp;

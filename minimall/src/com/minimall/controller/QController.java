@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.minimall.inter.ActionInterFace;
 import com.minimall.action.qna.QnaAddAction;
 import com.minimall.action.qna.QnaDeleteAction;
+import com.minimall.action.qna.QnaDeleteFormAction;
 import com.minimall.action.qna.QnaDetailAction;
 import com.minimall.action.qna.QnaListAction;
 import com.minimall.action.qna.QnaModifyAction;
@@ -88,10 +89,14 @@ public class QController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/Qna/QnaDelete.qn")){	//글삭제
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/qnaBoard/qna_delete.jsp");
+		}else if(command.equals("/Qna/QnaDeleteForm.qn")){	//글삭제폼
+			action = new QnaDeleteFormAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}else if(command.equals("/Qna/QnaDeleteAction.qn")){	//삭제액션
 			action = new QnaDeleteAction();
 			try{

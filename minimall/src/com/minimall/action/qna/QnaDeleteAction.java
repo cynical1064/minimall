@@ -1,10 +1,7 @@
 package com.minimall.action.qna;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.minimall.dao.MemberDao;
 import com.minimall.dao.QnaDao;
@@ -14,8 +11,8 @@ import com.minimall.inter.ActionInterFace;
 
 
 public class QnaDeleteAction implements ActionInterFace {
-	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
-			 	throws Exception{
+	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		 	System.out.println("여기로 와라");
 				 
 				ActionForward forward = new ActionForward();
 				request.setCharacterEncoding("utf-8");
@@ -24,7 +21,7 @@ public class QnaDeleteAction implements ActionInterFace {
 			   	boolean usercheck=false;*/
 			   	int num=Integer.parseInt(request.getParameter("num"));
 			   	String id = request.getParameter("id");
-			    String pw = request.getParameter("qna_pass");
+			    String pw = request.getParameter("pw");
 			    System.out.println(num + "<- num");
 			    System.out.println(id + "<- id");
 			    System.out.println(pw + "<- pw");
