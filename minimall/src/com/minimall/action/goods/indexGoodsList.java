@@ -34,8 +34,8 @@ public class indexGoodsList implements ActionInterFace {
 		String ImageName;
 		String type;
 		
-		String path = request.getServletContext().getRealPath("goodsImage");
-		//String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
+		//String path = request.getServletContext().getRealPath("goodsImage");
+		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
 		
 		goodsList = goodsDao.goodsSelectOrderByDate();
 		goodsListCount = goodsList.size();
@@ -50,8 +50,8 @@ public class indexGoodsList implements ActionInterFace {
 				
 				//DB에서 가져온 여러개의 이미지의 이름에 경로를 붙여 File로 만든뒤 ByteArrayOutputStream.toByteArray()를 통해 byte[]로 만든다.
 				System.out.println(path + "\\" + ImageName + " : path");
-				file = new File(path + "\\" + ImageName);
-				
+				//file = new File(path + "\\" + ImageName);
+				file = new File(path + "/" + ImageName);
 				if(file.exists()) {
 					BufferedImage image = ImageIO.read(file);
 					ByteArrayOutputStream baos = new ByteArrayOutputStream();

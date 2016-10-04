@@ -37,8 +37,8 @@ public class GoodsInsertPro implements ActionInterFace {
 		    System.out.println("goodsImage 디렉토리가 존재합니다.");
 		}*/
 		
-		String path = request.getServletContext().getRealPath("goodsImage");
-		//String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage"; 
+		//String path = request.getServletContext().getRealPath("goodsImage");
+		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage"; 
 		System.out.println(path);
 		int maxSize = 500*500*100;
 		String encType = "UTF-8";

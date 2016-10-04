@@ -22,8 +22,8 @@ public class GoodsDeleteAction implements ActionInterFace {
 		String gCode = request.getParameter("gCode");
 		System.out.println(gCode + " : gCode GoodsInsertPro.java");
 		
-		String path = request.getServletContext().getRealPath("goodsImage");
-		//String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
+		//String path = request.getServletContext().getRealPath("goodsImage");
+		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
 		
 		GoodsDao goodsDao = new GoodsDao();
 		ArrayList<GoodsDto> goodsList = goodsDao.goodsSelectForDeleteByGCode(gCode);
@@ -33,7 +33,8 @@ public class GoodsDeleteAction implements ActionInterFace {
 			GoodsDto goodsDto = goodsList.get(i);
 			String imageName = goodsDto.getG_image();
 			
-			File file = new File(path + "\\" + imageName);
+			//File file = new File(path + "\\" + imageName);
+			File file = new File(path + "/" + imageName);
 			goodsDao.goodsDeleteByGcode(gCode);
 			if(file.exists()) {
 				if(file.delete()) {
