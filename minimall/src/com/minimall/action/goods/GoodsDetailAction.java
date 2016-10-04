@@ -29,9 +29,10 @@ public class GoodsDetailAction implements ActionInterFace {
 		GoodsDto goodsDto = goodsDao.goodsSelectByGcode(gCode);
 		String b64 = "";
 		//¿ÃπÃ¡ˆ
-		String path = request.getServletContext().getRealPath("goodsImage");
+		//String path = request.getServletContext().getRealPath("goodsImage");
+		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
 		ArrayList<String> gImageType = new ArrayList<String>();
-		
+		//File file = new File(path + "\\" + imageName);
 		File file = new File(path + "/" + goodsDto.getG_image());
 		if(file.exists()) {
 			BufferedImage image = ImageIO.read(file);
