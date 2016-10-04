@@ -12,6 +12,7 @@ public class QnaDto {
 	private Date qna_date;
 	private int qna_readcount;
 	private String g_code;
+	private int qna_ref;
 	
 	public int getQna_no() {
 		return qna_no;
@@ -67,5 +68,17 @@ public class QnaDto {
 	public void setG_code(String g_code) {
 		this.g_code = g_code;
 	}
+	public int getQna_ref() {
+		return qna_ref;
+	}
+	public void setQna_ref(int qna_ref) {
+		this.qna_ref = qna_ref;
+	}
 	
+	@Override
+	public String toString() {
+		return "QnaDto [qna_no=" + qna_no + ", qna_subject=" + qna_subject + ", m_id=" + m_id + ", qna_content="
+				+ qna_content + ", qna_secret=" + qna_secret + ", qna_category=" + qna_category + ", qna_date="
+				+ qna_date + ", qna_readcount=" + qna_readcount + ", g_code=" + g_code + ", qna_ref=" + qna_ref + "]";
+	}
 }

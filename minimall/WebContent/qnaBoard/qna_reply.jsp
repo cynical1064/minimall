@@ -13,9 +13,10 @@
 <body>
 <!-- 게시판 답변 -->
 <form action="${pageContext.request.contextPath}/Qna/QnaReplyAction.qn" method="post" name="boardform">
+<input type="hidden" name="qna_ref" value="${qnadto.qna_no}">
 <input type="hidden" name="qna_category" value="${qnadto.qna_category}">
-<input type="hidden" name="qna_secret" value="${qnadto.qna_secret}>">
-
+<input type="hidden" name="qna_secret" value="${qnadto.qna_secret}">
+<input type="hidden" name="m_id" value="${sessionScope.loginId}">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">Q&A 답변하기</td>
@@ -26,7 +27,7 @@
 		</td>
 		<td>
 			<input name="qna_subject" type="text" size="50" 
-				maxlength="100" value="Re: ${qnadto.qna_subject}>"/>
+				maxlength="100" value="Re: ${qnadto.qna_subject}"/>
 		</td>
 	</tr>
 	<tr>

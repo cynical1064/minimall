@@ -18,13 +18,14 @@ public class QnaReplyAction implements ActionInterFace {
 		 	QnaDto qnadto=new QnaDto();
 	   		int result=0;
 	   		
-	   		qnadto.setQna_no(Integer.parseInt(request.getParameter("qna_no")));
+	   		qnadto.setQna_ref(Integer.parseInt(request.getParameter("qna_ref")));
 	   		qnadto.setQna_subject(request.getParameter("qna_subject"));
 	   		qnadto.setM_id(request.getParameter("m_id"));
 	   		qnadto.setQna_content(request.getParameter("qna_content"));
 	   		qnadto.setQna_secret(request.getParameter("qna_secret"));
 	   		qnadto.setQna_category(request.getParameter("qna_category"));
 	   		
+	   		System.out.println(qnadto.getQna_ref());
 	   		System.out.println(qnadto.getQna_subject());
 	   		System.out.println(qnadto.getM_id());
 	   		System.out.println(qnadto.getQna_content());
@@ -39,7 +40,7 @@ public class QnaReplyAction implements ActionInterFace {
 	   		System.out.println("답장 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath(request.getContextPath() + "/Qna/QnaDetailAction.qn?num="+result);
+	   		forward.setPath(request.getContextPath() + "/Qna/QnaList.qn");
 	   		return forward;
  		}
 }
