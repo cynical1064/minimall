@@ -27,7 +27,7 @@ public class GoodsDForUpdateAction implements ActionInterFace {
 		GoodsDao goodsDao = new GoodsDao();
 		GoodsDto goodsDto = goodsDao.goodsSelectByGcode(gCode);
 		
-		File file;
+		/*File file;
 		String b64;
 		ArrayList<String> b64Array = new ArrayList<String>();
 		//String path = request.getServletContext().getRealPath("goodsImage");
@@ -55,7 +55,7 @@ public class GoodsDForUpdateAction implements ActionInterFace {
 			b64Array.add(b64);
 		}
 		System.out.println("b64Array.size() : " + b64Array.size() + " GoodsCustomListAction.java");
-		request.setAttribute("b64", b64Array);
+		request.setAttribute("b64", b64Array);*/
 		
 		request.setAttribute("goodsDto", goodsDto);
 		

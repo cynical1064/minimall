@@ -153,7 +153,7 @@ public class GController extends HttpServlet {
 		} else if(command.equals("/Gup/GoodsUpdateAtion.go")) {
 			System.out.println("03_08 /Gup/GoodsUpdateAtion.go");
 			
-			action = new GoodsDForUpdateAction();
+			action = new GoodsUpdateAction();
 			try {
 				forward = action.execute(request, response);
 				

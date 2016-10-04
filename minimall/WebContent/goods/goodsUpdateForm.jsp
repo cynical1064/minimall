@@ -29,11 +29,15 @@
 		<jsp:include page="/module/headerSub.jsp" />
 		<div id="container"> 
 			<div class="content">
+				<div class="boardArea">
+					<div class="boardWrap">
+				<%--
 				<div id="detailContent">
-					<div id="detailImgArea">
+					 <div id="detailImgArea">
 						<img src="data:image/png;base64, ${b64}" alt="image not found"/>
 					</div>
 					<div id="orderForm">
+				 --%>
 						<form action="${pageContext.request.contextPath}/Gup/GoodsUpdateAtion.go" method="post" name="modifyform">
 							<table class="basic">
 								<tr>
@@ -55,6 +59,13 @@
 									<td>상품상세설명</td>
 									<td><input type="hidden" name="gCode" value="${goodsDto.g_code}"/>
 										<textarea name="gSangse" rows="8" cols="45">${goodsDto.g_sangse}</textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>사진</td>
+									<td>
+										<input type="file" name="myImage" id="myImage" accept="image/*" />
+										<span id="myImageHelper"></span>
 									</td>
 								</tr>
 								<tr>
