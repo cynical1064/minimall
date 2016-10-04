@@ -16,7 +16,7 @@ public class MemberLogoutAction implements ActionInterFace {
 		MemberDao dao = new MemberDao();
 		dao.logoutChkUpdate(mId);
 		HttpSession session=request.getSession();
-		session.invalidate();
+		session.invalidate(); 
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);

@@ -112,7 +112,7 @@ public class MController extends HttpServlet {
 				forward=action.execute(request, response );
 			} catch (Exception e) {
 				e.printStackTrace();
-			}			
+			}			 
 			
 		}*/else if(cutUrl.equals("/mLogin/mLogin.mo")){
 			System.out.println("로그인 처리 조건");

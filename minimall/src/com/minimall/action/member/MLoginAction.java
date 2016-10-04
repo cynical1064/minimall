@@ -44,7 +44,7 @@ public class MLoginAction implements ActionInterFace {
 			}else{
 				//중복로그인
 				session.setAttribute("loginChk", 3);				
-			}
+			} 
 			
 		}else{
 			System.out.println("로그인 실패");

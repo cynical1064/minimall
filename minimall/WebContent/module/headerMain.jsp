@@ -40,7 +40,7 @@
 		});
 		
 	});
-</script>
+</script> 
 </head>
 <c:choose>
 <c:when test="${sessionScope.loginChk == 1}">

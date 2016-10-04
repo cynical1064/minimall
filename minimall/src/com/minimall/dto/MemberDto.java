@@ -47,7 +47,7 @@ public class MemberDto {
 	}
 	public void setm_date(Date m_date) {
 		this.m_date = m_date;
-	}
+	} 
 	public String getm_addr() {
 		return m_addr;
 	}
