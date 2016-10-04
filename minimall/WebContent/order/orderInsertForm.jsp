@@ -84,7 +84,7 @@ $(document).ready(function(){
 				<td>수량</td>
 				<td>
 					<input name="oCount" id="oCount" value="1" >
-					<span id="upCount" style="cursor:pointer;">▲</span>/<span id="downCount" style="cursor:pointer;">▼</span><span id="count"></span>
+					<span id="upCount">▲ </span> | <span id="downCount"> ▼ </span><span id="count"></span>
 				</td>
 			</tr>
 			<tr>
@@ -94,8 +94,27 @@ $(document).ready(function(){
 				</td>
 			</tr>
 			<tr>
-				<td></td>	
-				<td>				
+				<td>
+					원산지
+				</td>
+				<td>
+					한국
+				</td>
+			</tr>
+			<tr>
+				<td>
+					배송
+				</td>
+				<td>
+					<ul>						
+					<li>1개당15,000원 </li>
+					<li>상품수령시 결제(착불)</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>	
+				<td></td>
+				<td>									
 					<input type = "hidden" name="gCode" value="${goods.g_code}">
 					<input type = "hidden" name="mId" value="${sessionScope.loginId}">
 					<div id="buyBtn">구매</div>

@@ -89,17 +89,20 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 
 /* orderForm */
 .orderForm{margin-top:15%;}
+
 .orderForm,
 .orderForm tr, 
 .orderForm th, 
-.orderForm td{border:0 !important; text-align:left; color:#434343 !important;}
+.orderForm td{border:0 !important; text-align:left; font-size:12px; color:#434343 !important;}
+.orderForm tr{border-bottom:1px solid #ccc !important;}
 .orderForm td{line-height:2em;}
 .orderForm td input{border:0;}
-.orderForm #buyBtn{width:100px; color:#fff; background:#434343; line-height:2em; margin-top:20px; margin-left:30%; cursor:pointer}
-
+.orderForm #buyBtn{width:100px; color:#fff; background:#434343; line-height:2em; margin:20px 0; margin-left:30%; cursor:pointer}
+.orderForm #upCount,
+.orderForm #downCount{font-size:12px; cursor:pointer; padding:0 3px;}
 /* tap */
 .tapTable{border:0;}
-.tapTable .goodsDetailTapBtn{background:#434343; color:#fff; cursor:pointer; line-height:1.5em;}
+.tapTable .goodsDetailTapBtn{background:#434343; font-size:14px; color:#fff; cursor:pointer; line-height:1.5em;}
 .tapTable .goodsDetailTapBtn.on{background:#fff; color:#434343; border-bottom:0;}
 .tapTable .goodsDetailTapContent{border:0; display:none; }
 .tapTable .goodsDetailTapContent div{color:#434343; font-size:12px;}
@@ -147,7 +150,7 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 	#headerMain #headerContent #loginNavWrap li{display:none;}
 	#headerMain #headerContent #hiddenNav{float:right; display:inline-block;}
 	
-	#headerSub{width:100%;  height:auto;  border:1px solid #ccc; border:0;}
+	#headerSub{width:100%;  height:auto; padding-bottom:15px;}
 	#headerSub #headerContent #itemNavWrap li,
 	#headerSub #headerContent #loginNavWrap li{display:none;}
 	#headerSub #headerContent #hiddenNav{float:right; display:inline-block;}
