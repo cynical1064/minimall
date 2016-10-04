@@ -23,6 +23,9 @@
 			function modifygoods(){
 				modifyform.submit();
 			}
+			$(document).ready(function() {
+				$('#myImage').
+			});
 		</script>
 	</head>
 	<body>
@@ -38,7 +41,7 @@
 					</div>
 					<div id="orderForm">
 				 --%>
-						<form action="${pageContext.request.contextPath}/Gup/GoodsUpdateAtion.go" method="post" name="modifyform">
+						<form action="${pageContext.request.contextPath}/Gup/GoodsUpdateAtion.go" method="post" name="modifyform" enctype="multipart/form-data">
 							<table class="basic">
 								<tr>
 									<td colspan=2><h2 align="center">수정하기</h2></td>
