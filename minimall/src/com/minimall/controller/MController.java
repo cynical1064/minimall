@@ -114,7 +114,7 @@ public class MController extends HttpServlet {
 				e.printStackTrace();
 			}			 
 			
-		}*/else if(cutUrl.equals("/mLogin/mLogin.mo")){
+		}*/else if(cutUrl.equals("/mLogin/mLogin.mo")){ 
 			System.out.println("로그인 처리 조건");
 			
 			try{

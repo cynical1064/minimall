@@ -2,7 +2,7 @@ package com.minimall.dto;
 
 import java.sql.Date;
 
-public class MemberDto {
+public class MemberDto { 
 
 	private String m_id;
 	private String m_pw;

@@ -158,7 +158,7 @@ public class MemberDao {
 		return m;		
 		
 	}
-
+ 
     public int deleteMember(String id, String pw) throws SQLException{
         String sql=null;
         int x = -1;

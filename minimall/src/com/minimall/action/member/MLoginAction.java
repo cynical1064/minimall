@@ -22,7 +22,7 @@ public class MLoginAction implements ActionInterFace {
 		MemberDao dao = new MemberDao();		
 		MemberDto chkMember = dao.userCheck(mId, mPw);
 
-		//리턴된 멤버객체를 받아
+		//리턴된 멤버객체를 받아 
 		if(chkMember != null){
 			
 			System.out.println("로그인 성공");

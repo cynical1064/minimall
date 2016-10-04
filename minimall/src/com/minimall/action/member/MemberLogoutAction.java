@@ -9,7 +9,7 @@ import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
 public class MemberLogoutAction implements ActionInterFace {
-
+ 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
