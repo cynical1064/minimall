@@ -21,7 +21,7 @@ public class QnaDeleteAction implements ActionInterFace {
 			   	boolean usercheck=false;*/
 			   	int num=Integer.parseInt(request.getParameter("num"));
 			   	String id = request.getParameter("id");
-			    String pw = request.getParameter("pw");
+			    String pw = request.getParameter("qna_pass");
 			    System.out.println(num + "<- num");
 			    System.out.println(id + "<- id");
 			    System.out.println(pw + "<- pw");

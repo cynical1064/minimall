@@ -12,7 +12,7 @@
 		<font size=2>글 비밀번호 : </font>
 	</td>
 	<td>
-		<input name="qna_pass" type="password">
+		<input type="password" name="qna_pass"/>
 		<input type="hidden" name="num" value="${num}"/>
 		<input type="hidden" name="id" value="${id}"/>
 	</td>
