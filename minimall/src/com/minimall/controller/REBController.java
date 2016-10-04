@@ -11,6 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.minimall.action.*;
+import com.minimall.action.qna.QnaAddAction;
+import com.minimall.action.qna.QnaDeleteAction;
+import com.minimall.action.qna.QnaDeleteFormAction;
+import com.minimall.action.qna.QnaDetailAction;
+import com.minimall.action.qna.QnaListAction;
+import com.minimall.action.qna.QnaModifyAction;
+import com.minimall.action.qna.QnaModifyView;
+import com.minimall.action.qna.QnaReplyAction;
+import com.minimall.action.qna.QnaReplyView;
 import com.minimall.action.reb.REBAddAction;
 import com.minimall.action.reb.REBDeleteAction;
 import com.minimall.action.reb.REBDetailAction;
@@ -28,22 +37,7 @@ import com.minimall.inter.ActionInterFace;
    public REBController() {
         super();
 	}
-  	 
-	 protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-			 	System.out.println("04 doGet()메서드 response  => "+ response);
-		 	System.out.println();
-			doPro(request,response);
-	}  	
-			
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-					throws ServletException, IOException {
-	 	System.out.println("05 doPost()메서드 request  => "+ request);
-	 	System.out.println("05 doPost()메서드 response  => "+ response);
-	 	System.out.println();
-		doPro(request,response);
-	}
-			
+
 			
 	 protected void doPro(HttpServletRequest request, HttpServletResponse response) 
 	 	throws ServletException, IOException {
@@ -59,88 +53,103 @@ import com.minimall.inter.ActionInterFace;
 		 System.out.println();
 		 ActionForward forward=null;
 		 ActionInterFace action=null;
-		if(command.equals("/board/BoardWrite.reb")){
+		 
+		 
+			if(command.equals("/Reb/rebAddWrite.reb")){		//글작성
+		    	System.out.println("04_01 조건문 내 /Reb/QnaAddWrite.qn QController.java");
+		    	forward = new ActionForward();		//주소값이 담겨있음
+		    	forward.setRedirect(false);
+		    	forward.setPath("/reBoard/reBoardWrite.jsp");
+		    	forward.toString();
+			} else if(command.equals("/Reb/rebAddAction.reb")){		//글작성액션
+		    	System.out.println("04_02 조건문 내 /Reb/QnaAddAction.qn QController.java");
+				action = new REBAddAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else if(command.equals("/Reb/rebList.reb")){		//리스트
+		    	System.out.println("04_03 조건문 내 /Qna/QnaList.qn QController.java");
+		    	action = new REBListAction();
+		    	try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else if(command.equals("/Reb/rebDetailAction.reb")) {		//글확인 액션
+				System.out.println("04_04 조건문 내 /Qna/QnaView.qn QController.java");
+				action = new REBDetailAction();
+				try{
+					forward=action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			} else if(command.equals("/Reb/rebReplyView.reb")){		//답글
+				System.out.println("04_05 조건문 내 /Qna/QnaReplyView.qn QController.java");
+				action = new REBReplyView();
+				try{
+					forward=action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			} else if(command.equals("/Reb/rebReplyAction.reb")){	//답글액션
+		    	System.out.println("04_06 조건문 내 /Qna/QnaReplyAction.qn QController.java");
+				action = new REBReplyAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}else if(command.equals("/Reb/rebDeleteForm.reb")){	//글삭제폼
+				action = new REBDeleteFormAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else if(command.equals("/Reb/rebDeleteAction.reb")){	//삭제액션
+				action = new QnaDeleteAction();
+				try{
+					forward=action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}else if(command.equals("/Reb/rebModify.reb")){		//글수정
+				action = new QnaModifyView();
+				try{
+					forward=action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+		 	}else if(command.equals("/Reb/rebModifyAction.reb")){	//수정액션
+				action = new QnaModifyAction();
+				try{
+					forward=action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
 			
-			forward=new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath(request.getContextPath()+"/reBoard/reBoardWrite.jsp");
-		}else if(command.equals("/board/BoardReplyAction.reb")){
-			action = new REBReplyAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}else if(command.equals("/board/BoardDelete.reb")){
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/reBoard/reBoardDelete.jsp");
-		}else if(command.equals("/board/BoardModify.reb")){
-			action = new REBModifyView();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-	 	}else if(command.equals("/board/BoardAddAction.reb")){
-			action  = new REBAddAction();
-			try {
-				forward=action.execute(request, response );
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/board/BoardReplyView.reb")){
-			action = new REBReplyView();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}else if(command.equals("/board/BoardModifyAction.reb")){
-			action = new REBModifyAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}else if(command.equals("/board/BoardDeleteAction.reb")){
-			action = new REBDeleteAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}else if(command.equals("/board/BoardList.reb")){
-			
-			action = new REBListAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}else if(command.equals("/board/BoardDetailAction.reb")){
-			action = new REBDetailAction();
-			try{
-				forward=action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
+			if(forward != null){			//널이 아니면 다시 조건문으로 돌아감
+				if(forward.isRedirect()){
+					response.sendRedirect(forward.getPath());	//리다이렉트
+				}else{
+					RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());	
+					System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로] QController.java");
+					System.out.println();
+					dispatcher.forward(request, response);
+				}
 			}
 		}
-		
-		
-		if(forward != null){
-			if(forward.isRedirect()){
-				
-				response.sendRedirect(forward.getPath());
-			}else{
-				
-				RequestDispatcher dispatcher=
-					request.getRequestDispatcher(forward.getPath());
-				System.out.println(forward.getPath() + "<--- forward.getPath()[jsp 이동경로]  BoardFrontController.java");
-				System.out.println();
-				dispatcher.forward(request, response);
-			}
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			System.out.println("01 doGet() QController.java");
+			doPro(request, response);
 		}
-	 }
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			System.out.println("02 doPost() QController.java");
+			doPro(request, response);
+		}
 	  	 
 }
