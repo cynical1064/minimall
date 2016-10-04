@@ -56,6 +56,12 @@
 	</script>
 	<c:set var="loginChk" scope="session" />
 </c:when>
+<c:when test="${sessionScope.loginChk == 3}">
+	<script>
+		alert("중복 로그인 되었습니다.");
+	</script>
+	<c:set var="loginChk" scope="session" />
+</c:when>
 </c:choose>
 <div id="loginWrap">
 	<div id="loginContent">
