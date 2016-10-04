@@ -22,7 +22,7 @@ public class GoodsDetailAction implements ActionInterFace {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String gCode = request.getParameter("gCode");
+		String gCode = request.getParameter("gCode"); 
 		System.out.println(gCode + " : gCode GoodsInsertPro.java");
 		
 		GoodsDao goodsDao = new GoodsDao();
