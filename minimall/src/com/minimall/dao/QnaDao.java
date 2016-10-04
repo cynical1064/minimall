@@ -173,7 +173,7 @@ public class QnaDao {
 				while(rs.next()){
 					QnaDto qnadto = new QnaDto();
 					qnadto.setQna_no(rs.getInt("qna_no"));
-					System.out.println(qnadto.getQna_no());
+					//System.out.println(qnadto.getQna_no());
 					qnadto.setQna_subject(rs.getString("qna_subject"));
 					qnadto.setM_id(rs.getString("m_id"));
 					qnadto.setQna_content(rs.getString("qna_content"));
@@ -182,7 +182,7 @@ public class QnaDao {
 					qnadto.setQna_date(rs.getDate("qna_date"));
 					qnadto.setQna_readcount(rs.getInt("qna_readcount"));
 					qnadto.setG_code(rs.getString("g_code"));
-					System.out.println(qnadto.getG_code());
+					//System.out.println(qnadto.getG_code());
 					list.add(qnadto);
 				}
 			}catch(Exception ex){
@@ -210,6 +210,7 @@ public class QnaDao {
 					qnadto.setQna_no(rs.getInt("qna_no"));				
 					qnadto.setQna_subject(rs.getString("qna_subject"));
 					qnadto.setM_id(rs.getString("m_id"));
+					System.out.println("m_id : " + qnadto.getM_id());
 					qnadto.setQna_content(rs.getString("qna_content"));
 					qnadto.setQna_secret(rs.getString("qna_secret"));
 					qnadto.setQna_category(rs.getString("qna_category"));

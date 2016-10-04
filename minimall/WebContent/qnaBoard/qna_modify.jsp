@@ -13,8 +13,9 @@
 
 <body>
 <!-- 게시판 수정 -->
-<form action="${pageContext.request.contextPath}/Qna/QnaModifyAction.qn" method="post" name="modifyform">
+<form name="modifyform" action="${pageContext.request.contextPath}/Qna/QnaModifyAction.qn" method="post">
 <input type="hidden" name="qna_no" value="${qnadto.qna_no}">
+<input type="hidden" name="m_id" value="${qnadto.m_id}"/>
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">문의하기</td>
@@ -41,7 +42,7 @@
 			<div align="center">비밀번호</div>
 		</td>
 		<td>
-			<input name="qna_pass" type="password">
+			<input type="password" name="qna_pass">
 			<input type="hidden" value="${requestScope.id}">
 		</td>
 	</tr>
