@@ -3,8 +3,8 @@ package com.minimall.action.reb;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.minimall.dao.REBoardDAO;
-import com.minimall.dto.REBoardDto;
+import com.minimall.dao.REBDao;
+import com.minimall.dto.REBDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -14,27 +14,32 @@ public class REBReplyAction implements ActionInterFace {
 		 	request.setCharacterEncoding("UTF-8");
 		 	ActionForward forward = new ActionForward();
 		 	
-			REBoardDAO boarddao=new REBoardDAO();
-	   		REBoardDto boarddata=new REBoardDto();
+		 	REBDao rebDao=new REBDao();
+		 	REBDto rebDto=new REBDto();
 	   		int result=0;
 	   		
-	   		boarddata.setBOARD_NUM(Integer.parseInt(request.getParameter("BOARD_NUM")));
-	   		boarddata.setBOARD_NAME(request.getParameter("BOARD_NAME"));
-	   		boarddata.setBOARD_PASS(request.getParameter("BOARD_PASS"));
-	   		boarddata.setBOARD_SUBJECT(request.getParameter("BOARD_SUBJECT"));
-	   		boarddata.setBOARD_CONTENT(request.getParameter("BOARD_CONTENT"));
-	   		boarddata.setBOARD_RE_REF(Integer.parseInt(request.getParameter("BOARD_RE_REF")));
-	   		boarddata.setBOARD_RE_LEV(Integer.parseInt(request.getParameter("BOARD_RE_LEV")));
-	   		boarddata.setBOARD_RE_SEQ(Integer.parseInt(request.getParameter("BOARD_RE_SEQ")));
+	   		rebDto.setReb_no(Integer.parseInt(request.getParameter("reb_no")));
+	   		rebDto.setReb_subject(request.getParameter("reb_subject"));
+	   		rebDto.setM_id(request.getParameter("m_id"));
+	   		rebDto.setReb_content(request.getParameter("reb_content"));
+	   		rebDto.setReb_secret(request.getParameter("reb_secret"));
+	   		rebDto.setReb_category(request.getParameter("reb_category"));
 	   		
-	   		result=boarddao.boardReply(boarddata);
+	   		System.out.println(rebDto.getReb_subject());
+	   		System.out.println(rebDto.getM_id());
+	   		System.out.println(rebDto.getReb_content());
+	   		System.out.println(rebDto.getReb_secret());
+	   		System.out.println(rebDto.getReb_category());
+	   		
+	   		result=rebDao.rebReply(rebDto);
 	   		if(result==0){
 	   			System.out.println("답장 실패");
 	   			return null;
 	   		}
 	   		System.out.println("답장 완료");
+	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath(request.getContextPath() + "/board/BoardDetailAction.reb?num="+result);
+	   		forward.setPath(request.getContextPath() + "/Reb/rebDetailAction.reb?num="+result);
 	   		return forward;
-	}  	
+ 		}
 }

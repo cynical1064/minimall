@@ -1,18 +1,9 @@
-<%@page import="com.minimall.dto.REBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%
-	REBoardDto board = (REBoardDto)request.getAttribute("boarddata");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
-
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<title>리뷰 게시판</title>
-	
-<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
-	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+	<title>문의하기</title>
 	<script type="text/javascript">
 	function modifyboard(){
 		modifyform.submit();
@@ -21,25 +12,20 @@
 </head>
 
 <body>
-
-<%@ include file = "/module/headerSub.jsp" %>
-<div id="container">
-	<div class="content">
-	
 <!-- 게시판 수정 -->
-<form action="${pageContext.request.contextPath}/board/BoardModifyAction.reb" method="post" name="modifyform">
-<input type="hidden" name="BOARD_NUM" value=<%=board.getBOARD_NUM() %>>
+<form action="${pageContext.request.contextPath}/Reb/rebModifyAction.reb" method="post" name="modifyform">
+<input type="hidden" name="reb_no" value="${rebDto.reb_no}">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
-		<td colspan="5">리뷰 게시판</td>
+		<td colspan="5">문의하기</td>
 	</tr>
 	<tr>
 		<td height="16" style="font-family:돋음; font-size:12">
 			<div align="center">제 목</div>
 		</td>
 		<td>
-			<input name="BOARD_SUBJECT" size="50" maxlength="100" 
-				value="<%=board.getBOARD_SUBJECT()%>">
+			<input name="reb_subject" size="50" maxlength="100" 
+				value="${rebDto.reb_subject}">
 		</td>
 	</tr>
 	<tr>
@@ -47,25 +33,16 @@
 			<div align="center">내 용</div>
 		</td>
 		<td>
-			<textarea name="BOARD_CONTENT" cols="67" rows="15"><%=board.getBOARD_CONTENT() %></textarea>
+			<textarea name="reb_content" cols="67" rows="15">${rebDto.reb_content}</textarea>
 		</td>
 	</tr>
-	<%if(!(board.getBOARD_FILE()==null)){ %>
-	<tr>
-		<td style="font-family:돋음; font-size:12">
-			<div align="center">파일 첨부</div>
-		</td>
-		<td>
-			&nbsp;&nbsp;<%=board.getBOARD_FILE() %>
-		</td>
-	</tr>
-	<%} %>
 	<tr>
 		<td height="16" style="font-family:돋음; font-size:12">
 			<div align="center">비밀번호</div>
 		</td>
 		<td>
-			<input name="BOARD_PASS" type="password">
+			<input name="reb_pass" type="password">
+			<input type="hidden" value="${requestScope.id}">
 		</td>
 	</tr>
 	
@@ -86,9 +63,5 @@
 </table>
 </form>
 <!-- 게시판 수정 -->
-	</div>
-</div>
-<%@ include file = "/module/footer.jsp" %>
-
 </body>
 </html>

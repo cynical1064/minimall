@@ -1,141 +1,124 @@
-<%@page import="com.minimall.dto.REBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.util.*"%>
-<%@ page import="java.text.SimpleDateFormat" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<%
-	List boardList=(List)request.getAttribute("boardlist");
-	int listcount=((Integer)request.getAttribute("listcount")).intValue();
-	int nowpage=((Integer)request.getAttribute("page")).intValue();
-	int maxpage=((Integer)request.getAttribute("maxpage")).intValue();
-	int startpage=((Integer)request.getAttribute("startpage")).intValue();
-	int endpage=((Integer)request.getAttribute("endpage")).intValue();
-%>
 <!DOCTYPE html>
-
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<title>리뷰 게시판</title>
-
-
-<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<title>미니몰</title>
+	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
-
 </head>
-
 <body>
-<table class="basic">
-<%
-if(listcount > 0){
-%>
-	<tr align="center" valign="middle">
-		<td colspan="4">리뷰 게시판</td>
-		<td align=right>
-			<font size=2>글 개수 : ${listcount }</font>
-		</td>
-	</tr>
-	
-	<tr align="center" valign="middle" bordercolor="#333333">
-		<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
-			<div align="center">번호</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:8pt;" width="50%">
-			<div align="center">제목</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:8pt;" width="14%">
-			<div align="center">작성자</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:8pt;" width="17%">
-			<div align="center">날짜</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:8pt;" width="11%">
-			<div align="center">조회수</div>
-		</td>
-	</tr>
-	
-	<%
-		for(int i=0;i<boardList.size();i++){
-			REBoardDto bl=(REBoardDto)boardList.get(i);
-	%>
-	<tr align="center" valign="middle" bordercolor="#333333"
-		onmouseover="this.style.backgroundColor='F8F8F8'"
-		onmouseout="this.style.backgroundColor=''">
-		<td height="23" style="font-family:Tahoma;font-size:10pt;">
-			<%=bl.getBOARD_NUM()%>
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="left">
-			<%if(bl.getBOARD_RE_LEV()!=0){ %>
-				<%for(int a=0;a<=bl.getBOARD_RE_LEV()*2;a++){ %>
-				&nbsp;
-				<%} %>
-				▶
-			<%}else{ %>
-				▶
-			<%} %>
-			<a href="${pageContext.request.contextPath}/board/BoardDetailAction.reb?num=<%=bl.getBOARD_NUM()%>">
-				<%=bl.getBOARD_SUBJECT()%>
-			</a>
-			</div>
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getBOARD_NAME() %></div>
-		</td>
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getBOARD_DATE() %></div>
-		</td>	
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"><%=bl.getBOARD_READCOUNT() %></div>
-		</td>
-	</tr>
-	<%} %>
-	<tr align=center height=20>
-		<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
-			<%if(nowpage<=1){ %>
-			[이전]&nbsp;
-			<%}else{ %>
-			<a style="cursor:pointer;"  onclick="getNextBlock2('<%=nowpage-1 %>')">[이전]</a>&nbsp;
-			<%} %>
+	<!-- 게시판 리스트 -->
+	<form action="${pageContext.request.contextPath}/Reb/rebListAction.reb" method="post">
+	<table class="basic">
+	<c:choose>
+		<c:when test="${listcount>0}">	
+			<tr align="center" valign="middle">
+				<td colspan="4">문의하기</td>
+				<td align=right>
+					<font size=2>글 개수 : ${listcount}</font>
+				</td>
+			</tr>
+			<tr align="center" valign="middle" bordercolor="#333333">
+				<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
+					<div align="center">번호</div>
+				</td>
+				<td style="font-family:Tahoma;font-size:8pt;" width="50%">
+					<div align="center">제목</div>
+				</td>
+				<td style="font-family:Tahoma;font-size:8pt;" width="14%">
+					<div align="center">작성자</div>
+				</td>
+				<td style="font-family:Tahoma;font-size:8pt;" width="17%">
+					<div align="center">날짜</div>
+				</td>
+				<td style="font-family:Tahoma;font-size:8pt;" width="11%">
+					<div align="center">조회수</div>
+				</td>
+			</tr>
+			<c:forEach var="list" items="${reblist}" varStatus="i">
+				<tr align="center" valign="middle" bordercolor="#333333"
+					onmouseover="this.style.backgroundColor='F8F8F8'"
+					onmouseout="this.style.backgroundColor=''">
+					<td height="23" style="font-family:Tahoma;font-size:10pt;">
+						${list.reb_no}
+					</td>
+				
+					<td style="font-family:Tahoma;font-size:10pt;">
+						<div align="left">
+						<%-- <%if(Qnalist.getBOARD_RE_LEV()!=0){ %>
+							<%for(int a=0;a<=Qnalist.getBOARD_RE_LEV()*2;a++){ %>
+							&nbsp;
+							<%} %>
+							▶
+						<%}else{ %>
+							▶
+						<%} %> --%>
+						<a href="${pageContext.request.contextPath}/Reb/rebDetailAction.reb?num=${list.reb_no}">
+							${list.reb_subject}
+						</a>
+						</div>
+					</td>
 			
-			<%for(int a=startpage;a<=endpage;a++){
-				if(a==nowpage){%>
-				<a style="color:#434343; font-weight:bold;" >[<%=a %>]</a>
-				<%}else{ %>
-				<a style="cursor:pointer;" onclick="getPage2('<%=a%>')">[<%=a %>]</a>&nbsp;
-				<%} %>
-			<%} %> 
-			
-			<%if(nowpage>=maxpage){ %>
-			[다음]
-			<%}else{ %>
-			<a style="cursor:pointer;"  onclick="getNextBlock2('<%=nowpage+1 %>')">[다음]</a>
-			<%} %>
-		</td>
-	</tr>
-	<%
-    }
-	else
-	{
-	%>
-	<tr align="center" valign="middle">
-		<td colspan="4">리뷰 게시판</td>
-		<td align=right>
-			<font size=2>등록된 리뷰가 없습니다.</font>
-		</td>
-	</tr>
-	<%
-	}
-	%>
-	<tr align="right">
-		<td colspan="5">
-	   		<a href="${pageContext.request.contextPath}/board/BoardWrite.reb">[글쓰기]</a>
-		</td>
-	</tr>
-</table>
+					<td style="font-family:Tahoma;font-size:10pt;">
+						<div align="center">${list.m_id}</div>
+					</td>
+					<td style="font-family:Tahoma;font-size:10pt;">
+						<div align="center">${list.reb_date}</div>
+					</td>	
+					<td style="font-family:Tahoma;font-size:10pt;">
+						<div align="center">${list.reb_readcount}</div>
+					</td>
+				</tr>
+			</c:forEach>
+			<tr align=center height=20>
+				<td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+					<c:choose>
+						<c:when test="${page<=1}">
+							[이전]&nbsp;
+						</c:when>
+						<c:otherwise>
+							<a style="cursor:pointer;" onclick="getNextBlock('${page-1}')">[이전]</a>&nbsp;
+						</c:otherwise>
+					</c:choose>
+					<c:forEach begin="${startpage}" end="${endpage}" varStatus="a">
+						<c:choose>
+							<c:when test="${a.count==page}">
+								<a style="color:#434343; font-weight:bold;" >[${a.count}]</a>
+							</c:when>
+							<c:otherwise>
+								<a style="cursor:pointer;" onclick="getPage('${a.count}')">[${a.count}]</a>&nbsp;
+							</c:otherwise>
+						</c:choose>			
+						<c:choose>
+							<c:when test="${page>=maxpage}">
+								[다음]
+							</c:when>
+							<c:otherwise>
+								<a style="cursor:pointer;"  onclick="getNextBlock('${page+1}')">[다음]</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</td>
+			</tr>
+			</c:when>
+			<c:otherwise>
+				<tr align="center" valign="middle">
+					<td colspan="4">문의하기</td>
+					<td align=right>
+						<font size=2>등록된 글이 없습니다.</font>
+					</td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
+		<tr align="right">
+			<td colspan="5">
+		   		<a href="${pageContext.request.contextPath}/Reb/rebAddWrite.reb">[글쓰기]</a>
+			</td>
+		</tr>
+	</table>
+	</form>
 </body>
 </html>
