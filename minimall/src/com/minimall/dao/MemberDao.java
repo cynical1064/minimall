@@ -121,13 +121,13 @@ public class MemberDao {
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
-				
+				String loginChk = rs.getString("m_check_login");
 				String memberpw=rs.getString("m_pw");				
-					if(memberpw.equals(pw)){	
+					if(memberpw.equals(pw)){
+						if(loginChk.equals("N")){
 						String m_id = id;
 						String m_level = rs.getString("m_level");
 						String m_name = rs.getString("m_name");
-						String loginChk = rs.getString("m_check_login");
 						 //rs에담긴 level과 name을 변수에 담아놓음
 						System.out.println(m_level);		
 						System.out.println(m_name);
@@ -139,11 +139,12 @@ public class MemberDao {
 						m.setm_level(m_level); 
 						m.setm_name(m_name);
 						m.setm_id(m_id);
-						m.setm_check_login(loginChk);
+						
 						System.out.println(m.hashCode());				
 						
-						}
-					} 
+					}
+				}
+			}	
 		}catch(Exception e){
 			e.printStackTrace();
 		}	finally{
@@ -157,21 +158,7 @@ public class MemberDao {
 		return m;		
 		
 	}
-	//중복로그인 체크
-	public void loginChkUpdate(String id) throws SQLException {
-		con = ds.getConnection();
-		pstmt = con.prepareStatement("UPDATE member SET m_check_login='Y' WHERE m_id=?");
-		pstmt.setString(1, id);
-		pstmt.executeUpdate();
-	}
-	//중복로그인 해제
-	public void logoutChkUpdate(String id) throws SQLException {
-		con = ds.getConnection();
-		pstmt = con.prepareStatement("UPDATE member SET m_check_login='N' WHERE m_id=?");
-		pstmt.setString(1, id);
-		pstmt.executeUpdate();
-	}
-	
+
     public int deleteMember(String id, String pw) throws SQLException{
         String sql=null;
         int x = -1;

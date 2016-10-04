@@ -12,9 +12,7 @@ public class MemberLogoutAction implements ActionInterFace {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String mId = request.getParameter("mId"); 
-		MemberDao dao = new MemberDao();
-		dao.logoutChkUpdate(mId);
+
 		HttpSession session=request.getSession();
 		session.invalidate(); 
 		
