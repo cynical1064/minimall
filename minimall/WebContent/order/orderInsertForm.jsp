@@ -84,7 +84,7 @@ $(document).ready(function(){
 				<td>수량</td>
 				<td>
 					<input name="oCount" id="oCount" value="1" >
-					<span id="upCount">▲ </span> | <span id="downCount"> ▼ </span><span id="count"></span>
+					<span id="upCount">▲ </span> <span id="downCount"> ▼ </span><span id="count"></span>
 				</td>
 			</tr>
 			<tr>
