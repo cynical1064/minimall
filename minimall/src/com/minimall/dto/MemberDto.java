@@ -11,13 +11,13 @@ public class MemberDto {
 	private String m_email;
 	private Date m_date;
 	private String m_addr;
-	
+	private String m_check_login;
 	public String getm_id() {
 		return m_id;
 	}
 	public void setm_id(String m_id) {
 		this.m_id = m_id;
-	} 
+	}
 	public String getm_pw() {
 		return m_pw;
 	}
@@ -54,6 +54,18 @@ public class MemberDto {
 	public void setm_addr(String m_addr) {
 		this.m_addr = m_addr;
 	}
-
-
+	public String getm_check_login() {
+		return m_check_login;
+	}
+	public void setm_check_login(String m_check_login) {
+		this.m_check_login = m_check_login;
+	}
+	@Override
+	public String toString() {
+		return "MemberDto [m_id=" + m_id + ", m_pw=" + m_pw + ", m_level=" + m_level + ", m_name=" + m_name
+				+ ", m_email=" + m_email + ", m_date=" + m_date + ", m_addr=" + m_addr + ", m_check_login="
+				+ m_check_login + "]";
+	}
+	
+	
 }

@@ -55,6 +55,12 @@
 	</script>
 	<c:set var="loginChk" scope="session" />
 </c:when>
+<c:when test="${sessionScope.loginChk == 3}">
+	<script>
+		alert("중복 로그인 되었습니다.");
+	</script>
+	<c:set var="loginChk" scope="session" />
+</c:when>
 </c:choose>
 <div id="loginWrap"> 
 	<div id="loginContent">
@@ -179,18 +185,18 @@
 					<c:when test="${sessionScope.loginLevel == '관리자'}">
 						<ul id="loginNav">
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>admin님 환영합니다.</span></a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>						</ul>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo?mId=${sessionScope.loginId}">LOGOUT</a></li>						</ul>
 					</c:when>
 					<c:when test="${sessionScope.loginLevel == '판매자'}">
 						<ul id="loginNav">
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>판매자님 환영합니다.</span></a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>							
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo?mId=${sessionScope.loginId}">LOGOUT</a></li>							
 						</ul>
 					</c:when>
 					<c:when test="${sessionScope.loginLevel == '구매자'}">
 						<ul id="loginNav">
 							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
-							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+							<li style="cursor:pointer"><a href="${pageContext.request.contextPath}/logout/logout.mo?mId=${sessionScope.loginId}">LOGOUT</a></li>
 						</ul>
 					</c:when>
 				</c:choose>
@@ -215,15 +221,15 @@
 						<c:choose>
 							<c:when test="${sessionScope.loginLevel == '관리자'}">
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>admin님 환영합니다.</span></a></li>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo?mId=${sessionScope.loginId}">LOGOUT</a></li>
 							</c:when>
 							<c:when test="${sessionScope.loginLevel == '판매자'}">
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>판매자 환영합니다.</span></a></li>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo?mId=${sessionScope.loginId}">LOGOUT</a></li>
 							</c:when>
 							<c:otherwise>
 								<li class="loginNav"><a href="${pageContext.request.contextPath}/mypage/mypage.jsp"><span>${sessionScope.loginName}님 환영합니다.</span></a></li>
-								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo">LOGOUT</a></li>
+								<li class="loginNav"><a href="${pageContext.request.contextPath}/logout/logout.mo?mId=${sessionScope.loginId}">LOGOUT</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:when>
