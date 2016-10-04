@@ -22,7 +22,7 @@ public class QnaModifyAction implements ActionInterFace {
 				 boolean result = false;
 				 
 				 int num=Integer.parseInt(request.getParameter("qna_no"));
-				   	String id = request.getParameter("id");
+				   	String id = request.getParameter("m_id");
 				    String pw = request.getParameter("qna_pass");
 				    System.out.println(num + "<- num");
 				    System.out.println(id + "<- id");
@@ -50,25 +50,24 @@ public class QnaModifyAction implements ActionInterFace {
 						forward.setRedirect(false);
 						forward.setPath("/Qna/QnaDetailAction.qn");
 				 } else {
-				 
-				 try{
-					 qnadto.setQna_no(num);
-					 qnadto.setQna_subject(request.getParameter("qna_subject"));
-					 qnadto.setQna_content(request.getParameter("qna_content"));
-					 
-					 result = qnadao.boardModify(qnadto);
-					/* if(result==false){
-				   		System.out.println("게시판 수정 실패");
-				   		return null;
-				   	 }*/
-				   	 System.out.println("게시판 수정 완료");
-				   	 
-				   	 forward.setRedirect(true);
-				   	 forward.setPath("/Qna/QnaDetailAction.qn?num="+qnadto.getQna_no());
-				   	 return forward;
-			   	 }catch(Exception ex){
-			   			ex.printStackTrace();	 
-				 }
+						 try{
+							 qnadto.setQna_no(num);
+							 qnadto.setQna_subject(request.getParameter("qna_subject"));
+							 qnadto.setQna_content(request.getParameter("qna_content"));
+							 
+							 result = qnadao.boardModify(qnadto);
+							/* if(result==false){
+						   		System.out.println("게시판 수정 실패");
+						   		return null;
+						   	 }*/
+						   	 System.out.println("게시판 수정 완료");
+						   	 
+						   	 forward.setRedirect(true);
+						   	 forward.setPath(request.getContextPath()+"/Qna/QnaDetailAction.qn?num="+qnadto.getQna_no());
+						   	 return forward;
+					   	 }catch(Exception ex){
+					   			ex.printStackTrace();	 
+						 }
 				 }
 				 
 				 return null;

@@ -23,9 +23,7 @@ public class QnaDetailAction implements ActionInterFace {
 	   	if(qnadto == null){
 	   		System.out.println("상세보기 실패");
 	   		return null;
-	   		
 	   	}else{
-	   		
 	   		System.out.println("상세보기 성공");
 			System.out.println(qnadto.getQna_no());
 		   	request.setAttribute("qnadto", qnadto);

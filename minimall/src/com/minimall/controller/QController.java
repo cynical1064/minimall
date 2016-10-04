@@ -94,7 +94,6 @@ public class QController extends HttpServlet {
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else if(command.equals("/Qna/QnaDeleteAction.qn")){	//삭제액션
