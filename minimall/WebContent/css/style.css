@@ -115,7 +115,7 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 #customSortWarp{width:100%; border-bottom:1px solid #ccc;}
 #customSortWarp h3{float:left;}
 #customSortWarp #sortList{float:right; padding-right:40px; padding-bottom:20px;}
-#customSortWarp #sortList li{float:left; font-size:12px; color:#ccc; padding:0 5px;}
+#customSortWarp #sortList li{float:left; font-size:12px; color:#434343; padding:0 5px; cursor:pointer;}
 #customSortWarp #sortList li span{font-size:8px;}
 #customListWrap{width:100%; height:auto; margin:0 auto; padding-top:28px; text-align:center;}
 #customListWrap li{width:23.3%; height:300px; float:left; padding:0 8px; padding-bottom:30px; text-align:center;}
@@ -123,6 +123,10 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 #customListWrap li a{text-decoration:none;}
 #customListWrap li a p{font-size:12px; color:#434343; line-height:1.5em; }
 
+/* paging ul */
+#pagingWrap{width:100%; margin:0 auto;}
+#pagingWrap #pagingContent{text-align:center;}
+#pagingWrap #pagingContent span{color:#434343; font-size:12px;}
 /* footer */
 #footer{width:100%; height:170px; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
 #footer #footerWrap{width:80%; height:100%; margin:0 auto;}

@@ -15,12 +15,7 @@
 	<table class="basic">
 	<c:choose>
 		<c:when test="${listcount>0}">	
-			<tr align="center" valign="middle">
-				<td colspan="4">문의하기</td>
-				<td align=right>
-					<font size=2>글 개수 : ${listcount}</font>
-				</td>
-			</tr>
+
 			<tr align="center" valign="middle" bordercolor="#333333">
 				<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
 					<div align="center">번호</div>
