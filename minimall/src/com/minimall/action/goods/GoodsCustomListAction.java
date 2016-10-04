@@ -46,7 +46,7 @@ public class GoodsCustomListAction implements ActionInterFace {
 		int endPage = startPage +10 -1;								//현재 페이지에 보여줄 마지막 페이지 번호
 		if(endPage > maxPage) endPage = maxPage;					//마지막 페이지 번호가 총 페이지 수보다 클 경우
 																	//endPage에 maxPage의 값을 담는다.
-		String ImageName;
+		String imageName;
 		String type;
 		
 		if(goodsListAllCount != 0) {
@@ -58,13 +58,13 @@ public class GoodsCustomListAction implements ActionInterFace {
 				goodsDto = goodsList.get(i);
 				
 				//저장되어있는 이미지의 확장자만 잘라서 변수에 담고 대문자를 소문자로 변환
-				ImageName = goodsDto.getG_image();
-				type = ImageName.substring(ImageName.lastIndexOf(".") + 1);
+				imageName = goodsDto.getG_image();
+				type = imageName.substring(imageName.lastIndexOf(".") + 1);
 				
 				//DB에서 가져온 여러개의 이미지의 이름에 경로를 붙여 File로 만든뒤 ByteArrayOutputStream.toByteArray()를 통해 byte[]로 만든다.
-				System.out.println(path + "\\" + ImageName + " : path");
+				System.out.println(path + "\\" + imageName + " : path");
 				//file = new File(path + "\\" + ImageName);
-				file = new File(path + "/" + ImageName);
+				file = new File(path + "/" + imageName);
 				if(file.exists()) {
 					BufferedImage image = ImageIO.read(file);
 					ByteArrayOutputStream baos = new ByteArrayOutputStream();

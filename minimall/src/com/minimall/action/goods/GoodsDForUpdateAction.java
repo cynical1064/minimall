@@ -3,6 +3,7 @@ package com.minimall.action.goods;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -25,20 +26,38 @@ public class GoodsDForUpdateAction implements ActionInterFace {
 		
 		GoodsDao goodsDao = new GoodsDao();
 		GoodsDto goodsDto = goodsDao.goodsSelectByGcode(gCode);
-
-		//이미지
-		File file = new File(goodsDto.getG_image());
-		BufferedImage image = ImageIO.read(file);
 		
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ImageIO.write(image,"png",baos);
-		baos.flush();
-		byte[] imageInByteArray = baos.toByteArray();
-		baos.close();
-		String b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
+		File file;
+		String b64;
+		ArrayList<String> b64Array = new ArrayList<String>();
+		//String path = request.getServletContext().getRealPath("goodsImage");
+		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
+		
+		if(goodsDto.getG_image() != null) {		//이미지가 있다면
+			String imageName = goodsDto.getG_image();
+			String type = imageName.substring(imageName.lastIndexOf(".") + 1);
+			
+			System.out.println(path + "/" + imageName + " : path");
+			//file = new File(path + "\\" + ImageName);
+			file = new File(path + "/" + imageName);
+			if(file.exists()) {
+				BufferedImage image = ImageIO.read(file);
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				ImageIO.write(image,type,baos);
+				baos.flush();
+				byte[] imageInByteArray = baos.toByteArray();
+				baos.close();
+				
+				b64 = javax.xml.bind.DatatypeConverter.printBase64Binary(imageInByteArray);
+			} else {
+				b64 = null;
+			}
+			b64Array.add(b64);
+		}
+		System.out.println("b64Array.size() : " + b64Array.size() + " GoodsCustomListAction.java");
+		request.setAttribute("b64", b64Array);
 		
 		request.setAttribute("goodsDto", goodsDto);
-		request.setAttribute("b64", b64);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
