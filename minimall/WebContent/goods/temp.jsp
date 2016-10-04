@@ -35,7 +35,7 @@
 					<c:when test="${listChk ne null}">
 						<c:forEach var="goods" items="${goodsList}" varStatus="status">
 							<!-- 기본적으로 a태그는 div를 감쌀 수 없지만 html5에 와서 허용이 된다. -->
-							<a href="javascript:void(0)">
+							<a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">
 								<div class="bf-item">
 									<img src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found">
 									<h4>${goods.g_name}</h4>
