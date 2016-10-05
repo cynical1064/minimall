@@ -26,26 +26,22 @@ public class GoodsDeleteAction implements ActionInterFace {
 		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
 		
 		GoodsDao goodsDao = new GoodsDao();
-		ArrayList<GoodsDto> goodsList = goodsDao.goodsSelectForDeleteByGCode(gCode);
+		GoodsDto goodsDto = goodsDao.goodsSelectForDeleteByGCode(gCode);
+
+		String imageName = goodsDto.getG_image();
 		
-		
-		for(int i=0; i<=goodsList.size(); i++) {
-			GoodsDto goodsDto = goodsList.get(i);
-			String imageName = goodsDto.getG_image();
-			
-			//File file = new File(path + "\\" + imageName);
-			File file = new File(path + "/" + imageName);
-			goodsDao.goodsDeleteByGcode(gCode);
-			if(file.exists()) {
-				if(file.delete()) {
-					System.out.println(imageName + " 이미지 삭제 완료!");
-					
-				} else {
-					System.out.println(imageName + " 이미지 삭제 실패!");
-				}
+		//File file = new File(path + "\\" + imageName);
+		File file = new File(path + "/" + imageName);
+		goodsDao.goodsDeleteByGcode(gCode);
+		if(file.exists()) {
+			if(file.delete()) {
+				System.out.println(imageName + " 이미지 삭제 완료!");
+				
 			} else {
-				System.out.println(imageName + " 이미지가 없습니다!");
+				System.out.println(imageName + " 이미지 삭제 실패!");
 			}
+		} else {
+			System.out.println(imageName + " 이미지가 없습니다!");
 		}
 		
 		ActionForward forward = new ActionForward();

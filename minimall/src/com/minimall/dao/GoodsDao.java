@@ -438,7 +438,7 @@ public class GoodsDao {
 	}
 	
 	//판매자가 선택한 gCode에 해당하는 상품의 이미지 이름을 가져오는 메서드입니다.
-	public ArrayList<GoodsDto> goodsSelectForDeleteByGCode(String gCode) throws SQLException {
+	public GoodsDto goodsSelectForDeleteByGCode(String gCode) throws SQLException {
 		System.out.println("09 goodsSelectForDeleteByGCode() GoodsDao.java");
 		System.out.println(gCode + " : gCode goodsSelectForDeleteByGCode() GoodsDao.java");
 		
@@ -451,17 +451,15 @@ public class GoodsDao {
 		System.out.println(pstmt + " : pstmt goodsSelectForDeleteByGCode() GoodsDao.java");
 		
 		rs = pstmt.executeQuery();
-		while(rs.next()) {
+		if(rs.next()) {
 			goodsDto = new GoodsDto();
 			rs.getString("g_code");
 			rs.getString("g_image");
-			
-			goodsList.add(goodsDto);
 		}
 		rs.close();
 		pstmt.close();
 		conn.close();
 		
-		return goodsList;
+		return goodsDto;
 	}
 }
