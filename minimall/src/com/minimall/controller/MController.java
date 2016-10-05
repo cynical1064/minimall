@@ -47,7 +47,9 @@ public class MController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String cutUrl = fullUrl.substring( request.getContextPath().length());
 		
-		System.out.println(cutUrl);
+		System.out.println(fullUrl + "<-fullUrl");
+		System.out.println(contextPath + "<-contextPath");
+		System.out.println(cutUrl + "<-cutUrl");
 
 		ActionForward forward = null;		
 		ActionInterFace action = null;
