@@ -15,8 +15,8 @@
 				<div id="customSortWarp" class="clearFix">
 					<h3>SHOP</h3>
 					<ul id="sortList">
-						<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?row=up" style="text-decoration: none">낮은가격 <span>▲</span></a></li>
-						<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?row=down" style="text-decoration: none">높은가격 <span>▼</span></a></li>
+						<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?row=up" style="text-decoration: none">높은가격 <span>▲</span></a></li>
+						<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?row=down" style="text-decoration: none">낮은가격 <span>▼</span></a></li>
 						<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?row=new" style="text-decoration: none">최신순</a></li>
 					</ul>
 				</div>	

@@ -25,6 +25,14 @@
 					return false;
 				}
 			});
+			
+			$('#qnaWrite').click(function(){
+				var sessionId = $('#sessionId').val();
+				if(sessionId == "") {
+					alert('로그인 후 이용해주세요.');
+					return false;
+				}
+			});
 		});
 	</script>
 	
@@ -133,7 +141,7 @@
 		</c:choose>
 		<tr align="right">
 			<td colspan="5">
-		   		<a href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">[글쓰기]</a>
+		   		<a id="qnaWrite" href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">[글쓰기]</a>
 			</td>
 		</tr>
 	</table>
