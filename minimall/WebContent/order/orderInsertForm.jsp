@@ -60,41 +60,41 @@ $(document).ready(function(){
 	<form class="orderForm" action="${pageContext.request.contextPath}/Oin/orderInsertPro.oo" method="post">		
 		<table class="basic orderForm">
 			<tr>
-				<td>상품명</td>
+				<td class="orderFormTitle">상품명</td>
 				<td>
 					<input type="hidden" name="gName" id="gName" value="${goods.g_name}">
 					${goods.g_name}
 				</td>
 			</tr>
 			<tr>
-				<td>판매자</td>
+				<td class="orderFormTitle">판매자</td>
 				<td>
 					<input type="hidden" name="gId" id="gId" value="${goods.g_id}">
 					${goods.g_id}
 				</td>
 			</tr>
 			<tr>
-				<td>가격</td>
+				<td class="orderFormTitle">가격</td>
 				<td>
 					<input type="hidden" name="gPrice" id="gPrice" value="${goods.g_price}">
 					${goods.g_price}
 				</td>
 			</tr>
 			<tr>
-				<td>수량</td>
+				<td class="orderFormTitle">수량</td>
 				<td>
 					<input name="oCount" id="oCount" value="1" >
 					<span id="upCount">▲ </span> <span id="downCount"> ▼ </span><span id="count"></span>
 				</td>
 			</tr>
 			<tr>
-				<td>합계</td>
+				<td class="orderFormTitle">합계</td>
 				<td>
 					<input name="oTotal" id="oTotal" value="${goods.g_price}" readonly="readonly">원
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="orderFormTitle">
 					원산지
 				</td>
 				<td>
@@ -102,7 +102,7 @@ $(document).ready(function(){
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="orderFormTitle">
 					배송
 				</td>
 				<td>

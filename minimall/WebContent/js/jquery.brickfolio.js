@@ -22,7 +22,7 @@
 		var _ = this, __ = {};
 
 		_.defaults = {
-			animation: '', // adds the specified animation class to the container. Available = 'swing-forward'|'fly'|'fall'
+			animation: 'fall', // adds the specified animation class to the container. Available = 'swing-forward'|'fly'|'fall'
 			filter: '', // a selector used to filter out items
 			itemSelector: '.bf-item', // the jQuery selector to find items within the container. Assuming default values this would be ".brickfolio .bf-item"
 			imageSelector: 'img:first', // the jQuery selector to find the main image within an item. Assuming default values this would be ".bf-item img:first"

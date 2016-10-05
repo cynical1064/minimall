@@ -28,7 +28,7 @@ public class MemberListAction implements ActionInterFace {
 		
 		ActionForward foward = new ActionForward();
 		foward.setRedirect(false);
-		foward.setPath("/member/mList.jsp");
+		foward.setPath("/mypage/mypageMember.jsp");
 		
 		return foward;
 	}

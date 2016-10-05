@@ -53,8 +53,30 @@
 				<dd></dd>
 			</dl>
 		</div>
-		<div>
-			
+		<div id="myPageContent">
+			<table class="basic">
+				<tr>
+					<td>이름</td><td>아이디</td><td>권한</td><td>이름</td><td>이메
+					일</td><td>가입날짜</td><td>주소</td><td>수정</td><td>삭제</td>
+				</tr>		
+				<c:forEach var="member" items="${alm}">		
+					<tr>
+						<td id="memberId">${member.m_id}</td>
+						<td>${member.m_pw}</td>
+						<td>${member.m_level}</td>
+						<td>${member.m_name}</td>
+						<td>${member.m_email}</td>
+						<td>${member.m_date}</td>
+						<td>${member.m_addr}</td>
+						<td>
+							<a href="${pageContext.request.contextPath}/member/mUpdateForm.mo?send_id=${member.m_id}">수정클릭</a>			
+						</td>
+						<td>
+							<a class="delMemberBtn" >삭제클릭</a>			
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 	</div>
 </div>

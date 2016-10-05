@@ -92,7 +92,6 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 
 /* orderForm */
 .orderForm{margin-top:15%;}
-
 .orderForm,
 .orderForm tr, 
 .orderForm th, 
@@ -103,6 +102,7 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 .orderForm #buyBtn{width:100px; color:#fff; background:#434343; line-height:2em; margin:20px 0; margin-left:30%; cursor:pointer}
 .orderForm #upCount,
 .orderForm #downCount{font-size:12px; cursor:pointer; padding:0 3px;}
+.orderForm .orderFormTitle{font-weight:bold;}
 /* tap */
 .tapTable{border:0;}
 .tapTable .goodsDetailTapBtn{background:#434343; font-size:14px; color:#fff; cursor:pointer; line-height:1.5em;}
@@ -139,12 +139,12 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 #footer #footerWrap #footInfoWrap dl dd{font-size:12px; color:#434343; line-height:1.5em;}
 
 /* mypage */
-#leftMenuWrap{width:33.3%; margin:0 auto; float:left;}
-#myPageContent{width:66.6%; float:left;}
+#leftMenuWrap{width:25%; margin:0 auto; float:left;}
+#myPageContent{width:75%; float:right;}
 
 #leftMenu{width:33.3%;}
 #leftMenu dt{font-size:18px; border-bottom:2px solid #ccc; padding-bottom:10px; color:#434343;}
-#leftMenu dd a{color:#434343; text-decoration: none; line-height:2em;}
+#leftMenu dd a{color:#434343; font-size:14px; text-decoration: none; line-height:2em;}
 #container .content #myPageContent #joinWarp{width:100%; height:100%; margin:0; padding-left:0;}
 /* clear≈¨∑°Ω∫ */
 .clearFix:after{content:""; display:block; clear:both;} 

@@ -12,7 +12,7 @@
 <script src="js/jquery.brickfolio.js"></script>
 <script>
 	$(document).ready(function(){
-		$('.brickfolio').brickfolio();		
+		 $('.brickfolio').brickfolio();
 	});
 </script>
 </head>
