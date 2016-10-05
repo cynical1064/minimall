@@ -58,7 +58,7 @@
 </c:when>
 <c:when test="${sessionScope.loginChk == 3}">
 	<script>
-		alert("중복 로그인 되었습니다.");
+		alert("중복 로그인 확인! 접속한 아이디를 로그아웃하고 새로 접속합니다.");
 	</script>
 	<c:set var="loginChk" scope="session" />
 </c:when>

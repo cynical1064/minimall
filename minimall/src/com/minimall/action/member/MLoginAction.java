@@ -43,7 +43,22 @@ public class MLoginAction implements ActionInterFace {
 				String usingId = loginCheck.getUserID(session);
 				System.out.println(usingId+" <--usingId");
 				//세션영역에 셋팅
-			}else{				
+			}else{
+				
+				
+				System.out.println(chkMember.getm_name());
+				System.out.println(chkMember.getm_level());			
+				String loginLevel = chkMember.getm_level();
+				String loginName = chkMember.getm_name();
+				String loginId = chkMember.getm_id();
+				loginCheck.removeSession(loginId);
+				//객체안에 담긴 값을 변수에 담고			 
+				session.setAttribute("loginLevel", loginLevel);
+				session.setAttribute("loginName", loginName);
+				session.setAttribute("loginId", loginId);
+				loginCheck.setSession(session, loginId);
+				String usingId = loginCheck.getUserID(session);
+				System.out.println(usingId+" <--usingId");
 				session.setAttribute("loginChk", 3);
 			}
 		}else{
