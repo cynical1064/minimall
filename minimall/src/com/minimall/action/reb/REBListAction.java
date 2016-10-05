@@ -42,7 +42,7 @@ public class REBListAction implements ActionInterFace {
 		request.setAttribute("startpage", startpage); //현재 페이지에 표시할 첫 페이지 수
 		request.setAttribute("endpage", endpage); //현재 페이지에 표시할 끝 페이지 수
 		request.setAttribute("listcount",listcount); //글 수
-		request.setAttribute("qnalist", reblist);
+		request.setAttribute("reblist", reblist);
 		
 		System.out.println(page + " : page");
 		System.out.println(listcount+"<-listcount");

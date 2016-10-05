@@ -12,24 +12,24 @@ public class REBDetailAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
 		request.setCharacterEncoding("UTF-8");
   		
-		REBDao rebdao=new REBDao();
-		REBDto rebdto=new REBDto();
+		REBDao rebDao=new REBDao();
+		REBDto rebDto=new REBDto();
 	   	
 		int num=Integer.parseInt(request.getParameter("num"));
 		System.out.println(num);
-		rebdao.setReadCountUpdate(num);
-		rebdto=rebdao.getDetail(num);
+		rebDao.setReadCountUpdate(num);
+		rebDto=rebDao.getDetail(num);
 		
-	   	if(rebdto == null){
+	   	if(rebDto == null){
 	   		System.out.println("상세보기 실패");
 	   		return null;
 	   		
 	   	}else{
 	   		
 	   		System.out.println("상세보기 성공");
-			System.out.println(rebdto.getReb_no());
-		   	request.setAttribute("qnadto", rebdto);
-		   	System.out.println(rebdto + ": qnadto");
+			System.out.println(rebDto.getReb_no());
+		   	request.setAttribute("rebDto", rebDto);
+		   	System.out.println(rebDto + ": rebDto");
 		   	
 		   	ActionForward forward = new ActionForward();
 		   	forward.setRedirect(false);
