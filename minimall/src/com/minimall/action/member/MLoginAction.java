@@ -23,18 +23,14 @@ public class MLoginAction implements ActionInterFace {
 		MemberDto chkMember = dao.userCheck(mId, mPw);
 
 		//리턴된 멤버객체를 받아 
-		if(chkMember != null){
-			
-			System.out.println("로그인 성공");
-			
+		if(chkMember != null){			
+			System.out.println("로그인 성공");			
 			System.out.println(chkMember.getm_name());
-			System.out.println(chkMember.getm_level());
-			
+			System.out.println(chkMember.getm_level());			
 			String loginLevel = chkMember.getm_level();
 			String loginName = chkMember.getm_name();
 			String loginId = chkMember.getm_id();
-			//객체안에 담긴 값을 변수에 담고
-			 
+			//객체안에 담긴 값을 변수에 담고			 
 			session.setAttribute("loginLevel", loginLevel);
 			session.setAttribute("loginName", loginName);
 			session.setAttribute("loginId", loginId);

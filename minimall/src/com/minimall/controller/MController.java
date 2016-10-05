@@ -130,7 +130,7 @@ public class MController extends HttpServlet {
 			
 		}else if(cutUrl.equals("/logout/logout.mo")){
 			System.out.println("肺弊酒眶 贸府");
-			try{
+/*			try{
 				
 				action = new MemberLogoutAction();
 				forward = action.execute(request, response);
@@ -139,13 +139,13 @@ public class MController extends HttpServlet {
 				
 				e.printStackTrace();
 				
-			}
-			/*
+			}*/
+			
 			HttpSession session=request.getSession();
 			session.invalidate();
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath(request.getHeader("referer"));*/
+			forward.setPath(request.getHeader("referer"));
 			
 		}else if(cutUrl.equals("/member/MemberDeleteAction.mo")){ //member 昏力 贸府
             System.out.println("member 昏力 贸府");
