@@ -38,12 +38,12 @@
 					<div align="center">조회수</div>
 				</td>
 			</tr>
-			<c:forEach var="list" items="${reblist}" varStatus="i">
+			<c:forEach var="list2" items="${reblist}" varStatus="i">
 				<tr align="center" valign="middle" bordercolor="#333333"
 					onmouseover="this.style.backgroundColor='F8F8F8'"
 					onmouseout="this.style.backgroundColor=''">
 					<td height="23" style="font-family:Tahoma;font-size:10pt;">
-						${list.reb_no}
+						${list2.reb_no}
 					</td>
 				
 					<td style="font-family:Tahoma;font-size:10pt;">
@@ -56,20 +56,20 @@
 						<%}else{ %>
 							▶
 						<%} %> --%>
-						<a href="${pageContext.request.contextPath}/Reb/rebDetailAction.reb?num=${list.reb_no}">
-							${list.reb_subject}
+						<a href="${pageContext.request.contextPath}/Reb/rebDetailAction.reb?num=${list2.reb_no}">
+							${list2.reb_subject}
 						</a>
 						</div>
 					</td>
 			
 					<td style="font-family:Tahoma;font-size:10pt;">
-						<div align="center">${list.m_id}</div>
+						<div align="center">${list2.m_id}</div>
 					</td>
 					<td style="font-family:Tahoma;font-size:10pt;">
-						<div align="center">${list.reb_date}</div>
+						<div align="center">${list2.reb_date}</div>
 					</td>	
 					<td style="font-family:Tahoma;font-size:10pt;">
-						<div align="center">${list.reb_readcount}</div>
+						<div align="center">${list2.reb_readcount}</div>
 					</td>
 				</tr>
 			</c:forEach>

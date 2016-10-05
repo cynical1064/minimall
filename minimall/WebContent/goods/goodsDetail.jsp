@@ -11,7 +11,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
 	var qnaUrl = "${pageContext.request.contextPath}/Qna/QnaList.qn";
-	var reviewUrl = "${pageContext.request.contextPath}/board/BoardList.reb";
+	var rebUrl = "${pageContext.request.contextPath}/Reb/rebList.reb";
 	$(document).ready(function(){
 		$.get(qnaUrl, {page:1}, function(data){
 
@@ -21,7 +21,7 @@
 		
 		
 		
-		$.get(reviewUrl, {page:1}, function(data){
+		$.get(rebUrl, {page:1}, function(data){
 			
 			$('#list2').html(data);	
 		
@@ -83,7 +83,7 @@
 
 	
 	function getPage2(no){
-		$.get(reviewUrl, {page:no}, function(data){
+		$.get(rebUrl, {page:no}, function(data){
 			
 			$('#list2').html(data);	
 			
@@ -93,7 +93,7 @@
 	
 	function getNextBlock2(no){
 		
-		$.get(reviewUrl, {page:no}, function(data){
+		$.get(rebUrl, {page:no}, function(data){
 			
 			$('#list2').html(data);	
 			

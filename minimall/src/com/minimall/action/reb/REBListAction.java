@@ -14,7 +14,7 @@ import com.minimall.inter.ActionInterFace;
 public class REBListAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		System.out.println("리스트 execute호출com.minimall.action.QnaListAction"); 
-		REBDao REBDao=new REBDao();
+		REBDao rebDao=new REBDao();
 		List reblist=new ArrayList();
 		
 		int page=1;
@@ -24,8 +24,8 @@ public class REBListAction implements ActionInterFace {
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int listcount=REBDao.getListCount(); //총 리스트 수를 받아옴
-		reblist = REBDao.getRebList(page,limit); //리스트를 받아옴
+		int listcount=rebDao.getListCount(); //총 리스트 수를 받아옴
+		reblist = rebDao.getRebList(page,limit); //리스트를 받아옴
 		
 		//총 페이지 수
 		int maxpage=(int)((double)listcount/limit+0.95); //0.95를 더해서 올림 처리
