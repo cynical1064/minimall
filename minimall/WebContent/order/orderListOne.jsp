@@ -104,7 +104,7 @@
 								<span> [이전] </span>
 							</c:when>
 							<c:otherwise>
-								<span><a href="${pageContext.request.contextPath}/Oli/orderList.oo?page=${page-1}"> [이전] </a>&nbsp;</span>
+								<span><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo?page=${page-1}"> [이전] </a>&nbsp;</span>
 							</c:otherwise>
 						</c:choose>
 					</c:if>
@@ -114,7 +114,7 @@
 								<span>[${status.count}]</span>
 							</c:when>
 							<c:otherwise>
-								<span><a href="${pageContext.request.contextPath}/Oli/orderList.oo?page=${status.count}">[${status.count}]</a></span>
+								<span><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo?page=${status.count}">[${status.count}]</a></span>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -124,7 +124,7 @@
 								<span> [다음] </span>
 							</c:when>
 							<c:otherwise>
-								<span><a href="${pageContext.request.contextPath}/Oli/orderList.oo?page=${page+1}"> [다음] </a></span>
+								<span><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo?page=${page+1}"> [다음] </a></span>
 							</c:otherwise>
 						</c:choose>	
 					</c:if>							

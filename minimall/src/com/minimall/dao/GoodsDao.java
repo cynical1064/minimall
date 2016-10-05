@@ -185,9 +185,33 @@ public class GoodsDao {
 		return count;
 	}
 	
+	//특정 회원 주문리스트 글 개수 구하기
+	public int getListCountOne(String sellerId) throws SQLException {
+		System.out.println("03_1 getListCountOne() GoodsDao.java");
+		int count = 0;
+		
+		conn = ds.getConnection();
+		
+		//goods 테이블에서 특정 회원의 전체 주문 리스트를 가져오는 select 쿼리문 입니다.
+		pstmt = conn.prepareStatement("SELECT count(*) FROM goods WHERE g_id = ?");
+		pstmt.setString(1, sellerId);
+		rs = pstmt.executeQuery();		
+		
+		if(rs.next()) {
+			count = rs.getInt(1);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		System.out.println(count + " : 글 갯수");
+		
+		return count;
+	}
+	
 	//구매자를 위한 select! 상품 중 승인여부가 Y인 것만 가져오기
 	public ArrayList<GoodsDto> goodsSelectForCustom(int page, int limit) throws SQLException {
-		System.out.println("03_1 goodsSelectForCustom() GoodsDao.java");
+		System.out.println("03_2 goodsSelectForCustom() GoodsDao.java");
 		
 		conn = ds.getConnection();
 		
@@ -316,7 +340,7 @@ public class GoodsDao {
 		
 		//goods테이블의 데이터 중 판매자 아이디에 해당하는 것만 가져오는 select 쿼리문 입니다.
 		String sql = "SELECT g_code, g_name, g_cate, g_sangse, g_price, g_date FROM goods";
-		sql += " WHERE g_id=? limit ?, ?";
+		sql += " WHERE g_id=? limit ?, ?";	
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, sellerId);
 		pstmt.setInt(2, startRow-1);
