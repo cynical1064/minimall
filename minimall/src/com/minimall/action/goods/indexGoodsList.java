@@ -34,8 +34,8 @@ public class indexGoodsList implements ActionInterFace {
 		String ImageName;
 		String type;
 		
-		//String path = request.getServletContext().getRealPath("goodsImage");
-		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
+		String path = request.getServletContext().getRealPath("goodsImage");
+		//String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
 		
 		goodsList = goodsDao.goodsSelectOrderByDate();
 		goodsListCount = goodsList.size();

@@ -174,18 +174,18 @@ public class REBDao {
 					rs = pstmt.executeQuery();
 					
 					while(rs.next()){
-						REBDto REBDto = new REBDto();
-						REBDto.setReb_no(rs.getInt("reb_no"));
-						REBDto.setReb_subject(rs.getString("reb_subject"));
-						REBDto.setM_id(rs.getString("m_id"));
-						REBDto.setReb_content(rs.getString("reb_content"));
-						REBDto.setReb_secret(rs.getString("reb_secret"));
-						REBDto.setReb_category(rs.getString("reb_category"));
-						REBDto.setReb_date(rs.getDate("reb_date"));
-						REBDto.setReb_readcount(rs.getInt("reb_readcount"));
-						REBDto.setG_code(rs.getString("g_code"));
-						System.out.println(REBDto.getG_code());
-						list.add(REBDto);
+						REBDto rebDto = new REBDto();
+						rebDto.setReb_no(rs.getInt("reb_no"));
+						rebDto.setReb_subject(rs.getString("reb_subject"));
+						rebDto.setM_id(rs.getString("m_id"));
+						rebDto.setReb_content(rs.getString("reb_content"));
+						rebDto.setReb_secret(rs.getString("reb_secret"));
+						rebDto.setReb_category(rs.getString("reb_category"));
+						rebDto.setReb_date(rs.getDate("reb_date"));
+						rebDto.setReb_readcount(rs.getInt("reb_readcount"));
+						rebDto.setG_code(rs.getString("g_code"));
+						System.out.println(rebDto.getG_code());
+						list.add(rebDto);
 					}
 				}catch(Exception ex){
 					System.out.println("getQnaList ¿¡·¯ : " + ex);
