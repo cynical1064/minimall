@@ -33,6 +33,7 @@ public class REBAddAction implements ActionInterFace {
 			rebDto.setReb_category(request.getParameter("reb_category"));
 			rebDto.setG_code(request.getParameter("g_code"));
 			
+			
 			System.out.println(rebDto.getReb_subject() + " <- rebDto.getreb_subject()");
 			System.out.println(rebDto.getM_id() + " <- rebDto.getM_id()");
 			System.out.println(rebDto.getReb_content() + " <- rebDto.getreb_content()");
