@@ -13,7 +13,7 @@ public class MLoginAction implements ActionInterFace {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		 
 		HttpSession session=request.getSession();
 		
 		String mId = request.getParameter("mId"); 

@@ -24,7 +24,7 @@ import com.minimall.inter.ActionInterFace;
 
 @WebServlet("/Mcontroller")
 public class MController extends HttpServlet {	
-
+ 
     public MController() { 
         super();
        
