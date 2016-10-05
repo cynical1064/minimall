@@ -37,17 +37,14 @@
 						<dd><a href="${pageContext.request.contextPath}/Mli/mList.mo">Member</a></dd>
 						<dd><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go">승인대기</a></dd>
 						<dd><a href="${pageContext.request.contextPath}/Oli/orderList.oo">입금확인</a></dd>
-						<dd><a>게시글 관리</a></dd>
 					</c:when>
 					<c:when test="${sessionScope.loginLevel == '판매자'}">
 						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">개인정보수정</a></dd>
 						<dd><a href="${pageContext.request.contextPath}/Glist/goodsSellerList.go">등록상품</a></dd>
-						<dd><a>게시글 관리</a></dd>
 					</c:when>
 					<c:otherwise>
 						<dd><a href="${pageContext.request.contextPath}/Mup/mUpdateForm.mo">개인정보수정</a></dd>
 						<dd><a href="${pageContext.request.contextPath}/Oli/orderListOne.oo">주문 리스트</a></dd>
-						<dd><a>게시글 관리</a></dd>
 					</c:otherwise>
 				</c:choose>
 				<dd></dd>
