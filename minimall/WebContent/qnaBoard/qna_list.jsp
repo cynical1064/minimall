@@ -87,15 +87,15 @@
 								<a style="cursor:pointer;" onclick="getPage('${a.count}')">[${a.count}]</a>&nbsp;
 							</c:otherwise>
 						</c:choose>			
-						<c:choose>
-							<c:when test="${page>=maxpage}">
-								[다음]
-							</c:when>
-							<c:otherwise>
-								<a style="cursor:pointer;"  onclick="getNextBlock('${page+1}')">[다음]</a>
-							</c:otherwise>
-						</c:choose>
 					</c:forEach>
+					<c:choose>
+						<c:when test="${page>=maxpage}">
+							[다음]
+						</c:when>
+						<c:otherwise>
+							<a style="cursor:pointer;"  onclick="getNextBlock('${page+1}')">[다음]</a>
+						</c:otherwise>
+					</c:choose>
 				</td>
 			</tr>
 			</c:when>
