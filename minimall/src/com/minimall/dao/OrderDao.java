@@ -73,13 +73,21 @@ public class OrderDao {
 	}
 	
 	//주문리스트 조회 메서드
-	public ArrayList<OrderDto> orderSelectAll() throws SQLException{
+	public ArrayList<OrderDto> orderSelectAll(int page, int limit) throws SQLException{
 		System.out.println("orderSelectAll OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
+		
+		int startRow = (page-1) *10 +1;
+		int endRow = startRow +limit -1;
+		System.out.println(startRow + "<- startRow");
+		System.out.println(endRow + "<- endRow");
+		
 		sql = "select o.o_no, m.m_id, g.g_id, date_format(o.o_date, '%y-%m-%d') as o_date, g.g_code, o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
-				+ "from orders o inner join goods g on o.g_code = g.g_code inner join member m on m.m_id = o.m_id order by o.o_no asc";
+				+ "from orders o inner join goods g on o.g_code = g.g_code inner join member m on m.m_id = o.m_id order by o.o_no asc limit ?,?";
 		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, startRow-1);
+		pstmt.setInt(2, endRow);
 		rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
@@ -107,16 +115,24 @@ public class OrderDao {
 	}
 	
 	//구매자 조회 리스트 메서드
-	public ArrayList<OrderDto> orderListOne(String mId) throws SQLException {
+	public ArrayList<OrderDto> orderListOne(String mId, int page, int limit) throws SQLException {
 		System.out.println("orderListOne OrderDao.java");
 		String sql = null;
 		conn = ds.getConnection();
+		
+		int startRow = (page-1) *10 +1;
+		int endRow = startRow +limit -1;
+		System.out.println(startRow + "<- startRow");
+		System.out.println(endRow + "<- endRow");
+		
 		sql = "select o.o_no, m.m_id, g.g_id, date_format(o.o_date, '%y-%m-%d') as o_date, g.g_code, "
 				+ "o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
 				+ "from orders o inner join goods g on o.g_code = g.g_code inner join "
-				+ "member m on m.m_id = o.m_id where o.m_id = ? order by o.o_no asc";
+				+ "member m on m.m_id = o.m_id where o.m_id = ? order by o.o_no asc limit ?, ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, mId);
+		pstmt.setInt(2, startRow-1);
+		pstmt.setInt(3, endRow);
 		rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
@@ -178,5 +194,52 @@ public class OrderDao {
 		pstmt.close();
 		conn.close();
 		
+	}
+	
+	//전체 주문리스트 글 개수 구하기
+	public int getListCount() throws SQLException {
+		System.out.println("getListCount() OrderDao.java");
+		int count = 0;
+		
+		conn = ds.getConnection();
+		
+		//orders테이블의 전체 데이터 갯수 가져오는 select 쿼리문 입니다.
+		pstmt = conn.prepareStatement("SELECT count(*) FROM orders");
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			count = rs.getInt(1);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		System.out.println(count + " : 글 갯수");
+		
+		return count;
+	}
+	
+	//특정 회원 주문리스트 글 개수 구하기
+	public int getListCountOne(String mId) throws SQLException {
+		System.out.println("getListCountOne() OrderDao.java");
+		int count = 0;
+		
+		conn = ds.getConnection();
+		
+		//orders테이블에서 특정 회원의 전체 주문 리스트를 가져오는 select 쿼리문 입니다.
+		pstmt = conn.prepareStatement("SELECT count(*) FROM orders WHERE m_id = ?");
+		pstmt.setString(1, mId);
+		rs = pstmt.executeQuery();		
+		
+		if(rs.next()) {
+			count = rs.getInt(1);
+		}
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		System.out.println(count + " : 글 갯수");
+		
+		return count;
 	}
 }

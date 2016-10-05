@@ -25,6 +25,7 @@ public class GoodsDao {
 	ArrayList<GoodsDto> goodsList = new ArrayList<GoodsDto>();
 	Blob blob = null;
 	
+	
 	public GoodsDao() {
 		try {
 			Context init = new InitialContext();
@@ -89,14 +90,19 @@ public class GoodsDao {
 	}
 
 	//상품 전체 SELECT
-	public ArrayList<GoodsDto> goodsSelectAll() throws SQLException, IOException {
+	public ArrayList<GoodsDto> goodsSelectAll(int page, int limit) throws SQLException, IOException {
 		System.out.println("02_0 goodsSelectAll() GoodsDao.java");
 		
 		conn = ds.getConnection();
 		
+		int startRow = (page-1) *10 +1;
+		int endRow = startRow +limit -1;
+		
 		//goods테이블의 전체 데이터를 가져오는 select 쿼리문 입니다.
-		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_agree, g_image FROM goods";
+		String sql = "SELECT g_code, g_name, g_id, g_cate, g_sangse, g_price, g_date, g_agree, g_image FROM goods limit ?, ?";
 		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, startRow-1);
+		pstmt.setInt(2, endRow);
 		System.out.println(pstmt + " : pstmt goodsSelectAll() GoodsDao.java");
 		rs = pstmt.executeQuery();
 		
@@ -342,15 +348,14 @@ public class GoodsDao {
 		
 		//gcode에 해당하는 데이터를 입력한 값에 따라 수정하는 update 쿼리문 입니다.
 		String sql = "UPDATE goods SET";
-		sql += " g_name=?, g_cate=?, g_sangse=?, g_price=?, g_image=?";
+		sql += " g_name=?, g_cate=?, g_sangse=?, g_price=?";
 		sql += " WHERE g_code=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, goodsDto.getG_name());
 		pstmt.setString(2, goodsDto.getG_cate());
 		pstmt.setString(3, goodsDto.getG_sangse());
 		pstmt.setInt(4, goodsDto.getG_price());
-		pstmt.setString(5, goodsDto.getG_image());
-		pstmt.setString(6, goodsDto.getG_code());
+		pstmt.setString(5, goodsDto.getG_code());
 		System.out.println(pstmt + " : pstmt goodsUpdateByGcode() GoodsDao.java");
 		
 		int result = pstmt.executeUpdate();

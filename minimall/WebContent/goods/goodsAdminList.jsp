@@ -69,9 +69,43 @@
 						</td>
 					</tr>
 				</table>
-			</form>
-			</div>
+				<div id="pagingWrap" class="clearFix">
+					<div id="pagingContent">	
+						<c:if test="${page >= 1}">
+							<c:choose>
+								<c:when test="${page == startPage}">
+									<span> [이전] </span>
+								</c:when>
+								<c:otherwise>
+									<span><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go?page=${page-1}"> [이전] </a>&nbsp;</span>
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+						<c:forEach begin="${startPage}" end="${endPage}" varStatus="status">
+							<c:choose>
+								<c:when test="${status.count == page}">
+									<span>[${status.count}]</span>
+								</c:when>
+								<c:otherwise>
+									<span><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go?page=${status.count}">[${status.count}]</a></span>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:if test="${page <= endPage}">
+							<c:choose>
+								<c:when test="${page == endPage}">
+									<span> [다음] </span>
+								</c:when>
+								<c:otherwise>
+									<span><a href="${pageContext.request.contextPath}/Glist/goodsAdminList.go?page=${page+1}"> [다음] </a></span>
+								</c:otherwise>
+							</c:choose>	
+						</c:if>							
+					</div>
+				</div>
+			</form>			
 		</div>
-		<jsp:include page = "/module/footer.jsp" />
+	</div>
+	<jsp:include page = "/module/footer.jsp" />
 	</body>
 </html>
