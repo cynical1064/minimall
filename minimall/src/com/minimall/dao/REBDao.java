@@ -174,7 +174,7 @@ public class REBDao {
 					rs = pstmt.executeQuery();
 					
 					while(rs.next()){
-						REBDto rebDto = new REBDto();
+						rebDto = new REBDto();
 						rebDto.setReb_no(rs.getInt("reb_no"));
 						rebDto.setReb_subject(rs.getString("reb_subject"));
 						rebDto.setM_id(rs.getString("m_id"));
@@ -206,18 +206,21 @@ public class REBDao {
 					pstmt.setInt(1, num);
 					
 					rs= pstmt.executeQuery();
-					
+				
 					if(rs.next()){
-						REBDto rebDto= new REBDto();
+						rebDto= new REBDto();
 						rebDto.setReb_no(rs.getInt("reb_no"));				
+						System.out.println(rebDto.getReb_no());
 						rebDto.setReb_subject(rs.getString("reb_subject"));
 						rebDto.setM_id(rs.getString("m_id"));
+						System.out.println("m_id : " + rebDto.getM_id());
 						rebDto.setReb_content(rs.getString("reb_content"));
 						rebDto.setReb_secret(rs.getString("reb_secret"));
 						rebDto.setReb_category(rs.getString("reb_category"));
 						rebDto.setReb_date(rs.getDate("reb_date"));
 						rebDto.setReb_readcount(rs.getInt("reb_readcount"));
 					}
+					
 				}catch(Exception ex){
 					System.out.println("getDetail ¿¡·¯ : " + ex);
 				}finally{
@@ -354,3 +357,25 @@ public class REBDao {
 			}
 }
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

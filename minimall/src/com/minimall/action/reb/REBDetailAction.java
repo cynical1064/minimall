@@ -1,3 +1,4 @@
+
 package com.minimall.action.reb;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,10 +17,11 @@ public class REBDetailAction implements ActionInterFace {
 		REBDto rebDto=new REBDto();
 	   	
 		int num=Integer.parseInt(request.getParameter("num"));
-		System.out.println(num);
+		System.out.println("num:"+num);
 		rebDao.setReadCountUpdate(num);
 		rebDto=rebDao.getDetail(num);
-		
+		//System.out.println(rebDao.getDetail(num));
+		System.out.println(rebDto);
 	   	if(rebDto == null){
 	   		System.out.println("상세보기 실패");
 	   		return null;
@@ -40,3 +42,6 @@ public class REBDetailAction implements ActionInterFace {
 
 	 }
 }
+
+
+
