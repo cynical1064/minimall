@@ -28,54 +28,54 @@
 							</div>
 						</c:when>
 						<c:when test="${listChk ne null}">
-						<ul id="customListWrap" class="clearFix">
-							<c:forEach var="goods" items="${goodsList}" varStatus="status">
-								<li>
-									<a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">
-										<%-- <span>${status.count}</span> --%>
-										<p><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" /></p>
-										<p><span>상품명 : </span>${goods.g_name}</p>
-										<p><span>판매자 : </span>${goods.g_id}</p>
-										<p><span>가격 : </span>&#8361; ${goods.g_price}</p>
-									</a>
-								</li>	
-							</c:forEach>
-						</ul>
-						<div id="pagingWrap" class="clearFix">
-							<div id="pagingContent">	
-								<c:if test="${page >= 1}">
-									<c:choose>
-										<c:when test="${page == startPage}">
-											<span> [이전] </span>
-										</c:when>
-										<c:otherwise>
-											<span><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${page-1}"> [이전] </a>&nbsp;</span>
-										</c:otherwise>
-									</c:choose>
-								</c:if>
-								<c:forEach begin="${startPage}" end="${endPage}" varStatus="status">
-									<c:choose>
-										<c:when test="${status.count == page}">
-											<span>[${status.count}]</span>
-										</c:when>
-										<c:otherwise>
-											<span><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${status.count}">[${status.count}]</a></span>
-										</c:otherwise>
-									</c:choose>
+							<ul id="customListWrap" class="clearFix">
+								<c:forEach var="goods" items="${goodsList}" varStatus="status">
+									<li>
+										<a href="${pageContext.request.contextPath}/Gdetail/goodsDetailAction.go?gCode=${goods.g_code}">
+											<%-- <span>${status.count}</span> --%>
+											<p><img id="customImage" src="data:image/${gImageType[status.index]};base64, ${b64[status.index]}" alt="image not found" /></p>
+											<p><span>상품명 : </span>${goods.g_name}</p>
+											<p><span>판매자 : </span>${goods.g_id}</p>
+											<p><span>가격 : </span>&#8361; ${goods.g_price}</p>
+										</a>
+									</li>
 								</c:forEach>
-								<c:if test="${page <= endPage}">
-									<c:choose>
-										<c:when test="${page == endPage}">
-											<span> [다음] </span>
-										</c:when>
-										<c:otherwise>
-											<span><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${page+1}"> [다음] </a></span>
-										</c:otherwise>
-									</c:choose>	
-								</c:if>							
-							</div>
-						</div>	
-						</c:when>						
+							</ul>
+							<div id="pagingWrap" class="clearFix">
+								<div id="pagingContent">
+									<c:if test="${page >= 1}">
+										<c:choose>
+											<c:when test="${page == startPage}">
+												<span> [이전] </span>
+											</c:when>
+											<c:otherwise>
+												<span><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${page-1}"> [이전] </a>&nbsp;</span>
+											</c:otherwise>
+										</c:choose>
+									</c:if>
+									<c:forEach begin="${startPage}" end="${endPage}" varStatus="status">
+										<c:choose>
+											<c:when test="${status.count == page}">
+												<span>[${status.count}]</span>
+											</c:when>
+											<c:otherwise>
+												<span><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${status.count}">[${status.count}]</a></span>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+									<c:if test="${page <= endPage}">
+										<c:choose>
+											<c:when test="${page == endPage}">
+												<span> [다음] </span>
+											</c:when>
+											<c:otherwise>
+												<span><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?page=${page+1}"> [다음] </a></span>
+											</c:otherwise>
+										</c:choose>	
+									</c:if>
+								</div>
+							</div>	
+						</c:when>
 					</c:choose>
 				</div>
 			</div>

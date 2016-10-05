@@ -14,6 +14,7 @@ import com.minimall.action.qna.QnaAddAction;
 import com.minimall.action.qna.QnaDeleteAction;
 import com.minimall.action.qna.QnaDeleteFormAction;
 import com.minimall.action.qna.QnaDetailAction;
+import com.minimall.action.qna.QnaGcodeListAction;
 import com.minimall.action.qna.QnaListAction;
 import com.minimall.action.qna.QnaModifyAction;
 import com.minimall.action.qna.QnaModifyView;
@@ -90,6 +91,7 @@ public class QController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/Qna/QnaDeleteForm.qn")){	//글삭제폼
+	    	System.out.println("04_07 조건문 내 /Qna/QnaDeleteForm.qn QController.java");
 			action = new QnaDeleteFormAction();
 			try {
 				forward = action.execute(request, response);
@@ -97,6 +99,7 @@ public class QController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/Qna/QnaDeleteAction.qn")){	//삭제액션
+	    	System.out.println("04_08 조건문 내 /Qna/QnaDeleteAction.qn QController.java");
 			action = new QnaDeleteAction();
 			try{
 				forward=action.execute(request, response);
@@ -104,6 +107,7 @@ public class QController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/Qna/QnaModify.qn")){		//글수정
+	    	System.out.println("04_09 조건문 내 /Qna/QnaModify.qn QController.java");
 			action = new QnaModifyView();
 			try{
 				forward=action.execute(request, response);
@@ -111,10 +115,19 @@ public class QController extends HttpServlet {
 				e.printStackTrace();
 			}
 	 	}else if(command.equals("/Qna/QnaModifyAction.qn")){	//수정액션
+	    	System.out.println("04_09 조건문 내 /Qna/QnaModifyAction.qn QController.java");
 			action = new QnaModifyAction();
 			try{
 				forward=action.execute(request, response);
 			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Qna/QnaGcodeList.qn")) {	//상품별 리스트
+			System.out.println("04_10 조건문 내 /Qna/QnaGcodeList.qn QController.java");
+	    	action = new QnaGcodeListAction();
+	    	try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

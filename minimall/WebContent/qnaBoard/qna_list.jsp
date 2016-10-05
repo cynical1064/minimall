@@ -117,7 +117,7 @@
 							<c:otherwise>
 								<a style="cursor:pointer;" onclick="getPage('${a.count}')">[${a.count}]</a>&nbsp;
 							</c:otherwise>
-						</c:choose>			
+						</c:choose>
 					</c:forEach>
 					<c:choose>
 						<c:when test="${page>=maxpage}">

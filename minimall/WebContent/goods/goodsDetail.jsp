@@ -10,7 +10,7 @@
 <link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
-	var qnaUrl = "${pageContext.request.contextPath}/Qna/QnaList.qn";
+	var qnaUrl = "${pageContext.request.contextPath}/Qna/QnaGcodeList.qn?gCode=${goods.g_code}";
 	var rebUrl = "${pageContext.request.contextPath}/Reb/rebList.reb";
 	$(document).ready(function(){
 		$.get(qnaUrl, {page:1}, function(data){
