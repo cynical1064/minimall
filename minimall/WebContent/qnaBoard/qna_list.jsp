@@ -141,7 +141,7 @@
 		</c:choose>
 		<tr align="right">
 			<td colspan="5">
-		   		<a id="qnaWrite" href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn">[글쓰기]</a>
+		   		<a id="qnaWrite" href="${pageContext.request.contextPath}/Qna/QnaAddWrite.qn?gCode=${gCode}">[글쓰기]</a>
 			</td>
 		</tr>
 	</table>

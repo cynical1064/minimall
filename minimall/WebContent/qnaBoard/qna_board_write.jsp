@@ -20,6 +20,7 @@
 		<!-- 게시판 등록 -->
 		<form action="${pageContext.request.contextPath}/Qna/QnaAddAction.qn" method="post" name="boardform">	
 		<input type="hidden" name="mId" size="20" value="${sessionScope.loginId}">
+		<input type="hidden" name="gCode" value="${param.gCode}"/>
 		<table class="basic">
 			<tr align="center" valign="middle">
 				<td colspan="5">문의하기</td>

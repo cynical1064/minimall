@@ -31,7 +31,7 @@ public class QnaAddAction implements ActionInterFace {
 			qnadto.setQna_content(request.getParameter("qna_content"));
 			qnadto.setQna_secret(request.getParameter("qna_secret"));
 			qnadto.setQna_category(request.getParameter("qna_category"));
-			qnadto.setG_code(request.getParameter("g_code"));
+			qnadto.setG_code(request.getParameter("gCode"));
 			
 			System.out.println(qnadto.getQna_subject() + " <- qnadto.getQna_subject()");
 			System.out.println(qnadto.getM_id() + " <- qnadto.getM_id()");

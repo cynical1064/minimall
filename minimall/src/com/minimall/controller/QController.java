@@ -48,7 +48,7 @@ public class QController extends HttpServlet {
 	    	System.out.println("04_01 조건문 내 /Qna/QnaAddWrite.qn QController.java");
 	    	forward = new ActionForward();		//주소값이 담겨있음
 	    	forward.setRedirect(false);
-	    	forward.setPath("/qnaBoard/qna_board_write.jsp");
+	    	forward.setPath("/qnaBoard/qna_board_write.jsp?gCode="+request.getParameter("gCode"));
 	    	forward.toString();
 		} else if(command.equals("/Qna/QnaAddAction.qn")){		//글작성액션
 	    	System.out.println("04_02 조건문 내 /Qna/QnaAddAction.qn QController.java");

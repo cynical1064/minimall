@@ -49,6 +49,7 @@ public class QnaGcodeListAction implements ActionInterFace {
 		request.setAttribute("endpage", endpage); //현재 페이지에 표시할 끝 페이지 수
 		request.setAttribute("listcount",listcount); //글 수
 		request.setAttribute("qnalist", qnalist);
+		request.setAttribute("gCode", gCode);
 		
 		System.out.println(page + " : page");
 		System.out.println(listcount+"<-listcount");
