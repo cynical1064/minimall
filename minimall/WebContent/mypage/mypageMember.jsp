@@ -68,12 +68,6 @@
 						<td>${member.m_email}</td>
 						<td>${member.m_date}</td>
 						<td>${member.m_addr}</td>
-						<td>
-							<a href="${pageContext.request.contextPath}/member/mUpdateForm.mo?send_id=${member.m_id}">수정클릭</a>			
-						</td>
-						<td>
-							<a class="delMemberBtn" >삭제클릭</a>			
-						</td>
 					</tr>
 				</c:forEach>
 			</table>
