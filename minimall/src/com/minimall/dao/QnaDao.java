@@ -36,9 +36,9 @@ public class QnaDao {
 	public List gcodeQnaList(int page,int limit, String gCode){ 
 		//String gcode_qna_list_sql="select qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date,qna_readcount,g_code,qna_ref from qna_board where g_code=?";
 		
-		String gcode_qna_list_sql = "SELECT q.qna_no as qna_no, q.qna_subject as qna_subject, q.m_id as m_id, q.qna_content as qna_content, q.qna_secret as qna_secret,"+
+		String gcode_qna_list_sql = "SELECT q.qna_ref as qna_ref, q.qna_no as qna_no, q.qna_subject as qna_subject, q.m_id as m_id, q.qna_content as qna_content, q.qna_secret as qna_secret,"+
 				" q.qna_category as qna_category, q.qna_date as qna_date, q.qna_readcount as qna_readcount, q.g_code as g_code"+
-				" FROM (SELECT qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount, g_code"+
+				" FROM (SELECT qna_ref, qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount, g_code"+
 				" FROM (SELECT * FROM qna_board ORDER BY qna_ref DESC) as qq) as q WHERE g_code=? LIMIT ?,?";
 		
 		List list = new ArrayList();
@@ -63,6 +63,7 @@ public class QnaDao {
 			
 			while(rs.next()){
 				QnaDto qnadto = new QnaDto();
+				qnadto.setQna_ref(rs.getInt("qna_ref"));
 				qnadto.setQna_no(rs.getInt("qna_no"));
 				//System.out.println(qnadto.getQna_no());
 				qnadto.setQna_subject(rs.getString("qna_subject"));
@@ -270,6 +271,7 @@ public class QnaDao {
 					qnadto.setQna_category(rs.getString("qna_category"));
 					qnadto.setQna_date(rs.getDate("qna_date"));
 					qnadto.setQna_readcount(rs.getInt("qna_readcount"));
+					qnadto.setQna_ref(rs.getInt("qna_ref"));
 				}
 			}catch(Exception ex){
 				System.out.println("getDetail ¿¡·¯ : " + ex);
