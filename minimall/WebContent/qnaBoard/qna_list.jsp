@@ -11,21 +11,19 @@
 	<script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 	<script>
 		$(document).ready(function(){
-			var index = ('.listId').eq(count).val();
-			$('#subject').click(function(){
+			
+			$('.subject').click(function(){
 				var sessionId = $('#sessionId').val();
-				var listId = $('#listId').val();
-				
-				console.log(sessionId);
-				console.log(listId);
+				//console.log(sessionId);
+				var count = $('.subject').index(this);
+				//console.log(count);
+				var listId = $('.listId').eq(count).val();
+				//console.log(idValue);
 				
 				if(sessionId != listId) {
 					alert('접근권한이 없습니다.');
 					return false;
 				}
-				
-
-				
 			});
 		});
 	</script>
@@ -62,19 +60,19 @@
 					onmouseout="this.style.backgroundColor=''">
 					<td height="23" style="font-family:Tahoma;font-size:10pt;">
 						${list.qna_no}
-						<input type="hidden" value="${status.count}"/>
 					</td>
 				
 					<td style="font-family:Tahoma;font-size:10pt;">
 						<div align="left">
 							<c:if test='${list.qna_secret eq "y"}'>
 								<span><img src="../img/padlock.png" width="16" height="16" align="middle"></span>
-								<a class="tagA" id="subject" href="<%-- ${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=${list.qna_no} --%>">
+								<a class="subject" href="${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=${list.qna_no}">
 									${list.qna_subject}
 								</a>
+								<input type="hidden" class="listId" value="${list.m_id}">
 							</c:if>
 							<c:if test='${list.qna_secret eq "n"}'>
-								<a class="tagA" href="${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=${list.qna_no}">
+								<a href="${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=${list.qna_no}">
 									${list.qna_subject}
 								</a>
 							</c:if>
@@ -83,7 +81,6 @@
 			
 					<td style="font-family:Tahoma;font-size:10pt;">
 						<div align="center">${list.m_id}</div>
-						<input type="hidden" class="listId" id="listId" value="${list.m_id}">
 					</td>
 					
 					<td style="font-family:Tahoma;font-size:10pt;">
