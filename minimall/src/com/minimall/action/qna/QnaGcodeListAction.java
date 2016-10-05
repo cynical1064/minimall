@@ -30,8 +30,9 @@ public class QnaGcodeListAction implements ActionInterFace {
 		String gCode = request.getParameter("gCode");
 		System.out.println("gCode : " + gCode);
 		
-		int listcount=qnadao.getListCount(); //총 리스트 수를 받아옴
+		//int listcount=qnadao.getListCount(); //총 리스트 수를 받아옴
 		qnalist = qnadao.gcodeQnaList(page,limit, gCode); //리스트를 받아옴
+		int listcount = qnalist.size();
 		
 		//총 페이지 수
 		int maxpage=(int)((double)listcount/limit+0.95); //0.95를 더해서 올림 처리
