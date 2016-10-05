@@ -57,7 +57,11 @@ public class GoodsDForUpdateAction implements ActionInterFace {
 		System.out.println("b64Array.size() : " + b64Array.size() + " GoodsCustomListAction.java");
 		request.setAttribute("b64", b64Array);*/
 		
-		request.setAttribute("goodsDto", goodsDto);
+		//String path = request.getServletContext().getRealPath("goodsImage");
+		String path = "/home/hosting_users/cynical1031/tomcat/webapps/ROOT/upload/goodsImage";
+		request.setAttribute("path", path);
+		
+		request.setAttribute("goodsDto", goodsDto);		
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

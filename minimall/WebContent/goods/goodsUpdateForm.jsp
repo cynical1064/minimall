@@ -23,8 +23,14 @@
 			function modifygoods(){
 				modifyform.submit();
 			}
+		</script>
+		<script>
 			$(document).ready(function() {
-				$('#myImage').
+				$('#myImage').change(function(){
+					var imageName = $('#myImage')[0].files[0].name;
+					//console.log(imageName);
+					$('#g_image').text(imageName);
+				});
 			});
 		</script>
 	</head>
@@ -67,6 +73,7 @@
 								<tr>
 									<td>사진</td>
 									<td>
+										${path}/<span id="g_image">${goodsDto.g_image}</span>
 										<input type="file" name="myImage" id="myImage" accept="image/*" />
 										<span id="myImageHelper"></span>
 									</td>
