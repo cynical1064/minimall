@@ -12,10 +12,11 @@
 </head>
 <body>
 <!-- 게시판 답변 -->
-<form action="${pageContext.request.contextPath}/Reb/rebReplyAction.qn" method="post" name="boardform">
+<form action="${pageContext.request.contextPath}/Reb/rebReplyAction.reb" method="post" name="boardform">
+<input type="hidden" name="reb_ref" value="${rebDto.reb_no}">
 <input type="hidden" name="reb_category" value="${rebDto.reb_category}">
-<input type="hidden" name="reb_secret" value="${rebDto.reb_secret}>">
-
+<input type="hidden" name="reb_secret" value="${rebDto.reb_secret}">
+<input type="hidden" name="m_id" value="${sessionScope.loginId}">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">Q&A 답변하기</td>

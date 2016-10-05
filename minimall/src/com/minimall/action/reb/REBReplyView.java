@@ -17,6 +17,7 @@ public class REBReplyView implements ActionInterFace {
 			REBDao rebDao = new REBDao();
 	   		
 	   		int num=Integer.parseInt(request.getParameter("num"));
+	   		System.out.println(num + "<--num");
 	   		
 	   		rebDto=rebDao.getDetail(num);
 	   		

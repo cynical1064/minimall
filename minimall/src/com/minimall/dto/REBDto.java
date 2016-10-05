@@ -12,6 +12,14 @@ public class REBDto {
 	private Date reb_date;
 	private int reb_readcount;
 	private String g_code;
+	private int reb_ref;
+
+	public int getReb_ref() {
+		return reb_ref;
+	}
+	public void setReb_ref(int reb_ref) {
+		this.reb_ref = reb_ref;
+	}
 	public int getReb_no() {
 		return reb_no;
 	}

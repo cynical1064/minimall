@@ -21,7 +21,7 @@ public class REBDao {
 	PreparedStatement pstmtSelect;
 	PreparedStatement pstmt;
 	ResultSet rs;
-	REBDto rebDto = null;
+	REBDto rebDto;
 	
 	public REBDao() {
 		try{
@@ -60,7 +60,7 @@ public class REBDao {
 		}
 		
 		//글 삭제
-		public boolean rebDelete(int num){
+		public boolean REBDelete(int num){
 			
 			String reb_delete_sql="delete from reb_board where reb_no=?";
 			
@@ -88,7 +88,7 @@ public class REBDao {
 		}
 		
 		//글 답변
-			public int rebReply(REBDto qna){
+			public int REBReply(REBDto qna){
 				
 				String board_max_sql="select max(reb_no) from reb_board";
 				String sql="";
@@ -117,18 +117,19 @@ public class REBDao {
 					re_seq = re_seq + 1;
 					re_lev = re_lev+1;*/
 					
-					sql="insert into reb_board (reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date) values (?,?,?,?,?,?,sysdate)";
+					sql="insert into reb_board (reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,reb_ref) values (?,?,?,?,?,?,sysdate(),?)";
 					
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1, num+1);
 					pstmt.setString(2, qna.getReb_subject());
-					//pstmt.setString(3, qna.getM_id());
-					pstmt.setString(3, "id001");
+					pstmt.setString(3, qna.getM_id());
+					//pstmt.setString(3, "id001");
 					pstmt.setString(4, qna.getReb_content());
 					pstmt.setString(5, qna.getReb_secret());
 					pstmt.setString(6, qna.getReb_category());
+					pstmt.setInt(7, qna.getReb_ref());
 					pstmt.executeUpdate();
-
+					System.out.println(qna.getM_id());
 					
 					return num;
 				}catch(SQLException ex){
@@ -300,7 +301,7 @@ public class REBDao {
 				if(qna.getReb_secret() == null) {
 					qna.setReb_secret("n");
 				}
-				sql="insert into reb_board (reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,g_code) values (?,?,?,?,?,?,sysdate(),?)";
+				sql="insert into reb_board (reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,g_code,reb_ref) values (?,?,?,?,?,?,sysdate(),?,?)";
 				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, num+1);
@@ -310,6 +311,7 @@ public class REBDao {
 				pstmt.setString(5, qna.getReb_secret());
 				pstmt.setString(6, qna.getReb_category());
 				pstmt.setString(7, qna.getG_code());
+				pstmt.setInt(8, qna.getReb_ref());
 				
 				result=pstmt.executeUpdate();
 				

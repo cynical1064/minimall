@@ -58,7 +58,7 @@ public class REBDeleteAction implements ActionInterFace {
 			   	}*/
 			   		
 			   	REBDao rebDao = new REBDao();
-			   	rebDao.rebDelete(num);
+			   	rebDao.REBDelete(num);
 			   	
 			   	System.out.println("게시판 삭제 성공");
 			   	forward.setRedirect(true);

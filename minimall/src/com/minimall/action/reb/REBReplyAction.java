@@ -18,7 +18,7 @@ public class REBReplyAction implements ActionInterFace {
 		 	REBDto rebDto=new REBDto();
 	   		int result=0;
 	   		
-	   		rebDto.setReb_no(Integer.parseInt(request.getParameter("reb_no")));
+	   		rebDto.setReb_no(Integer.parseInt(request.getParameter("reb_ref")));
 	   		rebDto.setReb_subject(request.getParameter("reb_subject"));
 	   		rebDto.setM_id(request.getParameter("m_id"));
 	   		rebDto.setReb_content(request.getParameter("reb_content"));
@@ -31,7 +31,7 @@ public class REBReplyAction implements ActionInterFace {
 	   		System.out.println(rebDto.getReb_secret());
 	   		System.out.println(rebDto.getReb_category());
 	   		
-	   		result=rebDao.rebReply(rebDto);
+	   		result=rebDao.REBReply(rebDto);
 	   		if(result==0){
 	   			System.out.println("답장 실패");
 	   			return null;
@@ -39,7 +39,7 @@ public class REBReplyAction implements ActionInterFace {
 	   		System.out.println("답장 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath(request.getContextPath() + "/Reb/rebDetailAction.reb?num="+result);
+	   		forward.setPath(request.getContextPath() + "/Reb/rebList.reb");
 	   		return forward;
  		}
 }
