@@ -22,12 +22,7 @@
 				if(sessionId != listId) {
 					alert('접근권한이 없습니다.');
 					return false;
-				} else {
-					
 				}
-				console.log();
-				var count = $('.tagA').index(this);
-				console.log(count);
 				
 
 				
@@ -74,7 +69,7 @@
 						<div align="left">
 							<c:if test='${list.qna_secret eq "y"}'>
 								<span><img src="../img/padlock.png" width="16" height="16" align="middle"></span>
-								<a class="tagA" id="subject" href="${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=${list.qna_no}">
+								<a class="tagA" id="subject" href="<%-- ${pageContext.request.contextPath}/Qna/QnaDetailAction.qn?num=${list.qna_no} --%>">
 									${list.qna_subject}
 								</a>
 							</c:if>

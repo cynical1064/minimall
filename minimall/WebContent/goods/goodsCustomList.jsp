@@ -15,8 +15,8 @@
 				<div id="customSortWarp" class="clearFix">
 					<h3>SHOP</h3>
 					<ul id="sortList">
-						<li>낮은가격 <span>▲</span></li>
-						<li>높은가격 <span>▼</span></li>
+						<li><a href="">낮은가격 <span>▲</span></a></li>
+						<li><a href="">높은가격 <span>▼</span></a></li>
 						<li>최신순</li>
 					</ul>
 				</div>	

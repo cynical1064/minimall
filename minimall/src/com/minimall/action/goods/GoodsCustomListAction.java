@@ -24,7 +24,7 @@ public class GoodsCustomListAction implements ActionInterFace {
 	int goodsListAllCount;	//goods 테이블의 총 데이터 갯수		
 	int goodsListCount;		//goodsList의 size
 	int page = 1;		//현재 페이지 번호
-	int limit = 12;		//한 페이지에서 보여줄 ㄱ리스트 갯수
+	int limit = 12;		//한 페이지에서 보여줄 리스트 갯수
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
