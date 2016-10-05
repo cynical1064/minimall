@@ -150,7 +150,7 @@ public class QnaDao {
 			String qna_list_sql = "SELECT q.qna_no as qna_no, q.qna_subject as qna_subject, q.m_id as m_id, q.qna_content as qna_content, q.qna_secret as qna_secret,"+
 			" q.qna_category as qna_category, q.qna_date as qna_date, q.qna_readcount as qna_readcount, q.g_code as g_code"+
 			" FROM (SELECT qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount, g_code"+
-			" FROM (SELECT * FROM qna_board ORDER BY qna_no DESC, ORDER BY qna_ref DESC) as qq) as q LIMIT ?,?";
+			" FROM (SELECT * FROM qna_board ORDER BY qna_ref DESC) as qq) as q LIMIT ?,?";
 			
 			List list = new ArrayList();
 			System.out.println(qna_list_sql + "<-- board_list_sql getQnaList QnaDAO.java");
@@ -297,7 +297,7 @@ public class QnaDao {
 			if(qna.getQna_secret() == null) {
 				qna.setQna_secret("n");
 			}
-			sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date,g_code) values (?,?,?,?,?,?,sysdate(),?)";
+			sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date,g_code,qna_ref) values (?,?,?,?,?,?,sysdate(),?,?)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num+1);
@@ -307,6 +307,7 @@ public class QnaDao {
 			pstmt.setString(5, qna.getQna_secret());
 			pstmt.setString(6, qna.getQna_category());
 			pstmt.setString(7, qna.getG_code());
+			pstmt.setInt(8, num+1);
 			
 			result=pstmt.executeUpdate();
 			
