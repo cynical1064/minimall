@@ -1,4 +1,4 @@
-package com.minimall.controller;
+	package com.minimall.controller;
 
 import java.io.IOException;
 

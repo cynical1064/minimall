@@ -33,13 +33,19 @@ public class GoodsCustomListAction implements ActionInterFace {
 		GoodsDto goodsDto = new GoodsDto();
 		GoodsDao goodsDao = new GoodsDao();
 		goodsListAllCount = goodsDao.getListCount();
+		String row = "new";
+		
+		if(request.getParameter("row") != null) {
+			row = request.getParameter("row");
+			System.out.println(row + "<- row GoodsCustomListAction.java");
+		}			
 		
 		//其捞隆 贸府		
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
-		goodsList = goodsDao.goodsSelectForCustom(page, limit);
+		goodsList = goodsDao.goodsSelectForCustom(page, limit, row);
 		goodsListCount = goodsList.size();
 		
 		int maxPage = (int) ((double)goodsListAllCount/limit +0.95);	//醚 其捞瘤 荐
