@@ -137,7 +137,7 @@ public class GoodsDao {
 		"g.g_sangse as g_sangse, g.g_price as g_price, g.g_image as g_image, g.g_date as g_date FROM"+
 		" (SELECT g_code, g_name, g_cate, g_sangse, g_price, g_image, g_date"+
 		" FROM (SELECT * FROM goods WHERE g_date >= DATE_ADD(NOW(), INTERVAL -1 MONTH) ORDER BY g_date DESC) as g2"+
-		" WHERE g_agree LIKE 'Y') as g";
+		" WHERE g_agree LIKE 'Y') as g limit 0, 12";
 		
 		pstmt = conn.prepareStatement(sql);
 		System.out.println(pstmt + " : pstmt goodsSelectForCustom() GoodsDao.java");
