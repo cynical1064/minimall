@@ -166,12 +166,12 @@
 		</div>
 		<div id="itemNavWrap" >
 			<ul id="itemNav">
-				<li><a>NEW ITEM</a></li>
+				<li><a href="${pageContext.request.contextPath}/error/notPage.jsp">NEW ITEM</a></li>
 				<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go">SHOP</a></li>
-				<li><a>COMMUNITY</a></li>
-				<li><a>ABOUT</a></li>
-				<li><a href="${pageContext.request.contextPath}/Qna/QnaList.qn">Q&A</a></li> 
-				<li><a href="${pageContext.request.contextPath}/Qna/QnaList.qn">CONTACT US</a></li> 
+				<li><a href="${pageContext.request.contextPath}/error/notPage.jsp">COMMUNITY</a></li>
+				<li><a href="${pageContext.request.contextPath}/error/notPage.jsp">ABOUT</a></li>
+				<li><a href="${pageContext.request.contextPath}/error/notPage.jsp">Q&A</a></li> 
+				<li><a href="${pageContext.request.contextPath}/error/notPage.jsp">CONTACT US</a></li> 
 			</ul>
 		</div>				
 		<div id="loginNavWrap">
