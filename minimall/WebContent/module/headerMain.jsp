@@ -67,32 +67,34 @@
 		<span id="closeLoginWrap">
 			X
 		</span>
-		<div id="loginArea">		
-			<h2>
-				Login
-			</h2> 
-			<form id="loginForm" action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
-			<table>
-			<tr>
-				<td><label for="mId">아이디</label></td>
-				<td><input type="text" name="mId" id="mId" /></td>
-				<td><span></span></td>
-			</tr>	
-			<tr>
-				<td><label for="mPw">비밀번호</label></td>
-				<td><input type="password" name="mPw" id="mPw"/></td>
-				<td><span></span></td>
-			</tr>	
-			<tr>
-				<td colspan="2">
-					<div id="loginSumbit" style="cursor:pointer;">
-						로그인
-					</div>
-				</td>
-			</tr>	
-				
-			</table>	
-			</form>		
+		<div id="loginArea">
+			<div id="loginFormWrap">		
+				<h2>
+					THE MIDNIGHT LOGIN
+				</h2> 
+				<form id="loginForm" action="${pageContext.request.contextPath}/mLogin/mLogin.mo" method="post">
+				<table>
+				<tr>
+					<td><label for="mId">아이디</label></td>
+					<td><input type="text" name="mId" id="mId" /></td>
+					<td><span></span></td>
+				</tr>	
+				<tr>
+					<td><label for="mPw">비밀번호</label></td>
+					<td><input type="password" name="mPw" id="mPw"/></td>
+					<td><span></span></td>
+				</tr>	
+				<tr>
+					<td colspan="2">
+						<div id="loginSumbit" style="cursor:pointer;">
+							로그인
+						</div>
+					</td>
+				</tr>	
+					
+				</table>	
+				</form>	
+			</div>	
 		</div>
 	</div>
 </div>
