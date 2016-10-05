@@ -34,7 +34,7 @@
 						<option value="종음">종음</option>
 						<option value="보통">보통</option>
 						<option value="나쁨">나쁨</option>
-						<option value="매우나쁨">주문문의</option>
+						<option value="매우나쁨">매우나쁨</option>
 					</select>
 				</td>
 				

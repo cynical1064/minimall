@@ -3,25 +3,15 @@ package com.minimall.controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.minimall.action.*;
-import com.minimall.action.qna.QnaAddAction;
-import com.minimall.action.qna.QnaDeleteAction;
-import com.minimall.action.qna.QnaDeleteFormAction;
-import com.minimall.action.qna.QnaDetailAction;
-import com.minimall.action.qna.QnaListAction;
-import com.minimall.action.qna.QnaModifyAction;
-import com.minimall.action.qna.QnaModifyView;
-import com.minimall.action.qna.QnaReplyAction;
-import com.minimall.action.qna.QnaReplyView;
 import com.minimall.action.reb.REBAddAction;
 import com.minimall.action.reb.REBDeleteAction;
+import com.minimall.action.reb.REBDeleteFormAction;
 import com.minimall.action.reb.REBDetailAction;
 import com.minimall.action.reb.REBListAction;
 import com.minimall.action.reb.REBModifyAction;
@@ -110,21 +100,21 @@ import com.minimall.inter.ActionInterFace;
 					e.printStackTrace();
 				}
 			}else if(command.equals("/Reb/rebDeleteAction.reb")){	//삭제액션
-				action = new QnaDeleteAction();
+				action = new REBDeleteAction();
 				try{
 					forward=action.execute(request, response);
 				}catch(Exception e){
 					e.printStackTrace();
 				}
 			}else if(command.equals("/Reb/rebModify.reb")){		//글수정
-				action = new QnaModifyView();
+				action = new REBModifyView();
 				try{
 					forward=action.execute(request, response);
 				}catch(Exception e){
 					e.printStackTrace();
 				}
 		 	}else if(command.equals("/Reb/rebModifyAction.reb")){	//수정액션
-				action = new QnaModifyAction();
+				action = new REBModifyAction();
 				try{
 					forward=action.execute(request, response);
 				}catch(Exception e){
