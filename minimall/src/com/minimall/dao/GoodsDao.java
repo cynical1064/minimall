@@ -394,14 +394,15 @@ public class GoodsDao {
 		
 		//gcode에 해당하는 데이터를 입력한 값에 따라 수정하는 update 쿼리문 입니다.
 		String sql = "UPDATE goods SET";
-		sql += " g_name=?, g_cate=?, g_sangse=?, g_price=?";
+		sql += " g_name=?, g_cate=?, g_sangse=?, g_price=?, g_image=?";
 		sql += " WHERE g_code=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, goodsDto.getG_name());
 		pstmt.setString(2, goodsDto.getG_cate());
 		pstmt.setString(3, goodsDto.getG_sangse());
 		pstmt.setInt(4, goodsDto.getG_price());
-		pstmt.setString(5, goodsDto.getG_code());
+		pstmt.setString(5, goodsDto.getG_image());
+		pstmt.setString(6, goodsDto.getG_code());
 		System.out.println(pstmt + " : pstmt goodsUpdateByGcode() GoodsDao.java");
 		
 		int result = pstmt.executeUpdate();
