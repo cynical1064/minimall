@@ -40,10 +40,15 @@ $(document).ready(function(){
 	
 	$('#oCount').focusout(function(){
 		
-		var count = parseInt($('#oCount').val());
-		$('#oTotal').val(price * count);
-
+		if($('#oCount').val() < 0 || isNaN($('#oCount').val())){
+			alert('수량을 잘못 입력하셨습니다.')
+		}else{
+			var count = parseInt($('#oCount').val());
+			$('#oTotal').val(price * count);
+		}
+		
 	});
+	
 	
 	
 	

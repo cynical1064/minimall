@@ -125,6 +125,8 @@ public class OrderDao {
 		System.out.println(startRow + "<- startRow");
 		System.out.println(endRow + "<- endRow");
 		
+		// goods 테이블에서 상품이 삭제되면 o.g_code = g.g_code 비교가 불가하므로 주문리스트에서도 조회가 불가 
+		// 삭제된 상품의 정보를 담아두는 테이블을 만들어서 해당 테이블과의 비교를 해서 가져오게 하는식으로 해결예정 (삭제 상품 테이블 생성 후)
 		sql = "select o.o_no, m.m_id, g.g_id, date_format(o.o_date, '%y-%m-%d') as o_date, g.g_code, "
 				+ "o.o_count, o.o_total, o.o_state, g.g_name, g.g_price, m.m_name, m.m_addr "
 				+ "from orders o inner join goods g on o.g_code = g.g_code inner join "
