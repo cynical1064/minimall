@@ -63,7 +63,7 @@
 			<tr align="center" valign="middle">
 				<td colspan="5">
 					<font size=2>
-					<c:if test='${sessionScope.loginLevel eq "관리자"}'>
+					<c:if test='${(sessionScope.loginLevel eq "판매자") && (sessionScope.loginId eq g_id)}'>
 						<c:if test="${qnadto.qna_no == qnadto.qna_ref}">
 							<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=${qnadto.qna_no}">
 							[답변]
