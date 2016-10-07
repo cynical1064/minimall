@@ -25,6 +25,7 @@ public class QnaDetailAction implements ActionInterFace {
 		GoodsDao goodsDao = new GoodsDao();
 		GoodsDto goodsDto = new GoodsDto();
 		goodsDto = goodsDao.goodsSelectByGcode(qnadto.getG_code());
+		request.setAttribute("g_code", qnadto.getG_code());
 		request.setAttribute("g_id", goodsDto.getG_id());
 		
 	   	if(qnadto == null){
