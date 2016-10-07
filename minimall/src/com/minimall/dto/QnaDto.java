@@ -6,6 +6,7 @@ public class QnaDto {
 	private int qna_no;
 	private String qna_subject;
 	private String m_id;
+	private String m_pw;
 	private String qna_content;
 	private String qna_secret;
 	private String qna_category;
@@ -13,7 +14,6 @@ public class QnaDto {
 	private int qna_readcount;
 	private String g_code;
 	private int qna_ref;
-	
 	public int getQna_no() {
 		return qna_no;
 	}
@@ -31,6 +31,12 @@ public class QnaDto {
 	}
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
+	}
+	public String getM_pw() {
+		return m_pw;
+	}
+	public void setM_pw(String m_pw) {
+		this.m_pw = m_pw;
 	}
 	public String getQna_content() {
 		return qna_content;
@@ -74,11 +80,13 @@ public class QnaDto {
 	public void setQna_ref(int qna_ref) {
 		this.qna_ref = qna_ref;
 	}
-	
 	@Override
 	public String toString() {
-		return "QnaDto [qna_no=" + qna_no + ", qna_subject=" + qna_subject + ", m_id=" + m_id + ", qna_content="
-				+ qna_content + ", qna_secret=" + qna_secret + ", qna_category=" + qna_category + ", qna_date="
-				+ qna_date + ", qna_readcount=" + qna_readcount + ", g_code=" + g_code + ", qna_ref=" + qna_ref + "]";
+		return "QnaDto [qna_no=" + qna_no + ", qna_subject=" + qna_subject + ", m_id=" + m_id + ", m_pw=" + m_pw
+				+ ", qna_content=" + qna_content + ", qna_secret=" + qna_secret + ", qna_category=" + qna_category
+				+ ", qna_date=" + qna_date + ", qna_readcount=" + qna_readcount + ", g_code=" + g_code + ", qna_ref="
+				+ qna_ref + "]";
 	}
+	
+	
 }

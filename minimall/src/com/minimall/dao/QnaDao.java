@@ -256,7 +256,13 @@ public class QnaDao {
 			
 			try{
 				con = ds.getConnection();
-				pstmt = con.prepareStatement("select qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date,qna_readcount,g_code,qna_ref from qna_board where qna_no = ?");
+				
+				String sql = "select m.m_pw as m_pw, q.qna_no as qna_no, q.qna_subject as qna_subject,q.m_id as m_id, q.qna_content as qna_content, q.qna_secret as qna_secret, "+
+						"q.qna_category as qna_category,q.qna_date as qna_date, q.qna_readcount as qna_readcount,q.g_code as g_code,q.qna_ref as qna_ref " +
+						"from qna_board as q JOIN member as m ON m.m_id = q.m_id "+
+						"where qna_no = ?";	
+				
+				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, num);
 				
 				rs= pstmt.executeQuery();
@@ -266,7 +272,9 @@ public class QnaDao {
 					qnadto.setQna_no(rs.getInt("qna_no"));				
 					qnadto.setQna_subject(rs.getString("qna_subject"));
 					qnadto.setM_id(rs.getString("m_id"));
-					System.out.println("m_id : " + qnadto.getM_id());
+					//System.out.println("m_id : " + qnadto.getM_id());
+					qnadto.setM_pw(rs.getString("m_pw"));
+					//System.out.println("m_pw : " + qnadto.getM_pw());
 					qnadto.setQna_content(rs.getString("qna_content"));
 					qnadto.setQna_secret(rs.getString("qna_secret"));
 					qnadto.setQna_category(rs.getString("qna_category"));

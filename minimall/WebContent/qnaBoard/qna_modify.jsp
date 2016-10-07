@@ -6,10 +6,15 @@
 	<title>미니몰</title>
 	<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
 	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
-	<script type="text/javascript">
-	function modifyboard(){
-		modifyform.submit();
-	}
+	<script>
+		function modifyboard() {
+			if($('#qnaWriterPw').val() != $('#qna_pass').val()) {
+				alert('비밀번호를 확인해주세요!');
+				return false;
+			} else if($('#qnaWriterPw').val() == $('#qna_pass').val()) {
+				modifyform.submit();
+			}
+		}
 	</script>
 </head>
 
@@ -21,6 +26,7 @@
 		<form name="modifyform" action="${pageContext.request.contextPath}/Qna/QnaModifyAction.qn" method="post">
 		<input type="hidden" name="qna_no" value="${qnadto.qna_no}">
 		<input type="hidden" name="m_id" value="${qnadto.m_id}"/>
+		<input type="hidden" id="qnaWriterPw" value="${qnaWriterPw}"/>	<!-- 글쓴이의 비밀번호(글비번) -->
 		<table cellpadding="0" cellspacing="0" class="basic">
 			<tr align="center" valign="middle">
 				<td colspan="5">문의하기</td>
@@ -30,8 +36,7 @@
 					<div align="center">제 목</div>
 				</td>
 				<td>
-					<input name="qna_subject" size="50" maxlength="100" 
-						value="${qnadto.qna_subject}">
+					<input name="qna_subject" size="50" maxlength="100" value="${qnadto.qna_subject}">
 				</td>
 			</tr>
 			<tr>
@@ -47,8 +52,7 @@
 					<div align="center">비밀번호</div>
 				</td>
 				<td>
-					<input type="password" name="qna_pass">
-					<input type="hidden" value="${requestScope.id}">
+					<input type="password" id="qna_pass" name="qna_pass">
 				</td>
 			</tr>
 			
@@ -61,7 +65,7 @@
 			<tr align="center" valign="middle">
 				<td colspan="5">
 					<font size=2>
-					<a href="javascript:modifyboard()">[수정]</a>&nbsp;&nbsp;
+					<a href="javascript:modifyboard()" name="modifyBtn">[수정]</a>&nbsp;&nbsp;
 					<a href="javascript:history.go(-1)">[뒤로]</a>&nbsp;&nbsp;
 					</font>
 				</td>

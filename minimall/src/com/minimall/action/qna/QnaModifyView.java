@@ -19,6 +19,8 @@ public class QnaModifyView implements ActionInterFace {
 			int num=Integer.parseInt(request.getParameter("num"));
 			
 			qnadto=qnadao.getDetail(num);
+			System.out.println(qnadto.getM_pw());
+			request.setAttribute("qnaWriterPw", qnadto.getM_pw());
 			
 		   	if(qnadto==null){
 		   		System.out.println("(수정)상세보기 실패");
