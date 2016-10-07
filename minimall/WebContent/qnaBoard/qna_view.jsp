@@ -64,10 +64,11 @@
 				<td colspan="5">
 					<font size=2>
 					<c:if test='${sessionScope.loginLevel eq "관리자"}'>
-					<%-- <c:if test="${qnadto.qna_no == qnadto.qna_ref}"> --%>
-						<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=${qnadto.qna_no}">
-						[답변]
-						</a>&nbsp;&nbsp;
+						<c:if test="${qnadto.qna_no == qnadto.qna_ref}">
+							<a href="${pageContext.request.contextPath}/Qna/QnaReplyView.qn?num=${qnadto.qna_no}">
+							[답변]
+							</a>&nbsp;&nbsp;
+						</c:if>
 					</c:if>
 					<a href="${pageContext.request.contextPath}/Qna/QnaModify.qn?num=${qnadto.qna_no}&id=${qnadto.m_id}">
 					[수정]
