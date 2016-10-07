@@ -118,7 +118,8 @@ table.basic.qnaBoard td a{color:#434343; font-size:12px; text-decoration:none;}
 #customSortWarp{width:100%; border-bottom:1px solid #ccc;}
 #customSortWarp h3{float:left;}
 #customSortWarp #sortList{float:right; padding-right:40px; padding-bottom:20px;}
-#customSortWarp #sortList li{float:left; font-size:12px; color:#434343; padding:0 5px; cursor:pointer;}
+#customSortWarp #sortList li{float:left; font-size:12px; color:#434343; padding:0 5px;}
+#customSortWarp #sortList li a{color:#434343;} 
 #customSortWarp #sortList li span{font-size:8px;}
 #customListWrap{width:100%; height:auto; margin:0 auto; padding-top:28px; text-align:center;}
 #customListWrap li{width:23.3%; height:300px; float:left; padding:0 8px; padding-bottom:30px; text-align:center;}
