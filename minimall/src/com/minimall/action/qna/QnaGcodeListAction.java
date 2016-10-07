@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.minimall.action.goods.GoodsDetailAction;
 import com.minimall.dao.GoodsDao;
 import com.minimall.dao.QnaDao;
+import com.minimall.dto.GoodsDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
@@ -33,6 +34,11 @@ public class QnaGcodeListAction implements ActionInterFace {
 		//int listcount=qnadao.getListCount(); //총 리스트 수를 받아옴
 		qnalist = qnadao.gcodeQnaList(page,limit, gCode); //리스트를 받아옴
 		int listcount = qnalist.size();
+		
+		GoodsDao goodsDao = new GoodsDao();
+		GoodsDto goodsDto = new GoodsDto();
+		goodsDto = goodsDao.goodsSelectByGcode(gCode);
+		request.setAttribute("g_id", goodsDto.getG_id());
 		
 		//총 페이지 수
 		int maxpage=(int)((double)listcount/limit+0.95); //0.95를 더해서 올림 처리
