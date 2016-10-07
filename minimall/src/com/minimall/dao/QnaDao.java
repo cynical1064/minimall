@@ -39,7 +39,7 @@ public class QnaDao {
 		String gcode_qna_list_sql = "SELECT q.qna_ref as qna_ref, q.qna_no as qna_no, q.qna_subject as qna_subject, q.m_id as m_id, q.qna_content as qna_content, q.qna_secret as qna_secret,"+
 				" q.qna_category as qna_category, q.qna_date as qna_date, q.qna_readcount as qna_readcount, q.g_code as g_code"+
 				" FROM (SELECT qna_ref, qna_no,qna_subject,m_id, qna_content,qna_secret,qna_category,qna_date, qna_readcount, g_code"+
-				" FROM (SELECT * FROM qna_board ORDER BY qna_ref DESC) as qq) as q WHERE g_code=? LIMIT ?,?";
+				" FROM (SELECT * FROM qna_board ORDER BY qna_ref DESC, qna_no ASC) as qq) as q WHERE g_code=? LIMIT ?,?";
 		
 		List list = new ArrayList();
 		System.out.println(gcode_qna_list_sql + "<-- gcode_qna_list_sql gcodeQnaList QnaDAO.java");
