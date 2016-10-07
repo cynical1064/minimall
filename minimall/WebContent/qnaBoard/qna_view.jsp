@@ -74,7 +74,7 @@
 					<a href="${pageContext.request.contextPath}/Qna/QnaDeleteForm.qn?num=${qnadto.qna_no}&id=${qnadto.m_id}">
 					[삭제]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Qna/QnaList.qn">[목록]</a>&nbsp;&nbsp;
+					<a href="javascript:history.back();">[목록]</a>&nbsp;&nbsp;
 					</font>
 				</td>
 			</tr>
