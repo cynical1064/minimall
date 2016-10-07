@@ -21,12 +21,7 @@
 				//console.log(idValue);
 				var gId = $('#gId').val();
 				console.log(gId);
-				
-				/* if(sessionId != gId && sessionId != listId) {
-					alert('접근권한이 없습니다.');
-					return false;
-				} */
-				
+
 				if(sessionId == gId) {
 					return true;
 				} else if(sessionId == listId) {
