@@ -168,7 +168,7 @@ public class QnaDao {
 				re_seq = re_seq + 1;
 				re_lev = re_lev+1;*/
 				
-				sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date,qna_ref) values (?,?,?,?,?,?,sysdate(),?)";
+				sql="insert into qna_board (qna_no,qna_subject,m_id,qna_content,qna_secret,qna_category,qna_date,qna_ref,g_code) values (?,?,?,?,?,?,sysdate(),?,?)";
 				
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, num+1);
@@ -179,6 +179,7 @@ public class QnaDao {
 				pstmt.setString(5, qna.getQna_secret());
 				pstmt.setString(6, qna.getQna_category());
 				pstmt.setInt(7, qna.getQna_ref());
+				pstmt.setString(8, qna.getG_code());
 				pstmt.executeUpdate();
 
 				
