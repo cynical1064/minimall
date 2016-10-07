@@ -31,7 +31,7 @@ public class QnaReplyAction implements ActionInterFace {
 	   		System.out.println(qnadto.getQna_content());
 	   		System.out.println(qnadto.getQna_secret());
 	   		System.out.println(qnadto.getQna_category());
-	   		
+	   			   		
 	   		result=qnadao.QnaReply(qnadto);
 	   		if(result==0){
 	   			System.out.println("답장 실패");
@@ -40,7 +40,7 @@ public class QnaReplyAction implements ActionInterFace {
 	   		System.out.println("답장 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath(request.getContextPath() + "/Qna/QnaList.qn");
+	   		forward.setPath(request.getContextPath() + "/Gdetail/goodsDetailAction.go?gCode="+request.getParameter("g_code"));
 	   		return forward;
  		}
 }

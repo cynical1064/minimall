@@ -271,6 +271,7 @@ public class QnaDao {
 					qnadto.setQna_category(rs.getString("qna_category"));
 					qnadto.setQna_date(rs.getDate("qna_date"));
 					qnadto.setQna_readcount(rs.getInt("qna_readcount"));
+					qnadto.setG_code(rs.getString("g_code"));
 					qnadto.setQna_ref(rs.getInt("qna_ref"));
 				}
 			}catch(Exception ex){
