@@ -397,6 +397,7 @@ public class GoodsDao {
 		sql += " g_name=?, g_cate=?, g_sangse=?, g_price=?, g_image=?";
 		sql += " WHERE g_code=?";
 		pstmt = conn.prepareStatement(sql);
+		
 		pstmt.setString(1, goodsDto.getG_name());
 		pstmt.setString(2, goodsDto.getG_cate());
 		pstmt.setString(3, goodsDto.getG_sangse());
