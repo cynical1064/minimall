@@ -6,6 +6,7 @@ public class REBDto {
 	private int reb_no;
 	private String reb_subject;
 	private String m_id;
+	private String m_pw;
 	private String reb_content;
 	private String reb_secret;
 	private String reb_category;
@@ -14,6 +15,12 @@ public class REBDto {
 	private String g_code;
 	private int reb_ref;
 
+	public String getM_pw() {
+		return m_pw;
+	}
+	public void setM_pw(String m_pw) {
+		this.m_pw = m_pw;
+	}
 	public int getReb_ref() {
 		return reb_ref;
 	}
@@ -73,6 +80,13 @@ public class REBDto {
 	}
 	public void setG_code(String g_code) {
 		this.g_code = g_code;
+	}
+	@Override
+	public String toString() {
+		return "REBDto [reb_no=" + reb_no + ", reb_subject=" + reb_subject + ", m_id=" + m_id + ", m_pw=" + m_pw
+				+ ", reb_content=" + reb_content + ", reb_secret=" + reb_secret + ", reb_category=" + reb_category
+				+ ", reb_date=" + reb_date + ", reb_readcount=" + reb_readcount + ", g_code=" + g_code + ", reb_ref="
+				+ reb_ref + "]";
 	}
 	
 	

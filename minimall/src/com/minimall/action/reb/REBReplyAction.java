@@ -24,7 +24,8 @@ public class REBReplyAction implements ActionInterFace {
 	   		rebDto.setReb_content(request.getParameter("reb_content"));
 	   		rebDto.setReb_secret(request.getParameter("reb_secret"));
 	   		rebDto.setReb_category(request.getParameter("reb_category"));
-	   		
+	   		rebDto.setG_code(request.getParameter("g_code"));
+
 	   		System.out.println(rebDto.getReb_subject());
 	   		System.out.println(rebDto.getM_id());
 	   		System.out.println(rebDto.getReb_content());
@@ -39,7 +40,7 @@ public class REBReplyAction implements ActionInterFace {
 	   		System.out.println("답장 완료");
 	   		
 	   		forward.setRedirect(true);
-	   		forward.setPath(request.getContextPath() + "/Reb/rebList.reb");
+	   		forward.setPath(request.getContextPath() +"/Gdetail/goodsDetailAction.go?gCode="+rebDto.getG_code());
 	   		return forward;
  		}
 }

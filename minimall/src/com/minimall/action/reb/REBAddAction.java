@@ -31,7 +31,7 @@ public class REBAddAction implements ActionInterFace {
 			rebDto.setReb_content(request.getParameter("reb_content"));
 			rebDto.setReb_secret(request.getParameter("reb_secret"));
 			rebDto.setReb_category(request.getParameter("reb_category"));
-			rebDto.setG_code(request.getParameter("g_code"));
+			rebDto.setG_code(request.getParameter("gCode"));
 			
 			
 			System.out.println(rebDto.getReb_subject() + " <- rebDto.getreb_subject()");
@@ -50,8 +50,8 @@ public class REBAddAction implements ActionInterFace {
 			System.out.println("게시판 등록 완료");
 
 	   		forward.setRedirect(true);
-	   		forward.setPath(request.getContextPath() + "/Reb/rebList.reb");
-
+	   		//forward.setPath(request.getContextPath() + "/Reb/rebList.reb");
+	   		forward.setPath(request.getContextPath() + "/Gdetail/goodsDetailAction.go?gCode="+request.getParameter("gCode"));
 	   		
 		}catch(Exception ex){
    			ex.printStackTrace();

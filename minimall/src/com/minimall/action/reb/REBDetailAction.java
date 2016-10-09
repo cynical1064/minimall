@@ -4,7 +4,9 @@ package com.minimall.action.reb;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.minimall.dao.GoodsDao;
 import com.minimall.dao.REBDao;
+import com.minimall.dto.GoodsDto;
 import com.minimall.dto.REBDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
@@ -22,6 +24,15 @@ public class REBDetailAction implements ActionInterFace {
 		rebDto=rebDao.getDetail(num);
 		//System.out.println(rebDao.getDetail(num));
 		System.out.println(rebDto);
+		
+		GoodsDao goodsDao = new GoodsDao();
+		GoodsDto goodsDto = new GoodsDto();
+		goodsDto = goodsDao.goodsSelectByGcode(rebDto.getG_code());
+		request.setAttribute("g_code", rebDto.getG_code());
+		request.setAttribute("g_id", goodsDto.getG_id());
+				
+		
+		
 	   	if(rebDto == null){
 	   		System.out.println("상세보기 실패");
 	   		return null;

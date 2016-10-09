@@ -4,6 +4,9 @@
 <html>
 <head>
 	<title>미니몰</title>
+		<link href="${pageContext.request.contextPath}/css/reset.css"  rel="stylesheet" >
+	<link href="${pageContext.request.contextPath}/css/style.css"  rel="stylesheet" >
+	
 	<script language="javascript">
 	function replyboard(){
 		boardform.submit();
@@ -11,12 +14,16 @@
 	</script>
 </head>
 <body>
+<jsp:include page="/module/headerSub.jsp" />
+<div id="container">
+	<div class="content">
 <!-- 게시판 답변 -->
 <form action="${pageContext.request.contextPath}/Reb/rebReplyAction.reb" method="post" name="boardform">
 <input type="hidden" name="reb_ref" value="${rebDto.reb_no}">
 <input type="hidden" name="reb_category" value="${rebDto.reb_category}">
 <input type="hidden" name="reb_secret" value="${rebDto.reb_secret}">
 <input type="hidden" name="m_id" value="${sessionScope.loginId}">
+<input type="hidden" name="g_code" value="${qnadto.g_code}">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">Q&A 답변하기</td>
@@ -52,6 +59,9 @@
 	</tr>
 </table>
 </form>
+	</div>
+</div>
+<jsp:include page = "/module/footer.jsp" />
 <!-- 게시판 답변 -->
 </body>
 </html>

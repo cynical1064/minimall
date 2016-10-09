@@ -16,10 +16,12 @@ public class REBDeleteFormAction implements ActionInterFace {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
 		String id = request.getParameter("id");
-		
+		String gCode = request.getParameter("gCode");
+	
 		request.setAttribute("num", num);
 		request.setAttribute("id", id);
-		
+		request.setAttribute("gCode", gCode);
+
 		ActionForward forward = new ActionForward();
     	forward.setRedirect(false);
     	forward.setPath("/reBoard/reBoardDelete.jsp");
