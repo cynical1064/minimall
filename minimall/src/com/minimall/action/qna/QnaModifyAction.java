@@ -12,8 +12,6 @@ import com.minimall.dto.QnaDto;
 import com.minimall.forward.ActionForward;
 import com.minimall.inter.ActionInterFace;
 
-import javafx.scene.control.Alert;
-
 
 public class QnaModifyAction implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 

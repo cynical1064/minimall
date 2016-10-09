@@ -25,6 +25,8 @@ public class REBDeleteAction implements ActionInterFace {
 			    System.out.println(num + "<- num");
 			    System.out.println(id + "<- id");
 			    System.out.println(pw + "<- pw");
+			    String gCode = request.getParameter("gCode");
+
 			   	//HttpSession session = request.getSession();
 			   	
 			   	//REBDao REBdao=new REBDao();
@@ -62,8 +64,9 @@ public class REBDeleteAction implements ActionInterFace {
 			   	
 			   	System.out.println("게시판 삭제 성공");
 			   	forward.setRedirect(true);
-		   		forward.setPath(request.getContextPath() + "/Reb/rebList.reb");
-		   		
+		   		//forward.setPath(request.getContextPath() + "/Reb/rebList.reb");
+		   		forward.setPath(request.getContextPath() + "/Gdetail/goodsDetailAction.go?gCode="+gCode);
+
 			   	}
 			   	
 			   	return forward;

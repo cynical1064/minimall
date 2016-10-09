@@ -63,16 +63,21 @@
 			<tr align="center" valign="middle">
 				<td colspan="5">
 					<font size=2>
+					<c:if test='${(sessionScope.loginLevel eq "판매자") && (sessionScope.loginId eq g_id)}'>
+						<c:if test="${rebDto.reb_no == rebDto.reb_ref}">
 					<a href="${pageContext.request.contextPath}/Reb/rebReplyView.reb?num=${rebDto.reb_no}">
-					[답변]
-					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Reb/rebQnaModify.reb?num=${rebDto.reb_no}&id=${rebDto.m_id}">
+							[답변]
+							</a>&nbsp;&nbsp;
+						</c:if>
+					</c:if>
+				
+					<a href="${pageContext.request.contextPath}/Reb/rebModify.reb?num=${rebDto.reb_no}&id=${rebDto.m_id}">
 					[수정]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/Reb/rebDeleteForm.reb?num=${rebDto.reb_no}&id=${rebDto.m_id}">
+					<a href="${pageContext.request.contextPath}/Reb/rebDeleteForm.reb?num=${rebDto.reb_no}&id=${rebDto.m_id}&gCode=${g_code}">
 					[삭제]
 					</a>&nbsp;&nbsp;
-					<a href="${pageContext.request.contextPath}/RebQna/rebList.reb">[목록]</a>&nbsp;&nbsp;
+					<a href="javascript:history.back();">[목록]</a>&nbsp;&nbsp;
 					</font>
 				</td>
 			</tr>

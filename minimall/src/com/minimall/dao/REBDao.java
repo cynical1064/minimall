@@ -43,7 +43,7 @@ public class REBDao {
 			String gcode_qna_list_sql = "SELECT q.reb_ref as reb_ref, q.reb_no as reb_no, q.reb_subject as reb_subject, q.m_id as m_id, q.reb_content as reb_content, q.reb_secret as reb_secret,"+
 					" q.reb_category as reb_category, q.reb_date as reb_date, q.reb_readcount as reb_readcount, q.g_code as g_code"+
 					" FROM (SELECT reb_ref, reb_no,reb_subject,m_id, reb_content,reb_secret,reb_category,reb_date, reb_readcount, g_code"+
-					" FROM (SELECT * FROM reb_board ORDER BY reb_ref DESC) as qq) as q WHERE g_code=? LIMIT ?,?";
+					" FROM (SELECT * FROM reb_board ORDER BY reb_ref DESC, reb_no ASC) as qq) as q WHERE g_code=? LIMIT ?,?";
 			
 			List list = new ArrayList();
 			System.out.println(gcode_qna_list_sql + "<-- gcode_qna_list_sql gcodeQnaList QnaDAO.java");
@@ -172,7 +172,7 @@ public class REBDao {
 					re_seq = re_seq + 1;
 					re_lev = re_lev+1;*/
 					
-					sql="insert into reb_board (reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,reb_ref) values (?,?,?,?,?,?,sysdate(),?)";
+					sql="insert into reb_board (reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,reb_ref,g_code) values (?,?,?,?,?,?,sysdate(),?,?)";
 					
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1, num+1);
@@ -183,6 +183,7 @@ public class REBDao {
 					pstmt.setString(5, qna.getReb_secret());
 					pstmt.setString(6, qna.getReb_category());
 					pstmt.setInt(7, qna.getReb_ref());
+					pstmt.setString(8, qna.getG_code());
 					pstmt.executeUpdate();
 					//System.out.println(qna.getM_id());
 					
@@ -258,9 +259,13 @@ public class REBDao {
 				
 				try{
 					con = ds.getConnection();
-					pstmt = con.prepareStatement("select reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,reb_readcount,g_code,reb_ref from reb_board where reb_no = ?");
-					pstmt.setInt(1, num);
+					String sql = "select m.m_pw as m_pw, q.reb_no as reb_no, q.reb_subject as reb_subject,q.m_id as m_id, q.reb_content as reb_content, q.reb_secret as reb_secret, "+
+							"q.reb_category as reb_category,q.reb_date as reb_date, q.reb_readcount as reb_readcount,q.g_code as g_code,q.reb_ref as reb_ref " +
+							"from reb_board as q JOIN member as m ON m.m_id = q.m_id "+
+							"where reb_no = ?";	
 					
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, num);
 					rs= pstmt.executeQuery();
 				
 					if(rs.next()){
@@ -269,12 +274,14 @@ public class REBDao {
 						System.out.println(rebDto.getReb_no());
 						rebDto.setReb_subject(rs.getString("reb_subject"));
 						rebDto.setM_id(rs.getString("m_id"));
+						rebDto.setM_pw(rs.getString("m_pw"));
 						System.out.println("m_id : " + rebDto.getM_id());
-						rebDto.setReb_content(rs.getString("reb_content"));
 						rebDto.setReb_secret(rs.getString("reb_secret"));
+						rebDto.setReb_content(rs.getString("reb_content"));
 						rebDto.setReb_category(rs.getString("reb_category"));
 						rebDto.setReb_date(rs.getDate("reb_date"));
 						rebDto.setReb_readcount(rs.getInt("reb_readcount"));
+						rebDto.setG_code(rs.getString("g_code"));
 						rebDto.setReb_ref(rs.getInt("reb_ref"));
 
 					}
@@ -389,7 +396,7 @@ public class REBDao {
 		//글쓴이인지 확인
 		public boolean isBoardWriter(int num,String pass){
 				
-				String reb_sql="select reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,reb_readcount,g_code,reb_ref from reb_board where reb_no=?";
+			String reb_sql="select reb_no,reb_subject,m_id,reb_content,reb_secret,reb_category,reb_date,reb_readcount,g_code,reb_ref from reb_board where reb_no=?";
 				
 				try{
 					con = ds.getConnection();

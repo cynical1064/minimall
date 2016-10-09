@@ -24,6 +24,7 @@
 		<input type="password" name="reb_pass"/>
 		<input type="hidden" name="num" value="${num}"/>
 		<input type="hidden" name="id" value="${id}"/>
+		<input type="hidden" name="gCode" value="${gCode}"/>
 	</td>
 </tr>
 <tr>

@@ -18,7 +18,8 @@ public class REBModifyView implements ActionInterFace {
 		   	
 			int num=Integer.parseInt(request.getParameter("num"));
 			rebDto=rebDao.getDetail(num);
-		   	
+			request.setAttribute("rebWriterPw", rebDto.getM_pw());
+
 		   	if(rebDto==null){
 		   		System.out.println("(수정)상세보기 실패");
 		   		return null;

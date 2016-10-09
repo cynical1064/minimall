@@ -12,7 +12,8 @@ public class REBReplyView implements ActionInterFace {
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 	throws Exception{
 		 	ActionForward forward = new ActionForward();
-		 	
+		 	request.setCharacterEncoding("UTF-8");
+
 		 	REBDto rebDto = new REBDto();
 			REBDao rebDao = new REBDao();
 	   		
@@ -20,6 +21,7 @@ public class REBReplyView implements ActionInterFace {
 	   		System.out.println(num + "<--num");
 	   		
 	   		rebDto=rebDao.getDetail(num);
+	
 	   		
 	   		if(rebDto==null){
 	   			System.out.println("답장 페이지 이동 실패");

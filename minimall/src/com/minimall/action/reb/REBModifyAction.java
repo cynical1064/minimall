@@ -63,8 +63,9 @@ public class REBModifyAction implements ActionInterFace {
 				   	 System.out.println("게시판 수정 완료");
 				   	 
 				   	 forward.setRedirect(true);
-				   	 forward.setPath("/Reb/rebDetailAction.reb?num="+rebDto.getReb_no());
-				   	 return forward;
+				   	// forward.setPath("/Reb/rebDetailAction.reb?num="+rebDto.getReb_no());
+				   	 forward.setPath(request.getContextPath()+"/Reb/rebDetailAction.reb?num="+rebDto.getReb_no());
+ 	 return forward;
 			   	 }catch(Exception ex){
 			   			ex.printStackTrace();	 
 				 }
