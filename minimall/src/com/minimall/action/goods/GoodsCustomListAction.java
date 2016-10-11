@@ -48,6 +48,8 @@ public class GoodsCustomListAction implements ActionInterFace {
 		goodsList = goodsDao.goodsSelectForCustom(page, limit, row);
 		goodsListCount = goodsList.size();
 		
+		request.setAttribute("goodsListCount", goodsListCount);
+		
 		int maxPage = (int) ((double)goodsListAllCount/limit +0.95);	//총 페이지 수
 		int startPage = ((int) (((double)page/10+0.9)) -1) *10 +1;	//현재 페이지에 보여줄 시작 페이지 번호
 		int endPage = startPage +10 -1;								//현재 페이지에 보여줄 마지막 페이지 번호

@@ -20,7 +20,7 @@
 						<li><a href="${pageContext.request.contextPath}/Glist/goodsCustomList.go?row=new" style="text-decoration: none">최신순</a></li>
 					</ul>
 				</div>	
-					<c:set var="listChk" value="${goodsList}" />
+					<c:set var="listChk" value="${goodsListCount}" />
 					<c:choose>
 						<c:when test="${listChk eq null}">
 							<div>
