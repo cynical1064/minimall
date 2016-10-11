@@ -185,7 +185,7 @@ public class REBDao {
 					pstmt.setInt(7, qna.getReb_ref());
 					pstmt.setString(8, qna.getG_code());
 					pstmt.executeUpdate();
-					//System.out.println(qna.getM_id());
+					System.out.println(qna.getReb_ref()+"dssdafsdddddddddddddddddddddddddffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 					
 					return num;
 				}catch(SQLException ex){

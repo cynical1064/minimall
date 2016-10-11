@@ -34,7 +34,7 @@
 		</td>
 		<td>
 			<input name="reb_subject" type="text" size="50" 
-				maxlength="100" value="Re: ${rebDto.reb_subject}>"/>
+				maxlength="100" value="Re: ${rebDto.reb_subject}"/>
 		</td>
 	</tr>
 	<tr>

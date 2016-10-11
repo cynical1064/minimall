@@ -185,7 +185,6 @@
 	<table class="basic">
 	<c:choose>
 		<c:when test="${listcount>0}">
-lll${gCode}
 			<tr align="center" valign="middle" bordercolor="#333333">
 				<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
 					<div align="center">번호</div>

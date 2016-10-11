@@ -18,7 +18,8 @@ public class REBReplyAction implements ActionInterFace {
 		 	REBDto rebDto=new REBDto();
 	   		int result=0;
 	   		
-	   		rebDto.setReb_no(Integer.parseInt(request.getParameter("reb_ref")));
+	   		rebDto.setReb_ref(Integer.parseInt(request.getParameter("reb_ref")));
+	   		System.out.println(rebDto.getReb_no()+"<--ref");
 	   		rebDto.setReb_subject(request.getParameter("reb_subject"));
 	   		rebDto.setM_id(request.getParameter("m_id"));
 	   		rebDto.setReb_content(request.getParameter("reb_content"));

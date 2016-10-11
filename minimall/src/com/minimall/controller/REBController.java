@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.minimall.action.qna.QnaModifyAction;
 import com.minimall.action.reb.REBAddAction;
 import com.minimall.action.reb.REBDeleteAction;
 import com.minimall.action.reb.REBDeleteFormAction;
