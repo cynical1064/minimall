@@ -19,7 +19,7 @@ public class REBGcodeListAction implements ActionInterFace {
 		System.out.println("리스트 execute호출com.minimall.action.GcodeQnaListAction.java"); 
 		REBDao rebDao=new REBDao();
 		List reblist=new ArrayList();
-		
+
 		int page=1;
 		int limit=10;
 		
