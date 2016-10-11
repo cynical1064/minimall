@@ -176,6 +176,7 @@
 	
 </head>
 <body>
+
 	<!-- 게시판 리스트 -->
 	<form action="${pageContext.request.contextPath}/Reb/rebList.reb" method="post">
 	<input type="hidden" id="sessionId" value="${sessionScope.loginId}">
@@ -184,7 +185,7 @@
 	<table class="basic">
 	<c:choose>
 		<c:when test="${listcount>0}">
-
+lll${gCode}
 			<tr align="center" valign="middle" bordercolor="#333333">
 				<td style="font-family:Tahoma;font-size:8pt;" width="8%" height="26">
 					<div align="center">번호</div>

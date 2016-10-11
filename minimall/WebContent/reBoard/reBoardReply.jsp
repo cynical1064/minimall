@@ -23,7 +23,7 @@
 <input type="hidden" name="reb_category" value="${rebDto.reb_category}">
 <input type="hidden" name="reb_secret" value="${rebDto.reb_secret}">
 <input type="hidden" name="m_id" value="${sessionScope.loginId}">
-<input type="hidden" name="g_code" value="${qnadto.g_code}">
+<input type="hidden" name="g_code" value="${rebDto.g_code}">
 <table cellpadding="0" cellspacing="0">
 	<tr align="center" valign="middle">
 		<td colspan="5">Q&A 답변하기</td>

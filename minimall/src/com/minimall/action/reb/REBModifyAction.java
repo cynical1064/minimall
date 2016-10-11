@@ -21,7 +21,7 @@ public class REBModifyAction implements ActionInterFace {
 				 boolean result = false;
 				 
 				 int num=Integer.parseInt(request.getParameter("reb_no"));
-				   	String id = request.getParameter("id");
+				   	String id = request.getParameter("m_id");
 				    String pw = request.getParameter("reb_pass");
 				    System.out.println(num + "<- num");
 				    System.out.println(id + "<- id");

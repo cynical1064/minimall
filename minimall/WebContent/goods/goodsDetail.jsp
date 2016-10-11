@@ -11,7 +11,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
 	var qnaUrl = "${pageContext.request.contextPath}/Qna/QnaGcodeList.qn?gCode=${goods.g_code}";
-	var rebUrl = "${pageContext.request.contextPath}/Reb/rebList.reb?gCode=${goods.g_code}";
+	var rebUrl = "${pageContext.request.contextPath}/Reb/rebGcodeList.reb?gCode=${goods.g_code}";
 	$(document).ready(function(){
 		$.get(qnaUrl, {page:1}, function(data){
 

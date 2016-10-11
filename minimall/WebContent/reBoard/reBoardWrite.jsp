@@ -18,6 +18,9 @@
 <div id="container">
 	<div class="content">
 		<!-- 게시판 등록 -->
+		
+		${sessionScope.loginId}
+		${param.gCode}
 		<form action="${pageContext.request.contextPath}/Reb/rebAddAction.reb" method="post" name="boardform">	
 		<input type="hidden" name="mId" size="20" value="${sessionScope.loginId}">
 		<input type="hidden" name="gCode" value="${param.gCode}"/>

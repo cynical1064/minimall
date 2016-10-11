@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.minimall.action.qna.QnaGcodeListAction;
+import com.minimall.action.qna.QnaModifyAction;
 import com.minimall.action.reb.REBAddAction;
 import com.minimall.action.reb.REBDeleteAction;
 import com.minimall.action.reb.REBDeleteFormAction;
 import com.minimall.action.reb.REBDetailAction;
+import com.minimall.action.reb.REBGcodeListAction;
 import com.minimall.action.reb.REBListAction;
 import com.minimall.action.reb.REBModifyAction;
 import com.minimall.action.reb.REBModifyView;
@@ -116,6 +117,14 @@ import com.minimall.inter.ActionInterFace;
 					e.printStackTrace();
 				}
 		 	}else if(command.equals("/Reb/rebModifyAction.reb")){	//수정액션
+		    	System.out.println("04_09 조건문 내 /Qna/QnaModifyAction.qn QController.java");
+				action = new REBModifyAction();
+				try{
+					forward=action.execute(request, response);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}else if(command.equals("/Reb/rebModifyAction.reb")){	//수정액션
 				action = new REBModifyAction();
 				try{
 					forward=action.execute(request, response);
@@ -124,7 +133,7 @@ import com.minimall.inter.ActionInterFace;
 				}
 			}else if(command.equals("/Reb/rebGcodeList.reb")) {	//상품별 리스트
 				System.out.println("04_10 조건문 내 /Qna/QnaGcodeList.qn QController.java");
-		    	action = new QnaGcodeListAction();
+		    	action = new REBGcodeListAction();
 		    	try {
 					forward = action.execute(request, response);
 				} catch (Exception e) {

@@ -23,6 +23,9 @@
 <jsp:include page="/module/headerSub.jsp" />
 <div id="container">
 	<div class="content">
+	${rebDto.reb_no}
+	${rebDto.m_id}
+	${rebWriterPw}
 <form action="${pageContext.request.contextPath}/Reb/rebModifyAction.reb" method="post" name="modifyform">
 <input type="hidden" name="reb_no" value="${rebDto.reb_no}">
 <input type="hidden" name="m_id" value="${rebDto.m_id}"/>
