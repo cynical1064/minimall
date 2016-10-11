@@ -71,6 +71,7 @@ import com.minimall.inter.ActionInterFace;
 			} else if(command.equals("/Reb/rebDetailAction.reb")) {		//글확인 액션
 				System.out.println("04_04 조건문 내 /Qna/QnaView.qn QController.java");
 				action = new REBDetailAction();
+				
 				try{
 					forward=action.execute(request, response);
 				}catch(Exception e){
